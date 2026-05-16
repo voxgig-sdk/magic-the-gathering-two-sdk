@@ -1,0 +1,22 @@
+# BasicSetBoosterFlow
+
+main: kit: flow: BasicSetBoosterFlow:
+{
+  entity: "set_booster",
+  kind: "basic",
+  name: "BasicSetBoosterFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "set_booster_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicSetBoosterFlow"
+}

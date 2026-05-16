@@ -1,0 +1,73 @@
+{
+  "existing": {
+    "set": {
+      "SET00": {
+        "block": "s82",
+        "booster": [],
+        "border": "s84",
+        "code": "s85",
+        "gatherer_code": "s86",
+        "magic_cards_info_code": "s87",
+        "mkm_id": "MKM01",
+        "mkm_name": "s89",
+        "name": "s8a",
+        "online_only": false,
+        "release_date": "s8c",
+        "set": {},
+        "type": "s8e",
+        "id": "SET00"
+      },
+      "SET01": {
+        "block": "s104",
+        "booster": [],
+        "border": "s106",
+        "code": "s107",
+        "gatherer_code": "s108",
+        "magic_cards_info_code": "s109",
+        "mkm_id": "MKM01",
+        "mkm_name": "s10b",
+        "name": "s10c",
+        "online_only": false,
+        "release_date": "s10e",
+        "set": {},
+        "type": "s110",
+        "id": "SET01"
+      },
+      "SET02": {
+        "block": "s186",
+        "booster": [],
+        "border": "s188",
+        "code": "s189",
+        "gatherer_code": "s18a",
+        "magic_cards_info_code": "s18b",
+        "mkm_id": "MKM01",
+        "mkm_name": "s18d",
+        "name": "s18e",
+        "online_only": false,
+        "release_date": "s190",
+        "set": {},
+        "type": "s192",
+        "id": "SET02"
+      }
+    }
+  },
+  "new": {
+    "set": {
+      "set_ref01": {
+        "block": "s208",
+        "booster": [],
+        "border": "s20a",
+        "code": "s20b",
+        "gatherer_code": "s20c",
+        "magic_cards_info_code": "s20d",
+        "mkm_id": "MKM01",
+        "mkm_name": "s20f",
+        "name": "s210",
+        "online_only": false,
+        "release_date": "s212",
+        "set": {},
+        "type": "s214"
+      }
+    }
+  }
+}

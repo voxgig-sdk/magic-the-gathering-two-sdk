@@ -1,0 +1,22 @@
+{
+  "existing": {
+    "format": {
+      "FORMAT00": {
+        "format": []
+      },
+      "FORMAT01": {
+        "format": []
+      },
+      "FORMAT02": {
+        "format": []
+      }
+    }
+  },
+  "new": {
+    "format": {
+      "format_ref01": {
+        "format": []
+      }
+    }
+  }
+}

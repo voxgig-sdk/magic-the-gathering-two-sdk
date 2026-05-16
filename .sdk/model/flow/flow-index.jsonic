@@ -1,0 +1,9 @@
+# Flows
+
+@"BasicCardFlow.jsonic"
+@"BasicFormatFlow.jsonic"
+@"BasicSetBoosterFlow.jsonic"
+@"BasicSetFlow.jsonic"
+@"BasicSubtypeFlow.jsonic"
+@"BasicSupertypeFlow.jsonic"
+@"BasicTypeFlow.jsonic"

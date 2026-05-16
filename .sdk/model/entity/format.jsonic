@@ -1,0 +1,37 @@
+# Entity: format
+
+main: kit: entity: format: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "format"
+      req: false
+      type: "`$ARRAY`"
+    }
+  ]
+
+  name: "format"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          method: "GET"
+          orig: "/formats"
+          parts: [
+            "formats"
+          ]
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

@@ -1,0 +1,154 @@
+# Entity: set
+
+main: kit: entity: set: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "block"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "booster"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "border"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "code"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "gatherer_code"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "magic_cards_info_code"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "mkm_id"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "mkm_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "online_only"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "release_date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "set"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "type"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "set"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "block"
+                orig: "block"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/sets"
+          parts: [
+            "sets"
+          ]
+          select: {
+            exist: [
+              "block"
+              "name"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/sets/{id}"
+          parts: [
+            "sets"
+            "{id}"
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

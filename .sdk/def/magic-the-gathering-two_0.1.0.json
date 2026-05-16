@@ -1,0 +1,1390 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Magic The Gathering API",
+    "description": "This API provides access to various endpoints related to Magic: The Gathering cards and sets. Users can retrieve information about individual cards, sets, and various game formats, as well as utilize SDKs for easier integration.",
+    "version": "1.0.0",
+    "contact": {
+      "url": "https://docs.magicthegathering.io/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.magicthegathering.io/v1",
+      "description": "Production server"
+    }
+  ],
+  "paths": {
+    "/cards": {
+      "get": {
+        "summary": "Get All Cards",
+        "description": "Returns a list of Magic: The Gathering cards. This call will return a maximum of 100 cards per request. Paginate the response using the page parameter.",
+        "operationId": "getAllCards",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "The card name. For split, double-faced and flip cards, just the name of one side of the card.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "layout",
+            "in": "query",
+            "description": "The card layout. Possible values: normal, split, flip, double-faced, token, plane, scheme, phenomenon, leveler, vanguard, aftermath",
+            "required": false,
+            "schema": {
+              "type": "string",
+              "enum": [
+                "normal",
+                "split",
+                "flip",
+                "double-faced",
+                "token",
+                "plane",
+                "scheme",
+                "phenomenon",
+                "leveler",
+                "vanguard",
+                "aftermath"
+              ]
+            }
+          },
+          {
+            "name": "cmc",
+            "in": "query",
+            "description": "Converted mana cost. Always a number.",
+            "required": false,
+            "schema": {
+              "type": "number"
+            }
+          },
+          {
+            "name": "colors",
+            "in": "query",
+            "description": "The card colors. Use pipe (|) for OR, comma (,) for AND. Example: red,white,blue or red|white|blue",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "colorIdentity",
+            "in": "query",
+            "description": "The card's color identity by color code. Example: R,U",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "description": "The card type as it would appear on the card if printed today.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "supertypes",
+            "in": "query",
+            "description": "The supertypes of the card. Example values: Basic, Legendary, Snow, World, Ongoing",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "types",
+            "in": "query",
+            "description": "The types of the card. Example values: Instant, Sorcery, Artifact, Creature, Enchantment, Land, Planeswalker",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "subtypes",
+            "in": "query",
+            "description": "The subtypes of the card. Example values: Trap, Arcane, Equipment, Aura, Human, Rat, Squirrel",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "rarity",
+            "in": "query",
+            "description": "The rarity of the card. Examples: Common, Uncommon, Rare, Mythic Rare, Special, Basic Land",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "set",
+            "in": "query",
+            "description": "The set the card belongs to (set code).",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "setName",
+            "in": "query",
+            "description": "The set the card belongs to.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "text",
+            "in": "query",
+            "description": "The oracle text of the card.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "flavor",
+            "in": "query",
+            "description": "The flavor text of the card.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "artist",
+            "in": "query",
+            "description": "The artist of the card.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "number",
+            "in": "query",
+            "description": "The card number printed at the bottom-center of the card.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "power",
+            "in": "query",
+            "description": "The power of the card (creatures only).",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "toughness",
+            "in": "query",
+            "description": "The toughness of the card (creatures only).",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "loyalty",
+            "in": "query",
+            "description": "The loyalty of the card (planeswalkers only).",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "description": "The language the card is printed in.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "gameFormat",
+            "in": "query",
+            "description": "The game format, such as Commander, Standard, Legacy, etc.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "legality",
+            "in": "query",
+            "description": "The legality of the card for a given format, such as Legal, Banned or Restricted.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "description": "The page of data to request.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 1
+            }
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "description": "The amount of data to return in a single request. The default (and max) is 100.",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 100,
+              "maximum": 100
+            }
+          },
+          {
+            "name": "orderBy",
+            "in": "query",
+            "description": "The field to order by in the response results.",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "random",
+            "in": "query",
+            "description": "Fetch any number of cards (controlled by pageSize) randomly.",
+            "required": false,
+            "schema": {
+              "type": "boolean"
+            }
+          },
+          {
+            "name": "contains",
+            "in": "query",
+            "description": "Filter cards based on whether or not they have a specific field available (like imageUrl).",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "id",
+            "in": "query",
+            "description": "A unique id for the card (SHA1 hash of setCode + cardName + cardImageName).",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "multiverseid",
+            "in": "query",
+            "description": "The multiverseid of the card on Wizard's Gatherer web page.",
+            "required": false,
+            "schema": {
+              "type": "integer"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "headers": {
+              "Link": {
+                "description": "Link headers with prev, last, next, first links (when appropriate)",
+                "schema": {
+                  "type": "string"
+                }
+              },
+              "Page-Size": {
+                "description": "The page size for the request",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Count": {
+                "description": "The number of elements returned",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Total-Count": {
+                "description": "The total number of elements (across all pages)",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Ratelimit-Limit": {
+                "description": "The ratelimit for a given user",
+                "schema": {
+                  "type": "integer"
+                }
+              },
+              "Ratelimit-Remaining": {
+                "description": "The number of requests left before the ratelimit is exceeded",
+                "schema": {
+                  "type": "integer"
+                }
+              }
+            },
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "cards": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Card"
+                      }
+                    }
+                  }
+                },
+                "example": {
+                  "cards": [
+                    {
+                      "name": "Archangel Avacyn",
+                      "names": [
+                        "Archangel Avacyn",
+                        "Avacyn, the Purifier"
+                      ],
+                      "manaCost": "{3}{W}{W}",
+                      "cmc": 5,
+                      "colors": [
+                        "White"
+                      ],
+                      "colorIdentity": [
+                        "W"
+                      ],
+                      "type": "Legendary Creature — Angel",
+                      "supertypes": [
+                        "Legendary"
+                      ],
+                      "types": [
+                        "Creature"
+                      ],
+                      "subtypes": [
+                        "Angel"
+                      ],
+                      "rarity": "Mythic Rare",
+                      "set": "SOI",
+                      "text": "Flash\nFlying, vigilance\nWhen Archangel Avacyn enters the battlefield, creatures you control gain indestructible until end of turn.\nWhen a non-Angel creature you control dies, transform Archangel Avacyn at the beginning of the next upkeep.",
+                      "artist": "James Ryman",
+                      "number": "5a",
+                      "power": "4",
+                      "toughness": "4",
+                      "layout": "double-faced",
+                      "multiverseid": 409741,
+                      "imageUrl": "http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409741&type=card"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - We could not process that action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Rate Limit Exceeded"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found - The requested resource could not be found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error - We had a problem with our server. Please try again later",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable - We are temporarily offline for maintenance. Please try again later",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cards/{id}": {
+      "get": {
+        "summary": "Get Card by ID",
+        "description": "Returns a single card by its unique ID.",
+        "operationId": "getCardById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The unique ID of the card",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "card": {
+                      "$ref": "#/components/schemas/Card"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Rate Limit Exceeded"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sets": {
+      "get": {
+        "summary": "Get All Sets",
+        "description": "Returns a list of all Magic: The Gathering sets.",
+        "operationId": "getAllSets",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "Filter sets by name",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "name": "block",
+            "in": "query",
+            "description": "Filter sets by block",
+            "required": false,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "sets": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Set"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Rate Limit Exceeded"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sets/{id}": {
+      "get": {
+        "summary": "Get Set by ID or Code",
+        "description": "Returns a single set by its ID or set code.",
+        "operationId": "getSetById",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The set code or ID",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "set": {
+                      "$ref": "#/components/schemas/Set"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Rate Limit Exceeded"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/sets/{id}/booster": {
+      "get": {
+        "summary": "Generate Booster Pack",
+        "description": "Generates a booster pack for the specified set.",
+        "operationId": "getSetBooster",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "The set code",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "cards": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Card"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Rate Limit Exceeded"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/types": {
+      "get": {
+        "summary": "Get All Card Types",
+        "description": "Returns a list of all card types.",
+        "operationId": "getAllTypes",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "types": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Rate Limit Exceeded"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/subtypes": {
+      "get": {
+        "summary": "Get All Card Subtypes",
+        "description": "Returns a list of all card subtypes.",
+        "operationId": "getAllSubtypes",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "subtypes": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Rate Limit Exceeded"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/supertypes": {
+      "get": {
+        "summary": "Get All Card Supertypes",
+        "description": "Returns a list of all card supertypes.",
+        "operationId": "getAllSupertypes",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "supertypes": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Rate Limit Exceeded"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/formats": {
+      "get": {
+        "summary": "Get All Game Formats",
+        "description": "Returns a list of all game formats.",
+        "operationId": "getAllFormats",
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "formats": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "Rate Limit Exceeded"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "503": {
+            "description": "Service Unavailable",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Card": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The card name"
+          },
+          "names": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Only used for split, flip and dual cards. Contains all names on the card."
+          },
+          "manaCost": {
+            "type": "string",
+            "description": "The mana cost of the card"
+          },
+          "cmc": {
+            "type": "number",
+            "description": "Converted mana cost"
+          },
+          "colors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The card colors"
+          },
+          "colorIdentity": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The card's color identity by color code"
+          },
+          "type": {
+            "type": "string",
+            "description": "The card type"
+          },
+          "supertypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The supertypes of the card"
+          },
+          "types": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The types of the card"
+          },
+          "subtypes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The subtypes of the card"
+          },
+          "rarity": {
+            "type": "string",
+            "description": "The rarity of the card"
+          },
+          "set": {
+            "type": "string",
+            "description": "The set code the card belongs to"
+          },
+          "setName": {
+            "type": "string",
+            "description": "The set name the card belongs to"
+          },
+          "text": {
+            "type": "string",
+            "description": "The oracle text of the card"
+          },
+          "flavor": {
+            "type": "string",
+            "description": "The flavor text of the card"
+          },
+          "artist": {
+            "type": "string",
+            "description": "The artist of the card"
+          },
+          "number": {
+            "type": "string",
+            "description": "The card number"
+          },
+          "power": {
+            "type": "string",
+            "description": "The power of the card (creatures only)"
+          },
+          "toughness": {
+            "type": "string",
+            "description": "The toughness of the card (creatures only)"
+          },
+          "loyalty": {
+            "type": "string",
+            "description": "The loyalty of the card (planeswalkers only)"
+          },
+          "layout": {
+            "type": "string",
+            "description": "The card layout"
+          },
+          "multiverseid": {
+            "type": "integer",
+            "description": "The multiverseid of the card on Wizard's Gatherer"
+          },
+          "imageUrl": {
+            "type": "string",
+            "description": "The image URL for the card"
+          },
+          "variations": {
+            "type": "array",
+            "items": {
+              "type": "integer"
+            },
+            "description": "Multiverseids of alternate art variations"
+          },
+          "watermark": {
+            "type": "string",
+            "description": "The watermark on the card"
+          },
+          "border": {
+            "type": "string",
+            "description": "The border color if different from the set default"
+          },
+          "timeshifted": {
+            "type": "boolean",
+            "description": "True if this card was timeshifted in the set"
+          },
+          "hand": {
+            "type": "integer",
+            "description": "Maximum hand size modifier (Vanguard cards only)"
+          },
+          "life": {
+            "type": "integer",
+            "description": "Starting life total modifier (Vanguard cards only)"
+          },
+          "reserved": {
+            "type": "boolean",
+            "description": "True if this card is reserved by Wizards Official Reprint Policy"
+          },
+          "releaseDate": {
+            "type": "string",
+            "format": "date",
+            "description": "The release date for promo cards"
+          },
+          "starter": {
+            "type": "boolean",
+            "description": "True if this card was only released as part of a core box set"
+          },
+          "rulings": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "date": {
+                  "type": "string",
+                  "format": "date"
+                },
+                "text": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "The rulings for the card"
+          },
+          "foreignNames": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "name": {
+                  "type": "string"
+                },
+                "language": {
+                  "type": "string"
+                },
+                "multiverseid": {
+                  "type": "integer"
+                }
+              }
+            },
+            "description": "Foreign language names for the card"
+          },
+          "printings": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "The sets that this card was printed in"
+          },
+          "originalText": {
+            "type": "string",
+            "description": "The original text on the card at the time it was printed"
+          },
+          "originalType": {
+            "type": "string",
+            "description": "The original type on the card at the time it was printed"
+          },
+          "legalities": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "format": {
+                  "type": "string"
+                },
+                "legality": {
+                  "type": "string"
+                }
+              }
+            },
+            "description": "Which formats this card is legal, restricted or banned in"
+          },
+          "source": {
+            "type": "string",
+            "description": "For promo cards, where the card was originally obtained"
+          },
+          "id": {
+            "type": "string",
+            "description": "A unique id for this card (SHA1 hash)"
+          }
+        }
+      },
+      "Set": {
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "description": "The set code"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the set"
+          },
+          "type": {
+            "type": "string",
+            "description": "The type of the set"
+          },
+          "border": {
+            "type": "string",
+            "description": "The border color of the set"
+          },
+          "mkm_id": {
+            "type": "integer",
+            "description": "The Magic Card Market set ID"
+          },
+          "mkm_name": {
+            "type": "string",
+            "description": "The Magic Card Market set name"
+          },
+          "releaseDate": {
+            "type": "string",
+            "format": "date",
+            "description": "The release date of the set"
+          },
+          "gathererCode": {
+            "type": "string",
+            "description": "The Gatherer code for the set"
+          },
+          "magicCardsInfoCode": {
+            "type": "string",
+            "description": "The Magic Cards Info code for the set"
+          },
+          "block": {
+            "type": "string",
+            "description": "The block the set belongs to"
+          },
+          "onlineOnly": {
+            "type": "boolean",
+            "description": "True if the set is online only"
+          },
+          "booster": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            },
+            "description": "Booster pack configuration"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "description": "HTTP status code"
+          },
+          "error": {
+            "type": "string",
+            "description": "Error message"
+          }
+        }
+      }
+    }
+  }
+}

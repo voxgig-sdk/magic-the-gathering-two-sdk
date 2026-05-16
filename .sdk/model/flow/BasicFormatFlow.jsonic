@@ -1,0 +1,22 @@
+# BasicFormatFlow
+
+main: kit: flow: BasicFormatFlow:
+{
+  entity: "format",
+  kind: "basic",
+  name: "BasicFormatFlow",
+  step: [
+    {
+      op: "list",
+      valid: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "format_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicFormatFlow"
+}

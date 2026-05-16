@@ -1,0 +1,11 @@
+# MagicTheGatheringTwo SDK exists test
+
+require "minitest/autorun"
+require_relative "../MagicTheGatheringTwo_sdk"
+
+class ExistsTest < Minitest::Test
+  def test_create_test_sdk
+    testsdk = MagicTheGatheringTwoSDK.test(nil, nil)
+    assert !testsdk.nil?
+  end
+end

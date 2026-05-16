@@ -1,0 +1,22 @@
+{
+  "existing": {
+    "type": {
+      "TYPE00": {
+        "type": []
+      },
+      "TYPE01": {
+        "type": []
+      },
+      "TYPE02": {
+        "type": []
+      }
+    }
+  },
+  "new": {
+    "type": {
+      "type_ref01": {
+        "type": []
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        url: "https://docs.magicthegathering.io/"
+      }
+      description: "This API provides access to various endpoints related to Magic: The Gathering cards and sets. Users can retrieve information about individual cards, sets, and various game formats, as well as utilize SDKs for easier integration."
+      servers: [
+        {
+          description: "Production server"
+          url: "https://api.magicthegathering.io/v1"
+        }
+      ]
+      title: "Magic The Gathering API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

@@ -1,0 +1,22 @@
+{
+  "existing": {
+    "supertype": {
+      "SUPERTYPE00": {
+        "supertype": []
+      },
+      "SUPERTYPE01": {
+        "supertype": []
+      },
+      "SUPERTYPE02": {
+        "supertype": []
+      }
+    }
+  },
+  "new": {
+    "supertype": {
+      "supertype_ref01": {
+        "supertype": []
+      }
+    }
+  }
+}

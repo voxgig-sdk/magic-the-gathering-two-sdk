@@ -1,0 +1,506 @@
+# Entity: card
+
+main: kit: entity: card: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "artist"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "border"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "card"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "cmc"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "color"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "color_identity"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "flavor"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "foreign_name"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "hand"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "image_url"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "layout"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "legality"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "life"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "loyalty"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "mana_cost"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "multiverseid"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "number"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "original_text"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "original_type"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "power"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "printing"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "rarity"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "release_date"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "reserved"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "ruling"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "set"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "set_name"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "source"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "starter"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "subtype"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "supertype"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "text"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "timeshifted"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "toughness"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "type"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "variation"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "watermark"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "card"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                kind: "query"
+                name: "artist"
+                orig: "artist"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "cmc"
+                orig: "cmc"
+                reqd: false
+                type: "`$NUMBER`"
+              }
+              {
+                kind: "query"
+                name: "color"
+                orig: "color"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "color_identity"
+                orig: "color_identity"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "contain"
+                orig: "contain"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "flavor"
+                orig: "flavor"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "game_format"
+                orig: "game_format"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "id"
+                orig: "id"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "language"
+                orig: "language"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "layout"
+                orig: "layout"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "legality"
+                orig: "legality"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "loyalty"
+                orig: "loyalty"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "multiverseid"
+                orig: "multiverseid"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "name"
+                orig: "name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "number"
+                orig: "number"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "order_by"
+                orig: "order_by"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: 1
+                kind: "query"
+                name: "page"
+                orig: "page"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 100
+                kind: "query"
+                name: "page_size"
+                orig: "page_size"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                kind: "query"
+                name: "power"
+                orig: "power"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "random"
+                orig: "random"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                kind: "query"
+                name: "rarity"
+                orig: "rarity"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "set"
+                orig: "set"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "set_name"
+                orig: "set_name"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "subtype"
+                orig: "subtype"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "supertype"
+                orig: "supertype"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "text"
+                orig: "text"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "toughness"
+                orig: "toughness"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "type"
+                orig: "type"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                kind: "query"
+                name: "type"
+                orig: "type"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/cards"
+          parts: [
+            "cards"
+          ]
+          select: {
+            exist: [
+              "artist"
+              "cmc"
+              "color"
+              "color_identity"
+              "contain"
+              "flavor"
+              "game_format"
+              "id"
+              "language"
+              "layout"
+              "legality"
+              "loyalty"
+              "multiverseid"
+              "name"
+              "number"
+              "order_by"
+              "page"
+              "page_size"
+              "power"
+              "random"
+              "rarity"
+              "set"
+              "set_name"
+              "subtype"
+              "supertype"
+              "text"
+              "toughness"
+              "type"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          args: {
+            params: [
+              {
+                kind: "param"
+                name: "id"
+                orig: "id"
+                reqd: true
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/cards/{id}"
+          parts: [
+            "cards"
+            "{id}"
+          ]
+          select: {
+            exist: [
+              "id"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
