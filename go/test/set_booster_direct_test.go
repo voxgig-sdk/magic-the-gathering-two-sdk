@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/magic-the-gathering-two-sdk"
-	"github.com/voxgig-sdk/magic-the-gathering-two-sdk/core"
+	sdk "github.com/voxgig-sdk/magic-the-gathering-two-sdk/go"
+	"github.com/voxgig-sdk/magic-the-gathering-two-sdk/go/core"
 )
 
 func TestSetBoosterDirect(t *testing.T) {

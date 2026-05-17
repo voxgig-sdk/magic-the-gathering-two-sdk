@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/magic-the-gathering-two-sdk/core"
+import "github.com/voxgig-sdk/magic-the-gathering-two-sdk/go/core"
 
 func init() {
 	core.UtilityRegistrar = registerAll

@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/magic-the-gathering-two-sdk"
-	"github.com/voxgig-sdk/magic-the-gathering-two-sdk/core"
+	sdk "github.com/voxgig-sdk/magic-the-gathering-two-sdk/go"
+	"github.com/voxgig-sdk/magic-the-gathering-two-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/magic-the-gathering-two-sdk/go/utility/struct"
 )
 
 func TestCardEntity(t *testing.T) {
