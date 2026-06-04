@@ -93,7 +93,6 @@ def card_basic_setup(extra)
     "MAGICTHEGATHERINGTWO_TEST_CARD_ENTID" => idmap,
     "MAGICTHEGATHERINGTWO_TEST_LIVE" => "FALSE",
     "MAGICTHEGATHERINGTWO_TEST_EXPLAIN" => "FALSE",
-    "MAGICTHEGATHERINGTWO_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -105,7 +104,6 @@ def card_basic_setup(extra)
   if env["MAGICTHEGATHERINGTWO_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["MAGICTHEGATHERINGTWO_APIKEY"],
       },
       extra || {},
     ])

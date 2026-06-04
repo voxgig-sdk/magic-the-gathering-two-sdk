@@ -92,7 +92,6 @@ def _subtype_basic_setup(extra):
         "MAGICTHEGATHERINGTWO_TEST_SUBTYPE_ENTID": idmap,
         "MAGICTHEGATHERINGTWO_TEST_LIVE": "FALSE",
         "MAGICTHEGATHERINGTWO_TEST_EXPLAIN": "FALSE",
-        "MAGICTHEGATHERINGTWO_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +102,6 @@ def _subtype_basic_setup(extra):
     if env.get("MAGICTHEGATHERINGTWO_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("MAGICTHEGATHERINGTWO_APIKEY"),
             },
             extra or {},
         ])

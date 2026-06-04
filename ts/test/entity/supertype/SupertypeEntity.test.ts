@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'MAGIC_THE_GATHERING_TWO_TEST_SUPERTYPE_ENTID': idmap,
     'MAGIC_THE_GATHERING_TWO_TEST_LIVE': 'FALSE',
     'MAGIC_THE_GATHERING_TWO_TEST_EXPLAIN': 'FALSE',
-    'MAGIC_THE_GATHERING_TWO_APIKEY': 'NONE',
   })
 
   idmap = env['MAGIC_THE_GATHERING_TWO_TEST_SUPERTYPE_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new MagicTheGatheringTwoSDK(merge([
       {
-        apikey: env.MAGIC_THE_GATHERING_TWO_APIKEY,
       },
       extra
     ]))

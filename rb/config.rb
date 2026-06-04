@@ -15,9 +15,6 @@ module MagicTheGatheringTwoConfig
       },
       "options" => {
         "base" => "https://api.magicthegathering.io/v1",
-        "auth" => {
-          "prefix" => "Bearer",
-        },
         "headers" => {
           "content-type" => "application/json",
         },

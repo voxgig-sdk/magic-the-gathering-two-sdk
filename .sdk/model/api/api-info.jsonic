@@ -16,8 +16,33 @@ main: {
       ]
       title: "Magic The Gathering API"
       version: "1.0.0"
+      tagline: "Query Magic: The Gathering cards, sets, types, and formats from a free community-run JSON API"
+      homepage: "https://magicthegathering.io/"
+      docs_url: "https://docs.magicthegathering.io/"
+      license_short: "Free public API; Magic: The Gathering is a trademark of Wizards of the Coast"
+      license_md: `- Free to use without authentication; no API key required
+- Card names, text, artwork, and related game content are trademarks and copyrights of Wizards of the Coast — this API is not produced, endorsed, supported, or affiliated with Wizards of the Coast
+- Third-party applications are throttled to 5000 requests per hour
+- Check the official docs at https://docs.magicthegathering.io/ for current terms`
+      about_md: `The [Magic: The Gathering API](https://magicthegathering.io/) is a free, community-run JSON API that exposes card, set, and format data for the Magic: The Gathering trading card game. It is served from \`https://api.magicthegathering.io/v1\` and is documented at [docs.magicthegathering.io](https://docs.magicthegathering.io/).
+
+What you get from the API:
+- Card lookups by id or multiverseid, plus filtering and pagination across the full card pool (\`/v1/cards\`, \`/v1/cards/:id\`)
+- Set listings and individual set detail, including randomized booster generation (\`/v1/sets\`, \`/v1/sets/:id\`, \`/v1/sets/:id/booster\`)
+- Reference lists of card \`types\`, \`subtypes\`, \`supertypes\`, and game \`formats\`
+- Rich card fields such as \`name\`, \`manaCost\`, \`cmc\`, \`colors\`, \`colorIdentity\`, \`type\`, \`rarity\`, \`power\`, \`toughness\`, \`loyalty\`, \`text\`, \`flavor\`, \`artist\`, \`imageUrl\`, \`rulings\`, \`foreignNames\`, \`printings\`, \`legalities\`, and \`variations\`
+
+Operational notes: no authentication is required. Third-party applications are throttled to 5000 requests per hour; exceeding the limit returns HTTP 403 with \`Rate Limit Exceeded\`, and \`Ratelimit-Limit\` / \`Ratelimit-Remaining\` response headers let clients track usage. CORS is disabled on the listed endpoints.`
+      entity_desc: {
+        card: "An individual Magic: The Gathering card with fields like name, manaCost, colors, type, rarity, power/toughness, rulings, and printings — served from `/v1/cards` and `/v1/cards/:id`."
+        format: "A sanctioned play format (e.g. Standard, Modern, Commander) used for card legality — listed at `/v1/formats`."
+        set: "A published card set with metadata such as code, name, block, release date, and booster configuration — served from `/v1/sets` and `/v1/sets/:id`."
+        set_booster: "A randomized booster pack generated for a given set — served from `/v1/sets/:id/booster`."
+        subtype: "A card subtype value (e.g. creature subtypes like Goblin, Wizard) — listed at `/v1/subtypes`."
+        supertype: "A card supertype value (e.g. Legendary, Basic, Snow) — listed at `/v1/supertypes`."
+        type: "A primary card type value (e.g. Creature, Instant, Sorcery, Land) — listed at `/v1/types`."
+      }
+      auth: false
     }
   }
-}
-
 }

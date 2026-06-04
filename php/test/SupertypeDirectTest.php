@@ -68,14 +68,12 @@ function supertype_direct_setup($mockres)
     $env = Runner::env_override([
         "MAGICTHEGATHERINGTWO_TEST_SUPERTYPE_ENTID" => [],
         "MAGICTHEGATHERINGTWO_TEST_LIVE" => "FALSE",
-        "MAGICTHEGATHERINGTWO_APIKEY" => "NONE",
     ]);
 
     $live = $env["MAGICTHEGATHERINGTWO_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
-            "apikey" => $env["MAGICTHEGATHERINGTWO_APIKEY"],
         ];
         $client = new MagicTheGatheringTwoSDK($merged_opts);
         return [

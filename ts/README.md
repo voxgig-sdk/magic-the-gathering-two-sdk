@@ -17,9 +17,7 @@ loading a specific record.
 ```ts
 import { MagicTheGatheringTwoSDK } from 'magic-the-gathering-two'
 
-const client = new MagicTheGatheringTwoSDK({
-  apikey: process.env.MAGIC-THE-GATHERING-TWO_APIKEY,
-})
+const client = new MagicTheGatheringTwoSDK({})
 ```
 
 ### 2. List cards
@@ -94,7 +92,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new MagicTheGatheringTwoSDK({ apikey: '...' })
+const client = new MagicTheGatheringTwoSDK()
 const testClient = client.tester()
 ```
 
@@ -130,7 +128,6 @@ const logger = {
 }
 
 const client = new MagicTheGatheringTwoSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -141,7 +138,6 @@ Create a `.env.local` file at the project root:
 
 ```
 MAGIC-THE-GATHERING-TWO_TEST_LIVE=TRUE
-MAGIC-THE-GATHERING-TWO_APIKEY=<your-key>
 ```
 
 Then run:
@@ -159,7 +155,6 @@ cd ts && npm test
 
 ```ts
 new MagicTheGatheringTwoSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -170,7 +165,6 @@ new MagicTheGatheringTwoSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
