@@ -30,12 +30,12 @@ Create a new SDK client instance.
 
 ### Static Methods
 
-#### `sdk.test(testopts, sdkopts)`
+#### `sdk.test(testopts?, sdkopts?)`
 
-Create a test client with mock features active. Both arguments may be `nil`.
+Create a test client with mock features active. Both arguments are optional.
 
 ```lua
-local client = sdk.test(nil, nil)
+local client = sdk.test()
 ```
 
 
@@ -162,7 +162,7 @@ local card = client:Card(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Card(nil):list(nil, nil)
+local results, err = client:Card():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -170,7 +170,7 @@ local results, err = client:Card(nil):list(nil, nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Card(nil):load({ id = "card_id" }, nil)
+local result, err = client:Card():load({ id = "card_id" })
 ```
 
 ### Common Methods
@@ -222,7 +222,7 @@ local format = client:Format(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Format(nil):list(nil, nil)
+local results, err = client:Format():list()
 ```
 
 ### Common Methods
@@ -286,7 +286,7 @@ local set = client:Set(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Set(nil):list(nil, nil)
+local results, err = client:Set():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -294,7 +294,7 @@ local results, err = client:Set(nil):list(nil, nil)
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Set(nil):load({ id = "set_id" }, nil)
+local result, err = client:Set():load({ id = "set_id" })
 ```
 
 ### Common Methods
@@ -383,7 +383,7 @@ local set_booster = client:SetBooster(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:SetBooster(nil):list(nil, nil)
+local results, err = client:SetBooster():list()
 ```
 
 ### Common Methods
@@ -435,7 +435,7 @@ local subtype = client:Subtype(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Subtype(nil):list(nil, nil)
+local results, err = client:Subtype():list()
 ```
 
 ### Common Methods
@@ -487,7 +487,7 @@ local supertype = client:Supertype(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Supertype(nil):list(nil, nil)
+local results, err = client:Supertype():list()
 ```
 
 ### Common Methods
@@ -539,7 +539,7 @@ local type = client:Type(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Type(nil):list(nil, nil)
+local results, err = client:Type():list()
 ```
 
 ### Common Methods

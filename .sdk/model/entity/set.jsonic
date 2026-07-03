@@ -142,7 +142,7 @@ main: kit: entity: set: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.set`"
           }
         }
       ]

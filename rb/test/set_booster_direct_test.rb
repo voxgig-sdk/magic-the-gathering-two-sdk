@@ -76,12 +76,14 @@ def set_booster_direct_setup(mockres)
   env = Runner.env_override({
     "MAGICTHEGATHERINGTWO_TEST_SET_BOOSTER_ENTID" => {},
     "MAGICTHEGATHERINGTWO_TEST_LIVE" => "FALSE",
+    "MAGICTHEGATHERINGTWO_APIKEY" => "NONE",
   })
 
   live = env["MAGICTHEGATHERINGTWO_TEST_LIVE"] == "TRUE"
 
   if live
     merged_opts = {
+      "apikey" => env["MAGICTHEGATHERINGTWO_APIKEY"],
     }
     client = MagicTheGatheringTwoSDK.new(merged_opts)
     return {

@@ -1,20 +1,8 @@
 # MagicTheGatheringTwo SDK
 
-Query Magic: The Gathering cards, sets, types, and formats from a free community-run JSON API
+Magic The Gathering API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Magic The Gathering API
-
-The [Magic: The Gathering API](https://magicthegathering.io/) is a free, community-run JSON API that exposes card, set, and format data for the Magic: The Gathering trading card game. It is served from `https://api.magicthegathering.io/v1` and is documented at [docs.magicthegathering.io](https://docs.magicthegathering.io/).
-
-What you get from the API:
-- Card lookups by id or multiverseid, plus filtering and pagination across the full card pool (`/v1/cards`, `/v1/cards/:id`)
-- Set listings and individual set detail, including randomized booster generation (`/v1/sets`, `/v1/sets/:id`, `/v1/sets/:id/booster`)
-- Reference lists of card `types`, `subtypes`, `supertypes`, and game `formats`
-- Rich card fields such as `name`, `manaCost`, `cmc`, `colors`, `colorIdentity`, `type`, `rarity`, `power`, `toughness`, `loyalty`, `text`, `flavor`, `artist`, `imageUrl`, `rulings`, `foreignNames`, `printings`, `legalities`, and `variations`
-
-Operational notes: no authentication is required. Third-party applications are throttled to 5000 requests per hour; exceeding the limit returns HTTP 403 with `Rate Limit Exceeded`, and `Ratelimit-Limit` / `Ratelimit-Remaining` response headers let clients track usage. CORS is disabled on the listed endpoints.
 
 ## Try it
 
@@ -48,29 +36,31 @@ gem install magic-the-gathering-two-sdk
 luarocks install magic-the-gathering-two-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { MagicTheGatheringTwoSDK } from 'magic-the-gathering-two'
 
-const client = new MagicTheGatheringTwoSDK({})
+const client = new MagicTheGatheringTwoSDK({
+  apikey: process.env.MAGIC-THE-GATHERING-TWO_APIKEY,
+})
 
 // List all cards
 const cards = await client.Card().list()
+console.log(cards.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -100,13 +90,13 @@ The API exposes 7 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **Card** | An individual Magic: The Gathering card with fields like name, manaCost, colors, type, rarity, power/toughness, rulings, and printings — served from `/v1/cards` and `/v1/cards/:id`. | `/cards` |
-| **Format** | A sanctioned play format (e.g. Standard, Modern, Commander) used for card legality — listed at `/v1/formats`. | `/formats` |
-| **Set** | A published card set with metadata such as code, name, block, release date, and booster configuration — served from `/v1/sets` and `/v1/sets/:id`. | `/sets` |
-| **SetBooster** | A randomized booster pack generated for a given set — served from `/v1/sets/:id/booster`. | `/sets/{id}/booster` |
-| **Subtype** | A card subtype value (e.g. creature subtypes like Goblin, Wizard) — listed at `/v1/subtypes`. | `/subtypes` |
-| **Supertype** | A card supertype value (e.g. Legendary, Basic, Snow) — listed at `/v1/supertypes`. | `/supertypes` |
-| **Type** | A primary card type value (e.g. Creature, Instant, Sorcery, Land) — listed at `/v1/types`. | `/types` |
+| **Card** |  | `/cards` |
+| **Format** |  | `/formats` |
+| **Set** |  | `/sets` |
+| **SetBooster** |  | `/sets/{id}/booster` |
+| **Subtype** |  | `/subtypes` |
+| **Supertype** |  | `/supertypes` |
+| **Type** |  | `/types` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -116,17 +106,20 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from magicthegatheringtwo_sdk import MagicTheGatheringTwoSDK
 
-client = MagicTheGatheringTwoSDK({})
+client = MagicTheGatheringTwoSDK({
+    "apikey": os.environ.get("MAGIC-THE-GATHERING-TWO_APIKEY"),
+})
 
 # List all cards
-cards, err = client.Card(None).list(None, None)
+cards, err = client.Card().list()
+print(cards)
 
 # Load a specific card
-card, err = client.Card(None).load(
-    {"id": "example_id"}, None
-)
+card, err = client.Card().load({"id": "example_id"})
+print(card)
 ```
 
 ### PHP
@@ -135,15 +128,17 @@ card, err = client.Card(None).load(
 <?php
 require_once 'magicthegatheringtwo_sdk.php';
 
-$client = new MagicTheGatheringTwoSDK([]);
+$client = new MagicTheGatheringTwoSDK([
+    "apikey" => getenv("MAGIC-THE-GATHERING-TWO_APIKEY"),
+]);
 
 // List all cards
-[$cards, $err] = $client->Card(null)->list(null, null);
+[$cards, $err] = $client->Card()->list();
+print_r($cards);
 
 // Load a specific card
-[$card, $err] = $client->Card(null)->load(
-    ["id" => "example_id"], null
-);
+[$card, $err] = $client->Card()->load(["id" => "example_id"]);
+print_r($card);
 ```
 
 ### Golang
@@ -151,10 +146,13 @@ $client = new MagicTheGatheringTwoSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/magic-the-gathering-two-sdk/go"
 
-client := sdk.NewMagicTheGatheringTwoSDK(map[string]any{})
+client := sdk.NewMagicTheGatheringTwoSDK(map[string]any{
+    "apikey": os.Getenv("MAGIC-THE-GATHERING-TWO_APIKEY"),
+})
 
 // List all cards
 cards, err := client.Card(nil).List(nil, nil)
+fmt.Println(cards)
 ```
 
 ### Ruby
@@ -162,15 +160,17 @@ cards, err := client.Card(nil).List(nil, nil)
 ```ruby
 require_relative "MagicTheGatheringTwo_sdk"
 
-client = MagicTheGatheringTwoSDK.new({})
+client = MagicTheGatheringTwoSDK.new({
+  "apikey" => ENV["MAGIC-THE-GATHERING-TWO_APIKEY"],
+})
 
 # List all cards
-cards, err = client.Card(nil).list(nil, nil)
+cards, err = client.Card().list
+puts cards
 
 # Load a specific card
-card, err = client.Card(nil).load(
-  { "id" => "example_id" }, nil
-)
+card, err = client.Card().load({ "id" => "example_id" })
+puts card
 ```
 
 ### Lua
@@ -178,15 +178,17 @@ card, err = client.Card(nil).load(
 ```lua
 local sdk = require("magic-the-gathering-two_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("MAGIC-THE-GATHERING-TWO_APIKEY"),
+})
 
 -- List all cards
-local cards, err = client:Card(nil):list(nil, nil)
+local cards, err = client:Card():list()
+print(cards)
 
 -- Load a specific card
-local card, err = client:Card(nil):load(
-  { id = "example_id" }, nil
-)
+local card, err = client:Card():load({ id = "example_id" })
+print(card)
 ```
 
 ## Unit testing in offline mode
@@ -205,25 +207,21 @@ const result = await client.Card().load({ id: 'test01' })
 ### Python
 
 ```python
-client = MagicTheGatheringTwoSDK.test(None, None)
-result, err = client.Card(None).load(
-    {"id": "test01"}, None
-)
+client = MagicTheGatheringTwoSDK.test()
+result, err = client.Card().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = MagicTheGatheringTwoSDK::test(null, null);
-[$result, $err] = $client->Card(null)->load(
-    ["id" => "test01"], null
-);
+$client = MagicTheGatheringTwoSDK::test();
+[$result, $err] = $client->Card()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.Card(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -232,19 +230,15 @@ result, err := client.Card(nil).Load(
 ### Ruby
 
 ```ruby
-client = MagicTheGatheringTwoSDK.test(nil, nil)
-result, err = client.Card(nil).load(
-  { "id" => "test01" }, nil
-)
+client = MagicTheGatheringTwoSDK.test
+result, err = client.Card().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:Card(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:Card():load({ id = "test01" })
 ```
 
 ## How it works
@@ -348,16 +342,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Magic The Gathering API
-
-- Upstream: [https://magicthegathering.io/](https://magicthegathering.io/)
-- API docs: [https://docs.magicthegathering.io/](https://docs.magicthegathering.io/)
-
-- Free to use without authentication; no API key required
-- Card names, text, artwork, and related game content are trademarks and copyrights of Wizards of the Coast — this API is not produced, endorsed, supported, or affiliated with Wizards of the Coast
-- Third-party applications are throttled to 5000 requests per hour
-- Check the official docs at https://docs.magicthegathering.io/ for current terms
 
 ---
 

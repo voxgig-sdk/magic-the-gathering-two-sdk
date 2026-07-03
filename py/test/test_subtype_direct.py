@@ -61,12 +61,14 @@ def _subtype_direct_setup(mockres):
     env = runner.env_override({
         "MAGICTHEGATHERINGTWO_TEST_SUBTYPE_ENTID": {},
         "MAGICTHEGATHERINGTWO_TEST_LIVE": "FALSE",
+        "MAGICTHEGATHERINGTWO_APIKEY": "NONE",
     })
 
     live = env.get("MAGICTHEGATHERINGTWO_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("MAGICTHEGATHERINGTWO_APIKEY"),
         }
         client = MagicTheGatheringTwoSDK(merged_opts)
         return {

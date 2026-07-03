@@ -86,6 +86,7 @@ function subtype_basic_setup($extra)
         "MAGICTHEGATHERINGTWO_TEST_SUBTYPE_ENTID" => $idmap,
         "MAGICTHEGATHERINGTWO_TEST_LIVE" => "FALSE",
         "MAGICTHEGATHERINGTWO_TEST_EXPLAIN" => "FALSE",
+        "MAGICTHEGATHERINGTWO_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,6 +98,7 @@ function subtype_basic_setup($extra)
     if ($env["MAGICTHEGATHERINGTWO_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
+                "apikey" => $env["MAGICTHEGATHERINGTWO_APIKEY"],
             ],
             $extra ?? [],
         ]);

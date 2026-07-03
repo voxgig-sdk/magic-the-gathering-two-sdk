@@ -494,7 +494,7 @@ main: kit: entity: card: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.card`"
           }
         }
       ]

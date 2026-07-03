@@ -135,6 +135,7 @@ func cardBasicSetup(extra map[string]any) *entityTestSetup {
 		"MAGICTHEGATHERINGTWO_TEST_CARD_ENTID": idmap,
 		"MAGICTHEGATHERINGTWO_TEST_LIVE":      "FALSE",
 		"MAGICTHEGATHERINGTWO_TEST_EXPLAIN":   "FALSE",
+		"MAGICTHEGATHERINGTWO_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["MAGICTHEGATHERINGTWO_TEST_CARD_ENTID"])
@@ -145,6 +146,7 @@ func cardBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["MAGICTHEGATHERINGTWO_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["MAGICTHEGATHERINGTWO_APIKEY"],
 			},
 			extra,
 		})
