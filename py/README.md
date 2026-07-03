@@ -10,7 +10,7 @@ The Python SDK for the MagicTheGatheringTwo API — an entity-oriented client fo
 
 ## Install
 ```bash
-pip install magic-the-gathering-two-sdk
+pip install voxgig-sdk-magic-the-gathering-two
 ```
 
 Or install from source:

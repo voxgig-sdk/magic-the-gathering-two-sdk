@@ -10,7 +10,7 @@ The PHP SDK for the MagicTheGatheringTwo API — an entity-oriented client using
 
 ## Install
 ```bash
-composer require voxgig/magic-the-gathering-two-sdk
+composer require voxgig-sdk/magic-the-gathering-two
 ```
 
 

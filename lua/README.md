@@ -10,7 +10,7 @@ The Lua SDK for the MagicTheGatheringTwo API — an entity-oriented client using
 
 ## Install
 ```bash
-luarocks install magic-the-gathering-two-sdk
+luarocks install voxgig-sdk-magic-the-gathering-two
 ```
 
 If the module is not yet published, add the source directory to
