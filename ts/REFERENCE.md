@@ -181,7 +181,7 @@ Alias for `MagicTheGatheringTwoSDK.test()`.
 ## CardEntity
 
 ```ts
-const card = client.card
+const card = client.Card()
 ```
 
 ### Fields
@@ -235,7 +235,7 @@ const card = client.card
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.card.list()
+const results = await client.Card().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -243,7 +243,7 @@ const results = await client.card.list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.card.load({ id: 'card_id' })
+const result = await client.Card().load({ id: 'card_id' })
 ```
 
 ### Common Methods
@@ -277,7 +277,7 @@ Return a copy of the entity options.
 ## FormatEntity
 
 ```ts
-const format = client.format
+const format = client.Format()
 ```
 
 ### Fields
@@ -293,7 +293,7 @@ const format = client.format
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.format.list()
+const results = await client.Format().list()
 ```
 
 ### Common Methods
@@ -327,7 +327,7 @@ Return a copy of the entity options.
 ## SetEntity
 
 ```ts
-const set = client.set
+const set = client.Set()
 ```
 
 ### Fields
@@ -355,7 +355,7 @@ const set = client.set
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.set.list()
+const results = await client.Set().list()
 ```
 
 #### `load(match: object, ctrl?: object)`
@@ -363,7 +363,7 @@ const results = await client.set.list()
 Load a single entity matching the given criteria.
 
 ```ts
-const result = await client.set.load({ id: 'set_id' })
+const result = await client.Set().load({ id: 'set_id' })
 ```
 
 ### Common Methods
@@ -397,7 +397,7 @@ Return a copy of the entity options.
 ## SetBoosterEntity
 
 ```ts
-const set_booster = client.set_booster
+const set_booster = client.SetBooster()
 ```
 
 ### Fields
@@ -450,7 +450,7 @@ const set_booster = client.set_booster
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.set_booster.list()
+const results = await client.SetBooster().list()
 ```
 
 ### Common Methods
@@ -484,7 +484,7 @@ Return a copy of the entity options.
 ## SubtypeEntity
 
 ```ts
-const subtype = client.subtype
+const subtype = client.Subtype()
 ```
 
 ### Fields
@@ -500,7 +500,7 @@ const subtype = client.subtype
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.subtype.list()
+const results = await client.Subtype().list()
 ```
 
 ### Common Methods
@@ -534,7 +534,7 @@ Return a copy of the entity options.
 ## SupertypeEntity
 
 ```ts
-const supertype = client.supertype
+const supertype = client.Supertype()
 ```
 
 ### Fields
@@ -550,7 +550,7 @@ const supertype = client.supertype
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.supertype.list()
+const results = await client.Supertype().list()
 ```
 
 ### Common Methods
@@ -584,7 +584,7 @@ Return a copy of the entity options.
 ## TypeEntity
 
 ```ts
-const type = client.type
+const type = client.Type()
 ```
 
 ### Fields
@@ -600,7 +600,7 @@ const type = client.type
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.type.list()
+const results = await client.Type().list()
 ```
 
 ### Common Methods

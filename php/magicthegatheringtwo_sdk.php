@@ -233,10 +233,10 @@ class MagicTheGatheringTwoSDK
 
     private $_card = null;
 
-    // Idiomatic facade: $client->card()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Card() (PHP method
-    // names are case-insensitive).
-    public function card($data = null)
+    // Canonical facade: $client->Card()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->card()
+    // resolves here too.
+    public function Card($data = null)
     {
         require_once __DIR__ . '/entity/card_entity.php';
         if ($data === null) {
@@ -251,10 +251,10 @@ class MagicTheGatheringTwoSDK
 
     private $_format = null;
 
-    // Idiomatic facade: $client->format()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Format() (PHP method
-    // names are case-insensitive).
-    public function format($data = null)
+    // Canonical facade: $client->Format()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->format()
+    // resolves here too.
+    public function Format($data = null)
     {
         require_once __DIR__ . '/entity/format_entity.php';
         if ($data === null) {
@@ -269,10 +269,10 @@ class MagicTheGatheringTwoSDK
 
     private $_set = null;
 
-    // Idiomatic facade: $client->set()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Set() (PHP method
-    // names are case-insensitive).
-    public function set($data = null)
+    // Canonical facade: $client->Set()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->set()
+    // resolves here too.
+    public function Set($data = null)
     {
         require_once __DIR__ . '/entity/set_entity.php';
         if ($data === null) {
@@ -287,10 +287,10 @@ class MagicTheGatheringTwoSDK
 
     private $_set_booster = null;
 
-    // Idiomatic facade: $client->set_booster()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias SetBooster() (PHP method
-    // names are case-insensitive).
-    public function set_booster($data = null)
+    // Canonical facade: $client->SetBooster()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->set_booster()
+    // resolves here too.
+    public function SetBooster($data = null)
     {
         require_once __DIR__ . '/entity/set_booster_entity.php';
         if ($data === null) {
@@ -305,10 +305,10 @@ class MagicTheGatheringTwoSDK
 
     private $_subtype = null;
 
-    // Idiomatic facade: $client->subtype()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Subtype() (PHP method
-    // names are case-insensitive).
-    public function subtype($data = null)
+    // Canonical facade: $client->Subtype()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->subtype()
+    // resolves here too.
+    public function Subtype($data = null)
     {
         require_once __DIR__ . '/entity/subtype_entity.php';
         if ($data === null) {
@@ -323,10 +323,10 @@ class MagicTheGatheringTwoSDK
 
     private $_supertype = null;
 
-    // Idiomatic facade: $client->supertype()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Supertype() (PHP method
-    // names are case-insensitive).
-    public function supertype($data = null)
+    // Canonical facade: $client->Supertype()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->supertype()
+    // resolves here too.
+    public function Supertype($data = null)
     {
         require_once __DIR__ . '/entity/supertype_entity.php';
         if ($data === null) {
@@ -341,10 +341,10 @@ class MagicTheGatheringTwoSDK
 
     private $_type = null;
 
-    // Idiomatic facade: $client->type()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias Type() (PHP method
-    // names are case-insensitive).
-    public function type($data = null)
+    // Canonical facade: $client->Type()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->type()
+    // resolves here too.
+    public function Type($data = null)
     {
         require_once __DIR__ . '/entity/type_entity.php';
         if ($data === null) {

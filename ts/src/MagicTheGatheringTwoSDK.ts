@@ -210,98 +210,49 @@ class MagicTheGatheringTwoSDK {
 
 
 
-  _card?: CardEntity
-
-  // Idiomatic facade: `client.card.list()` / `client.card.load({ id })`.
-  get card(): CardEntity {
-    return (this._card ??= new CardEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.card` instead. */
+  // Entity access: `client.Card().list()` / `client.Card().load({ id })`.
   Card(data?: any) {
     const self = this
     return new CardEntity(self,data)
   }
 
 
-  _format?: FormatEntity
-
-  // Idiomatic facade: `client.format.list()` / `client.format.load({ id })`.
-  get format(): FormatEntity {
-    return (this._format ??= new FormatEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.format` instead. */
+  // Entity access: `client.Format().list()` / `client.Format().load({ id })`.
   Format(data?: any) {
     const self = this
     return new FormatEntity(self,data)
   }
 
 
-  _set?: SetEntity
-
-  // Idiomatic facade: `client.set.list()` / `client.set.load({ id })`.
-  get set(): SetEntity {
-    return (this._set ??= new SetEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.set` instead. */
+  // Entity access: `client.Set().list()` / `client.Set().load({ id })`.
   Set(data?: any) {
     const self = this
     return new SetEntity(self,data)
   }
 
 
-  _set_booster?: SetBoosterEntity
-
-  // Idiomatic facade: `client.set_booster.list()` / `client.set_booster.load({ id })`.
-  get set_booster(): SetBoosterEntity {
-    return (this._set_booster ??= new SetBoosterEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.set_booster` instead. */
+  // Entity access: `client.SetBooster().list()` / `client.SetBooster().load({ id })`.
   SetBooster(data?: any) {
     const self = this
     return new SetBoosterEntity(self,data)
   }
 
 
-  _subtype?: SubtypeEntity
-
-  // Idiomatic facade: `client.subtype.list()` / `client.subtype.load({ id })`.
-  get subtype(): SubtypeEntity {
-    return (this._subtype ??= new SubtypeEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.subtype` instead. */
+  // Entity access: `client.Subtype().list()` / `client.Subtype().load({ id })`.
   Subtype(data?: any) {
     const self = this
     return new SubtypeEntity(self,data)
   }
 
 
-  _supertype?: SupertypeEntity
-
-  // Idiomatic facade: `client.supertype.list()` / `client.supertype.load({ id })`.
-  get supertype(): SupertypeEntity {
-    return (this._supertype ??= new SupertypeEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.supertype` instead. */
+  // Entity access: `client.Supertype().list()` / `client.Supertype().load({ id })`.
   Supertype(data?: any) {
     const self = this
     return new SupertypeEntity(self,data)
   }
 
 
-  _type?: TypeEntity
-
-  // Idiomatic facade: `client.type.list()` / `client.type.load({ id })`.
-  get type(): TypeEntity {
-    return (this._type ??= new TypeEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.type` instead. */
+  // Entity access: `client.Type().list()` / `client.Type().load({ id })`.
   Type(data?: any) {
     const self = this
     return new TypeEntity(self,data)

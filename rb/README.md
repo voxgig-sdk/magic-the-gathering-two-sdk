@@ -28,16 +28,14 @@ require_relative "MagicTheGatheringTwo_sdk"
 client = MagicTheGatheringTwoSDK.new
 ```
 
-### 2. List cards
+### 2. List card records
 
 ```ruby
 begin
-  result = client.card.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of Card records — iterate directly.
+  cards = client.Card.list
+  cards.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -48,8 +46,9 @@ end
 
 ```ruby
 begin
-  result = client.card.load({ "id" => "example_id" })
-  puts result
+  # load returns the bare Card record (raises on error).
+  card = client.Card.load({ "id" => "example_id" })
+  puts card
 rescue => err
   warn "load failed: #{err}"
 end
@@ -96,13 +95,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = MagicTheGatheringTwoSDK.test
+client = MagicTheGatheringTwoSDK.test({
+  "entity" => { "card" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.card.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+card = client.Card.load({ "id" => "test01" })
+puts card
 ```
 
 ### Use a custom fetch function
@@ -387,7 +390,7 @@ API path: `/types`
 
 ### Card
 
-Create an instance: `const card = client.card`
+Create an instance: `card = client.Card`
 
 #### Operations
 
@@ -442,20 +445,22 @@ Create an instance: `const card = client.card`
 
 #### Example: Load
 
-```ts
-const card = await client.card.load({ id: 'card_id' })
+```ruby
+# load returns the bare Card record (raises on error).
+card = client.Card.load({ "id" => "card_id" })
 ```
 
 #### Example: List
 
-```ts
-const cards = await client.card.list()
+```ruby
+# list returns an Array of Card records (raises on error).
+cards = client.Card.list
 ```
 
 
 ### Format
 
-Create an instance: `const format = client.format`
+Create an instance: `format = client.Format`
 
 #### Operations
 
@@ -471,14 +476,15 @@ Create an instance: `const format = client.format`
 
 #### Example: List
 
-```ts
-const formats = await client.format.list()
+```ruby
+# list returns an Array of Format records (raises on error).
+formats = client.Format.list
 ```
 
 
 ### Set
 
-Create an instance: `const set = client.set`
+Create an instance: `set = client.Set`
 
 #### Operations
 
@@ -507,20 +513,22 @@ Create an instance: `const set = client.set`
 
 #### Example: Load
 
-```ts
-const set = await client.set.load({ id: 'set_id' })
+```ruby
+# load returns the bare Set record (raises on error).
+set = client.Set.load({ "id" => "set_id" })
 ```
 
 #### Example: List
 
-```ts
-const sets = await client.set.list()
+```ruby
+# list returns an Array of Set records (raises on error).
+sets = client.Set.list
 ```
 
 
 ### SetBooster
 
-Create an instance: `const set_booster = client.set_booster`
+Create an instance: `set_booster = client.SetBooster`
 
 #### Operations
 
@@ -573,14 +581,15 @@ Create an instance: `const set_booster = client.set_booster`
 
 #### Example: List
 
-```ts
-const set_boosters = await client.set_booster.list()
+```ruby
+# list returns an Array of SetBooster records (raises on error).
+set_boosters = client.SetBooster.list
 ```
 
 
 ### Subtype
 
-Create an instance: `const subtype = client.subtype`
+Create an instance: `subtype = client.Subtype`
 
 #### Operations
 
@@ -596,14 +605,15 @@ Create an instance: `const subtype = client.subtype`
 
 #### Example: List
 
-```ts
-const subtypes = await client.subtype.list()
+```ruby
+# list returns an Array of Subtype records (raises on error).
+subtypes = client.Subtype.list
 ```
 
 
 ### Supertype
 
-Create an instance: `const supertype = client.supertype`
+Create an instance: `supertype = client.Supertype`
 
 #### Operations
 
@@ -619,14 +629,15 @@ Create an instance: `const supertype = client.supertype`
 
 #### Example: List
 
-```ts
-const supertypes = await client.supertype.list()
+```ruby
+# list returns an Array of Supertype records (raises on error).
+supertypes = client.Supertype.list
 ```
 
 
 ### Type
 
-Create an instance: `const type = client.type`
+Create an instance: `type = client.Type`
 
 #### Operations
 
@@ -642,8 +653,9 @@ Create an instance: `const type = client.type`
 
 #### Example: List
 
-```ts
-const types = await client.type.list()
+```ruby
+# list returns an Array of Type records (raises on error).
+types = client.Type.list
 ```
 
 
@@ -718,7 +730,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-card = client.card
+card = client.Card
 card.load({ "id" => "example_id" })
 
 # card.data_get now returns the loaded card data

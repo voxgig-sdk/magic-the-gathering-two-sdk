@@ -208,91 +208,49 @@ class MagicTheGatheringTwoSDK
   end
 
 
-  # Idiomatic facade: client.card.list / client.card.load({ "id" => ... })
-  def card
-    require_relative 'entity/card_entity'
-    @card ||= CardEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.card instead.
+  # Canonical facade: client.Card.list / client.Card.load({ "id" => ... })
   def Card(data = nil)
     require_relative 'entity/card_entity'
     CardEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.format.list / client.format.load({ "id" => ... })
-  def format
-    require_relative 'entity/format_entity'
-    @format ||= FormatEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.format instead.
+  # Canonical facade: client.Format.list / client.Format.load({ "id" => ... })
   def Format(data = nil)
     require_relative 'entity/format_entity'
     FormatEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.set.list / client.set.load({ "id" => ... })
-  def set
-    require_relative 'entity/set_entity'
-    @set ||= SetEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.set instead.
+  # Canonical facade: client.Set.list / client.Set.load({ "id" => ... })
   def Set(data = nil)
     require_relative 'entity/set_entity'
     SetEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.set_booster.list / client.set_booster.load({ "id" => ... })
-  def set_booster
-    require_relative 'entity/set_booster_entity'
-    @set_booster ||= SetBoosterEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.set_booster instead.
+  # Canonical facade: client.SetBooster.list / client.SetBooster.load({ "id" => ... })
   def SetBooster(data = nil)
     require_relative 'entity/set_booster_entity'
     SetBoosterEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.subtype.list / client.subtype.load({ "id" => ... })
-  def subtype
-    require_relative 'entity/subtype_entity'
-    @subtype ||= SubtypeEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.subtype instead.
+  # Canonical facade: client.Subtype.list / client.Subtype.load({ "id" => ... })
   def Subtype(data = nil)
     require_relative 'entity/subtype_entity'
     SubtypeEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.supertype.list / client.supertype.load({ "id" => ... })
-  def supertype
-    require_relative 'entity/supertype_entity'
-    @supertype ||= SupertypeEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.supertype instead.
+  # Canonical facade: client.Supertype.list / client.Supertype.load({ "id" => ... })
   def Supertype(data = nil)
     require_relative 'entity/supertype_entity'
     SupertypeEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.type.list / client.type.load({ "id" => ... })
-  def type
-    require_relative 'entity/type_entity'
-    @type ||= TypeEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.type instead.
+  # Canonical facade: client.Type.list / client.Type.load({ "id" => ... })
   def Type(data = nil)
     require_relative 'entity/type_entity'
     TypeEntity.new(self, data)

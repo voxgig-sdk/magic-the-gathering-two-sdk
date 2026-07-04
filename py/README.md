@@ -31,24 +31,28 @@ from magicthegatheringtwo_sdk import MagicTheGatheringTwoSDK
 client = MagicTheGatheringTwoSDK()
 ```
 
-### 2. List cards
+### 2. List card records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.card.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    cards = client.Card().list({})
+    for card in cards:
+        print(card)
 except Exception as err:
     print(f"list failed: {err}")
 ```
 
 ### 3. Load a card
 
+`load()` returns the bare record (a `dict`) and raises on error.
+
 ```python
 try:
-    result = client.card.load({"id": "example_id"})
-    print(result)
+    card = client.Card().load({"id": "example_id"})
+    print(card)
 except Exception as err:
     print(f"load failed: {err}")
 ```
@@ -96,8 +100,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = MagicTheGatheringTwoSDK.test()
 
-result = client.card.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+card = client.Card().load({"id": "test01"})
+# card contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -383,7 +388,7 @@ API path: `/types`
 
 ### Card
 
-Create an instance: `const card = client.card`
+Create an instance: `card = client.Card()`
 
 #### Operations
 
@@ -438,20 +443,20 @@ Create an instance: `const card = client.card`
 
 #### Example: Load
 
-```ts
-const card = await client.card.load({ id: 'card_id' })
+```python
+card = client.Card().load({"id": "card_id"})
 ```
 
 #### Example: List
 
-```ts
-const cards = await client.card.list()
+```python
+cards = client.Card().list({})
 ```
 
 
 ### Format
 
-Create an instance: `const format = client.format`
+Create an instance: `format = client.Format()`
 
 #### Operations
 
@@ -467,14 +472,14 @@ Create an instance: `const format = client.format`
 
 #### Example: List
 
-```ts
-const formats = await client.format.list()
+```python
+formats = client.Format().list({})
 ```
 
 
 ### Set
 
-Create an instance: `const set = client.set`
+Create an instance: `set = client.Set()`
 
 #### Operations
 
@@ -503,20 +508,20 @@ Create an instance: `const set = client.set`
 
 #### Example: Load
 
-```ts
-const set = await client.set.load({ id: 'set_id' })
+```python
+set = client.Set().load({"id": "set_id"})
 ```
 
 #### Example: List
 
-```ts
-const sets = await client.set.list()
+```python
+sets = client.Set().list({})
 ```
 
 
 ### SetBooster
 
-Create an instance: `const set_booster = client.set_booster`
+Create an instance: `set_booster = client.SetBooster()`
 
 #### Operations
 
@@ -569,14 +574,14 @@ Create an instance: `const set_booster = client.set_booster`
 
 #### Example: List
 
-```ts
-const set_boosters = await client.set_booster.list()
+```python
+set_boosters = client.SetBooster().list({})
 ```
 
 
 ### Subtype
 
-Create an instance: `const subtype = client.subtype`
+Create an instance: `subtype = client.Subtype()`
 
 #### Operations
 
@@ -592,14 +597,14 @@ Create an instance: `const subtype = client.subtype`
 
 #### Example: List
 
-```ts
-const subtypes = await client.subtype.list()
+```python
+subtypes = client.Subtype().list({})
 ```
 
 
 ### Supertype
 
-Create an instance: `const supertype = client.supertype`
+Create an instance: `supertype = client.Supertype()`
 
 #### Operations
 
@@ -615,14 +620,14 @@ Create an instance: `const supertype = client.supertype`
 
 #### Example: List
 
-```ts
-const supertypes = await client.supertype.list()
+```python
+supertypes = client.Supertype().list({})
 ```
 
 
 ### Type
 
-Create an instance: `const type = client.type`
+Create an instance: `type = client.Type()`
 
 #### Operations
 
@@ -638,8 +643,8 @@ Create an instance: `const type = client.type`
 
 #### Example: List
 
-```ts
-const types = await client.type.list()
+```python
+types = client.Type().list({})
 ```
 
 
@@ -713,7 +718,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-card = client.card
+card = client.Card()
 card.load({"id": "example_id"})
 
 # card.data_get() now returns the loaded card data

@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:card():list() / client:card():load({ id = ... })
-function MagicTheGatheringTwoSDK:card(data)
+-- Idiomatic facade: client:Card():list() / client:Card():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MagicTheGatheringTwoSDK:Card(data)
   local EntityMod = require("entity.card_entity")
   if data == nil then
     if self._card == nil then
@@ -256,15 +257,10 @@ function MagicTheGatheringTwoSDK:card(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:card() instead.
-function MagicTheGatheringTwoSDK:Card(data)
-  local EntityMod = require("entity.card_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:format():list() / client:format():load({ id = ... })
-function MagicTheGatheringTwoSDK:format(data)
+-- Idiomatic facade: client:Format():list() / client:Format():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MagicTheGatheringTwoSDK:Format(data)
   local EntityMod = require("entity.format_entity")
   if data == nil then
     if self._format == nil then
@@ -275,15 +271,10 @@ function MagicTheGatheringTwoSDK:format(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:format() instead.
-function MagicTheGatheringTwoSDK:Format(data)
-  local EntityMod = require("entity.format_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:set():list() / client:set():load({ id = ... })
-function MagicTheGatheringTwoSDK:set(data)
+-- Idiomatic facade: client:Set():list() / client:Set():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MagicTheGatheringTwoSDK:Set(data)
   local EntityMod = require("entity.set_entity")
   if data == nil then
     if self._set == nil then
@@ -294,15 +285,10 @@ function MagicTheGatheringTwoSDK:set(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:set() instead.
-function MagicTheGatheringTwoSDK:Set(data)
-  local EntityMod = require("entity.set_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:set_booster():list() / client:set_booster():load({ id = ... })
-function MagicTheGatheringTwoSDK:set_booster(data)
+-- Idiomatic facade: client:SetBooster():list() / client:SetBooster():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MagicTheGatheringTwoSDK:SetBooster(data)
   local EntityMod = require("entity.set_booster_entity")
   if data == nil then
     if self._set_booster == nil then
@@ -313,15 +299,10 @@ function MagicTheGatheringTwoSDK:set_booster(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:set_booster() instead.
-function MagicTheGatheringTwoSDK:SetBooster(data)
-  local EntityMod = require("entity.set_booster_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:subtype():list() / client:subtype():load({ id = ... })
-function MagicTheGatheringTwoSDK:subtype(data)
+-- Idiomatic facade: client:Subtype():list() / client:Subtype():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MagicTheGatheringTwoSDK:Subtype(data)
   local EntityMod = require("entity.subtype_entity")
   if data == nil then
     if self._subtype == nil then
@@ -332,15 +313,10 @@ function MagicTheGatheringTwoSDK:subtype(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:subtype() instead.
-function MagicTheGatheringTwoSDK:Subtype(data)
-  local EntityMod = require("entity.subtype_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:supertype():list() / client:supertype():load({ id = ... })
-function MagicTheGatheringTwoSDK:supertype(data)
+-- Idiomatic facade: client:Supertype():list() / client:Supertype():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MagicTheGatheringTwoSDK:Supertype(data)
   local EntityMod = require("entity.supertype_entity")
   if data == nil then
     if self._supertype == nil then
@@ -351,15 +327,10 @@ function MagicTheGatheringTwoSDK:supertype(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:supertype() instead.
-function MagicTheGatheringTwoSDK:Supertype(data)
-  local EntityMod = require("entity.supertype_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:type():list() / client:type():load({ id = ... })
-function MagicTheGatheringTwoSDK:type(data)
+-- Idiomatic facade: client:Type():list() / client:Type():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function MagicTheGatheringTwoSDK:Type(data)
   local EntityMod = require("entity.type_entity")
   if data == nil then
     if self._type == nil then
@@ -367,12 +338,6 @@ function MagicTheGatheringTwoSDK:type(data)
     end
     return self._type
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:type() instead.
-function MagicTheGatheringTwoSDK:Type(data)
-  local EntityMod = require("entity.type_entity")
   return EntityMod.new(self, data)
 end
 

@@ -104,7 +104,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## CardEntity
 
 ```python
-card = client.card
+card = client.Card()
 ```
 
 ### Fields
@@ -158,7 +158,9 @@ card = client.card
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.card.list({})
+results = client.Card().list({})
+for card in results:
+    print(card)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -166,7 +168,7 @@ results = client.card.list({})
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.card.load({"id": "card_id"})
+result = client.Card().load({"id": "card_id"})
 ```
 
 ### Common Methods
@@ -201,7 +203,7 @@ Return the entity name.
 ## FormatEntity
 
 ```python
-format = client.format
+format = client.Format()
 ```
 
 ### Fields
@@ -217,7 +219,9 @@ format = client.format
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.format.list({})
+results = client.Format().list({})
+for format in results:
+    print(format)
 ```
 
 ### Common Methods
@@ -252,7 +256,7 @@ Return the entity name.
 ## SetEntity
 
 ```python
-set = client.set
+set = client.Set()
 ```
 
 ### Fields
@@ -280,7 +284,9 @@ set = client.set
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.set.list({})
+results = client.Set().list({})
+for set in results:
+    print(set)
 ```
 
 #### `load(reqmatch, ctrl=None) -> dict`
@@ -288,7 +294,7 @@ results = client.set.list({})
 Load a single entity matching the given criteria. Returns the entity data and raises on error.
 
 ```python
-result = client.set.load({"id": "set_id"})
+result = client.Set().load({"id": "set_id"})
 ```
 
 ### Common Methods
@@ -323,7 +329,7 @@ Return the entity name.
 ## SetBoosterEntity
 
 ```python
-set_booster = client.set_booster
+set_booster = client.SetBooster()
 ```
 
 ### Fields
@@ -376,7 +382,9 @@ set_booster = client.set_booster
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.set_booster.list({})
+results = client.SetBooster().list({})
+for set_booster in results:
+    print(set_booster)
 ```
 
 ### Common Methods
@@ -411,7 +419,7 @@ Return the entity name.
 ## SubtypeEntity
 
 ```python
-subtype = client.subtype
+subtype = client.Subtype()
 ```
 
 ### Fields
@@ -427,7 +435,9 @@ subtype = client.subtype
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.subtype.list({})
+results = client.Subtype().list({})
+for subtype in results:
+    print(subtype)
 ```
 
 ### Common Methods
@@ -462,7 +472,7 @@ Return the entity name.
 ## SupertypeEntity
 
 ```python
-supertype = client.supertype
+supertype = client.Supertype()
 ```
 
 ### Fields
@@ -478,7 +488,9 @@ supertype = client.supertype
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.supertype.list({})
+results = client.Supertype().list({})
+for supertype in results:
+    print(supertype)
 ```
 
 ### Common Methods
@@ -513,7 +525,7 @@ Return the entity name.
 ## TypeEntity
 
 ```python
-type = client.type
+type = client.Type()
 ```
 
 ### Fields
@@ -529,7 +541,9 @@ type = client.type
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.type.list({})
+results = client.Type().list({})
+for type in results:
+    print(type)
 ```
 
 ### Common Methods

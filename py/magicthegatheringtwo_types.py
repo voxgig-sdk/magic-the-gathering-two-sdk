@@ -4,226 +4,214 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class Card:
-    artist: Optional[str] = None
-    border: Optional[str] = None
-    card: Optional[dict] = None
-    cmc: Optional[float] = None
-    color: Optional[list] = None
-    color_identity: Optional[list] = None
-    flavor: Optional[str] = None
-    foreign_name: Optional[list] = None
-    hand: Optional[int] = None
-    id: Optional[str] = None
-    image_url: Optional[str] = None
-    layout: Optional[str] = None
-    legality: Optional[list] = None
-    life: Optional[int] = None
-    loyalty: Optional[str] = None
-    mana_cost: Optional[str] = None
-    multiverseid: Optional[int] = None
-    name: Optional[str] = None
-    number: Optional[str] = None
-    original_text: Optional[str] = None
-    original_type: Optional[str] = None
-    power: Optional[str] = None
-    printing: Optional[list] = None
-    rarity: Optional[str] = None
-    release_date: Optional[str] = None
-    reserved: Optional[bool] = None
-    ruling: Optional[list] = None
-    set: Optional[str] = None
-    set_name: Optional[str] = None
-    source: Optional[str] = None
-    starter: Optional[bool] = None
-    subtype: Optional[list] = None
-    supertype: Optional[list] = None
-    text: Optional[str] = None
-    timeshifted: Optional[bool] = None
-    toughness: Optional[str] = None
-    type: Optional[str] = None
-    variation: Optional[list] = None
-    watermark: Optional[str] = None
+class Card(TypedDict, total=False):
+    artist: str
+    border: str
+    card: dict
+    cmc: float
+    color: list
+    color_identity: list
+    flavor: str
+    foreign_name: list
+    hand: int
+    id: str
+    image_url: str
+    layout: str
+    legality: list
+    life: int
+    loyalty: str
+    mana_cost: str
+    multiverseid: int
+    name: str
+    number: str
+    original_text: str
+    original_type: str
+    power: str
+    printing: list
+    rarity: str
+    release_date: str
+    reserved: bool
+    ruling: list
+    set: str
+    set_name: str
+    source: str
+    starter: bool
+    subtype: list
+    supertype: list
+    text: str
+    timeshifted: bool
+    toughness: str
+    type: str
+    variation: list
+    watermark: str
 
 
-@dataclass
-class CardLoadMatch:
+class CardLoadMatch(TypedDict):
     id: str
 
 
-@dataclass
-class CardListMatch:
-    artist: Optional[str] = None
-    border: Optional[str] = None
-    card: Optional[dict] = None
-    cmc: Optional[float] = None
-    color: Optional[list] = None
-    color_identity: Optional[list] = None
-    flavor: Optional[str] = None
-    foreign_name: Optional[list] = None
-    hand: Optional[int] = None
-    id: Optional[str] = None
-    image_url: Optional[str] = None
-    layout: Optional[str] = None
-    legality: Optional[list] = None
-    life: Optional[int] = None
-    loyalty: Optional[str] = None
-    mana_cost: Optional[str] = None
-    multiverseid: Optional[int] = None
-    name: Optional[str] = None
-    number: Optional[str] = None
-    original_text: Optional[str] = None
-    original_type: Optional[str] = None
-    power: Optional[str] = None
-    printing: Optional[list] = None
-    rarity: Optional[str] = None
-    release_date: Optional[str] = None
-    reserved: Optional[bool] = None
-    ruling: Optional[list] = None
-    set: Optional[str] = None
-    set_name: Optional[str] = None
-    source: Optional[str] = None
-    starter: Optional[bool] = None
-    subtype: Optional[list] = None
-    supertype: Optional[list] = None
-    text: Optional[str] = None
-    timeshifted: Optional[bool] = None
-    toughness: Optional[str] = None
-    type: Optional[str] = None
-    variation: Optional[list] = None
-    watermark: Optional[str] = None
+class CardListMatch(TypedDict, total=False):
+    artist: str
+    border: str
+    card: dict
+    cmc: float
+    color: list
+    color_identity: list
+    flavor: str
+    foreign_name: list
+    hand: int
+    id: str
+    image_url: str
+    layout: str
+    legality: list
+    life: int
+    loyalty: str
+    mana_cost: str
+    multiverseid: int
+    name: str
+    number: str
+    original_text: str
+    original_type: str
+    power: str
+    printing: list
+    rarity: str
+    release_date: str
+    reserved: bool
+    ruling: list
+    set: str
+    set_name: str
+    source: str
+    starter: bool
+    subtype: list
+    supertype: list
+    text: str
+    timeshifted: bool
+    toughness: str
+    type: str
+    variation: list
+    watermark: str
 
 
-@dataclass
-class Format:
-    format: Optional[list] = None
+class Format(TypedDict, total=False):
+    format: list
 
 
-@dataclass
-class FormatListMatch:
-    format: Optional[list] = None
+class FormatListMatch(TypedDict, total=False):
+    format: list
 
 
-@dataclass
-class Set:
-    block: Optional[str] = None
-    booster: Optional[list] = None
-    border: Optional[str] = None
-    code: Optional[str] = None
-    gatherer_code: Optional[str] = None
-    magic_cards_info_code: Optional[str] = None
-    mkm_id: Optional[int] = None
-    mkm_name: Optional[str] = None
-    name: Optional[str] = None
-    online_only: Optional[bool] = None
-    release_date: Optional[str] = None
-    set: Optional[dict] = None
-    type: Optional[str] = None
+class Set(TypedDict, total=False):
+    block: str
+    booster: list
+    border: str
+    code: str
+    gatherer_code: str
+    magic_cards_info_code: str
+    mkm_id: int
+    mkm_name: str
+    name: str
+    online_only: bool
+    release_date: str
+    set: dict
+    type: str
 
 
-@dataclass
-class SetLoadMatch:
+class SetLoadMatch(TypedDict):
     id: str
 
 
-@dataclass
-class SetListMatch:
-    block: Optional[str] = None
-    booster: Optional[list] = None
-    border: Optional[str] = None
-    code: Optional[str] = None
-    gatherer_code: Optional[str] = None
-    magic_cards_info_code: Optional[str] = None
-    mkm_id: Optional[int] = None
-    mkm_name: Optional[str] = None
-    name: Optional[str] = None
-    online_only: Optional[bool] = None
-    release_date: Optional[str] = None
-    set: Optional[dict] = None
-    type: Optional[str] = None
+class SetListMatch(TypedDict, total=False):
+    block: str
+    booster: list
+    border: str
+    code: str
+    gatherer_code: str
+    magic_cards_info_code: str
+    mkm_id: int
+    mkm_name: str
+    name: str
+    online_only: bool
+    release_date: str
+    set: dict
+    type: str
 
 
-@dataclass
-class SetBooster:
-    artist: Optional[str] = None
-    border: Optional[str] = None
-    cmc: Optional[float] = None
-    color: Optional[list] = None
-    color_identity: Optional[list] = None
-    flavor: Optional[str] = None
-    foreign_name: Optional[list] = None
-    hand: Optional[int] = None
-    id: Optional[str] = None
-    image_url: Optional[str] = None
-    layout: Optional[str] = None
-    legality: Optional[list] = None
-    life: Optional[int] = None
-    loyalty: Optional[str] = None
-    mana_cost: Optional[str] = None
-    multiverseid: Optional[int] = None
-    name: Optional[str] = None
-    number: Optional[str] = None
-    original_text: Optional[str] = None
-    original_type: Optional[str] = None
-    power: Optional[str] = None
-    printing: Optional[list] = None
-    rarity: Optional[str] = None
-    release_date: Optional[str] = None
-    reserved: Optional[bool] = None
-    ruling: Optional[list] = None
-    set: Optional[str] = None
-    set_name: Optional[str] = None
-    source: Optional[str] = None
-    starter: Optional[bool] = None
-    subtype: Optional[list] = None
-    supertype: Optional[list] = None
-    text: Optional[str] = None
-    timeshifted: Optional[bool] = None
-    toughness: Optional[str] = None
-    type: Optional[str] = None
-    variation: Optional[list] = None
-    watermark: Optional[str] = None
+class SetBooster(TypedDict, total=False):
+    artist: str
+    border: str
+    cmc: float
+    color: list
+    color_identity: list
+    flavor: str
+    foreign_name: list
+    hand: int
+    id: str
+    image_url: str
+    layout: str
+    legality: list
+    life: int
+    loyalty: str
+    mana_cost: str
+    multiverseid: int
+    name: str
+    number: str
+    original_text: str
+    original_type: str
+    power: str
+    printing: list
+    rarity: str
+    release_date: str
+    reserved: bool
+    ruling: list
+    set: str
+    set_name: str
+    source: str
+    starter: bool
+    subtype: list
+    supertype: list
+    text: str
+    timeshifted: bool
+    toughness: str
+    type: str
+    variation: list
+    watermark: str
 
 
-@dataclass
-class SetBoosterListMatch:
+class SetBoosterListMatch(TypedDict):
     id: str
 
 
-@dataclass
-class Subtype:
-    subtype: Optional[list] = None
+class Subtype(TypedDict, total=False):
+    subtype: list
 
 
-@dataclass
-class SubtypeListMatch:
-    subtype: Optional[list] = None
+class SubtypeListMatch(TypedDict, total=False):
+    subtype: list
 
 
-@dataclass
-class Supertype:
-    supertype: Optional[list] = None
+class Supertype(TypedDict, total=False):
+    supertype: list
 
 
-@dataclass
-class SupertypeListMatch:
-    supertype: Optional[list] = None
+class SupertypeListMatch(TypedDict, total=False):
+    supertype: list
 
 
-@dataclass
-class Type:
-    type: Optional[list] = None
+class Type(TypedDict, total=False):
+    type: list
 
 
-@dataclass
-class TypeListMatch:
-    type: Optional[list] = None
-
+class TypeListMatch(TypedDict, total=False):
+    type: list

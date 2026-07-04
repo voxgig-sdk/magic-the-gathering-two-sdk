@@ -28,25 +28,28 @@ import { MagicTheGatheringTwoSDK } from '@voxgig-sdk/magic-the-gathering-two'
 const client = new MagicTheGatheringTwoSDK()
 ```
 
-### 2. List cards
+### 2. List card records
+
+`list()` resolves to an array of Card objects — iterate it directly:
 
 ```ts
-const result = await client.card.list()
+const cards = await client.Card().list()
 
-if (result.ok) {
-  for (const item of result.data) {
-    console.log(item.id, item.name)
-  }
+for (const card of cards) {
+  console.log(card)
 }
 ```
 
 ### 3. Load a card
 
-```ts
-const result = await client.card.load({ id: 'example_id' })
+`load()` returns the entity directly and throws on failure:
 
-if (result.ok) {
-  console.log(result.data)
+```ts
+try {
+  const card = await client.Card().load({ id: 'example_id' })
+  console.log(card)
+} catch (err) {
+  console.error('load failed:', err)
 }
 ```
 
@@ -64,6 +67,9 @@ const result = await client.direct({
   params: { id: 'example' },
 })
 
+if (result instanceof Error) {
+  throw result
+}
 if (result.ok) {
   console.log(result.status)  // 200
   console.log(result.data)    // response body
@@ -92,9 +98,9 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = MagicTheGatheringTwoSDK.test()
 
-const result = await client.card.load({ id: 'test01' })
-// result.ok === true
-// result.data contains mock response data
+const card = await client.Card().load({ id: 'test01' })
+// card is a bare entity populated with mock response data
+console.log(card)
 ```
 
 You can also use the instance method:
@@ -109,7 +115,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.card
+const entity = client.Card()
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -210,29 +216,30 @@ All entities share the same interface.
 
 | Method | Signature | Description |
 | --- | --- | --- |
-| `load` | `load(reqmatch?, ctrl?): Promise<Result>` | Load a single entity by match criteria. |
-| `list` | `list(reqmatch?, ctrl?): Promise<Result>` | List entities matching the criteria. |
-| `create` | `create(reqdata?, ctrl?): Promise<Result>` | Create a new entity. |
-| `update` | `update(reqdata?, ctrl?): Promise<Result>` | Update an existing entity. |
-| `remove` | `remove(reqmatch?, ctrl?): Promise<Result>` | Remove an entity. |
+| `load` | `load(reqmatch?, ctrl?): Promise<Entity>` | Load a single entity by match criteria. |
+| `list` | `list(reqmatch?, ctrl?): Promise<Entity[]>` | List entities matching the criteria. |
+| `create` | `create(reqdata?, ctrl?): Promise<Entity>` | Create a new entity. |
+| `update` | `update(reqdata?, ctrl?): Promise<Entity>` | Update an existing entity. |
+| `remove` | `remove(reqmatch?, ctrl?): Promise<void>` | Remove an entity. |
 | `data` | `data(data?): any` | Get or set entity data. |
 | `match` | `match(match?): any` | Get or set entity match criteria. |
 | `make` | `make(): Entity` | Create a new instance with the same options. |
 | `client` | `client(): MagicTheGatheringTwoSDK` | Return the parent SDK client. |
 | `entopts` | `entopts(): object` | Return a copy of the entity options. |
 
-#### Result shape
+#### Return values
 
-All entity operations return a Result object:
+Entity operations resolve to the entity data directly — there is no
+result envelope:
 
-```ts
-{
-  ok: boolean      // true if the HTTP status is 2xx
-  status: number   // HTTP status code
-  headers: object  // response headers
-  data: any        // parsed JSON response body
-}
-```
+- `load`, `create` and `update` resolve to a single entity object.
+- `list` resolves to an **array** of entity objects (iterate it directly;
+  there is no `.data` and no `.ok`).
+- `remove` resolves to `void`.
+
+On a failed request these methods **throw**, so wrap calls in
+`try`/`catch` to handle errors. Only `direct()` returns the result
+envelope described below.
 
 ### DirectResult shape
 
@@ -428,7 +435,7 @@ API path: `/types`
 
 ### Card
 
-Create an instance: `const card = client.card`
+Create an instance: `const card = client.Card()`
 
 #### Operations
 
@@ -484,19 +491,19 @@ Create an instance: `const card = client.card`
 #### Example: Load
 
 ```ts
-const card = await client.card.load({ id: 'card_id' })
+const card = await client.Card().load({ id: 'card_id' })
 ```
 
 #### Example: List
 
 ```ts
-const cards = await client.card.list()
+const cards = await client.Card().list()
 ```
 
 
 ### Format
 
-Create an instance: `const format = client.format`
+Create an instance: `const format = client.Format()`
 
 #### Operations
 
@@ -513,13 +520,13 @@ Create an instance: `const format = client.format`
 #### Example: List
 
 ```ts
-const formats = await client.format.list()
+const formats = await client.Format().list()
 ```
 
 
 ### Set
 
-Create an instance: `const set = client.set`
+Create an instance: `const set = client.Set()`
 
 #### Operations
 
@@ -549,19 +556,19 @@ Create an instance: `const set = client.set`
 #### Example: Load
 
 ```ts
-const set = await client.set.load({ id: 'set_id' })
+const set = await client.Set().load({ id: 'set_id' })
 ```
 
 #### Example: List
 
 ```ts
-const sets = await client.set.list()
+const sets = await client.Set().list()
 ```
 
 
 ### SetBooster
 
-Create an instance: `const set_booster = client.set_booster`
+Create an instance: `const set_booster = client.SetBooster()`
 
 #### Operations
 
@@ -615,13 +622,13 @@ Create an instance: `const set_booster = client.set_booster`
 #### Example: List
 
 ```ts
-const set_boosters = await client.set_booster.list()
+const set_boosters = await client.SetBooster().list()
 ```
 
 
 ### Subtype
 
-Create an instance: `const subtype = client.subtype`
+Create an instance: `const subtype = client.Subtype()`
 
 #### Operations
 
@@ -638,13 +645,13 @@ Create an instance: `const subtype = client.subtype`
 #### Example: List
 
 ```ts
-const subtypes = await client.subtype.list()
+const subtypes = await client.Subtype().list()
 ```
 
 
 ### Supertype
 
-Create an instance: `const supertype = client.supertype`
+Create an instance: `const supertype = client.Supertype()`
 
 #### Operations
 
@@ -661,13 +668,13 @@ Create an instance: `const supertype = client.supertype`
 #### Example: List
 
 ```ts
-const supertypes = await client.supertype.list()
+const supertypes = await client.Supertype().list()
 ```
 
 
 ### Type
 
-Create an instance: `const type = client.type`
+Create an instance: `const type = client.Type()`
 
 #### Operations
 
@@ -684,7 +691,7 @@ Create an instance: `const type = client.type`
 #### Example: List
 
 ```ts
-const types = await client.type.list()
+const types = await client.Type().list()
 ```
 
 
@@ -755,7 +762,7 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const card = client.card
+const card = client.Card()
 await card.load({ id: "example_id" })
 
 // card.data() now returns the loaded card data

@@ -30,53 +30,39 @@ go mod edit -replace github.com/voxgig-sdk/magic-the-gathering-two-sdk/go=../mag
 This tutorial walks through creating a client, listing entities, and
 loading a specific record.
 
-### 1. Create a client
+### Quickstart
+
+A complete program: create a client, then call the entity operations.
+Each operation returns `(value, error)` — the value is the data itself
+(there is no `{ok, data}` wrapper), so check `err` and use the value
+directly.
 
 ```go
 package main
 
 import (
     "fmt"
-
     sdk "github.com/voxgig-sdk/magic-the-gathering-two-sdk/go"
-    "github.com/voxgig-sdk/magic-the-gathering-two-sdk/go/core"
 )
 
 func main() {
     client := sdk.New()
-```
 
-### 2. List cards
-
-```go
-    result, err := client.Card(nil).List(nil, nil)
+    // List card records — the value is the array of records itself.
+    cards, err := client.Card(nil).List(nil, nil)
     if err != nil {
         panic(err)
     }
-
-    rm := core.ToMapAny(result)
-    if rm["ok"] == true {
-        for _, item := range rm["data"].([]any) {
-            p := core.ToMapAny(item)
-            fmt.Println(p["id"], p["name"])
-        }
+    for _, item := range cards.([]any) {
+        fmt.Println(item)
     }
-```
 
-### 3. Load a card
-
-```go
-    result, err = client.Card(nil).Load(
-        map[string]any{"id": "example_id"}, nil,
-    )
+    // Load a single card — the value is the loaded record.
+    card, err := client.Card(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }
-
-    rm = core.ToMapAny(result)
-    if rm["ok"] == true {
-        fmt.Println(rm["data"])
-    }
+    fmt.Println(card)
 }
 ```
 
@@ -127,10 +113,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-result, err := client.Card(nil).Load(
+card, err := client.Card(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
-// result contains mock response data
+if err != nil {
+    panic(err)
+}
+fmt.Println(card) // the loaded mock data
 ```
 
 ### Use a custom fetch function
@@ -233,17 +222,24 @@ All entities implement the `MagicTheGatheringTwoEntity` interface.
 
 ### Result shape
 
-Entity operations return `(any, error)`. The `any` value is a
-`map[string]any` with these keys:
+Entity operations return `(value, error)`. The `value` is the
+operation's data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `"ok"` | `bool` | `true` if the HTTP status is 2xx. |
-| `"status"` | `int` | HTTP status code. |
-| `"headers"` | `map[string]any` | Response headers. |
-| `"data"` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `Load` / `Create` / `Update` / `Remove` | the entity record (`map[string]any`) |
+| `List` | a `[]any` of entity records |
 
-On error, `"ok"` is `false` and `"err"` contains the error value.
+Check `err` first, then use the value directly (or the typed
+`...Typed` variants, which return the entity's model struct and a typed
+slice):
+
+    card, err := client.Card(nil).Load(map[string]any{"id": "example_id"}, nil)
+    if err != nil { /* handle */ }
+    // card is the loaded record
+
+Only `Direct()` returns a response envelope — a `map[string]any` with
+`"ok"`, `"status"`, `"headers"`, and `"data"` keys.
 
 ### Entities
 
@@ -467,13 +463,21 @@ Create an instance: `card := client.Card(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Card(nil).Load(map[string]any{"id": "card_id"}, nil)
+card, err := client.Card(nil).Load(map[string]any{"id": "card_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(card) // the loaded record
 ```
 
 #### Example: List
 
 ```go
-results, err := client.Card(nil).List(nil, nil)
+cards, err := client.Card(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(cards) // the array of records
 ```
 
 
@@ -496,7 +500,11 @@ Create an instance: `format := client.Format(nil)`
 #### Example: List
 
 ```go
-results, err := client.Format(nil).List(nil, nil)
+formats, err := client.Format(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(formats) // the array of records
 ```
 
 
@@ -532,13 +540,21 @@ Create an instance: `set := client.Set(nil)`
 #### Example: Load
 
 ```go
-result, err := client.Set(nil).Load(map[string]any{"id": "set_id"}, nil)
+set, err := client.Set(nil).Load(map[string]any{"id": "set_id"}, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(set) // the loaded record
 ```
 
 #### Example: List
 
 ```go
-results, err := client.Set(nil).List(nil, nil)
+sets, err := client.Set(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(sets) // the array of records
 ```
 
 
@@ -598,7 +614,11 @@ Create an instance: `set_booster := client.SetBooster(nil)`
 #### Example: List
 
 ```go
-results, err := client.SetBooster(nil).List(nil, nil)
+set_boosters, err := client.SetBooster(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(set_boosters) // the array of records
 ```
 
 
@@ -621,7 +641,11 @@ Create an instance: `subtype := client.Subtype(nil)`
 #### Example: List
 
 ```go
-results, err := client.Subtype(nil).List(nil, nil)
+subtypes, err := client.Subtype(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(subtypes) // the array of records
 ```
 
 
@@ -644,7 +668,11 @@ Create an instance: `supertype := client.Supertype(nil)`
 #### Example: List
 
 ```go
-results, err := client.Supertype(nil).List(nil, nil)
+supertypes, err := client.Supertype(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(supertypes) // the array of records
 ```
 
 
@@ -667,7 +695,11 @@ Create an instance: `type := client.Type(nil)`
 #### Example: List
 
 ```go
-results, err := client.Type(nil).List(nil, nil)
+types, err := client.Type(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(types) // the array of records
 ```
 
 

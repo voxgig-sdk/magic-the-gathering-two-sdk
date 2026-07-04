@@ -29,18 +29,16 @@ require_once 'magicthegatheringtwo_sdk.php';
 $client = new MagicTheGatheringTwoSDK();
 ```
 
-### 2. List cards
+### 2. List card records
 
 ```php
 try {
-    $result = $client->card()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of Card records — iterate directly.
+    $cards = $client->Card()->list();
+    foreach ($cards as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -49,9 +47,10 @@ try {
 
 ```php
 try {
-    $result = $client->card()->load(["id" => "example_id"]);
-    print_r($result);
-} catch (\Exception $err) {
+    // load() returns the bare Card record (throws on error).
+    $card = $client->Card()->load(["id" => "example_id"]);
+    print_r($card);
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -97,13 +96,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = MagicTheGatheringTwoSDK::test();
+$client = MagicTheGatheringTwoSDK::test([
+    "entity" => ["card" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->card()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$card = $client->Card()->load(["id" => "test01"]);
+print_r($card);
 ```
 
 ### Use a custom fetch function
@@ -392,7 +395,7 @@ API path: `/types`
 
 ### Card
 
-Create an instance: `const card = client.card`
+Create an instance: `$card = $client->Card();`
 
 #### Operations
 
@@ -447,20 +450,22 @@ Create an instance: `const card = client.card`
 
 #### Example: Load
 
-```ts
-const card = await client.card.load({ id: 'card_id' })
+```php
+// load() returns the bare Card record (throws on error).
+$card = $client->Card()->load(["id" => "card_id"]);
 ```
 
 #### Example: List
 
-```ts
-const cards = await client.card.list()
+```php
+// list() returns an array of Card records (throws on error).
+$cards = $client->Card()->list();
 ```
 
 
 ### Format
 
-Create an instance: `const format = client.format`
+Create an instance: `$format = $client->Format();`
 
 #### Operations
 
@@ -476,14 +481,15 @@ Create an instance: `const format = client.format`
 
 #### Example: List
 
-```ts
-const formats = await client.format.list()
+```php
+// list() returns an array of Format records (throws on error).
+$formats = $client->Format()->list();
 ```
 
 
 ### Set
 
-Create an instance: `const set = client.set`
+Create an instance: `$set = $client->Set();`
 
 #### Operations
 
@@ -512,20 +518,22 @@ Create an instance: `const set = client.set`
 
 #### Example: Load
 
-```ts
-const set = await client.set.load({ id: 'set_id' })
+```php
+// load() returns the bare Set record (throws on error).
+$set = $client->Set()->load(["id" => "set_id"]);
 ```
 
 #### Example: List
 
-```ts
-const sets = await client.set.list()
+```php
+// list() returns an array of Set records (throws on error).
+$sets = $client->Set()->list();
 ```
 
 
 ### SetBooster
 
-Create an instance: `const set_booster = client.set_booster`
+Create an instance: `$set_booster = $client->SetBooster();`
 
 #### Operations
 
@@ -578,14 +586,15 @@ Create an instance: `const set_booster = client.set_booster`
 
 #### Example: List
 
-```ts
-const set_boosters = await client.set_booster.list()
+```php
+// list() returns an array of SetBooster records (throws on error).
+$set_boosters = $client->SetBooster()->list();
 ```
 
 
 ### Subtype
 
-Create an instance: `const subtype = client.subtype`
+Create an instance: `$subtype = $client->Subtype();`
 
 #### Operations
 
@@ -601,14 +610,15 @@ Create an instance: `const subtype = client.subtype`
 
 #### Example: List
 
-```ts
-const subtypes = await client.subtype.list()
+```php
+// list() returns an array of Subtype records (throws on error).
+$subtypes = $client->Subtype()->list();
 ```
 
 
 ### Supertype
 
-Create an instance: `const supertype = client.supertype`
+Create an instance: `$supertype = $client->Supertype();`
 
 #### Operations
 
@@ -624,14 +634,15 @@ Create an instance: `const supertype = client.supertype`
 
 #### Example: List
 
-```ts
-const supertypes = await client.supertype.list()
+```php
+// list() returns an array of Supertype records (throws on error).
+$supertypes = $client->Supertype()->list();
 ```
 
 
 ### Type
 
-Create an instance: `const type = client.type`
+Create an instance: `$type = $client->Type();`
 
 #### Operations
 
@@ -647,8 +658,9 @@ Create an instance: `const type = client.type`
 
 #### Example: List
 
-```ts
-const types = await client.type.list()
+```php
+// list() returns an array of Type records (throws on error).
+$types = $client->Type()->list();
 ```
 
 
@@ -723,7 +735,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$card = $client->card();
+$card = $client->Card();
 $card->load(["id" => "example_id"]);
 
 // $card->dataGet() now returns the loaded card data
