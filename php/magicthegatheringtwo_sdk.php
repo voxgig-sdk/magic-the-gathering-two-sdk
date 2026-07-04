@@ -103,7 +103,7 @@ class MagicTheGatheringTwoSDK
         return $this->_rootctx;
     }
 
-    public function prepare(array $fetchargs = []): array
+    public function prepare(array $fetchargs = []): mixed
     {
         $utility = $this->_utility;
         $fetchargs = $fetchargs ?? [];
@@ -149,19 +149,27 @@ class MagicTheGatheringTwoSDK
 
         [$_, $err] = ($utility->prepare_auth)($ctx);
         if ($err) {
-            return [null, $err];
+            return ($utility->make_error)($ctx, $err);
         }
 
-        return ($utility->make_fetch_def)($ctx);
+        [$fetchdef, $fd_err] = ($utility->make_fetch_def)($ctx);
+        if ($fd_err) {
+            return ($utility->make_error)($ctx, $fd_err);
+        }
+        return $fetchdef;
     }
 
-    public function direct(array $fetchargs = []): array
+    public function direct(array $fetchargs = []): mixed
     {
         $utility = $this->_utility;
 
-        [$fetchdef, $err] = $this->prepare($fetchargs);
-        if ($err) {
-            return [["ok" => false, "err" => $err], null];
+        // direct() is the raw-HTTP escape hatch: it never throws, it returns
+        // an {ok, err, ...} dict. prepare() now raises on error, so catch it
+        // and surface the failure through the dict instead.
+        try {
+            $fetchdef = $this->prepare($fetchargs);
+        } catch (\Throwable $err) {
+            return ["ok" => false, "err" => $err];
         }
 
         $fetchargs = $fetchargs ?? [];
@@ -176,14 +184,14 @@ class MagicTheGatheringTwoSDK
         [$fetched, $fetch_err] = ($utility->fetcher)($ctx, $url, $fetchdef);
 
         if ($fetch_err) {
-            return [["ok" => false, "err" => $fetch_err], null];
+            return ["ok" => false, "err" => $fetch_err];
         }
 
         if ($fetched === null) {
-            return [[
+            return [
                 "ok" => false,
                 "err" => $ctx->make_error("direct_no_response", "response: undefined"),
-            ], null];
+            ];
         }
 
         if (is_array($fetched)) {
@@ -208,66 +216,143 @@ class MagicTheGatheringTwoSDK
                 }
             }
 
-            return [[
+            return [
                 "ok" => $status >= 200 && $status < 300,
                 "status" => $status,
                 "headers" => Struct::getprop($fetched, "headers"),
                 "data" => $json_data,
-            ], null];
+            ];
         }
 
-        return [[
+        return [
             "ok" => false,
             "err" => $ctx->make_error("direct_invalid", "invalid response type"),
-        ], null];
+        ];
     }
 
 
-    public function Card($data = null)
+    private $_card = null;
+
+    // Idiomatic facade: $client->card()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias Card() (PHP method
+    // names are case-insensitive).
+    public function card($data = null)
     {
         require_once __DIR__ . '/entity/card_entity.php';
+        if ($data === null) {
+            if ($this->_card === null) {
+                $this->_card = new CardEntity($this, null);
+            }
+            return $this->_card;
+        }
         return new CardEntity($this, $data);
     }
 
 
-    public function Format($data = null)
+    private $_format = null;
+
+    // Idiomatic facade: $client->format()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias Format() (PHP method
+    // names are case-insensitive).
+    public function format($data = null)
     {
         require_once __DIR__ . '/entity/format_entity.php';
+        if ($data === null) {
+            if ($this->_format === null) {
+                $this->_format = new FormatEntity($this, null);
+            }
+            return $this->_format;
+        }
         return new FormatEntity($this, $data);
     }
 
 
-    public function Set($data = null)
+    private $_set = null;
+
+    // Idiomatic facade: $client->set()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias Set() (PHP method
+    // names are case-insensitive).
+    public function set($data = null)
     {
         require_once __DIR__ . '/entity/set_entity.php';
+        if ($data === null) {
+            if ($this->_set === null) {
+                $this->_set = new SetEntity($this, null);
+            }
+            return $this->_set;
+        }
         return new SetEntity($this, $data);
     }
 
 
-    public function SetBooster($data = null)
+    private $_set_booster = null;
+
+    // Idiomatic facade: $client->set_booster()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias SetBooster() (PHP method
+    // names are case-insensitive).
+    public function set_booster($data = null)
     {
         require_once __DIR__ . '/entity/set_booster_entity.php';
+        if ($data === null) {
+            if ($this->_set_booster === null) {
+                $this->_set_booster = new SetBoosterEntity($this, null);
+            }
+            return $this->_set_booster;
+        }
         return new SetBoosterEntity($this, $data);
     }
 
 
-    public function Subtype($data = null)
+    private $_subtype = null;
+
+    // Idiomatic facade: $client->subtype()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias Subtype() (PHP method
+    // names are case-insensitive).
+    public function subtype($data = null)
     {
         require_once __DIR__ . '/entity/subtype_entity.php';
+        if ($data === null) {
+            if ($this->_subtype === null) {
+                $this->_subtype = new SubtypeEntity($this, null);
+            }
+            return $this->_subtype;
+        }
         return new SubtypeEntity($this, $data);
     }
 
 
-    public function Supertype($data = null)
+    private $_supertype = null;
+
+    // Idiomatic facade: $client->supertype()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias Supertype() (PHP method
+    // names are case-insensitive).
+    public function supertype($data = null)
     {
         require_once __DIR__ . '/entity/supertype_entity.php';
+        if ($data === null) {
+            if ($this->_supertype === null) {
+                $this->_supertype = new SupertypeEntity($this, null);
+            }
+            return $this->_supertype;
+        }
         return new SupertypeEntity($this, $data);
     }
 
 
-    public function Type($data = null)
+    private $_type = null;
+
+    // Idiomatic facade: $client->type()->list() / ->load(["id" => ...]).
+    // Also serves the deprecated PascalCase alias Type() (PHP method
+    // names are case-insensitive).
+    public function type($data = null)
     {
         require_once __DIR__ . '/entity/type_entity.php';
+        if ($data === null) {
+            if ($this->_type === null) {
+                $this->_type = new TypeEntity($this, null);
+            }
+            return $this->_type;
+        }
         return new TypeEntity($this, $data);
     }
 

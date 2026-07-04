@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch FormatListMatch
+---@param ctrl? table
+---@return Format[]
+---@return string? err
 function FormatEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

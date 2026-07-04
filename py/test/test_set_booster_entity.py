@@ -50,8 +50,7 @@ class TestSetBoosterEntity:
         set_booster_ref01_ent = client.SetBooster(None)
         set_booster_ref01_match = {}
 
-        set_booster_ref01_list_result, err = set_booster_ref01_ent.list(set_booster_ref01_match, None)
-        assert err is None
+        set_booster_ref01_list_result = set_booster_ref01_ent.list(set_booster_ref01_match, None)
         assert isinstance(set_booster_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _set_booster_basic_setup(extra):
         "MAGICTHEGATHERINGTWO_TEST_SET_BOOSTER_ENTID": idmap,
         "MAGICTHEGATHERINGTWO_TEST_LIVE": "FALSE",
         "MAGICTHEGATHERINGTWO_TEST_EXPLAIN": "FALSE",
-        "MAGICTHEGATHERINGTWO_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _set_booster_basic_setup(extra):
     if env.get("MAGICTHEGATHERINGTWO_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("MAGICTHEGATHERINGTWO_APIKEY"),
             },
             extra or {},
         ])

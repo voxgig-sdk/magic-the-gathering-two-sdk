@@ -50,8 +50,7 @@ class SupertypeEntityTest extends TestCase
         $supertype_ref01_ent = $client->Supertype(null);
         $supertype_ref01_match = [];
 
-        [$supertype_ref01_list_result, $err] = $supertype_ref01_ent->list($supertype_ref01_match, null);
-        $this->assertNull($err);
+        $supertype_ref01_list_result = $supertype_ref01_ent->list($supertype_ref01_match, null);
         $this->assertIsArray($supertype_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function supertype_basic_setup($extra)
         "MAGICTHEGATHERINGTWO_TEST_SUPERTYPE_ENTID" => $idmap,
         "MAGICTHEGATHERINGTWO_TEST_LIVE" => "FALSE",
         "MAGICTHEGATHERINGTWO_TEST_EXPLAIN" => "FALSE",
-        "MAGICTHEGATHERINGTWO_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function supertype_basic_setup($extra)
     if ($env["MAGICTHEGATHERINGTWO_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["MAGICTHEGATHERINGTWO_APIKEY"],
             ],
             $extra ?? [],
         ]);

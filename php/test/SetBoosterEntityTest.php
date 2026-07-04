@@ -50,8 +50,7 @@ class SetBoosterEntityTest extends TestCase
         $set_booster_ref01_ent = $client->SetBooster(null);
         $set_booster_ref01_match = [];
 
-        [$set_booster_ref01_list_result, $err] = $set_booster_ref01_ent->list($set_booster_ref01_match, null);
-        $this->assertNull($err);
+        $set_booster_ref01_list_result = $set_booster_ref01_ent->list($set_booster_ref01_match, null);
         $this->assertIsArray($set_booster_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function set_booster_basic_setup($extra)
         "MAGICTHEGATHERINGTWO_TEST_SET_BOOSTER_ENTID" => $idmap,
         "MAGICTHEGATHERINGTWO_TEST_LIVE" => "FALSE",
         "MAGICTHEGATHERINGTWO_TEST_EXPLAIN" => "FALSE",
-        "MAGICTHEGATHERINGTWO_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function set_booster_basic_setup($extra)
     if ($env["MAGICTHEGATHERINGTWO_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["MAGICTHEGATHERINGTWO_APIKEY"],
             ],
             $extra ?? [],
         ]);

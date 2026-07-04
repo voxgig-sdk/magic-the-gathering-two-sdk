@@ -63,14 +63,12 @@ function supertype_direct_setup(mockres)
   local env = runner.env_override({
     ["MAGICTHEGATHERINGTWO_TEST_SUPERTYPE_ENTID"] = {},
     ["MAGICTHEGATHERINGTWO_TEST_LIVE"] = "FALSE",
-    ["MAGICTHEGATHERINGTWO_APIKEY"] = "NONE",
   })
 
   local live = env["MAGICTHEGATHERINGTWO_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
-      apikey = env["MAGICTHEGATHERINGTWO_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

@@ -50,8 +50,7 @@ class FormatEntityTest extends TestCase
         $format_ref01_ent = $client->Format(null);
         $format_ref01_match = [];
 
-        [$format_ref01_list_result, $err] = $format_ref01_ent->list($format_ref01_match, null);
-        $this->assertNull($err);
+        $format_ref01_list_result = $format_ref01_ent->list($format_ref01_match, null);
         $this->assertIsArray($format_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function format_basic_setup($extra)
         "MAGICTHEGATHERINGTWO_TEST_FORMAT_ENTID" => $idmap,
         "MAGICTHEGATHERINGTWO_TEST_LIVE" => "FALSE",
         "MAGICTHEGATHERINGTWO_TEST_EXPLAIN" => "FALSE",
-        "MAGICTHEGATHERINGTWO_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function format_basic_setup($extra)
     if ($env["MAGICTHEGATHERINGTWO_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["MAGICTHEGATHERINGTWO_APIKEY"],
             ],
             $extra ?? [],
         ]);

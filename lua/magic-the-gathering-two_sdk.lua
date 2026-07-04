@@ -244,42 +244,133 @@ end
 
 
 
+-- Idiomatic facade: client:card():list() / client:card():load({ id = ... })
+function MagicTheGatheringTwoSDK:card(data)
+  local EntityMod = require("entity.card_entity")
+  if data == nil then
+    if self._card == nil then
+      self._card = EntityMod.new(self, nil)
+    end
+    return self._card
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:card() instead.
 function MagicTheGatheringTwoSDK:Card(data)
   local EntityMod = require("entity.card_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:format():list() / client:format():load({ id = ... })
+function MagicTheGatheringTwoSDK:format(data)
+  local EntityMod = require("entity.format_entity")
+  if data == nil then
+    if self._format == nil then
+      self._format = EntityMod.new(self, nil)
+    end
+    return self._format
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:format() instead.
 function MagicTheGatheringTwoSDK:Format(data)
   local EntityMod = require("entity.format_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:set():list() / client:set():load({ id = ... })
+function MagicTheGatheringTwoSDK:set(data)
+  local EntityMod = require("entity.set_entity")
+  if data == nil then
+    if self._set == nil then
+      self._set = EntityMod.new(self, nil)
+    end
+    return self._set
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:set() instead.
 function MagicTheGatheringTwoSDK:Set(data)
   local EntityMod = require("entity.set_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:set_booster():list() / client:set_booster():load({ id = ... })
+function MagicTheGatheringTwoSDK:set_booster(data)
+  local EntityMod = require("entity.set_booster_entity")
+  if data == nil then
+    if self._set_booster == nil then
+      self._set_booster = EntityMod.new(self, nil)
+    end
+    return self._set_booster
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:set_booster() instead.
 function MagicTheGatheringTwoSDK:SetBooster(data)
   local EntityMod = require("entity.set_booster_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:subtype():list() / client:subtype():load({ id = ... })
+function MagicTheGatheringTwoSDK:subtype(data)
+  local EntityMod = require("entity.subtype_entity")
+  if data == nil then
+    if self._subtype == nil then
+      self._subtype = EntityMod.new(self, nil)
+    end
+    return self._subtype
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:subtype() instead.
 function MagicTheGatheringTwoSDK:Subtype(data)
   local EntityMod = require("entity.subtype_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:supertype():list() / client:supertype():load({ id = ... })
+function MagicTheGatheringTwoSDK:supertype(data)
+  local EntityMod = require("entity.supertype_entity")
+  if data == nil then
+    if self._supertype == nil then
+      self._supertype = EntityMod.new(self, nil)
+    end
+    return self._supertype
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:supertype() instead.
 function MagicTheGatheringTwoSDK:Supertype(data)
   local EntityMod = require("entity.supertype_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:type():list() / client:type():load({ id = ... })
+function MagicTheGatheringTwoSDK:type(data)
+  local EntityMod = require("entity.type_entity")
+  if data == nil then
+    if self._type == nil then
+      self._type = EntityMod.new(self, nil)
+    end
+    return self._type
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:type() instead.
 function MagicTheGatheringTwoSDK:Type(data)
   local EntityMod = require("entity.type_entity")
   return EntityMod.new(self, data)

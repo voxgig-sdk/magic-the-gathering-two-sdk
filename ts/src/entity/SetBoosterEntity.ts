@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  SetBooster,
+  SetBoosterListMatch,
+} from '../MagicTheGatheringTwoTypes'
 
 // TODO: needs Entity superclass
-class SetBoosterEntity extends MagicTheGatheringTwoEntityBase {
+class SetBoosterEntity extends MagicTheGatheringTwoEntityBase<SetBooster> {
 
   constructor(client: MagicTheGatheringTwoSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class SetBoosterEntity extends MagicTheGatheringTwoEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: SetBoosterListMatch, ctrl?: Control): Promise<SetBooster[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class SetBoosterEntity extends MagicTheGatheringTwoEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<SetBooster[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

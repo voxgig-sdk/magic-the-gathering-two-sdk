@@ -50,14 +50,12 @@ class TestSetEntity:
         set_ref01_ent = client.Set(None)
         set_ref01_match = {}
 
-        set_ref01_list_result, err = set_ref01_ent.list(set_ref01_match, None)
-        assert err is None
+        set_ref01_list_result = set_ref01_ent.list(set_ref01_match, None)
         assert isinstance(set_ref01_list_result, list)
 
         # LOAD
         set_ref01_match_dt0 = {}
-        set_ref01_data_dt0_loaded, err = set_ref01_ent.load(set_ref01_match_dt0, None)
-        assert err is None
+        set_ref01_data_dt0_loaded = set_ref01_ent.load(set_ref01_match_dt0, None)
         assert set_ref01_data_dt0_loaded is not None
 
 
@@ -98,7 +96,6 @@ def _set_basic_setup(extra):
         "MAGICTHEGATHERINGTWO_TEST_SET_ENTID": idmap,
         "MAGICTHEGATHERINGTWO_TEST_LIVE": "FALSE",
         "MAGICTHEGATHERINGTWO_TEST_EXPLAIN": "FALSE",
-        "MAGICTHEGATHERINGTWO_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -109,7 +106,6 @@ def _set_basic_setup(extra):
     if env.get("MAGICTHEGATHERINGTWO_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("MAGICTHEGATHERINGTWO_APIKEY"),
             },
             extra or {},
         ])

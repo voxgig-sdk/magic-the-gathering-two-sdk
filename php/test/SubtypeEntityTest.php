@@ -50,8 +50,7 @@ class SubtypeEntityTest extends TestCase
         $subtype_ref01_ent = $client->Subtype(null);
         $subtype_ref01_match = [];
 
-        [$subtype_ref01_list_result, $err] = $subtype_ref01_ent->list($subtype_ref01_match, null);
-        $this->assertNull($err);
+        $subtype_ref01_list_result = $subtype_ref01_ent->list($subtype_ref01_match, null);
         $this->assertIsArray($subtype_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function subtype_basic_setup($extra)
         "MAGICTHEGATHERINGTWO_TEST_SUBTYPE_ENTID" => $idmap,
         "MAGICTHEGATHERINGTWO_TEST_LIVE" => "FALSE",
         "MAGICTHEGATHERINGTWO_TEST_EXPLAIN" => "FALSE",
-        "MAGICTHEGATHERINGTWO_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function subtype_basic_setup($extra)
     if ($env["MAGICTHEGATHERINGTWO_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["MAGICTHEGATHERINGTWO_APIKEY"],
             ],
             $extra ?? [],
         ]);

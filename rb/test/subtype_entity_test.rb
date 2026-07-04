@@ -43,8 +43,7 @@ class SubtypeEntityTest < Minitest::Test
     subtype_ref01_ent = client.Subtype(nil)
     subtype_ref01_match = {}
 
-    subtype_ref01_list_result, err = subtype_ref01_ent.list(subtype_ref01_match, nil)
-    assert_nil err
+    subtype_ref01_list_result = subtype_ref01_ent.list(subtype_ref01_match, nil)
     assert subtype_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def subtype_basic_setup(extra)
     "MAGICTHEGATHERINGTWO_TEST_SUBTYPE_ENTID" => idmap,
     "MAGICTHEGATHERINGTWO_TEST_LIVE" => "FALSE",
     "MAGICTHEGATHERINGTWO_TEST_EXPLAIN" => "FALSE",
-    "MAGICTHEGATHERINGTWO_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def subtype_basic_setup(extra)
   if env["MAGICTHEGATHERINGTWO_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["MAGICTHEGATHERINGTWO_APIKEY"],
       },
       extra || {},
     ])

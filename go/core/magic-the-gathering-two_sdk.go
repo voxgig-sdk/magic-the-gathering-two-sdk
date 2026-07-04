@@ -245,36 +245,57 @@ func (sdk *MagicTheGatheringTwoSDK) Direct(fetchargs map[string]any) (map[string
 }
 
 
+// Card returns a Card entity bound to this client.
+// Idiomatic usage: client.Card(nil).List(nil, nil) or
+// client.Card(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MagicTheGatheringTwoSDK) Card(data map[string]any) MagicTheGatheringTwoEntity {
 	return NewCardEntityFunc(sdk, data)
 }
 
 
+// Format returns a Format entity bound to this client.
+// Idiomatic usage: client.Format(nil).List(nil, nil) or
+// client.Format(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MagicTheGatheringTwoSDK) Format(data map[string]any) MagicTheGatheringTwoEntity {
 	return NewFormatEntityFunc(sdk, data)
 }
 
 
+// Set returns a Set entity bound to this client.
+// Idiomatic usage: client.Set(nil).List(nil, nil) or
+// client.Set(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MagicTheGatheringTwoSDK) Set(data map[string]any) MagicTheGatheringTwoEntity {
 	return NewSetEntityFunc(sdk, data)
 }
 
 
+// SetBooster returns a SetBooster entity bound to this client.
+// Idiomatic usage: client.SetBooster(nil).List(nil, nil) or
+// client.SetBooster(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MagicTheGatheringTwoSDK) SetBooster(data map[string]any) MagicTheGatheringTwoEntity {
 	return NewSetBoosterEntityFunc(sdk, data)
 }
 
 
+// Subtype returns a Subtype entity bound to this client.
+// Idiomatic usage: client.Subtype(nil).List(nil, nil) or
+// client.Subtype(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MagicTheGatheringTwoSDK) Subtype(data map[string]any) MagicTheGatheringTwoEntity {
 	return NewSubtypeEntityFunc(sdk, data)
 }
 
 
+// Supertype returns a Supertype entity bound to this client.
+// Idiomatic usage: client.Supertype(nil).List(nil, nil) or
+// client.Supertype(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MagicTheGatheringTwoSDK) Supertype(data map[string]any) MagicTheGatheringTwoEntity {
 	return NewSupertypeEntityFunc(sdk, data)
 }
 
 
+// Type returns a Type entity bound to this client.
+// Idiomatic usage: client.Type(nil).List(nil, nil) or
+// client.Type(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *MagicTheGatheringTwoSDK) Type(data map[string]any) MagicTheGatheringTwoEntity {
 	return NewTypeEntityFunc(sdk, data)
 }

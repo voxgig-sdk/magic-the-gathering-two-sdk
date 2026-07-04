@@ -43,8 +43,7 @@ class SupertypeEntityTest < Minitest::Test
     supertype_ref01_ent = client.Supertype(nil)
     supertype_ref01_match = {}
 
-    supertype_ref01_list_result, err = supertype_ref01_ent.list(supertype_ref01_match, nil)
-    assert_nil err
+    supertype_ref01_list_result = supertype_ref01_ent.list(supertype_ref01_match, nil)
     assert supertype_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def supertype_basic_setup(extra)
     "MAGICTHEGATHERINGTWO_TEST_SUPERTYPE_ENTID" => idmap,
     "MAGICTHEGATHERINGTWO_TEST_LIVE" => "FALSE",
     "MAGICTHEGATHERINGTWO_TEST_EXPLAIN" => "FALSE",
-    "MAGICTHEGATHERINGTWO_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def supertype_basic_setup(extra)
   if env["MAGICTHEGATHERINGTWO_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["MAGICTHEGATHERINGTWO_APIKEY"],
       },
       extra || {},
     ])

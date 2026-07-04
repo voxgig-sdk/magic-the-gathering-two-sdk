@@ -50,8 +50,7 @@ class TestSupertypeEntity:
         supertype_ref01_ent = client.Supertype(None)
         supertype_ref01_match = {}
 
-        supertype_ref01_list_result, err = supertype_ref01_ent.list(supertype_ref01_match, None)
-        assert err is None
+        supertype_ref01_list_result = supertype_ref01_ent.list(supertype_ref01_match, None)
         assert isinstance(supertype_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _supertype_basic_setup(extra):
         "MAGICTHEGATHERINGTWO_TEST_SUPERTYPE_ENTID": idmap,
         "MAGICTHEGATHERINGTWO_TEST_LIVE": "FALSE",
         "MAGICTHEGATHERINGTWO_TEST_EXPLAIN": "FALSE",
-        "MAGICTHEGATHERINGTWO_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _supertype_basic_setup(extra):
     if env.get("MAGICTHEGATHERINGTWO_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("MAGICTHEGATHERINGTWO_APIKEY"),
             },
             extra or {},
         ])

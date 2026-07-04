@@ -50,8 +50,7 @@ class TestFormatEntity:
         format_ref01_ent = client.Format(None)
         format_ref01_match = {}
 
-        format_ref01_list_result, err = format_ref01_ent.list(format_ref01_match, None)
-        assert err is None
+        format_ref01_list_result = format_ref01_ent.list(format_ref01_match, None)
         assert isinstance(format_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _format_basic_setup(extra):
         "MAGICTHEGATHERINGTWO_TEST_FORMAT_ENTID": idmap,
         "MAGICTHEGATHERINGTWO_TEST_LIVE": "FALSE",
         "MAGICTHEGATHERINGTWO_TEST_EXPLAIN": "FALSE",
-        "MAGICTHEGATHERINGTWO_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _format_basic_setup(extra):
     if env.get("MAGICTHEGATHERINGTWO_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("MAGICTHEGATHERINGTWO_APIKEY"),
             },
             extra or {},
         ])

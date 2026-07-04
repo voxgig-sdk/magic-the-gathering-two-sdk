@@ -50,14 +50,12 @@ class SetEntityTest extends TestCase
         $set_ref01_ent = $client->Set(null);
         $set_ref01_match = [];
 
-        [$set_ref01_list_result, $err] = $set_ref01_ent->list($set_ref01_match, null);
-        $this->assertNull($err);
+        $set_ref01_list_result = $set_ref01_ent->list($set_ref01_match, null);
         $this->assertIsArray($set_ref01_list_result);
 
         // LOAD
         $set_ref01_match_dt0 = [];
-        [$set_ref01_data_dt0_loaded, $err] = $set_ref01_ent->load($set_ref01_match_dt0, null);
-        $this->assertNull($err);
+        $set_ref01_data_dt0_loaded = $set_ref01_ent->load($set_ref01_match_dt0, null);
         $this->assertNotNull($set_ref01_data_dt0_loaded);
 
     }
@@ -92,7 +90,6 @@ function set_basic_setup($extra)
         "MAGICTHEGATHERINGTWO_TEST_SET_ENTID" => $idmap,
         "MAGICTHEGATHERINGTWO_TEST_LIVE" => "FALSE",
         "MAGICTHEGATHERINGTWO_TEST_EXPLAIN" => "FALSE",
-        "MAGICTHEGATHERINGTWO_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -104,7 +101,6 @@ function set_basic_setup($extra)
     if ($env["MAGICTHEGATHERINGTWO_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["MAGICTHEGATHERINGTWO_APIKEY"],
             ],
             $extra ?? [],
         ]);

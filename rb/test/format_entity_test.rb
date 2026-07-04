@@ -43,8 +43,7 @@ class FormatEntityTest < Minitest::Test
     format_ref01_ent = client.Format(nil)
     format_ref01_match = {}
 
-    format_ref01_list_result, err = format_ref01_ent.list(format_ref01_match, nil)
-    assert_nil err
+    format_ref01_list_result = format_ref01_ent.list(format_ref01_match, nil)
     assert format_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def format_basic_setup(extra)
     "MAGICTHEGATHERINGTWO_TEST_FORMAT_ENTID" => idmap,
     "MAGICTHEGATHERINGTWO_TEST_LIVE" => "FALSE",
     "MAGICTHEGATHERINGTWO_TEST_EXPLAIN" => "FALSE",
-    "MAGICTHEGATHERINGTWO_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def format_basic_setup(extra)
   if env["MAGICTHEGATHERINGTWO_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["MAGICTHEGATHERINGTWO_APIKEY"],
       },
       extra || {},
     ])

@@ -9,12 +9,9 @@ The Lua SDK for the MagicTheGatheringTwo API — an entity-oriented client using
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-magic-the-gathering-two
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/magic-the-gathering-two-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -31,15 +28,13 @@ loading a specific record.
 ```lua
 local sdk = require("magic-the-gathering-two_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("MAGIC-THE-GATHERING-TWO_APIKEY"),
-})
+local client = sdk.new()
 ```
 
 ### 2. List cards
 
 ```lua
-local result, err = client:Card():list()
+local result, err = client:card():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -53,7 +48,7 @@ end
 ### 3. Load a card
 
 ```lua
-local result, err = client:Card():load({ id = "example_id" })
+local result, err = client:card():load({ id = "example_id" })
 if err then error(err) end
 print(result)
 ```
@@ -101,7 +96,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:MagicTheGatheringTwo():load({ id = "test01" })
+local result, err = client:card():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -134,8 +129,7 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-MAGIC-THE-GATHERING-TWO_TEST_LIVE=TRUE
-MAGIC-THE-GATHERING-TWO_APIKEY=<your-key>
+MAGIC_THE_GATHERING_TWO_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -158,7 +152,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -388,7 +381,7 @@ API path: `/types`
 
 ### Card
 
-Create an instance: `const card = client.Card()`
+Create an instance: `const card = client.card`
 
 #### Operations
 
@@ -444,19 +437,19 @@ Create an instance: `const card = client.Card()`
 #### Example: Load
 
 ```ts
-const card = await client.Card().load({ id: 'card_id' })
+const card = await client.card.load({ id: 'card_id' })
 ```
 
 #### Example: List
 
 ```ts
-const cards = await client.Card().list()
+const cards = await client.card.list()
 ```
 
 
 ### Format
 
-Create an instance: `const format = client.Format()`
+Create an instance: `const format = client.format`
 
 #### Operations
 
@@ -473,13 +466,13 @@ Create an instance: `const format = client.Format()`
 #### Example: List
 
 ```ts
-const formats = await client.Format().list()
+const formats = await client.format.list()
 ```
 
 
 ### Set
 
-Create an instance: `const set = client.Set()`
+Create an instance: `const set = client.set`
 
 #### Operations
 
@@ -509,19 +502,19 @@ Create an instance: `const set = client.Set()`
 #### Example: Load
 
 ```ts
-const set = await client.Set().load({ id: 'set_id' })
+const set = await client.set.load({ id: 'set_id' })
 ```
 
 #### Example: List
 
 ```ts
-const sets = await client.Set().list()
+const sets = await client.set.list()
 ```
 
 
 ### SetBooster
 
-Create an instance: `const set_booster = client.SetBooster()`
+Create an instance: `const set_booster = client.set_booster`
 
 #### Operations
 
@@ -575,13 +568,13 @@ Create an instance: `const set_booster = client.SetBooster()`
 #### Example: List
 
 ```ts
-const set_boosters = await client.SetBooster().list()
+const set_boosters = await client.set_booster.list()
 ```
 
 
 ### Subtype
 
-Create an instance: `const subtype = client.Subtype()`
+Create an instance: `const subtype = client.subtype`
 
 #### Operations
 
@@ -598,13 +591,13 @@ Create an instance: `const subtype = client.Subtype()`
 #### Example: List
 
 ```ts
-const subtypes = await client.Subtype().list()
+const subtypes = await client.subtype.list()
 ```
 
 
 ### Supertype
 
-Create an instance: `const supertype = client.Supertype()`
+Create an instance: `const supertype = client.supertype`
 
 #### Operations
 
@@ -621,13 +614,13 @@ Create an instance: `const supertype = client.Supertype()`
 #### Example: List
 
 ```ts
-const supertypes = await client.Supertype().list()
+const supertypes = await client.supertype.list()
 ```
 
 
 ### Type
 
-Create an instance: `const type = client.Type()`
+Create an instance: `const type = client.type`
 
 #### Operations
 
@@ -644,7 +637,7 @@ Create an instance: `const type = client.Type()`
 #### Example: List
 
 ```ts
-const types = await client.Type().list()
+const types = await client.type.list()
 ```
 
 
@@ -719,11 +712,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local card = client:card()
+card:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- card:data_get() now returns the loaded card data
+-- card:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

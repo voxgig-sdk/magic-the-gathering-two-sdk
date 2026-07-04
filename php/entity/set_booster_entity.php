@@ -55,6 +55,9 @@ class SetBoosterEntity
         return new SetBoosterEntity($this->_client, $opts);
     }
 
+    /**
+     * @param SetBooster|array $args SetBooster data (assoc-array) to store.
+     */
     public function data_set($args): void
     {
         if ($args) {
@@ -63,12 +66,18 @@ class SetBoosterEntity
         }
     }
 
+    /**
+     * @return SetBooster|array The current SetBooster data as an assoc-array.
+     */
     public function data_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetData");
         return Struct::clone($this->_data);
     }
 
+    /**
+     * @param array $args Match filter (any subset of SetBooster fields).
+     */
     public function match_set($args): void
     {
         if ($args) {
@@ -77,6 +86,9 @@ class SetBoosterEntity
         }
     }
 
+    /**
+     * @return array The current match filter (any subset of SetBooster fields).
+     */
     public function match_get()
     {
         ($this->_utility->feature_hook)($this->_entctx, "GetMatch");
@@ -86,7 +98,16 @@ class SetBoosterEntity
     
 
     
-    public function list($reqmatch, $ctrl = null): array
+    /**
+     * List SetBooster items matching the given filter.
+     *
+     * @param SetBoosterListMatch|array|null $reqmatch Match filter (any subset
+     *   of SetBooster fields) as an assoc-array; SetBoosterListMatch names the shape.
+     * @param mixed $ctrl Optional per-call control overrides.
+     * @return SetBooster[]|array A list of SetBooster items as assoc-arrays at
+     *   the SDK boundary; throws MagicTheGatheringTwoError on failure (item-5 convention).
+     */
+    public function list(?array $reqmatch = null, $ctrl = null): mixed
     {
         $utility = $this->_utility;
         $ctx = ($utility->make_context)([
@@ -114,7 +135,7 @@ class SetBoosterEntity
 
     
 
-    private function _run_op($ctx, callable $post_done): array
+    private function _run_op($ctx, callable $post_done): mixed
     {
         $utility = $this->_utility;
 

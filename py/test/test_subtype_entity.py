@@ -50,8 +50,7 @@ class TestSubtypeEntity:
         subtype_ref01_ent = client.Subtype(None)
         subtype_ref01_match = {}
 
-        subtype_ref01_list_result, err = subtype_ref01_ent.list(subtype_ref01_match, None)
-        assert err is None
+        subtype_ref01_list_result = subtype_ref01_ent.list(subtype_ref01_match, None)
         assert isinstance(subtype_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _subtype_basic_setup(extra):
         "MAGICTHEGATHERINGTWO_TEST_SUBTYPE_ENTID": idmap,
         "MAGICTHEGATHERINGTWO_TEST_LIVE": "FALSE",
         "MAGICTHEGATHERINGTWO_TEST_EXPLAIN": "FALSE",
-        "MAGICTHEGATHERINGTWO_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _subtype_basic_setup(extra):
     if env.get("MAGICTHEGATHERINGTWO_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("MAGICTHEGATHERINGTWO_APIKEY"),
             },
             extra or {},
         ])

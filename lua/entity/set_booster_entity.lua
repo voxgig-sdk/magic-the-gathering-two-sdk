@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch SetBoosterListMatch
+---@param ctrl? table
+---@return SetBooster[]
+---@return string? err
 function SetBoosterEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

@@ -98,7 +98,6 @@ function set_basic_setup(extra)
     ["MAGICTHEGATHERINGTWO_TEST_SET_ENTID"] = idmap,
     ["MAGICTHEGATHERINGTWO_TEST_LIVE"] = "FALSE",
     ["MAGICTHEGATHERINGTWO_TEST_EXPLAIN"] = "FALSE",
-    ["MAGICTHEGATHERINGTWO_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -110,7 +109,6 @@ function set_basic_setup(extra)
   if env["MAGICTHEGATHERINGTWO_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["MAGICTHEGATHERINGTWO_APIKEY"],
       },
       extra or {},
     })

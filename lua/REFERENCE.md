@@ -19,7 +19,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `table` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -108,7 +107,7 @@ same parameters as `direct()`.
 ## CardEntity
 
 ```lua
-local card = client:Card(nil)
+local card = client:card(nil)
 ```
 
 ### Fields
@@ -162,7 +161,7 @@ local card = client:Card(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Card():list()
+local results, err = client:card():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -170,7 +169,7 @@ local results, err = client:Card():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Card():load({ id = "card_id" })
+local result, err = client:card():load({ id = "card_id" })
 ```
 
 ### Common Methods
@@ -206,7 +205,7 @@ Return the entity name.
 ## FormatEntity
 
 ```lua
-local format = client:Format(nil)
+local format = client:format(nil)
 ```
 
 ### Fields
@@ -222,7 +221,7 @@ local format = client:Format(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Format():list()
+local results, err = client:format():list()
 ```
 
 ### Common Methods
@@ -258,7 +257,7 @@ Return the entity name.
 ## SetEntity
 
 ```lua
-local set = client:Set(nil)
+local set = client:set(nil)
 ```
 
 ### Fields
@@ -286,7 +285,7 @@ local set = client:Set(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Set():list()
+local results, err = client:set():list()
 ```
 
 #### `load(reqmatch, ctrl) -> any, err`
@@ -294,7 +293,7 @@ local results, err = client:Set():list()
 Load a single entity matching the given criteria.
 
 ```lua
-local result, err = client:Set():load({ id = "set_id" })
+local result, err = client:set():load({ id = "set_id" })
 ```
 
 ### Common Methods
@@ -330,7 +329,7 @@ Return the entity name.
 ## SetBoosterEntity
 
 ```lua
-local set_booster = client:SetBooster(nil)
+local set_booster = client:set_booster(nil)
 ```
 
 ### Fields
@@ -383,7 +382,7 @@ local set_booster = client:SetBooster(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:SetBooster():list()
+local results, err = client:set_booster():list()
 ```
 
 ### Common Methods
@@ -419,7 +418,7 @@ Return the entity name.
 ## SubtypeEntity
 
 ```lua
-local subtype = client:Subtype(nil)
+local subtype = client:subtype(nil)
 ```
 
 ### Fields
@@ -435,7 +434,7 @@ local subtype = client:Subtype(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Subtype():list()
+local results, err = client:subtype():list()
 ```
 
 ### Common Methods
@@ -471,7 +470,7 @@ Return the entity name.
 ## SupertypeEntity
 
 ```lua
-local supertype = client:Supertype(nil)
+local supertype = client:supertype(nil)
 ```
 
 ### Fields
@@ -487,7 +486,7 @@ local supertype = client:Supertype(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Supertype():list()
+local results, err = client:supertype():list()
 ```
 
 ### Common Methods
@@ -523,7 +522,7 @@ Return the entity name.
 ## TypeEntity
 
 ```lua
-local type = client:Type(nil)
+local type = client:type(nil)
 ```
 
 ### Fields
@@ -539,7 +538,7 @@ local type = client:Type(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Type():list()
+local results, err = client:type():list()
 ```
 
 ### Common Methods

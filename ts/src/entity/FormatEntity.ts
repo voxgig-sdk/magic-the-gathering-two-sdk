@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  Format,
+  FormatListMatch,
+} from '../MagicTheGatheringTwoTypes'
 
 // TODO: needs Entity superclass
-class FormatEntity extends MagicTheGatheringTwoEntityBase {
+class FormatEntity extends MagicTheGatheringTwoEntityBase<Format> {
 
   constructor(client: MagicTheGatheringTwoSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class FormatEntity extends MagicTheGatheringTwoEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: FormatListMatch, ctrl?: Control): Promise<Format[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class FormatEntity extends MagicTheGatheringTwoEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<Format[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

@@ -118,14 +118,12 @@ func set_boosterDirectSetup(mockres any) *set_boosterDirectSetupResult {
 	env := envOverride(map[string]any{
 		"MAGICTHEGATHERINGTWO_TEST_SET_BOOSTER_ENTID": map[string]any{},
 		"MAGICTHEGATHERINGTWO_TEST_LIVE":    "FALSE",
-		"MAGICTHEGATHERINGTWO_APIKEY":       "NONE",
 	})
 
 	live := env["MAGICTHEGATHERINGTWO_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
-			"apikey": env["MAGICTHEGATHERINGTWO_APIKEY"],
 		}
 		client := sdk.NewMagicTheGatheringTwoSDK(mergedOpts)
 

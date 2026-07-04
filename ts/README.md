@@ -9,9 +9,12 @@ The TypeScript SDK for the MagicTheGatheringTwo API — a type-safe, entity-orie
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/magic-the-gathering-two
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/magic-the-gathering-two-sdk/releases](https://github.com/voxgig-sdk/magic-the-gathering-two-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { MagicTheGatheringTwoSDK } from 'magic-the-gathering-two'
+import { MagicTheGatheringTwoSDK } from '@voxgig-sdk/magic-the-gathering-two'
 
-const client = new MagicTheGatheringTwoSDK({
-  apikey: process.env.MAGIC-THE-GATHERING-TWO_APIKEY,
-})
+const client = new MagicTheGatheringTwoSDK()
 ```
 
 ### 2. List cards
 
 ```ts
-const result = await client.Card().list()
+const result = await client.card.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -42,7 +43,7 @@ if (result.ok) {
 ### 3. Load a card
 
 ```ts
-const result = await client.Card().load({ id: 'example_id' })
+const result = await client.card.load({ id: 'example_id' })
 
 if (result.ok) {
   console.log(result.data)
@@ -91,7 +92,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = MagicTheGatheringTwoSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.card.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -99,7 +100,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new MagicTheGatheringTwoSDK({ apikey: '...' })
+const client = new MagicTheGatheringTwoSDK()
 const testClient = client.tester()
 ```
 
@@ -108,7 +109,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.card
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -135,7 +136,6 @@ const logger = {
 }
 
 const client = new MagicTheGatheringTwoSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -145,8 +145,7 @@ const client = new MagicTheGatheringTwoSDK({
 Create a `.env.local` file at the project root:
 
 ```
-MAGIC-THE-GATHERING-TWO_TEST_LIVE=TRUE
-MAGIC-THE-GATHERING-TWO_APIKEY=<your-key>
+MAGIC_THE_GATHERING_TWO_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -164,7 +163,6 @@ cd ts && npm test
 
 ```ts
 new MagicTheGatheringTwoSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -175,7 +173,6 @@ new MagicTheGatheringTwoSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -431,7 +428,7 @@ API path: `/types`
 
 ### Card
 
-Create an instance: `const card = client.Card()`
+Create an instance: `const card = client.card`
 
 #### Operations
 
@@ -487,19 +484,19 @@ Create an instance: `const card = client.Card()`
 #### Example: Load
 
 ```ts
-const card = await client.Card().load({ id: 'card_id' })
+const card = await client.card.load({ id: 'card_id' })
 ```
 
 #### Example: List
 
 ```ts
-const cards = await client.Card().list()
+const cards = await client.card.list()
 ```
 
 
 ### Format
 
-Create an instance: `const format = client.Format()`
+Create an instance: `const format = client.format`
 
 #### Operations
 
@@ -516,13 +513,13 @@ Create an instance: `const format = client.Format()`
 #### Example: List
 
 ```ts
-const formats = await client.Format().list()
+const formats = await client.format.list()
 ```
 
 
 ### Set
 
-Create an instance: `const set = client.Set()`
+Create an instance: `const set = client.set`
 
 #### Operations
 
@@ -552,19 +549,19 @@ Create an instance: `const set = client.Set()`
 #### Example: Load
 
 ```ts
-const set = await client.Set().load({ id: 'set_id' })
+const set = await client.set.load({ id: 'set_id' })
 ```
 
 #### Example: List
 
 ```ts
-const sets = await client.Set().list()
+const sets = await client.set.list()
 ```
 
 
 ### SetBooster
 
-Create an instance: `const set_booster = client.SetBooster()`
+Create an instance: `const set_booster = client.set_booster`
 
 #### Operations
 
@@ -618,13 +615,13 @@ Create an instance: `const set_booster = client.SetBooster()`
 #### Example: List
 
 ```ts
-const set_boosters = await client.SetBooster().list()
+const set_boosters = await client.set_booster.list()
 ```
 
 
 ### Subtype
 
-Create an instance: `const subtype = client.Subtype()`
+Create an instance: `const subtype = client.subtype`
 
 #### Operations
 
@@ -641,13 +638,13 @@ Create an instance: `const subtype = client.Subtype()`
 #### Example: List
 
 ```ts
-const subtypes = await client.Subtype().list()
+const subtypes = await client.subtype.list()
 ```
 
 
 ### Supertype
 
-Create an instance: `const supertype = client.Supertype()`
+Create an instance: `const supertype = client.supertype`
 
 #### Operations
 
@@ -664,13 +661,13 @@ Create an instance: `const supertype = client.Supertype()`
 #### Example: List
 
 ```ts
-const supertypes = await client.Supertype().list()
+const supertypes = await client.supertype.list()
 ```
 
 
 ### Type
 
-Create an instance: `const type = client.Type()`
+Create an instance: `const type = client.type`
 
 #### Operations
 
@@ -687,7 +684,7 @@ Create an instance: `const type = client.Type()`
 #### Example: List
 
 ```ts
-const types = await client.Type().list()
+const types = await client.type.list()
 ```
 
 
@@ -748,7 +745,7 @@ magic-the-gathering-two/
 Import the SDK from the package root:
 
 ```ts
-import { MagicTheGatheringTwoSDK } from 'magic-the-gathering-two'
+import { MagicTheGatheringTwoSDK } from '@voxgig-sdk/magic-the-gathering-two'
 ```
 
 ### Entity state
@@ -758,11 +755,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const card = client.card
+await card.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// card.data() now returns the loaded card data
+// card.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration
