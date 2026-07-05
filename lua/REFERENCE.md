@@ -114,45 +114,45 @@ local card = client:Card(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `artist` | ``$STRING`` | No |  |
-| `border` | ``$STRING`` | No |  |
-| `card` | ``$OBJECT`` | No |  |
-| `cmc` | ``$NUMBER`` | No |  |
-| `color` | ``$ARRAY`` | No |  |
-| `color_identity` | ``$ARRAY`` | No |  |
-| `flavor` | ``$STRING`` | No |  |
-| `foreign_name` | ``$ARRAY`` | No |  |
-| `hand` | ``$INTEGER`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `image_url` | ``$STRING`` | No |  |
-| `layout` | ``$STRING`` | No |  |
-| `legality` | ``$ARRAY`` | No |  |
-| `life` | ``$INTEGER`` | No |  |
-| `loyalty` | ``$STRING`` | No |  |
-| `mana_cost` | ``$STRING`` | No |  |
-| `multiverseid` | ``$INTEGER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `number` | ``$STRING`` | No |  |
-| `original_text` | ``$STRING`` | No |  |
-| `original_type` | ``$STRING`` | No |  |
-| `power` | ``$STRING`` | No |  |
-| `printing` | ``$ARRAY`` | No |  |
-| `rarity` | ``$STRING`` | No |  |
-| `release_date` | ``$STRING`` | No |  |
-| `reserved` | ``$BOOLEAN`` | No |  |
-| `ruling` | ``$ARRAY`` | No |  |
-| `set` | ``$STRING`` | No |  |
-| `set_name` | ``$STRING`` | No |  |
-| `source` | ``$STRING`` | No |  |
-| `starter` | ``$BOOLEAN`` | No |  |
-| `subtype` | ``$ARRAY`` | No |  |
-| `supertype` | ``$ARRAY`` | No |  |
-| `text` | ``$STRING`` | No |  |
-| `timeshifted` | ``$BOOLEAN`` | No |  |
-| `toughness` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
-| `variation` | ``$ARRAY`` | No |  |
-| `watermark` | ``$STRING`` | No |  |
+| `artist` | `string` | No |  |
+| `border` | `string` | No |  |
+| `card` | `table` | No |  |
+| `cmc` | `number` | No |  |
+| `color` | `table` | No |  |
+| `color_identity` | `table` | No |  |
+| `flavor` | `string` | No |  |
+| `foreign_name` | `table` | No |  |
+| `hand` | `number` | No |  |
+| `id` | `string` | No |  |
+| `image_url` | `string` | No |  |
+| `layout` | `string` | No |  |
+| `legality` | `table` | No |  |
+| `life` | `number` | No |  |
+| `loyalty` | `string` | No |  |
+| `mana_cost` | `string` | No |  |
+| `multiverseid` | `number` | No |  |
+| `name` | `string` | No |  |
+| `number` | `string` | No |  |
+| `original_text` | `string` | No |  |
+| `original_type` | `string` | No |  |
+| `power` | `string` | No |  |
+| `printing` | `table` | No |  |
+| `rarity` | `string` | No |  |
+| `release_date` | `string` | No |  |
+| `reserved` | `boolean` | No |  |
+| `ruling` | `table` | No |  |
+| `set` | `string` | No |  |
+| `set_name` | `string` | No |  |
+| `source` | `string` | No |  |
+| `starter` | `boolean` | No |  |
+| `subtype` | `table` | No |  |
+| `supertype` | `table` | No |  |
+| `text` | `string` | No |  |
+| `timeshifted` | `boolean` | No |  |
+| `toughness` | `string` | No |  |
+| `type` | `string` | No |  |
+| `variation` | `table` | No |  |
+| `watermark` | `string` | No |  |
 
 ### Operations
 
@@ -212,7 +212,7 @@ local format = client:Format(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `format` | ``$ARRAY`` | No |  |
+| `format` | `table` | No |  |
 
 ### Operations
 
@@ -264,19 +264,19 @@ local set = client:Set(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `block` | ``$STRING`` | No |  |
-| `booster` | ``$ARRAY`` | No |  |
-| `border` | ``$STRING`` | No |  |
-| `code` | ``$STRING`` | No |  |
-| `gatherer_code` | ``$STRING`` | No |  |
-| `magic_cards_info_code` | ``$STRING`` | No |  |
-| `mkm_id` | ``$INTEGER`` | No |  |
-| `mkm_name` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `online_only` | ``$BOOLEAN`` | No |  |
-| `release_date` | ``$STRING`` | No |  |
-| `set` | ``$OBJECT`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `block` | `string` | No |  |
+| `booster` | `table` | No |  |
+| `border` | `string` | No |  |
+| `code` | `string` | No |  |
+| `gatherer_code` | `string` | No |  |
+| `magic_cards_info_code` | `string` | No |  |
+| `mkm_id` | `number` | No |  |
+| `mkm_name` | `string` | No |  |
+| `name` | `string` | No |  |
+| `online_only` | `boolean` | No |  |
+| `release_date` | `string` | No |  |
+| `set` | `table` | No |  |
+| `type` | `string` | No |  |
 
 ### Operations
 
@@ -336,44 +336,44 @@ local set_booster = client:SetBooster(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `artist` | ``$STRING`` | No |  |
-| `border` | ``$STRING`` | No |  |
-| `cmc` | ``$NUMBER`` | No |  |
-| `color` | ``$ARRAY`` | No |  |
-| `color_identity` | ``$ARRAY`` | No |  |
-| `flavor` | ``$STRING`` | No |  |
-| `foreign_name` | ``$ARRAY`` | No |  |
-| `hand` | ``$INTEGER`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `image_url` | ``$STRING`` | No |  |
-| `layout` | ``$STRING`` | No |  |
-| `legality` | ``$ARRAY`` | No |  |
-| `life` | ``$INTEGER`` | No |  |
-| `loyalty` | ``$STRING`` | No |  |
-| `mana_cost` | ``$STRING`` | No |  |
-| `multiverseid` | ``$INTEGER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `number` | ``$STRING`` | No |  |
-| `original_text` | ``$STRING`` | No |  |
-| `original_type` | ``$STRING`` | No |  |
-| `power` | ``$STRING`` | No |  |
-| `printing` | ``$ARRAY`` | No |  |
-| `rarity` | ``$STRING`` | No |  |
-| `release_date` | ``$STRING`` | No |  |
-| `reserved` | ``$BOOLEAN`` | No |  |
-| `ruling` | ``$ARRAY`` | No |  |
-| `set` | ``$STRING`` | No |  |
-| `set_name` | ``$STRING`` | No |  |
-| `source` | ``$STRING`` | No |  |
-| `starter` | ``$BOOLEAN`` | No |  |
-| `subtype` | ``$ARRAY`` | No |  |
-| `supertype` | ``$ARRAY`` | No |  |
-| `text` | ``$STRING`` | No |  |
-| `timeshifted` | ``$BOOLEAN`` | No |  |
-| `toughness` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
-| `variation` | ``$ARRAY`` | No |  |
-| `watermark` | ``$STRING`` | No |  |
+| `artist` | `string` | No |  |
+| `border` | `string` | No |  |
+| `cmc` | `number` | No |  |
+| `color` | `table` | No |  |
+| `color_identity` | `table` | No |  |
+| `flavor` | `string` | No |  |
+| `foreign_name` | `table` | No |  |
+| `hand` | `number` | No |  |
+| `id` | `string` | No |  |
+| `image_url` | `string` | No |  |
+| `layout` | `string` | No |  |
+| `legality` | `table` | No |  |
+| `life` | `number` | No |  |
+| `loyalty` | `string` | No |  |
+| `mana_cost` | `string` | No |  |
+| `multiverseid` | `number` | No |  |
+| `name` | `string` | No |  |
+| `number` | `string` | No |  |
+| `original_text` | `string` | No |  |
+| `original_type` | `string` | No |  |
+| `power` | `string` | No |  |
+| `printing` | `table` | No |  |
+| `rarity` | `string` | No |  |
+| `release_date` | `string` | No |  |
+| `reserved` | `boolean` | No |  |
+| `ruling` | `table` | No |  |
+| `set` | `string` | No |  |
+| `set_name` | `string` | No |  |
+| `source` | `string` | No |  |
+| `starter` | `boolean` | No |  |
+| `subtype` | `table` | No |  |
+| `supertype` | `table` | No |  |
+| `text` | `string` | No |  |
+| `timeshifted` | `boolean` | No |  |
+| `toughness` | `string` | No |  |
+| `type` | `string` | No |  |
+| `variation` | `table` | No |  |
+| `watermark` | `string` | No |  |
 
 ### Operations
 
@@ -425,7 +425,7 @@ local subtype = client:Subtype(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `subtype` | ``$ARRAY`` | No |  |
+| `subtype` | `table` | No |  |
 
 ### Operations
 
@@ -477,7 +477,7 @@ local supertype = client:Supertype(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `supertype` | ``$ARRAY`` | No |  |
+| `supertype` | `table` | No |  |
 
 ### Operations
 
@@ -529,7 +529,7 @@ local type = client:Type(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `type` | ``$ARRAY`` | No |  |
+| `type` | `table` | No |  |
 
 ### Operations
 

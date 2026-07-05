@@ -4,6 +4,11 @@
 
 The TypeScript SDK for the MagicTheGatheringTwo API — a type-safe, entity-oriented client with full async/await support.
 
+The API is exposed as capitalised, semantic **Entities** — e.g.
+`client.Card()` — each with a small set of operations (`list`, `load`)
+instead of raw URL paths and query parameters. This keeps the surface
+predictable and low-friction for both humans and AI agents.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -54,6 +59,35 @@ try {
 ```
 
 
+## Error handling
+
+Entity operations reject on failure, so wrap them in `try` / `catch`:
+
+```ts
+try {
+  const cards = await client.Card().list()
+  console.log(cards)
+} catch (err) {
+  console.error('list failed:', err)
+}
+```
+
+The low-level `direct()` method does **not** throw — it returns the
+value or an `Error`, so check the result before using it:
+
+```ts
+const result = await client.direct({
+  path: '/api/resource/{id}',
+  method: 'GET',
+  params: { id: 'example_id' },
+})
+
+if (result instanceof Error) {
+  throw result
+}
+```
+
+
 ## How-to guides
 
 ### Make a direct HTTP request
@@ -98,7 +132,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = MagicTheGatheringTwoSDK.test()
 
-const card = await client.Card().load({ id: 'test01' })
+const card = await client.Card().list()
 // card is a bare entity populated with mock response data
 console.log(card)
 ```
@@ -117,12 +151,12 @@ Entity instances remember their last match and data:
 ```ts
 const entity = client.Card()
 
-// First call sets internal match
-await entity.load({ id: 'example' })
+// First call runs the operation and stores its result
+await entity.list()
 
-// Subsequent calls reuse the stored match
+// Subsequent calls reuse the stored state
 const data = entity.data()
-console.log(data.id) // 'example'
+console.log(data.id)
 ```
 
 ### Add custom middleware
@@ -218,11 +252,8 @@ All entities share the same interface.
 | --- | --- | --- |
 | `load` | `load(reqmatch?, ctrl?): Promise<Entity>` | Load a single entity by match criteria. |
 | `list` | `list(reqmatch?, ctrl?): Promise<Entity[]>` | List entities matching the criteria. |
-| `create` | `create(reqdata?, ctrl?): Promise<Entity>` | Create a new entity. |
-| `update` | `update(reqdata?, ctrl?): Promise<Entity>` | Update an existing entity. |
-| `remove` | `remove(reqmatch?, ctrl?): Promise<void>` | Remove an entity. |
-| `data` | `data(data?): any` | Get or set entity data. |
-| `match` | `match(match?): any` | Get or set entity match criteria. |
+| `data` | `data(data?: Partial<Entity>): Entity` | Get or set entity data. |
+| `match` | `match(match?: Partial<Entity>): Partial<Entity>` | Get or set entity match criteria. |
 | `make` | `make(): Entity` | Create a new instance with the same options. |
 | `client` | `client(): MagicTheGatheringTwoSDK` | Return the parent SDK client. |
 | `entopts` | `entopts(): object` | Return a copy of the entity options. |
@@ -232,10 +263,9 @@ All entities share the same interface.
 Entity operations resolve to the entity data directly — there is no
 result envelope:
 
-- `load`, `create` and `update` resolve to a single entity object.
+- `load` resolves to a single entity object.
 - `list` resolves to an **array** of entity objects (iterate it directly;
   there is no `.data` and no `.ok`).
-- `remove` resolves to `void`.
 
 On a failed request these methods **throw**, so wrap calls in
 `try`/`catch` to handle errors. Only `direct()` returns the result
@@ -448,45 +478,45 @@ Create an instance: `const card = client.Card()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `artist` | ``$STRING`` |  |
-| `border` | ``$STRING`` |  |
-| `card` | ``$OBJECT`` |  |
-| `cmc` | ``$NUMBER`` |  |
-| `color` | ``$ARRAY`` |  |
-| `color_identity` | ``$ARRAY`` |  |
-| `flavor` | ``$STRING`` |  |
-| `foreign_name` | ``$ARRAY`` |  |
-| `hand` | ``$INTEGER`` |  |
-| `id` | ``$STRING`` |  |
-| `image_url` | ``$STRING`` |  |
-| `layout` | ``$STRING`` |  |
-| `legality` | ``$ARRAY`` |  |
-| `life` | ``$INTEGER`` |  |
-| `loyalty` | ``$STRING`` |  |
-| `mana_cost` | ``$STRING`` |  |
-| `multiverseid` | ``$INTEGER`` |  |
-| `name` | ``$STRING`` |  |
-| `number` | ``$STRING`` |  |
-| `original_text` | ``$STRING`` |  |
-| `original_type` | ``$STRING`` |  |
-| `power` | ``$STRING`` |  |
-| `printing` | ``$ARRAY`` |  |
-| `rarity` | ``$STRING`` |  |
-| `release_date` | ``$STRING`` |  |
-| `reserved` | ``$BOOLEAN`` |  |
-| `ruling` | ``$ARRAY`` |  |
-| `set` | ``$STRING`` |  |
-| `set_name` | ``$STRING`` |  |
-| `source` | ``$STRING`` |  |
-| `starter` | ``$BOOLEAN`` |  |
-| `subtype` | ``$ARRAY`` |  |
-| `supertype` | ``$ARRAY`` |  |
-| `text` | ``$STRING`` |  |
-| `timeshifted` | ``$BOOLEAN`` |  |
-| `toughness` | ``$STRING`` |  |
-| `type` | ``$STRING`` |  |
-| `variation` | ``$ARRAY`` |  |
-| `watermark` | ``$STRING`` |  |
+| `artist` | `string` |  |
+| `border` | `string` |  |
+| `card` | `Record<string, any>` |  |
+| `cmc` | `number` |  |
+| `color` | `any[]` |  |
+| `color_identity` | `any[]` |  |
+| `flavor` | `string` |  |
+| `foreign_name` | `any[]` |  |
+| `hand` | `number` |  |
+| `id` | `string` |  |
+| `image_url` | `string` |  |
+| `layout` | `string` |  |
+| `legality` | `any[]` |  |
+| `life` | `number` |  |
+| `loyalty` | `string` |  |
+| `mana_cost` | `string` |  |
+| `multiverseid` | `number` |  |
+| `name` | `string` |  |
+| `number` | `string` |  |
+| `original_text` | `string` |  |
+| `original_type` | `string` |  |
+| `power` | `string` |  |
+| `printing` | `any[]` |  |
+| `rarity` | `string` |  |
+| `release_date` | `string` |  |
+| `reserved` | `boolean` |  |
+| `ruling` | `any[]` |  |
+| `set` | `string` |  |
+| `set_name` | `string` |  |
+| `source` | `string` |  |
+| `starter` | `boolean` |  |
+| `subtype` | `any[]` |  |
+| `supertype` | `any[]` |  |
+| `text` | `string` |  |
+| `timeshifted` | `boolean` |  |
+| `toughness` | `string` |  |
+| `type` | `string` |  |
+| `variation` | `any[]` |  |
+| `watermark` | `string` |  |
 
 #### Example: Load
 
@@ -515,7 +545,7 @@ Create an instance: `const format = client.Format()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `format` | ``$ARRAY`` |  |
+| `format` | `any[]` |  |
 
 #### Example: List
 
@@ -539,19 +569,19 @@ Create an instance: `const set = client.Set()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `block` | ``$STRING`` |  |
-| `booster` | ``$ARRAY`` |  |
-| `border` | ``$STRING`` |  |
-| `code` | ``$STRING`` |  |
-| `gatherer_code` | ``$STRING`` |  |
-| `magic_cards_info_code` | ``$STRING`` |  |
-| `mkm_id` | ``$INTEGER`` |  |
-| `mkm_name` | ``$STRING`` |  |
-| `name` | ``$STRING`` |  |
-| `online_only` | ``$BOOLEAN`` |  |
-| `release_date` | ``$STRING`` |  |
-| `set` | ``$OBJECT`` |  |
-| `type` | ``$STRING`` |  |
+| `block` | `string` |  |
+| `booster` | `any[]` |  |
+| `border` | `string` |  |
+| `code` | `string` |  |
+| `gatherer_code` | `string` |  |
+| `magic_cards_info_code` | `string` |  |
+| `mkm_id` | `number` |  |
+| `mkm_name` | `string` |  |
+| `name` | `string` |  |
+| `online_only` | `boolean` |  |
+| `release_date` | `string` |  |
+| `set` | `Record<string, any>` |  |
+| `type` | `string` |  |
 
 #### Example: Load
 
@@ -580,44 +610,44 @@ Create an instance: `const set_booster = client.SetBooster()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `artist` | ``$STRING`` |  |
-| `border` | ``$STRING`` |  |
-| `cmc` | ``$NUMBER`` |  |
-| `color` | ``$ARRAY`` |  |
-| `color_identity` | ``$ARRAY`` |  |
-| `flavor` | ``$STRING`` |  |
-| `foreign_name` | ``$ARRAY`` |  |
-| `hand` | ``$INTEGER`` |  |
-| `id` | ``$STRING`` |  |
-| `image_url` | ``$STRING`` |  |
-| `layout` | ``$STRING`` |  |
-| `legality` | ``$ARRAY`` |  |
-| `life` | ``$INTEGER`` |  |
-| `loyalty` | ``$STRING`` |  |
-| `mana_cost` | ``$STRING`` |  |
-| `multiverseid` | ``$INTEGER`` |  |
-| `name` | ``$STRING`` |  |
-| `number` | ``$STRING`` |  |
-| `original_text` | ``$STRING`` |  |
-| `original_type` | ``$STRING`` |  |
-| `power` | ``$STRING`` |  |
-| `printing` | ``$ARRAY`` |  |
-| `rarity` | ``$STRING`` |  |
-| `release_date` | ``$STRING`` |  |
-| `reserved` | ``$BOOLEAN`` |  |
-| `ruling` | ``$ARRAY`` |  |
-| `set` | ``$STRING`` |  |
-| `set_name` | ``$STRING`` |  |
-| `source` | ``$STRING`` |  |
-| `starter` | ``$BOOLEAN`` |  |
-| `subtype` | ``$ARRAY`` |  |
-| `supertype` | ``$ARRAY`` |  |
-| `text` | ``$STRING`` |  |
-| `timeshifted` | ``$BOOLEAN`` |  |
-| `toughness` | ``$STRING`` |  |
-| `type` | ``$STRING`` |  |
-| `variation` | ``$ARRAY`` |  |
-| `watermark` | ``$STRING`` |  |
+| `artist` | `string` |  |
+| `border` | `string` |  |
+| `cmc` | `number` |  |
+| `color` | `any[]` |  |
+| `color_identity` | `any[]` |  |
+| `flavor` | `string` |  |
+| `foreign_name` | `any[]` |  |
+| `hand` | `number` |  |
+| `id` | `string` |  |
+| `image_url` | `string` |  |
+| `layout` | `string` |  |
+| `legality` | `any[]` |  |
+| `life` | `number` |  |
+| `loyalty` | `string` |  |
+| `mana_cost` | `string` |  |
+| `multiverseid` | `number` |  |
+| `name` | `string` |  |
+| `number` | `string` |  |
+| `original_text` | `string` |  |
+| `original_type` | `string` |  |
+| `power` | `string` |  |
+| `printing` | `any[]` |  |
+| `rarity` | `string` |  |
+| `release_date` | `string` |  |
+| `reserved` | `boolean` |  |
+| `ruling` | `any[]` |  |
+| `set` | `string` |  |
+| `set_name` | `string` |  |
+| `source` | `string` |  |
+| `starter` | `boolean` |  |
+| `subtype` | `any[]` |  |
+| `supertype` | `any[]` |  |
+| `text` | `string` |  |
+| `timeshifted` | `boolean` |  |
+| `toughness` | `string` |  |
+| `type` | `string` |  |
+| `variation` | `any[]` |  |
+| `watermark` | `string` |  |
 
 #### Example: List
 
@@ -640,7 +670,7 @@ Create an instance: `const subtype = client.Subtype()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `subtype` | ``$ARRAY`` |  |
+| `subtype` | `any[]` |  |
 
 #### Example: List
 
@@ -663,7 +693,7 @@ Create an instance: `const supertype = client.Supertype()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `supertype` | ``$ARRAY`` |  |
+| `supertype` | `any[]` |  |
 
 #### Example: List
 
@@ -686,7 +716,7 @@ Create an instance: `const type = client.Type()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `type` | ``$ARRAY`` |  |
+| `type` | `any[]` |  |
 
 #### Example: List
 
@@ -695,12 +725,16 @@ const types = await client.Type().list()
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -717,11 +751,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller.
-
-An unexpected exception triggers the `PreUnexpected` hook before
-propagating.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -757,16 +789,16 @@ import { MagicTheGatheringTwoSDK } from '@voxgig-sdk/magic-the-gathering-two'
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
 const card = client.Card()
-await card.load({ id: "example_id" })
+await card.list()
 
-// card.data() now returns the loaded card data
-// card.match() returns { id: "example_id" }
+// card.data() now returns the card data from the last `list`
+// card.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

@@ -4,6 +4,8 @@
 
 The Ruby SDK for the MagicTheGatheringTwo API — an entity-oriented client using idiomatic Ruby conventions.
 
+The SDK exposes the API as capitalised, semantic **Entities** — for example `client.Card` — with named operations (`list`/`load`) instead of raw URL paths and query strings. Working with resources and verbs keeps call sites self-describing and reduces cognitive load.
+
 > Other languages, the CLI, and MCP server live alongside this one — see
 > the [top-level README](../README.md).
 
@@ -35,7 +37,7 @@ begin
   # list returns an Array of Card records — iterate directly.
   cards = client.Card.list
   cards.each do |item|
-    puts "#{item["id"]} #{item["name"]}"
+    puts "#{item["id"]} #{item["artist"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -52,6 +54,33 @@ begin
 rescue => err
   warn "load failed: #{err}"
 end
+```
+
+
+## Error handling
+
+Entity operations raise on failure, so rescue them:
+
+```ruby
+begin
+  cards = client.Card.list()
+rescue => err
+  warn "list failed: #{err}"
+end
+```
+
+`direct` does **not** raise — it returns the result hash. Branch on
+`ok`; on failure `status` holds the HTTP status (for error responses) and
+`err` holds a transport error, so read both defensively:
+
+```ruby
+result = client.direct({
+  "path" => "/api/resource/{id}",
+  "method" => "GET",
+  "params" => { "id" => "example_id" },
+})
+
+warn "request failed: #{result["err"] || "HTTP #{result["status"]}"}" unless result["ok"]
 ```
 
 
@@ -72,7 +101,9 @@ if result["ok"]
   puts result["status"]  # 200
   puts result["data"]    # response body
 else
-  warn result["err"]
+  # On an HTTP error status there is no err (only a transport failure sets
+  # it), so fall back to the status code.
+  warn(result["err"] || "HTTP #{result["status"]}")
 end
 ```
 
@@ -103,8 +134,8 @@ client = MagicTheGatheringTwoSDK.test({
   "entity" => { "card" => { "test01" => { "id" => "test01" } } },
 })
 
-# load returns the bare mock record (raises on error).
-card = client.Card.load({ "id" => "test01" })
+# Entity ops return the bare mock record (raises on error).
+card = client.Card.list()
 puts card
 ```
 
@@ -196,10 +227,7 @@ All entities share the same interface.
 | Method | Signature | Description |
 | --- | --- | --- |
 | `load` | `(reqmatch, ctrl) -> any` | Load a single entity by match criteria. Raises on error. |
-| `list` | `(reqmatch, ctrl) -> Array` | List entities matching the criteria. Raises on error. |
-| `create` | `(reqdata, ctrl) -> any` | Create a new entity. Raises on error. |
-| `update` | `(reqdata, ctrl) -> any` | Update an existing entity. Raises on error. |
-| `remove` | `(reqmatch, ctrl) -> any` | Remove an entity. Raises on error. |
+| `list` | `(reqmatch = nil, ctrl) -> Array` | List entities matching the criteria (call with no argument to list all). Raises on error. |
 | `data_get` | `() -> Hash` | Get entity data. |
 | `data_set` | `(data)` | Set entity data. |
 | `match_get` | `() -> Hash` | Get entity match criteria. |
@@ -403,45 +431,45 @@ Create an instance: `card = client.Card`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `artist` | ``$STRING`` |  |
-| `border` | ``$STRING`` |  |
-| `card` | ``$OBJECT`` |  |
-| `cmc` | ``$NUMBER`` |  |
-| `color` | ``$ARRAY`` |  |
-| `color_identity` | ``$ARRAY`` |  |
-| `flavor` | ``$STRING`` |  |
-| `foreign_name` | ``$ARRAY`` |  |
-| `hand` | ``$INTEGER`` |  |
-| `id` | ``$STRING`` |  |
-| `image_url` | ``$STRING`` |  |
-| `layout` | ``$STRING`` |  |
-| `legality` | ``$ARRAY`` |  |
-| `life` | ``$INTEGER`` |  |
-| `loyalty` | ``$STRING`` |  |
-| `mana_cost` | ``$STRING`` |  |
-| `multiverseid` | ``$INTEGER`` |  |
-| `name` | ``$STRING`` |  |
-| `number` | ``$STRING`` |  |
-| `original_text` | ``$STRING`` |  |
-| `original_type` | ``$STRING`` |  |
-| `power` | ``$STRING`` |  |
-| `printing` | ``$ARRAY`` |  |
-| `rarity` | ``$STRING`` |  |
-| `release_date` | ``$STRING`` |  |
-| `reserved` | ``$BOOLEAN`` |  |
-| `ruling` | ``$ARRAY`` |  |
-| `set` | ``$STRING`` |  |
-| `set_name` | ``$STRING`` |  |
-| `source` | ``$STRING`` |  |
-| `starter` | ``$BOOLEAN`` |  |
-| `subtype` | ``$ARRAY`` |  |
-| `supertype` | ``$ARRAY`` |  |
-| `text` | ``$STRING`` |  |
-| `timeshifted` | ``$BOOLEAN`` |  |
-| `toughness` | ``$STRING`` |  |
-| `type` | ``$STRING`` |  |
-| `variation` | ``$ARRAY`` |  |
-| `watermark` | ``$STRING`` |  |
+| `artist` | `String` |  |
+| `border` | `String` |  |
+| `card` | `Hash` |  |
+| `cmc` | `Float` |  |
+| `color` | `Array` |  |
+| `color_identity` | `Array` |  |
+| `flavor` | `String` |  |
+| `foreign_name` | `Array` |  |
+| `hand` | `Integer` |  |
+| `id` | `String` |  |
+| `image_url` | `String` |  |
+| `layout` | `String` |  |
+| `legality` | `Array` |  |
+| `life` | `Integer` |  |
+| `loyalty` | `String` |  |
+| `mana_cost` | `String` |  |
+| `multiverseid` | `Integer` |  |
+| `name` | `String` |  |
+| `number` | `String` |  |
+| `original_text` | `String` |  |
+| `original_type` | `String` |  |
+| `power` | `String` |  |
+| `printing` | `Array` |  |
+| `rarity` | `String` |  |
+| `release_date` | `String` |  |
+| `reserved` | `Boolean` |  |
+| `ruling` | `Array` |  |
+| `set` | `String` |  |
+| `set_name` | `String` |  |
+| `source` | `String` |  |
+| `starter` | `Boolean` |  |
+| `subtype` | `Array` |  |
+| `supertype` | `Array` |  |
+| `text` | `String` |  |
+| `timeshifted` | `Boolean` |  |
+| `toughness` | `String` |  |
+| `type` | `String` |  |
+| `variation` | `Array` |  |
+| `watermark` | `String` |  |
 
 #### Example: Load
 
@@ -472,7 +500,7 @@ Create an instance: `format = client.Format`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `format` | ``$ARRAY`` |  |
+| `format` | `Array` |  |
 
 #### Example: List
 
@@ -497,19 +525,19 @@ Create an instance: `set = client.Set`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `block` | ``$STRING`` |  |
-| `booster` | ``$ARRAY`` |  |
-| `border` | ``$STRING`` |  |
-| `code` | ``$STRING`` |  |
-| `gatherer_code` | ``$STRING`` |  |
-| `magic_cards_info_code` | ``$STRING`` |  |
-| `mkm_id` | ``$INTEGER`` |  |
-| `mkm_name` | ``$STRING`` |  |
-| `name` | ``$STRING`` |  |
-| `online_only` | ``$BOOLEAN`` |  |
-| `release_date` | ``$STRING`` |  |
-| `set` | ``$OBJECT`` |  |
-| `type` | ``$STRING`` |  |
+| `block` | `String` |  |
+| `booster` | `Array` |  |
+| `border` | `String` |  |
+| `code` | `String` |  |
+| `gatherer_code` | `String` |  |
+| `magic_cards_info_code` | `String` |  |
+| `mkm_id` | `Integer` |  |
+| `mkm_name` | `String` |  |
+| `name` | `String` |  |
+| `online_only` | `Boolean` |  |
+| `release_date` | `String` |  |
+| `set` | `Hash` |  |
+| `type` | `String` |  |
 
 #### Example: Load
 
@@ -540,44 +568,44 @@ Create an instance: `set_booster = client.SetBooster`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `artist` | ``$STRING`` |  |
-| `border` | ``$STRING`` |  |
-| `cmc` | ``$NUMBER`` |  |
-| `color` | ``$ARRAY`` |  |
-| `color_identity` | ``$ARRAY`` |  |
-| `flavor` | ``$STRING`` |  |
-| `foreign_name` | ``$ARRAY`` |  |
-| `hand` | ``$INTEGER`` |  |
-| `id` | ``$STRING`` |  |
-| `image_url` | ``$STRING`` |  |
-| `layout` | ``$STRING`` |  |
-| `legality` | ``$ARRAY`` |  |
-| `life` | ``$INTEGER`` |  |
-| `loyalty` | ``$STRING`` |  |
-| `mana_cost` | ``$STRING`` |  |
-| `multiverseid` | ``$INTEGER`` |  |
-| `name` | ``$STRING`` |  |
-| `number` | ``$STRING`` |  |
-| `original_text` | ``$STRING`` |  |
-| `original_type` | ``$STRING`` |  |
-| `power` | ``$STRING`` |  |
-| `printing` | ``$ARRAY`` |  |
-| `rarity` | ``$STRING`` |  |
-| `release_date` | ``$STRING`` |  |
-| `reserved` | ``$BOOLEAN`` |  |
-| `ruling` | ``$ARRAY`` |  |
-| `set` | ``$STRING`` |  |
-| `set_name` | ``$STRING`` |  |
-| `source` | ``$STRING`` |  |
-| `starter` | ``$BOOLEAN`` |  |
-| `subtype` | ``$ARRAY`` |  |
-| `supertype` | ``$ARRAY`` |  |
-| `text` | ``$STRING`` |  |
-| `timeshifted` | ``$BOOLEAN`` |  |
-| `toughness` | ``$STRING`` |  |
-| `type` | ``$STRING`` |  |
-| `variation` | ``$ARRAY`` |  |
-| `watermark` | ``$STRING`` |  |
+| `artist` | `String` |  |
+| `border` | `String` |  |
+| `cmc` | `Float` |  |
+| `color` | `Array` |  |
+| `color_identity` | `Array` |  |
+| `flavor` | `String` |  |
+| `foreign_name` | `Array` |  |
+| `hand` | `Integer` |  |
+| `id` | `String` |  |
+| `image_url` | `String` |  |
+| `layout` | `String` |  |
+| `legality` | `Array` |  |
+| `life` | `Integer` |  |
+| `loyalty` | `String` |  |
+| `mana_cost` | `String` |  |
+| `multiverseid` | `Integer` |  |
+| `name` | `String` |  |
+| `number` | `String` |  |
+| `original_text` | `String` |  |
+| `original_type` | `String` |  |
+| `power` | `String` |  |
+| `printing` | `Array` |  |
+| `rarity` | `String` |  |
+| `release_date` | `String` |  |
+| `reserved` | `Boolean` |  |
+| `ruling` | `Array` |  |
+| `set` | `String` |  |
+| `set_name` | `String` |  |
+| `source` | `String` |  |
+| `starter` | `Boolean` |  |
+| `subtype` | `Array` |  |
+| `supertype` | `Array` |  |
+| `text` | `String` |  |
+| `timeshifted` | `Boolean` |  |
+| `toughness` | `String` |  |
+| `type` | `String` |  |
+| `variation` | `Array` |  |
+| `watermark` | `String` |  |
 
 #### Example: List
 
@@ -601,7 +629,7 @@ Create an instance: `subtype = client.Subtype`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `subtype` | ``$ARRAY`` |  |
+| `subtype` | `Array` |  |
 
 #### Example: List
 
@@ -625,7 +653,7 @@ Create an instance: `supertype = client.Supertype`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `supertype` | ``$ARRAY`` |  |
+| `supertype` | `Array` |  |
 
 #### Example: List
 
@@ -649,7 +677,7 @@ Create an instance: `type = client.Type`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `type` | ``$ARRAY`` |  |
+| `type` | `Array` |  |
 
 #### Example: List
 
@@ -659,12 +687,16 @@ types = client.Type.list
 ```
 
 
-## Explanation
+## Advanced
+
+> The sections above cover everyday use. The material below explains the
+> SDK's internals — useful when extending it with custom features, but not
+> needed for normal use.
 
 ### The operation pipeline
 
-Every entity operation (load, list, create, update, remove) follows a
-six-stage pipeline. Each stage fires a feature hook before executing:
+Every entity operation follows a six-stage pipeline. Each stage fires a
+feature hook before executing:
 
 ```
 PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
@@ -681,8 +713,9 @@ PrePoint → PreSpec → PreRequest → PreResponse → PreResult → PreDone
 - **PreDone**: Final stage before returning to the caller. Entity
   state (match, data) is updated here.
 
-If any stage returns an error, the pipeline short-circuits and the
-error is returned to the caller as a second return value.
+If any stage errors, the pipeline short-circuits and the error surfaces
+to the caller — see [Error handling](#error-handling) for how that looks
+in this language.
 
 ### Features and hooks
 
@@ -726,14 +759,14 @@ when needed.
 
 ### Entity state
 
-Entity instances are stateful. After a successful `load`, the entity
+Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
 card = client.Card
-card.load({ "id" => "example_id" })
+card.list()
 
-# card.data_get now returns the loaded card data
+# card.data_get now returns the card data from the last list
 # card.match_get returns the last match criteria
 ```
 

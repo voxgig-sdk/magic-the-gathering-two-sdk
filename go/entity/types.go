@@ -56,8 +56,7 @@ type CardLoadMatch struct {
 	Id string `json:"id"`
 }
 
-// CardListMatch mirrors the card fields as an all-optional match
-// filter (Go analog of Partial<Card>).
+// CardListMatch is the typed request payload for Card.ListTyped.
 type CardListMatch struct {
 	Artist *string `json:"artist,omitempty"`
 	Border *string `json:"border,omitempty"`
@@ -105,8 +104,7 @@ type Format struct {
 	Format *[]any `json:"format,omitempty"`
 }
 
-// FormatListMatch mirrors the format fields as an all-optional match
-// filter (Go analog of Partial<Format>).
+// FormatListMatch is the typed request payload for Format.ListTyped.
 type FormatListMatch struct {
 	Format *[]any `json:"format,omitempty"`
 }
@@ -133,8 +131,7 @@ type SetLoadMatch struct {
 	Id string `json:"id"`
 }
 
-// SetListMatch mirrors the set fields as an all-optional match
-// filter (Go analog of Partial<Set>).
+// SetListMatch is the typed request payload for Set.ListTyped.
 type SetListMatch struct {
 	Block *string `json:"block,omitempty"`
 	Booster *[]any `json:"booster,omitempty"`
@@ -203,8 +200,7 @@ type Subtype struct {
 	Subtype *[]any `json:"subtype,omitempty"`
 }
 
-// SubtypeListMatch mirrors the subtype fields as an all-optional match
-// filter (Go analog of Partial<Subtype>).
+// SubtypeListMatch is the typed request payload for Subtype.ListTyped.
 type SubtypeListMatch struct {
 	Subtype *[]any `json:"subtype,omitempty"`
 }
@@ -214,8 +210,7 @@ type Supertype struct {
 	Supertype *[]any `json:"supertype,omitempty"`
 }
 
-// SupertypeListMatch mirrors the supertype fields as an all-optional match
-// filter (Go analog of Partial<Supertype>).
+// SupertypeListMatch is the typed request payload for Supertype.ListTyped.
 type SupertypeListMatch struct {
 	Supertype *[]any `json:"supertype,omitempty"`
 }
@@ -225,8 +220,7 @@ type Type struct {
 	Type *[]any `json:"type,omitempty"`
 }
 
-// TypeListMatch mirrors the type fields as an all-optional match
-// filter (Go analog of Partial<Type>).
+// TypeListMatch is the typed request payload for Type.ListTyped.
 type TypeListMatch struct {
 	Type *[]any `json:"type,omitempty"`
 }

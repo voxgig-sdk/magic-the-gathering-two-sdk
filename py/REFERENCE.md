@@ -8,7 +8,7 @@ Complete API reference for the MagicTheGatheringTwo Python SDK.
 ### Constructor
 
 ```python
-from magic-the-gathering-two_sdk import MagicTheGatheringTwoSDK
+from magicthegatheringtwo_sdk import MagicTheGatheringTwoSDK
 
 client = MagicTheGatheringTwoSDK(options)
 ```
@@ -111,54 +111,54 @@ card = client.Card()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `artist` | ``$STRING`` | No |  |
-| `border` | ``$STRING`` | No |  |
-| `card` | ``$OBJECT`` | No |  |
-| `cmc` | ``$NUMBER`` | No |  |
-| `color` | ``$ARRAY`` | No |  |
-| `color_identity` | ``$ARRAY`` | No |  |
-| `flavor` | ``$STRING`` | No |  |
-| `foreign_name` | ``$ARRAY`` | No |  |
-| `hand` | ``$INTEGER`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `image_url` | ``$STRING`` | No |  |
-| `layout` | ``$STRING`` | No |  |
-| `legality` | ``$ARRAY`` | No |  |
-| `life` | ``$INTEGER`` | No |  |
-| `loyalty` | ``$STRING`` | No |  |
-| `mana_cost` | ``$STRING`` | No |  |
-| `multiverseid` | ``$INTEGER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `number` | ``$STRING`` | No |  |
-| `original_text` | ``$STRING`` | No |  |
-| `original_type` | ``$STRING`` | No |  |
-| `power` | ``$STRING`` | No |  |
-| `printing` | ``$ARRAY`` | No |  |
-| `rarity` | ``$STRING`` | No |  |
-| `release_date` | ``$STRING`` | No |  |
-| `reserved` | ``$BOOLEAN`` | No |  |
-| `ruling` | ``$ARRAY`` | No |  |
-| `set` | ``$STRING`` | No |  |
-| `set_name` | ``$STRING`` | No |  |
-| `source` | ``$STRING`` | No |  |
-| `starter` | ``$BOOLEAN`` | No |  |
-| `subtype` | ``$ARRAY`` | No |  |
-| `supertype` | ``$ARRAY`` | No |  |
-| `text` | ``$STRING`` | No |  |
-| `timeshifted` | ``$BOOLEAN`` | No |  |
-| `toughness` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
-| `variation` | ``$ARRAY`` | No |  |
-| `watermark` | ``$STRING`` | No |  |
+| `artist` | `str` | No |  |
+| `border` | `str` | No |  |
+| `card` | `dict` | No |  |
+| `cmc` | `float` | No |  |
+| `color` | `list` | No |  |
+| `color_identity` | `list` | No |  |
+| `flavor` | `str` | No |  |
+| `foreign_name` | `list` | No |  |
+| `hand` | `int` | No |  |
+| `id` | `str` | No |  |
+| `image_url` | `str` | No |  |
+| `layout` | `str` | No |  |
+| `legality` | `list` | No |  |
+| `life` | `int` | No |  |
+| `loyalty` | `str` | No |  |
+| `mana_cost` | `str` | No |  |
+| `multiverseid` | `int` | No |  |
+| `name` | `str` | No |  |
+| `number` | `str` | No |  |
+| `original_text` | `str` | No |  |
+| `original_type` | `str` | No |  |
+| `power` | `str` | No |  |
+| `printing` | `list` | No |  |
+| `rarity` | `str` | No |  |
+| `release_date` | `str` | No |  |
+| `reserved` | `bool` | No |  |
+| `ruling` | `list` | No |  |
+| `set` | `str` | No |  |
+| `set_name` | `str` | No |  |
+| `source` | `str` | No |  |
+| `starter` | `bool` | No |  |
+| `subtype` | `list` | No |  |
+| `supertype` | `list` | No |  |
+| `text` | `str` | No |  |
+| `timeshifted` | `bool` | No |  |
+| `toughness` | `str` | No |  |
+| `type` | `str` | No |  |
+| `variation` | `list` | No |  |
+| `watermark` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Card().list({})
+results = client.Card().list()
 for card in results:
     print(card)
 ```
@@ -210,16 +210,16 @@ format = client.Format()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `format` | ``$ARRAY`` | No |  |
+| `format` | `list` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Format().list({})
+results = client.Format().list()
 for format in results:
     print(format)
 ```
@@ -263,28 +263,28 @@ set = client.Set()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `block` | ``$STRING`` | No |  |
-| `booster` | ``$ARRAY`` | No |  |
-| `border` | ``$STRING`` | No |  |
-| `code` | ``$STRING`` | No |  |
-| `gatherer_code` | ``$STRING`` | No |  |
-| `magic_cards_info_code` | ``$STRING`` | No |  |
-| `mkm_id` | ``$INTEGER`` | No |  |
-| `mkm_name` | ``$STRING`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `online_only` | ``$BOOLEAN`` | No |  |
-| `release_date` | ``$STRING`` | No |  |
-| `set` | ``$OBJECT`` | No |  |
-| `type` | ``$STRING`` | No |  |
+| `block` | `str` | No |  |
+| `booster` | `list` | No |  |
+| `border` | `str` | No |  |
+| `code` | `str` | No |  |
+| `gatherer_code` | `str` | No |  |
+| `magic_cards_info_code` | `str` | No |  |
+| `mkm_id` | `int` | No |  |
+| `mkm_name` | `str` | No |  |
+| `name` | `str` | No |  |
+| `online_only` | `bool` | No |  |
+| `release_date` | `str` | No |  |
+| `set` | `dict` | No |  |
+| `type` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Set().list({})
+results = client.Set().list()
 for set in results:
     print(set)
 ```
@@ -336,53 +336,53 @@ set_booster = client.SetBooster()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `artist` | ``$STRING`` | No |  |
-| `border` | ``$STRING`` | No |  |
-| `cmc` | ``$NUMBER`` | No |  |
-| `color` | ``$ARRAY`` | No |  |
-| `color_identity` | ``$ARRAY`` | No |  |
-| `flavor` | ``$STRING`` | No |  |
-| `foreign_name` | ``$ARRAY`` | No |  |
-| `hand` | ``$INTEGER`` | No |  |
-| `id` | ``$STRING`` | No |  |
-| `image_url` | ``$STRING`` | No |  |
-| `layout` | ``$STRING`` | No |  |
-| `legality` | ``$ARRAY`` | No |  |
-| `life` | ``$INTEGER`` | No |  |
-| `loyalty` | ``$STRING`` | No |  |
-| `mana_cost` | ``$STRING`` | No |  |
-| `multiverseid` | ``$INTEGER`` | No |  |
-| `name` | ``$STRING`` | No |  |
-| `number` | ``$STRING`` | No |  |
-| `original_text` | ``$STRING`` | No |  |
-| `original_type` | ``$STRING`` | No |  |
-| `power` | ``$STRING`` | No |  |
-| `printing` | ``$ARRAY`` | No |  |
-| `rarity` | ``$STRING`` | No |  |
-| `release_date` | ``$STRING`` | No |  |
-| `reserved` | ``$BOOLEAN`` | No |  |
-| `ruling` | ``$ARRAY`` | No |  |
-| `set` | ``$STRING`` | No |  |
-| `set_name` | ``$STRING`` | No |  |
-| `source` | ``$STRING`` | No |  |
-| `starter` | ``$BOOLEAN`` | No |  |
-| `subtype` | ``$ARRAY`` | No |  |
-| `supertype` | ``$ARRAY`` | No |  |
-| `text` | ``$STRING`` | No |  |
-| `timeshifted` | ``$BOOLEAN`` | No |  |
-| `toughness` | ``$STRING`` | No |  |
-| `type` | ``$STRING`` | No |  |
-| `variation` | ``$ARRAY`` | No |  |
-| `watermark` | ``$STRING`` | No |  |
+| `artist` | `str` | No |  |
+| `border` | `str` | No |  |
+| `cmc` | `float` | No |  |
+| `color` | `list` | No |  |
+| `color_identity` | `list` | No |  |
+| `flavor` | `str` | No |  |
+| `foreign_name` | `list` | No |  |
+| `hand` | `int` | No |  |
+| `id` | `str` | No |  |
+| `image_url` | `str` | No |  |
+| `layout` | `str` | No |  |
+| `legality` | `list` | No |  |
+| `life` | `int` | No |  |
+| `loyalty` | `str` | No |  |
+| `mana_cost` | `str` | No |  |
+| `multiverseid` | `int` | No |  |
+| `name` | `str` | No |  |
+| `number` | `str` | No |  |
+| `original_text` | `str` | No |  |
+| `original_type` | `str` | No |  |
+| `power` | `str` | No |  |
+| `printing` | `list` | No |  |
+| `rarity` | `str` | No |  |
+| `release_date` | `str` | No |  |
+| `reserved` | `bool` | No |  |
+| `ruling` | `list` | No |  |
+| `set` | `str` | No |  |
+| `set_name` | `str` | No |  |
+| `source` | `str` | No |  |
+| `starter` | `bool` | No |  |
+| `subtype` | `list` | No |  |
+| `supertype` | `list` | No |  |
+| `text` | `str` | No |  |
+| `timeshifted` | `bool` | No |  |
+| `toughness` | `str` | No |  |
+| `type` | `str` | No |  |
+| `variation` | `list` | No |  |
+| `watermark` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.SetBooster().list({})
+results = client.SetBooster().list()
 for set_booster in results:
     print(set_booster)
 ```
@@ -426,16 +426,16 @@ subtype = client.Subtype()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `subtype` | ``$ARRAY`` | No |  |
+| `subtype` | `list` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Subtype().list({})
+results = client.Subtype().list()
 for subtype in results:
     print(subtype)
 ```
@@ -479,16 +479,16 @@ supertype = client.Supertype()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `supertype` | ``$ARRAY`` | No |  |
+| `supertype` | `list` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Supertype().list({})
+results = client.Supertype().list()
 for supertype in results:
     print(supertype)
 ```
@@ -532,16 +532,16 @@ type = client.Type()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `type` | ``$ARRAY`` | No |  |
+| `type` | `list` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Type().list({})
+results = client.Type().list()
 for type in results:
     print(type)
 ```

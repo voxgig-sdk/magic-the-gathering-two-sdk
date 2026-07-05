@@ -62,7 +62,7 @@ class CardLoadMatch
     public string $id;
 }
 
-/** Match filter for Card#list (any subset of Card fields). */
+/** Request payload for Card#list. */
 class CardListMatch
 {
     public ?string $artist = null;
@@ -112,7 +112,7 @@ class Format
     public ?array $format = null;
 }
 
-/** Match filter for Format#list (any subset of Format fields). */
+/** Request payload for Format#list. */
 class FormatListMatch
 {
     public ?array $format = null;
@@ -142,7 +142,7 @@ class SetLoadMatch
     public string $id;
 }
 
-/** Match filter for Set#list (any subset of Set fields). */
+/** Request payload for Set#list. */
 class SetListMatch
 {
     public ?string $block = null;
@@ -215,7 +215,7 @@ class Subtype
     public ?array $subtype = null;
 }
 
-/** Match filter for Subtype#list (any subset of Subtype fields). */
+/** Request payload for Subtype#list. */
 class SubtypeListMatch
 {
     public ?array $subtype = null;
@@ -227,7 +227,7 @@ class Supertype
     public ?array $supertype = null;
 }
 
-/** Match filter for Supertype#list (any subset of Supertype fields). */
+/** Request payload for Supertype#list. */
 class SupertypeListMatch
 {
     public ?array $supertype = null;
@@ -239,7 +239,7 @@ class Type
     public ?array $type = null;
 }
 
-/** Match filter for Type#list (any subset of Type fields). */
+/** Request payload for Type#list. */
 class TypeListMatch
 {
     public ?array $type = null;

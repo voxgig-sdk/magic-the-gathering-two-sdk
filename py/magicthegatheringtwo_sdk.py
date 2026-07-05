@@ -221,43 +221,43 @@ class MagicTheGatheringTwoSDK:
 
 
     def Card(self, data=None) -> "CardEntity":
-        """Entity factory: client.Card().list({}) / client.Card().load({"id": ...})."""
+        """Entity factory: client.Card().list() / client.Card().load({"id": ...})."""
         from entity.card_entity import CardEntity
         return CardEntity(self, data)
 
 
     def Format(self, data=None) -> "FormatEntity":
-        """Entity factory: client.Format().list({}) / client.Format().load({"id": ...})."""
+        """Entity factory: client.Format().list() / client.Format().load({"id": ...})."""
         from entity.format_entity import FormatEntity
         return FormatEntity(self, data)
 
 
     def Set(self, data=None) -> "SetEntity":
-        """Entity factory: client.Set().list({}) / client.Set().load({"id": ...})."""
+        """Entity factory: client.Set().list() / client.Set().load({"id": ...})."""
         from entity.set_entity import SetEntity
         return SetEntity(self, data)
 
 
     def SetBooster(self, data=None) -> "SetBoosterEntity":
-        """Entity factory: client.SetBooster().list({}) / client.SetBooster().load({"id": ...})."""
+        """Entity factory: client.SetBooster().list() / client.SetBooster().load({"id": ...})."""
         from entity.set_booster_entity import SetBoosterEntity
         return SetBoosterEntity(self, data)
 
 
     def Subtype(self, data=None) -> "SubtypeEntity":
-        """Entity factory: client.Subtype().list({}) / client.Subtype().load({"id": ...})."""
+        """Entity factory: client.Subtype().list() / client.Subtype().load({"id": ...})."""
         from entity.subtype_entity import SubtypeEntity
         return SubtypeEntity(self, data)
 
 
     def Supertype(self, data=None) -> "SupertypeEntity":
-        """Entity factory: client.Supertype().list({}) / client.Supertype().load({"id": ...})."""
+        """Entity factory: client.Supertype().list() / client.Supertype().load({"id": ...})."""
         from entity.supertype_entity import SupertypeEntity
         return SupertypeEntity(self, data)
 
 
     def Type(self, data=None) -> "TypeEntity":
-        """Entity factory: client.Type().list({}) / client.Type().load({"id": ...})."""
+        """Entity factory: client.Type().list() / client.Type().load({"id": ...})."""
         from entity.type_entity import TypeEntity
         return TypeEntity(self, data)
 
