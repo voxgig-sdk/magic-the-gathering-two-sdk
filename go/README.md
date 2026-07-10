@@ -60,7 +60,7 @@ func main() {
     }
 
     // Load a single card — the value is the loaded record.
-    card, err := client.Card(nil).Load(map[string]any{"id": "example"}, nil)
+    card, err := client.Card(nil).Load(map[string]any{"id": "example_id"}, nil)
     if err != nil {
         panic(err)
     }
@@ -588,7 +588,7 @@ fmt.Println(sets) // the array of records
 
 ### SetBooster
 
-Create an instance: `set_booster := client.SetBooster(nil)`
+Create an instance: `setBooster := client.SetBooster(nil)`
 
 #### Operations
 
@@ -642,11 +642,11 @@ Create an instance: `set_booster := client.SetBooster(nil)`
 #### Example: List
 
 ```go
-set_boosters, err := client.SetBooster(nil).List(nil, nil)
+setBoosters, err := client.SetBooster(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(set_boosters) // the array of records
+fmt.Println(setBoosters) // the array of records
 ```
 
 

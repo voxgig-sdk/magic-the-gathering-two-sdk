@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -1541,14 +1538,17 @@
           "url": "https://docs.magicthegathering.io/"
         },
         "description": "This API provides access to various endpoints related to Magic: The Gathering cards and sets. Users can retrieve information about individual cards, sets, and various game formats, as well as utilize SDKs for easier integration.",
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Production server",
             "url": "https://api.magicthegathering.io/v1"
           }
         ],
+        "summary": "This API provides access to various endpoints related to Magic: The Gathering cards and sets.",
         "title": "Magic The Gathering API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://magicthegathering.io"
       },
       "option": {},
       "target": {
@@ -1601,6 +1601,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -1651,6 +1654,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },

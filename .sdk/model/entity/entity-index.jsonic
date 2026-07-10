@@ -1,9 +1,0 @@
-# Entity Models
-
-@"card.jsonic"
-@"format.jsonic"
-@"set.jsonic"
-@"set_booster.jsonic"
-@"subtype.jsonic"
-@"supertype.jsonic"
-@"type.jsonic"

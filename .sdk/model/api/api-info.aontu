@@ -15,8 +15,10 @@ main: {
           url: "https://api.magicthegathering.io/v1"
         }
       ]
+      summary: "This API provides access to various endpoints related to Magic: The Gathering cards and sets."
       title: "Magic The Gathering API"
       version: "1.0.0"
+      website: "https://magicthegathering.io"
     }
   }
 }
