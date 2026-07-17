@@ -12,22 +12,25 @@ at `../go`.
 # 1. Build a native binary (-> dist/<os>-<arch>/magic-the-gathering-two-cli)
 make build
 
-# 2. Provide credentials once, via the environment
+# 2. See usage (words, entities, env vars)
+./magic-the-gathering-two-cli --help
+
+# 3. Provide credentials once, via the environment
 export MAGIC_THE_GATHERING_TWO_APIKEY=sk_live_xxx
 
-# 3. Each command line is ONE AQL expression, run against the API:
+# 4. Each command line is ONE AQL expression, run against the API:
 ./magic-the-gathering-two-cli list card
 ./magic-the-gathering-two-cli load 1 card            # {id:1} shorthand
 ./magic-the-gathering-two-cli load '{id:1}' card       # explicit match map
 ./magic-the-gathering-two-cli list format
 
-# 4. Override the API base URL for a single call
+# 5. Override the API base URL for a single call
 MAGIC_THE_GATHERING_TWO_BASE=https://api.example.com ./magic-the-gathering-two-cli list card
 
-# 5. No arguments -> interactive REPL
+# 6. No arguments -> interactive REPL
 ./magic-the-gathering-two-cli
 magic-the-gathering-two> list card
-magic-the-gathering-two> :quit
+magic-the-gathering-two> /quit
 ```
 
 > The rest of this guide follows the [Diátaxis](https://diataxis.fr) framework:
@@ -56,7 +59,7 @@ magic-the-gathering-two> :quit
    ```
 
 4. **Go interactive.** Run the binary with no arguments to open the REPL, then
-   type `:help` for the word and entity lists and `:quit` to leave.
+   type `/help` for the word and entity lists and `/quit` to leave.
 
 That is the whole loop: *build → set key → evaluate AQL expressions*.
 
@@ -101,8 +104,8 @@ evaluated as its own AQL expression:
 ```text
 $ ./magic-the-gathering-two-cli
 magic-the-gathering-two> list card
-magic-the-gathering-two> :help
-magic-the-gathering-two> :quit
+magic-the-gathering-two> /help
+magic-the-gathering-two> /quit
 ```
 
 ### Cross-compile release binaries
@@ -114,7 +117,7 @@ make build-all   # linux/darwin/windows x amd64/arm64, under dist/<os>-<arch>/
 
 ### Discover the available entities
 
-`:help` in the REPL prints the full entity list, or see [Entities](#entities)
+`/help` in the REPL prints the full entity list, or see [Entities](#entities)
 below — this SDK exposes 7 entities.
 
 ## Reference
@@ -141,10 +144,16 @@ The CLI registers these AQL words, each bound to the SDK:
 
 Unset variables fall back to the SDK's built-in defaults.
 
+### CLI flags
+
+- `--help` / `-h` — print usage (words, entities, env vars) and exit.
+
 ### REPL commands
 
-- `:quit` / `:q` / `:exit` — exit the REPL
-- `:help` / `:h` / `:?`     — show the word list, entity list and meta commands
+Meta-commands use the `/` prefix (everything else on a line is evaluated as AQL):
+
+- `/quit` / `/q` / `/exit` — exit the REPL
+- `/help` / `/h` / `/?`     — show the word list, entity list and meta commands
 
 ### Exit codes
 
