@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- MagicTheGatheringTwo SDK exists test
 
 local sdk = require("magic-the-gathering-two_sdk")
 
