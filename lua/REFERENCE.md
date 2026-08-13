@@ -116,42 +116,43 @@ local card = client:Card(nil)
 | --- | --- | --- | --- |
 | `artist` | `string` | No |  |
 | `border` | `string` | No |  |
-| `card` | `table` | No |  |
 | `cmc` | `number` | No |  |
-| `color` | `table` | No |  |
-| `color_identity` | `table` | No |  |
+| `colorIdentity` | `table` | No |  |
+| `colors` | `table` | No |  |
 | `flavor` | `string` | No |  |
-| `foreign_name` | `table` | No |  |
+| `foreignNames` | `table` | No |  |
 | `hand` | `number` | No |  |
 | `id` | `string` | No |  |
-| `image_url` | `string` | No |  |
+| `imageUrl` | `string` | No |  |
 | `layout` | `string` | No |  |
-| `legality` | `table` | No |  |
+| `legalities` | `table` | No |  |
 | `life` | `number` | No |  |
 | `loyalty` | `string` | No |  |
-| `mana_cost` | `string` | No |  |
+| `manaCost` | `string` | No |  |
 | `multiverseid` | `number` | No |  |
 | `name` | `string` | No |  |
+| `names` | `table` | No |  |
 | `number` | `string` | No |  |
-| `original_text` | `string` | No |  |
-| `original_type` | `string` | No |  |
+| `originalText` | `string` | No |  |
+| `originalType` | `string` | No |  |
 | `power` | `string` | No |  |
-| `printing` | `table` | No |  |
+| `printings` | `table` | No |  |
 | `rarity` | `string` | No |  |
-| `release_date` | `string` | No |  |
+| `releaseDate` | `string` | No |  |
 | `reserved` | `boolean` | No |  |
-| `ruling` | `table` | No |  |
+| `rulings` | `table` | No |  |
 | `set` | `string` | No |  |
-| `set_name` | `string` | No |  |
+| `setName` | `string` | No |  |
 | `source` | `string` | No |  |
 | `starter` | `boolean` | No |  |
-| `subtype` | `table` | No |  |
-| `supertype` | `table` | No |  |
+| `subtypes` | `table` | No |  |
+| `supertypes` | `table` | No |  |
 | `text` | `string` | No |  |
 | `timeshifted` | `boolean` | No |  |
 | `toughness` | `string` | No |  |
 | `type` | `string` | No |  |
-| `variation` | `table` | No |  |
+| `types` | `table` | No |  |
+| `variations` | `table` | No |  |
 | `watermark` | `string` | No |  |
 
 ### Operations
@@ -212,7 +213,7 @@ local format = client:Format(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `format` | `table` | No |  |
+| `formats` | `table` | No |  |
 
 ### Operations
 
@@ -268,14 +269,13 @@ local set = client:Set(nil)
 | `booster` | `table` | No |  |
 | `border` | `string` | No |  |
 | `code` | `string` | No |  |
-| `gatherer_code` | `string` | No |  |
-| `magic_cards_info_code` | `string` | No |  |
+| `gathererCode` | `string` | No |  |
+| `magicCardsInfoCode` | `string` | No |  |
 | `mkm_id` | `number` | No |  |
 | `mkm_name` | `string` | No |  |
 | `name` | `string` | No |  |
-| `online_only` | `boolean` | No |  |
-| `release_date` | `string` | No |  |
-| `set` | `table` | No |  |
+| `onlineOnly` | `boolean` | No |  |
+| `releaseDate` | `string` | No |  |
 | `type` | `string` | No |  |
 
 ### Operations
@@ -339,40 +339,42 @@ local set_booster = client:SetBooster(nil)
 | `artist` | `string` | No |  |
 | `border` | `string` | No |  |
 | `cmc` | `number` | No |  |
-| `color` | `table` | No |  |
-| `color_identity` | `table` | No |  |
+| `colorIdentity` | `table` | No |  |
+| `colors` | `table` | No |  |
 | `flavor` | `string` | No |  |
-| `foreign_name` | `table` | No |  |
+| `foreignNames` | `table` | No |  |
 | `hand` | `number` | No |  |
 | `id` | `string` | No |  |
-| `image_url` | `string` | No |  |
+| `imageUrl` | `string` | No |  |
 | `layout` | `string` | No |  |
-| `legality` | `table` | No |  |
+| `legalities` | `table` | No |  |
 | `life` | `number` | No |  |
 | `loyalty` | `string` | No |  |
-| `mana_cost` | `string` | No |  |
+| `manaCost` | `string` | No |  |
 | `multiverseid` | `number` | No |  |
 | `name` | `string` | No |  |
+| `names` | `table` | No |  |
 | `number` | `string` | No |  |
-| `original_text` | `string` | No |  |
-| `original_type` | `string` | No |  |
+| `originalText` | `string` | No |  |
+| `originalType` | `string` | No |  |
 | `power` | `string` | No |  |
-| `printing` | `table` | No |  |
+| `printings` | `table` | No |  |
 | `rarity` | `string` | No |  |
-| `release_date` | `string` | No |  |
+| `releaseDate` | `string` | No |  |
 | `reserved` | `boolean` | No |  |
-| `ruling` | `table` | No |  |
+| `rulings` | `table` | No |  |
 | `set` | `string` | No |  |
-| `set_name` | `string` | No |  |
+| `setName` | `string` | No |  |
 | `source` | `string` | No |  |
 | `starter` | `boolean` | No |  |
-| `subtype` | `table` | No |  |
-| `supertype` | `table` | No |  |
+| `subtypes` | `table` | No |  |
+| `supertypes` | `table` | No |  |
 | `text` | `string` | No |  |
 | `timeshifted` | `boolean` | No |  |
 | `toughness` | `string` | No |  |
 | `type` | `string` | No |  |
-| `variation` | `table` | No |  |
+| `types` | `table` | No |  |
+| `variations` | `table` | No |  |
 | `watermark` | `string` | No |  |
 
 ### Operations
@@ -425,7 +427,7 @@ local subtype = client:Subtype(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `subtype` | `table` | No |  |
+| `subtypes` | `table` | No |  |
 
 ### Operations
 
@@ -477,7 +479,7 @@ local supertype = client:Supertype(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `supertype` | `table` | No |  |
+| `supertypes` | `table` | No |  |
 
 ### Operations
 
@@ -529,7 +531,7 @@ local type = client:Type(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `type` | `table` | No |  |
+| `types` | `table` | No |  |
 
 ### Operations
 

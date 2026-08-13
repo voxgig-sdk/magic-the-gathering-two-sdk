@@ -17,42 +17,43 @@ class Card
 {
     public ?string $artist = null;
     public ?string $border = null;
-    public ?array $card = null;
     public ?float $cmc = null;
-    public ?array $color = null;
-    public ?array $color_identity = null;
+    public ?array $colorIdentity = null;
+    public ?array $colors = null;
     public ?string $flavor = null;
-    public ?array $foreign_name = null;
+    public ?array $foreignNames = null;
     public ?int $hand = null;
     public ?string $id = null;
-    public ?string $image_url = null;
+    public ?string $imageUrl = null;
     public ?string $layout = null;
-    public ?array $legality = null;
+    public ?array $legalities = null;
     public ?int $life = null;
     public ?string $loyalty = null;
-    public ?string $mana_cost = null;
+    public ?string $manaCost = null;
     public ?int $multiverseid = null;
     public ?string $name = null;
+    public ?array $names = null;
     public ?string $number = null;
-    public ?string $original_text = null;
-    public ?string $original_type = null;
+    public ?string $originalText = null;
+    public ?string $originalType = null;
     public ?string $power = null;
-    public ?array $printing = null;
+    public ?array $printings = null;
     public ?string $rarity = null;
-    public ?string $release_date = null;
+    public ?string $releaseDate = null;
     public ?bool $reserved = null;
-    public ?array $ruling = null;
+    public ?array $rulings = null;
     public ?string $set = null;
-    public ?string $set_name = null;
+    public ?string $setName = null;
     public ?string $source = null;
     public ?bool $starter = null;
-    public ?array $subtype = null;
-    public ?array $supertype = null;
+    public ?array $subtypes = null;
+    public ?array $supertypes = null;
     public ?string $text = null;
     public ?bool $timeshifted = null;
     public ?string $toughness = null;
     public ?string $type = null;
-    public ?array $variation = null;
+    public ?array $types = null;
+    public ?array $variations = null;
     public ?string $watermark = null;
 }
 
@@ -67,55 +68,56 @@ class CardListMatch
 {
     public ?string $artist = null;
     public ?string $border = null;
-    public ?array $card = null;
     public ?float $cmc = null;
-    public ?array $color = null;
-    public ?array $color_identity = null;
+    public ?array $colorIdentity = null;
+    public ?array $colors = null;
     public ?string $flavor = null;
-    public ?array $foreign_name = null;
+    public ?array $foreignNames = null;
     public ?int $hand = null;
     public ?string $id = null;
-    public ?string $image_url = null;
+    public ?string $imageUrl = null;
     public ?string $layout = null;
-    public ?array $legality = null;
+    public ?array $legalities = null;
     public ?int $life = null;
     public ?string $loyalty = null;
-    public ?string $mana_cost = null;
+    public ?string $manaCost = null;
     public ?int $multiverseid = null;
     public ?string $name = null;
+    public ?array $names = null;
     public ?string $number = null;
-    public ?string $original_text = null;
-    public ?string $original_type = null;
+    public ?string $originalText = null;
+    public ?string $originalType = null;
     public ?string $power = null;
-    public ?array $printing = null;
+    public ?array $printings = null;
     public ?string $rarity = null;
-    public ?string $release_date = null;
+    public ?string $releaseDate = null;
     public ?bool $reserved = null;
-    public ?array $ruling = null;
+    public ?array $rulings = null;
     public ?string $set = null;
-    public ?string $set_name = null;
+    public ?string $setName = null;
     public ?string $source = null;
     public ?bool $starter = null;
-    public ?array $subtype = null;
-    public ?array $supertype = null;
+    public ?array $subtypes = null;
+    public ?array $supertypes = null;
     public ?string $text = null;
     public ?bool $timeshifted = null;
     public ?string $toughness = null;
     public ?string $type = null;
-    public ?array $variation = null;
+    public ?array $types = null;
+    public ?array $variations = null;
     public ?string $watermark = null;
 }
 
 /** Format entity data model. */
 class Format
 {
-    public ?array $format = null;
+    public ?array $formats = null;
 }
 
 /** Request payload for Format#list. */
 class FormatListMatch
 {
-    public ?array $format = null;
+    public ?array $formats = null;
 }
 
 /** Set entity data model. */
@@ -125,14 +127,13 @@ class Set
     public ?array $booster = null;
     public ?string $border = null;
     public ?string $code = null;
-    public ?string $gatherer_code = null;
-    public ?string $magic_cards_info_code = null;
+    public ?string $gathererCode = null;
+    public ?string $magicCardsInfoCode = null;
     public ?int $mkm_id = null;
     public ?string $mkm_name = null;
     public ?string $name = null;
-    public ?bool $online_only = null;
-    public ?string $release_date = null;
-    public ?array $set = null;
+    public ?bool $onlineOnly = null;
+    public ?string $releaseDate = null;
     public ?string $type = null;
 }
 
@@ -149,14 +150,13 @@ class SetListMatch
     public ?array $booster = null;
     public ?string $border = null;
     public ?string $code = null;
-    public ?string $gatherer_code = null;
-    public ?string $magic_cards_info_code = null;
+    public ?string $gathererCode = null;
+    public ?string $magicCardsInfoCode = null;
     public ?int $mkm_id = null;
     public ?string $mkm_name = null;
     public ?string $name = null;
-    public ?bool $online_only = null;
-    public ?string $release_date = null;
-    public ?array $set = null;
+    public ?bool $onlineOnly = null;
+    public ?string $releaseDate = null;
     public ?string $type = null;
 }
 
@@ -166,40 +166,42 @@ class SetBooster
     public ?string $artist = null;
     public ?string $border = null;
     public ?float $cmc = null;
-    public ?array $color = null;
-    public ?array $color_identity = null;
+    public ?array $colorIdentity = null;
+    public ?array $colors = null;
     public ?string $flavor = null;
-    public ?array $foreign_name = null;
+    public ?array $foreignNames = null;
     public ?int $hand = null;
     public ?string $id = null;
-    public ?string $image_url = null;
+    public ?string $imageUrl = null;
     public ?string $layout = null;
-    public ?array $legality = null;
+    public ?array $legalities = null;
     public ?int $life = null;
     public ?string $loyalty = null;
-    public ?string $mana_cost = null;
+    public ?string $manaCost = null;
     public ?int $multiverseid = null;
     public ?string $name = null;
+    public ?array $names = null;
     public ?string $number = null;
-    public ?string $original_text = null;
-    public ?string $original_type = null;
+    public ?string $originalText = null;
+    public ?string $originalType = null;
     public ?string $power = null;
-    public ?array $printing = null;
+    public ?array $printings = null;
     public ?string $rarity = null;
-    public ?string $release_date = null;
+    public ?string $releaseDate = null;
     public ?bool $reserved = null;
-    public ?array $ruling = null;
+    public ?array $rulings = null;
     public ?string $set = null;
-    public ?string $set_name = null;
+    public ?string $setName = null;
     public ?string $source = null;
     public ?bool $starter = null;
-    public ?array $subtype = null;
-    public ?array $supertype = null;
+    public ?array $subtypes = null;
+    public ?array $supertypes = null;
     public ?string $text = null;
     public ?bool $timeshifted = null;
     public ?string $toughness = null;
     public ?string $type = null;
-    public ?array $variation = null;
+    public ?array $types = null;
+    public ?array $variations = null;
     public ?string $watermark = null;
 }
 
@@ -212,36 +214,36 @@ class SetBoosterListMatch
 /** Subtype entity data model. */
 class Subtype
 {
-    public ?array $subtype = null;
+    public ?array $subtypes = null;
 }
 
 /** Request payload for Subtype#list. */
 class SubtypeListMatch
 {
-    public ?array $subtype = null;
+    public ?array $subtypes = null;
 }
 
 /** Supertype entity data model. */
 class Supertype
 {
-    public ?array $supertype = null;
+    public ?array $supertypes = null;
 }
 
 /** Request payload for Supertype#list. */
 class SupertypeListMatch
 {
-    public ?array $supertype = null;
+    public ?array $supertypes = null;
 }
 
 /** Type entity data model. */
 class Type
 {
-    public ?array $type = null;
+    public ?array $types = null;
 }
 
 /** Request payload for Type#list. */
 class TypeListMatch
 {
-    public ?array $type = null;
+    public ?array $types = null;
 }
 

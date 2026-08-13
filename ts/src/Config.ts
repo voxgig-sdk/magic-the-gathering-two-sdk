@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'MagicTheGatheringTwo',
   }
 
 
@@ -88,114 +88,114 @@ class Config {
         },
         {
           "active": true,
-          "name": "card",
+          "name": "cmc",
           "req": false,
-          "type": "`$OBJECT`",
+          "type": "`$NUMBER`",
           "index$": 2
         },
         {
           "active": true,
-          "name": "cmc",
+          "name": "colorIdentity",
           "req": false,
-          "type": "`$NUMBER`",
+          "type": "`$ARRAY`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "color",
+          "name": "colors",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "color_identity",
+          "name": "flavor",
           "req": false,
-          "type": "`$ARRAY`",
+          "type": "`$STRING`",
           "index$": 5
         },
         {
           "active": true,
-          "name": "flavor",
-          "req": false,
-          "type": "`$STRING`",
-          "index$": 6
-        },
-        {
-          "active": true,
-          "name": "foreign_name",
+          "name": "foreignNames",
           "req": false,
           "type": "`$ARRAY`",
-          "index$": 7
+          "index$": 6
         },
         {
           "active": true,
           "name": "hand",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 8
+          "index$": 7
         },
         {
           "active": true,
           "name": "id",
           "req": false,
           "type": "`$STRING`",
-          "index$": 9
+          "index$": 8
         },
         {
           "active": true,
-          "name": "image_url",
+          "name": "imageUrl",
           "req": false,
           "type": "`$STRING`",
-          "index$": 10
+          "index$": 9
         },
         {
           "active": true,
           "name": "layout",
           "req": false,
           "type": "`$STRING`",
-          "index$": 11
+          "index$": 10
         },
         {
           "active": true,
-          "name": "legality",
+          "name": "legalities",
           "req": false,
           "type": "`$ARRAY`",
-          "index$": 12
+          "index$": 11
         },
         {
           "active": true,
           "name": "life",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 13
+          "index$": 12
         },
         {
           "active": true,
           "name": "loyalty",
           "req": false,
           "type": "`$STRING`",
-          "index$": 14
+          "index$": 13
         },
         {
           "active": true,
-          "name": "mana_cost",
+          "name": "manaCost",
           "req": false,
           "type": "`$STRING`",
-          "index$": 15
+          "index$": 14
         },
         {
           "active": true,
           "name": "multiverseid",
           "req": false,
           "type": "`$INTEGER`",
-          "index$": 16
+          "index$": 15
         },
         {
           "active": true,
           "name": "name",
           "req": false,
           "type": "`$STRING`",
+          "index$": 16
+        },
+        {
+          "active": true,
+          "name": "names",
+          "req": false,
+          "type": "`$ARRAY`",
           "index$": 17
         },
         {
@@ -207,14 +207,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "original_text",
+          "name": "originalText",
           "req": false,
           "type": "`$STRING`",
           "index$": 19
         },
         {
           "active": true,
-          "name": "original_type",
+          "name": "originalType",
           "req": false,
           "type": "`$STRING`",
           "index$": 20
@@ -228,7 +228,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "printing",
+          "name": "printings",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 22
@@ -242,7 +242,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "release_date",
+          "name": "releaseDate",
           "req": false,
           "type": "`$STRING`",
           "index$": 24
@@ -256,7 +256,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "ruling",
+          "name": "rulings",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 26
@@ -270,7 +270,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "set_name",
+          "name": "setName",
           "req": false,
           "type": "`$STRING`",
           "index$": 28
@@ -291,14 +291,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "subtype",
+          "name": "subtypes",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 31
         },
         {
           "active": true,
-          "name": "supertype",
+          "name": "supertypes",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 32
@@ -333,17 +333,24 @@ class Config {
         },
         {
           "active": true,
-          "name": "variation",
+          "name": "types",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 37
         },
         {
           "active": true,
+          "name": "variations",
+          "req": false,
+          "type": "`$ARRAY`",
+          "index$": 38
+        },
+        {
+          "active": true,
           "name": "watermark",
           "req": false,
           "type": "`$STRING`",
-          "index$": 38
+          "index$": 39
         }
       ],
       "name": "card",
@@ -592,6 +599,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/cards",
               "parts": [
@@ -631,7 +639,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.cards`"
               },
               "index$": 0
             }
@@ -657,6 +665,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/cards/{id}",
               "parts": [
@@ -686,7 +695,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "format",
+          "name": "formats",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 0
@@ -701,6 +710,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/formats",
               "parts": [
@@ -709,7 +719,7 @@ class Config {
               "select": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.formats`"
               },
               "index$": 0
             }
@@ -753,14 +763,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "gatherer_code",
+          "name": "gathererCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 4
         },
         {
           "active": true,
-          "name": "magic_cards_info_code",
+          "name": "magicCardsInfoCode",
           "req": false,
           "type": "`$STRING`",
           "index$": 5
@@ -788,31 +798,24 @@ class Config {
         },
         {
           "active": true,
-          "name": "online_only",
+          "name": "onlineOnly",
           "req": false,
           "type": "`$BOOLEAN`",
           "index$": 9
         },
         {
           "active": true,
-          "name": "release_date",
+          "name": "releaseDate",
           "req": false,
           "type": "`$STRING`",
           "index$": 10
         },
         {
           "active": true,
-          "name": "set",
-          "req": false,
-          "type": "`$OBJECT`",
-          "index$": 11
-        },
-        {
-          "active": true,
           "name": "type",
           "req": false,
           "type": "`$STRING`",
-          "index$": 12
+          "index$": 11
         }
       ],
       "name": "set",
@@ -843,6 +846,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/sets",
               "parts": [
@@ -856,7 +860,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.sets`"
               },
               "index$": 0
             }
@@ -882,6 +886,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/sets/{id}",
               "parts": [
@@ -932,14 +937,14 @@ class Config {
         },
         {
           "active": true,
-          "name": "color",
+          "name": "colorIdentity",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 3
         },
         {
           "active": true,
-          "name": "color_identity",
+          "name": "colors",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 4
@@ -953,7 +958,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "foreign_name",
+          "name": "foreignNames",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 6
@@ -974,7 +979,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "image_url",
+          "name": "imageUrl",
           "req": false,
           "type": "`$STRING`",
           "index$": 9
@@ -988,7 +993,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "legality",
+          "name": "legalities",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 11
@@ -1009,7 +1014,7 @@ class Config {
         },
         {
           "active": true,
-          "name": "mana_cost",
+          "name": "manaCost",
           "req": false,
           "type": "`$STRING`",
           "index$": 14
@@ -1030,150 +1035,164 @@ class Config {
         },
         {
           "active": true,
-          "name": "number",
+          "name": "names",
           "req": false,
-          "type": "`$STRING`",
+          "type": "`$ARRAY`",
           "index$": 17
         },
         {
           "active": true,
-          "name": "original_text",
+          "name": "number",
           "req": false,
           "type": "`$STRING`",
           "index$": 18
         },
         {
           "active": true,
-          "name": "original_type",
+          "name": "originalText",
           "req": false,
           "type": "`$STRING`",
           "index$": 19
         },
         {
           "active": true,
-          "name": "power",
+          "name": "originalType",
           "req": false,
           "type": "`$STRING`",
           "index$": 20
         },
         {
           "active": true,
-          "name": "printing",
+          "name": "power",
+          "req": false,
+          "type": "`$STRING`",
+          "index$": 21
+        },
+        {
+          "active": true,
+          "name": "printings",
           "req": false,
           "type": "`$ARRAY`",
-          "index$": 21
+          "index$": 22
         },
         {
           "active": true,
           "name": "rarity",
           "req": false,
           "type": "`$STRING`",
-          "index$": 22
+          "index$": 23
         },
         {
           "active": true,
-          "name": "release_date",
+          "name": "releaseDate",
           "req": false,
           "type": "`$STRING`",
-          "index$": 23
+          "index$": 24
         },
         {
           "active": true,
           "name": "reserved",
           "req": false,
           "type": "`$BOOLEAN`",
-          "index$": 24
+          "index$": 25
         },
         {
           "active": true,
-          "name": "ruling",
+          "name": "rulings",
           "req": false,
           "type": "`$ARRAY`",
-          "index$": 25
+          "index$": 26
         },
         {
           "active": true,
           "name": "set",
           "req": false,
           "type": "`$STRING`",
-          "index$": 26
-        },
-        {
-          "active": true,
-          "name": "set_name",
-          "req": false,
-          "type": "`$STRING`",
           "index$": 27
         },
         {
           "active": true,
-          "name": "source",
+          "name": "setName",
           "req": false,
           "type": "`$STRING`",
           "index$": 28
         },
         {
           "active": true,
-          "name": "starter",
+          "name": "source",
           "req": false,
-          "type": "`$BOOLEAN`",
+          "type": "`$STRING`",
           "index$": 29
         },
         {
           "active": true,
-          "name": "subtype",
+          "name": "starter",
           "req": false,
-          "type": "`$ARRAY`",
+          "type": "`$BOOLEAN`",
           "index$": 30
         },
         {
           "active": true,
-          "name": "supertype",
+          "name": "subtypes",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 31
         },
         {
           "active": true,
+          "name": "supertypes",
+          "req": false,
+          "type": "`$ARRAY`",
+          "index$": 32
+        },
+        {
+          "active": true,
           "name": "text",
           "req": false,
           "type": "`$STRING`",
-          "index$": 32
+          "index$": 33
         },
         {
           "active": true,
           "name": "timeshifted",
           "req": false,
           "type": "`$BOOLEAN`",
-          "index$": 33
+          "index$": 34
         },
         {
           "active": true,
           "name": "toughness",
           "req": false,
           "type": "`$STRING`",
-          "index$": 34
+          "index$": 35
         },
         {
           "active": true,
           "name": "type",
           "req": false,
           "type": "`$STRING`",
-          "index$": 35
+          "index$": 36
         },
         {
           "active": true,
-          "name": "variation",
+          "name": "types",
           "req": false,
           "type": "`$ARRAY`",
-          "index$": 36
+          "index$": 37
+        },
+        {
+          "active": true,
+          "name": "variations",
+          "req": false,
+          "type": "`$ARRAY`",
+          "index$": 38
         },
         {
           "active": true,
           "name": "watermark",
           "req": false,
           "type": "`$STRING`",
-          "index$": 37
+          "index$": 39
         }
       ],
       "name": "set_booster",
@@ -1197,6 +1216,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/sets/{id}/booster",
               "parts": [
@@ -1211,7 +1231,7 @@ class Config {
               },
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.cards`"
               },
               "index$": 0
             }
@@ -1227,7 +1247,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "subtype",
+          "name": "subtypes",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 0
@@ -1242,6 +1262,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/subtypes",
               "parts": [
@@ -1250,7 +1271,7 @@ class Config {
               "select": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.subtypes`"
               },
               "index$": 0
             }
@@ -1266,7 +1287,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "supertype",
+          "name": "supertypes",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 0
@@ -1281,6 +1302,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/supertypes",
               "parts": [
@@ -1289,7 +1311,7 @@ class Config {
               "select": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.supertypes`"
               },
               "index$": 0
             }
@@ -1305,7 +1327,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "type",
+          "name": "types",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 0
@@ -1320,6 +1342,7 @@ class Config {
             {
               "active": true,
               "args": {},
+              "kind": "http",
               "method": "GET",
               "orig": "/types",
               "parts": [
@@ -1328,7 +1351,7 @@ class Config {
               "select": {},
               "transform": {
                 "req": "`reqdata`",
-                "res": "`body`"
+                "res": "`body.types`"
               },
               "index$": 0
             }

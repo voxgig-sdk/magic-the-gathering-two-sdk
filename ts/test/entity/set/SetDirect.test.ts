@@ -19,11 +19,15 @@ import {
 describe('SetDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when MAGICTHEGATHERINGTWO_TEST_LIVE=TRUE.
-  afterEach(liveDelay('MAGICTHEGATHERINGTWO_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when MAGIC_THE_GATHERING_TWO_TEST_LIVE=TRUE.
+  afterEach(liveDelay('MAGIC_THE_GATHERING_TWO_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new MagicTheGatheringTwoSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -134,17 +138,17 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'MAGICTHEGATHERINGTWO_TEST_SET_ENTID': {},
-    'MAGICTHEGATHERINGTWO_TEST_LIVE': 'FALSE',
+    'MAGIC_THE_GATHERING_TWO_TEST_SET_ENTID': {},
+    'MAGIC_THE_GATHERING_TWO_TEST_LIVE': 'FALSE',
   })
 
-  const live = 'TRUE' === env.MAGICTHEGATHERINGTWO_TEST_LIVE
+  const live = 'TRUE' === env.MAGIC_THE_GATHERING_TWO_TEST_LIVE
 
   if (live) {
     const client = new MagicTheGatheringTwoSDK({
     })
 
-    let idmap: any = env['MAGICTHEGATHERINGTWO_TEST_SET_ENTID']
+    let idmap: any = env['MAGIC_THE_GATHERING_TWO_TEST_SET_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

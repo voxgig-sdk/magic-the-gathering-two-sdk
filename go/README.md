@@ -75,12 +75,12 @@ Every entity operation returns `(value, error)`. Check `err` before
 using the value — there is no exception to catch:
 
 ```go
-cards, err := client.Card(nil).List(nil, nil)
+formats, err := client.Format(nil).List(nil, nil)
 if err != nil {
     // handle err
     return
 }
-_ = cards
+_ = formats
 ```
 
 `Direct` follows the same `(value, error)` convention:
@@ -144,13 +144,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-card, err := client.Card(nil).List(
+format, err := client.Format(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(card) // the returned mock data
+fmt.Println(format) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -277,42 +277,43 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 | --- | --- |
 | `"artist"` |  |
 | `"border"` |  |
-| `"card"` |  |
 | `"cmc"` |  |
-| `"color"` |  |
-| `"color_identity"` |  |
+| `"colorIdentity"` |  |
+| `"colors"` |  |
 | `"flavor"` |  |
-| `"foreign_name"` |  |
+| `"foreignNames"` |  |
 | `"hand"` |  |
 | `"id"` |  |
-| `"image_url"` |  |
+| `"imageUrl"` |  |
 | `"layout"` |  |
-| `"legality"` |  |
+| `"legalities"` |  |
 | `"life"` |  |
 | `"loyalty"` |  |
-| `"mana_cost"` |  |
+| `"manaCost"` |  |
 | `"multiverseid"` |  |
 | `"name"` |  |
+| `"names"` |  |
 | `"number"` |  |
-| `"original_text"` |  |
-| `"original_type"` |  |
+| `"originalText"` |  |
+| `"originalType"` |  |
 | `"power"` |  |
-| `"printing"` |  |
+| `"printings"` |  |
 | `"rarity"` |  |
-| `"release_date"` |  |
+| `"releaseDate"` |  |
 | `"reserved"` |  |
-| `"ruling"` |  |
+| `"rulings"` |  |
 | `"set"` |  |
-| `"set_name"` |  |
+| `"setName"` |  |
 | `"source"` |  |
 | `"starter"` |  |
-| `"subtype"` |  |
-| `"supertype"` |  |
+| `"subtypes"` |  |
+| `"supertypes"` |  |
 | `"text"` |  |
 | `"timeshifted"` |  |
 | `"toughness"` |  |
 | `"type"` |  |
-| `"variation"` |  |
+| `"types"` |  |
+| `"variations"` |  |
 | `"watermark"` |  |
 
 Operations: List, Load.
@@ -323,7 +324,7 @@ API path: `/cards`
 
 | Field | Description |
 | --- | --- |
-| `"format"` |  |
+| `"formats"` |  |
 
 Operations: List.
 
@@ -337,14 +338,13 @@ API path: `/formats`
 | `"booster"` |  |
 | `"border"` |  |
 | `"code"` |  |
-| `"gatherer_code"` |  |
-| `"magic_cards_info_code"` |  |
+| `"gathererCode"` |  |
+| `"magicCardsInfoCode"` |  |
 | `"mkm_id"` |  |
 | `"mkm_name"` |  |
 | `"name"` |  |
-| `"online_only"` |  |
-| `"release_date"` |  |
-| `"set"` |  |
+| `"onlineOnly"` |  |
+| `"releaseDate"` |  |
 | `"type"` |  |
 
 Operations: List, Load.
@@ -358,40 +358,42 @@ API path: `/sets`
 | `"artist"` |  |
 | `"border"` |  |
 | `"cmc"` |  |
-| `"color"` |  |
-| `"color_identity"` |  |
+| `"colorIdentity"` |  |
+| `"colors"` |  |
 | `"flavor"` |  |
-| `"foreign_name"` |  |
+| `"foreignNames"` |  |
 | `"hand"` |  |
 | `"id"` |  |
-| `"image_url"` |  |
+| `"imageUrl"` |  |
 | `"layout"` |  |
-| `"legality"` |  |
+| `"legalities"` |  |
 | `"life"` |  |
 | `"loyalty"` |  |
-| `"mana_cost"` |  |
+| `"manaCost"` |  |
 | `"multiverseid"` |  |
 | `"name"` |  |
+| `"names"` |  |
 | `"number"` |  |
-| `"original_text"` |  |
-| `"original_type"` |  |
+| `"originalText"` |  |
+| `"originalType"` |  |
 | `"power"` |  |
-| `"printing"` |  |
+| `"printings"` |  |
 | `"rarity"` |  |
-| `"release_date"` |  |
+| `"releaseDate"` |  |
 | `"reserved"` |  |
-| `"ruling"` |  |
+| `"rulings"` |  |
 | `"set"` |  |
-| `"set_name"` |  |
+| `"setName"` |  |
 | `"source"` |  |
 | `"starter"` |  |
-| `"subtype"` |  |
-| `"supertype"` |  |
+| `"subtypes"` |  |
+| `"supertypes"` |  |
 | `"text"` |  |
 | `"timeshifted"` |  |
 | `"toughness"` |  |
 | `"type"` |  |
-| `"variation"` |  |
+| `"types"` |  |
+| `"variations"` |  |
 | `"watermark"` |  |
 
 Operations: List.
@@ -402,7 +404,7 @@ API path: `/sets/{id}/booster`
 
 | Field | Description |
 | --- | --- |
-| `"subtype"` |  |
+| `"subtypes"` |  |
 
 Operations: List.
 
@@ -412,7 +414,7 @@ API path: `/subtypes`
 
 | Field | Description |
 | --- | --- |
-| `"supertype"` |  |
+| `"supertypes"` |  |
 
 Operations: List.
 
@@ -422,7 +424,7 @@ API path: `/supertypes`
 
 | Field | Description |
 | --- | --- |
-| `"type"` |  |
+| `"types"` |  |
 
 Operations: List.
 
@@ -450,42 +452,43 @@ Create an instance: `card := client.Card(nil)`
 | --- | --- | --- |
 | `artist` | `string` |  |
 | `border` | `string` |  |
-| `card` | `map[string]any` |  |
 | `cmc` | `float64` |  |
-| `color` | `[]any` |  |
-| `color_identity` | `[]any` |  |
+| `colorIdentity` | `[]any` |  |
+| `colors` | `[]any` |  |
 | `flavor` | `string` |  |
-| `foreign_name` | `[]any` |  |
+| `foreignNames` | `[]any` |  |
 | `hand` | `int` |  |
 | `id` | `string` |  |
-| `image_url` | `string` |  |
+| `imageUrl` | `string` |  |
 | `layout` | `string` |  |
-| `legality` | `[]any` |  |
+| `legalities` | `[]any` |  |
 | `life` | `int` |  |
 | `loyalty` | `string` |  |
-| `mana_cost` | `string` |  |
+| `manaCost` | `string` |  |
 | `multiverseid` | `int` |  |
 | `name` | `string` |  |
+| `names` | `[]any` |  |
 | `number` | `string` |  |
-| `original_text` | `string` |  |
-| `original_type` | `string` |  |
+| `originalText` | `string` |  |
+| `originalType` | `string` |  |
 | `power` | `string` |  |
-| `printing` | `[]any` |  |
+| `printings` | `[]any` |  |
 | `rarity` | `string` |  |
-| `release_date` | `string` |  |
+| `releaseDate` | `string` |  |
 | `reserved` | `bool` |  |
-| `ruling` | `[]any` |  |
+| `rulings` | `[]any` |  |
 | `set` | `string` |  |
-| `set_name` | `string` |  |
+| `setName` | `string` |  |
 | `source` | `string` |  |
 | `starter` | `bool` |  |
-| `subtype` | `[]any` |  |
-| `supertype` | `[]any` |  |
+| `subtypes` | `[]any` |  |
+| `supertypes` | `[]any` |  |
 | `text` | `string` |  |
 | `timeshifted` | `bool` |  |
 | `toughness` | `string` |  |
 | `type` | `string` |  |
-| `variation` | `[]any` |  |
+| `types` | `[]any` |  |
+| `variations` | `[]any` |  |
 | `watermark` | `string` |  |
 
 #### Example: Load
@@ -523,7 +526,7 @@ Create an instance: `format := client.Format(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `format` | `[]any` |  |
+| `formats` | `[]any` |  |
 
 #### Example: List
 
@@ -555,14 +558,13 @@ Create an instance: `set := client.Set(nil)`
 | `booster` | `[]any` |  |
 | `border` | `string` |  |
 | `code` | `string` |  |
-| `gatherer_code` | `string` |  |
-| `magic_cards_info_code` | `string` |  |
+| `gathererCode` | `string` |  |
+| `magicCardsInfoCode` | `string` |  |
 | `mkm_id` | `int` |  |
 | `mkm_name` | `string` |  |
 | `name` | `string` |  |
-| `online_only` | `bool` |  |
-| `release_date` | `string` |  |
-| `set` | `map[string]any` |  |
+| `onlineOnly` | `bool` |  |
+| `releaseDate` | `string` |  |
 | `type` | `string` |  |
 
 #### Example: Load
@@ -603,40 +605,42 @@ Create an instance: `setBooster := client.SetBooster(nil)`
 | `artist` | `string` |  |
 | `border` | `string` |  |
 | `cmc` | `float64` |  |
-| `color` | `[]any` |  |
-| `color_identity` | `[]any` |  |
+| `colorIdentity` | `[]any` |  |
+| `colors` | `[]any` |  |
 | `flavor` | `string` |  |
-| `foreign_name` | `[]any` |  |
+| `foreignNames` | `[]any` |  |
 | `hand` | `int` |  |
 | `id` | `string` |  |
-| `image_url` | `string` |  |
+| `imageUrl` | `string` |  |
 | `layout` | `string` |  |
-| `legality` | `[]any` |  |
+| `legalities` | `[]any` |  |
 | `life` | `int` |  |
 | `loyalty` | `string` |  |
-| `mana_cost` | `string` |  |
+| `manaCost` | `string` |  |
 | `multiverseid` | `int` |  |
 | `name` | `string` |  |
+| `names` | `[]any` |  |
 | `number` | `string` |  |
-| `original_text` | `string` |  |
-| `original_type` | `string` |  |
+| `originalText` | `string` |  |
+| `originalType` | `string` |  |
 | `power` | `string` |  |
-| `printing` | `[]any` |  |
+| `printings` | `[]any` |  |
 | `rarity` | `string` |  |
-| `release_date` | `string` |  |
+| `releaseDate` | `string` |  |
 | `reserved` | `bool` |  |
-| `ruling` | `[]any` |  |
+| `rulings` | `[]any` |  |
 | `set` | `string` |  |
-| `set_name` | `string` |  |
+| `setName` | `string` |  |
 | `source` | `string` |  |
 | `starter` | `bool` |  |
-| `subtype` | `[]any` |  |
-| `supertype` | `[]any` |  |
+| `subtypes` | `[]any` |  |
+| `supertypes` | `[]any` |  |
 | `text` | `string` |  |
 | `timeshifted` | `bool` |  |
 | `toughness` | `string` |  |
 | `type` | `string` |  |
-| `variation` | `[]any` |  |
+| `types` | `[]any` |  |
+| `variations` | `[]any` |  |
 | `watermark` | `string` |  |
 
 #### Example: List
@@ -664,7 +668,7 @@ Create an instance: `subtype := client.Subtype(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `subtype` | `[]any` |  |
+| `subtypes` | `[]any` |  |
 
 #### Example: List
 
@@ -691,7 +695,7 @@ Create an instance: `supertype := client.Supertype(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `supertype` | `[]any` |  |
+| `supertypes` | `[]any` |  |
 
 #### Example: List
 
@@ -718,7 +722,7 @@ Create an instance: `type_ := client.Type(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `type` | `[]any` |  |
+| `types` | `[]any` |  |
 
 #### Example: List
 
@@ -804,11 +808,11 @@ Entity instances are stateful. After a successful `List`, the entity
 stores the returned data and match criteria internally.
 
 ```go
-card := client.Card(nil)
-card.List(nil, nil)
+format := client.Format(nil)
+format.List(nil, nil)
 
-// card.Data() now returns the card data from the last list
-// card.Match() returns the last match criteria
+// format.Data() now returns the format data from the last list
+// format.Match() returns the last match criteria
 ```
 
 Call `Make()` to create a fresh instance with the same configuration

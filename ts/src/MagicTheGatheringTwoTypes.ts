@@ -8,42 +8,43 @@
 export interface Card {
   artist?: string
   border?: string
-  card?: Record<string, any>
   cmc?: number
-  color?: any[]
-  color_identity?: any[]
+  colorIdentity?: any[]
+  colors?: any[]
   flavor?: string
-  foreign_name?: any[]
+  foreignNames?: any[]
   hand?: number
   id?: string
-  image_url?: string
+  imageUrl?: string
   layout?: string
-  legality?: any[]
+  legalities?: any[]
   life?: number
   loyalty?: string
-  mana_cost?: string
+  manaCost?: string
   multiverseid?: number
   name?: string
+  names?: any[]
   number?: string
-  original_text?: string
-  original_type?: string
+  originalText?: string
+  originalType?: string
   power?: string
-  printing?: any[]
+  printings?: any[]
   rarity?: string
-  release_date?: string
+  releaseDate?: string
   reserved?: boolean
-  ruling?: any[]
+  rulings?: any[]
   set?: string
-  set_name?: string
+  setName?: string
   source?: string
   starter?: boolean
-  subtype?: any[]
-  supertype?: any[]
+  subtypes?: any[]
+  supertypes?: any[]
   text?: string
   timeshifted?: boolean
   toughness?: string
   type?: string
-  variation?: any[]
+  types?: any[]
+  variations?: any[]
   watermark?: string
 }
 
@@ -54,51 +55,52 @@ export interface CardLoadMatch {
 export interface CardListMatch {
   artist?: string
   border?: string
-  card?: Record<string, any>
   cmc?: number
-  color?: any[]
-  color_identity?: any[]
+  colorIdentity?: any[]
+  colors?: any[]
   flavor?: string
-  foreign_name?: any[]
+  foreignNames?: any[]
   hand?: number
   id?: string
-  image_url?: string
+  imageUrl?: string
   layout?: string
-  legality?: any[]
+  legalities?: any[]
   life?: number
   loyalty?: string
-  mana_cost?: string
+  manaCost?: string
   multiverseid?: number
   name?: string
+  names?: any[]
   number?: string
-  original_text?: string
-  original_type?: string
+  originalText?: string
+  originalType?: string
   power?: string
-  printing?: any[]
+  printings?: any[]
   rarity?: string
-  release_date?: string
+  releaseDate?: string
   reserved?: boolean
-  ruling?: any[]
+  rulings?: any[]
   set?: string
-  set_name?: string
+  setName?: string
   source?: string
   starter?: boolean
-  subtype?: any[]
-  supertype?: any[]
+  subtypes?: any[]
+  supertypes?: any[]
   text?: string
   timeshifted?: boolean
   toughness?: string
   type?: string
-  variation?: any[]
+  types?: any[]
+  variations?: any[]
   watermark?: string
 }
 
 export interface Format {
-  format?: any[]
+  formats?: any[]
 }
 
 export interface FormatListMatch {
-  format?: any[]
+  formats?: any[]
 }
 
 export interface Set {
@@ -106,14 +108,13 @@ export interface Set {
   booster?: any[]
   border?: string
   code?: string
-  gatherer_code?: string
-  magic_cards_info_code?: string
+  gathererCode?: string
+  magicCardsInfoCode?: string
   mkm_id?: number
   mkm_name?: string
   name?: string
-  online_only?: boolean
-  release_date?: string
-  set?: Record<string, any>
+  onlineOnly?: boolean
+  releaseDate?: string
   type?: string
 }
 
@@ -126,14 +127,13 @@ export interface SetListMatch {
   booster?: any[]
   border?: string
   code?: string
-  gatherer_code?: string
-  magic_cards_info_code?: string
+  gathererCode?: string
+  magicCardsInfoCode?: string
   mkm_id?: number
   mkm_name?: string
   name?: string
-  online_only?: boolean
-  release_date?: string
-  set?: Record<string, any>
+  onlineOnly?: boolean
+  releaseDate?: string
   type?: string
 }
 
@@ -141,40 +141,42 @@ export interface SetBooster {
   artist?: string
   border?: string
   cmc?: number
-  color?: any[]
-  color_identity?: any[]
+  colorIdentity?: any[]
+  colors?: any[]
   flavor?: string
-  foreign_name?: any[]
+  foreignNames?: any[]
   hand?: number
   id?: string
-  image_url?: string
+  imageUrl?: string
   layout?: string
-  legality?: any[]
+  legalities?: any[]
   life?: number
   loyalty?: string
-  mana_cost?: string
+  manaCost?: string
   multiverseid?: number
   name?: string
+  names?: any[]
   number?: string
-  original_text?: string
-  original_type?: string
+  originalText?: string
+  originalType?: string
   power?: string
-  printing?: any[]
+  printings?: any[]
   rarity?: string
-  release_date?: string
+  releaseDate?: string
   reserved?: boolean
-  ruling?: any[]
+  rulings?: any[]
   set?: string
-  set_name?: string
+  setName?: string
   source?: string
   starter?: boolean
-  subtype?: any[]
-  supertype?: any[]
+  subtypes?: any[]
+  supertypes?: any[]
   text?: string
   timeshifted?: boolean
   toughness?: string
   type?: string
-  variation?: any[]
+  types?: any[]
+  variations?: any[]
   watermark?: string
 }
 
@@ -183,26 +185,26 @@ export interface SetBoosterListMatch {
 }
 
 export interface Subtype {
-  subtype?: any[]
+  subtypes?: any[]
 }
 
 export interface SubtypeListMatch {
-  subtype?: any[]
+  subtypes?: any[]
 }
 
 export interface Supertype {
-  supertype?: any[]
+  supertypes?: any[]
 }
 
 export interface SupertypeListMatch {
-  supertype?: any[]
+  supertypes?: any[]
 }
 
 export interface Type {
-  type?: any[]
+  types?: any[]
 }
 
 export interface TypeListMatch {
-  type?: any[]
+  types?: any[]
 }
 

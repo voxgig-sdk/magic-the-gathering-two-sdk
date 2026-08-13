@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# MagicTheGatheringTwo SDK exists test
 
 import pytest
 from magicthegatheringtwo_sdk import MagicTheGatheringTwoSDK

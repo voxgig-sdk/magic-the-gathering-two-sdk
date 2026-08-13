@@ -8,6 +8,7 @@ guide: {
   entity: card: {
     path: "/cards": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.cards`")|top
     }
     path: "/cards/{id}": {
       op: load: method: *GET
@@ -18,12 +19,14 @@ guide: {
   entity: format: {
     path: "/formats": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.formats`")|top
     }
   }
 
   entity: set: {
     path: "/sets": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.sets`")|top
     }
     path: "/sets/{id}": {
       op: load: method: *GET
@@ -34,24 +37,28 @@ guide: {
   entity: set_booster: {
     path: "/sets/{id}/booster": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.cards`")|top
     }
   }
 
   entity: subtype: {
     path: "/subtypes": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.subtypes`")|top
     }
   }
 
   entity: supertype: {
     path: "/supertypes": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.supertypes`")|top
     }
   }
 
   entity: type: {
     path: "/types": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.types`")|top
     }
   }
 

@@ -43,8 +43,8 @@ class MagicTheGatheringTwoTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('MAGICTHEGATHERINGTWO_TEST_LIVE');
-        $override = self::getenv('MAGICTHEGATHERINGTWO_TEST_OVERRIDE');
+        $live = self::getenv('MAGIC_THE_GATHERING_TWO_TEST_LIVE');
+        $override = self::getenv('MAGIC_THE_GATHERING_TWO_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class MagicTheGatheringTwoTestRunner
             }
         }
 
-        $explain = self::getenv('MAGICTHEGATHERINGTWO_TEST_EXPLAIN');
+        $explain = self::getenv('MAGIC_THE_GATHERING_TWO_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['MAGICTHEGATHERINGTWO_TEST_EXPLAIN'] = $explain;
+            $m['MAGIC_THE_GATHERING_TWO_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

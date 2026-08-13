@@ -6,7 +6,7 @@ main: kit: entity: format: {
 
   fields: [
     {
-      name: "format"
+      name: "formats"
       req: false
       type: "`$ARRAY`"
     }
@@ -25,7 +25,7 @@ main: kit: entity: format: {
           ]
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.formats`"
           }
         }
       ]

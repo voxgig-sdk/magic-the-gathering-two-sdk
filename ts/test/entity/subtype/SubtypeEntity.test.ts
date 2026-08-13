@@ -26,8 +26,8 @@ import {
 describe('SubtypeEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when MAGICTHEGATHERINGTWO_TEST_LIVE=TRUE.
-  afterEach(liveDelay('MAGICTHEGATHERINGTWO_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when MAGIC_THE_GATHERING_TWO_TEST_LIVE=TRUE.
+  afterEach(liveDelay('MAGIC_THE_GATHERING_TWO_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = MagicTheGatheringTwoSDK.test()
@@ -63,7 +63,7 @@ describe('SubtypeEntity', async () => {
     const subtype_ref01_ent = client.Subtype()
     const subtype_ref01_match: any = {}
 
-    const subtype_ref01_list = await subtype_ref01_ent.list(subtype_ref01_match)
+    const subtype_ref01_list = (await subtype_ref01_ent.list(subtype_ref01_match)).map((e: any) => e.data())
 
 
   })

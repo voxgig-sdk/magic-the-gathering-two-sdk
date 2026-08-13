@@ -119,42 +119,43 @@ card = client.Card
 | --- | --- | --- | --- |
 | `artist` | `String` | No |  |
 | `border` | `String` | No |  |
-| `card` | `Hash` | No |  |
 | `cmc` | `Float` | No |  |
-| `color` | `Array` | No |  |
-| `color_identity` | `Array` | No |  |
+| `colorIdentity` | `Array` | No |  |
+| `colors` | `Array` | No |  |
 | `flavor` | `String` | No |  |
-| `foreign_name` | `Array` | No |  |
+| `foreignNames` | `Array` | No |  |
 | `hand` | `Integer` | No |  |
 | `id` | `String` | No |  |
-| `image_url` | `String` | No |  |
+| `imageUrl` | `String` | No |  |
 | `layout` | `String` | No |  |
-| `legality` | `Array` | No |  |
+| `legalities` | `Array` | No |  |
 | `life` | `Integer` | No |  |
 | `loyalty` | `String` | No |  |
-| `mana_cost` | `String` | No |  |
+| `manaCost` | `String` | No |  |
 | `multiverseid` | `Integer` | No |  |
 | `name` | `String` | No |  |
+| `names` | `Array` | No |  |
 | `number` | `String` | No |  |
-| `original_text` | `String` | No |  |
-| `original_type` | `String` | No |  |
+| `originalText` | `String` | No |  |
+| `originalType` | `String` | No |  |
 | `power` | `String` | No |  |
-| `printing` | `Array` | No |  |
+| `printings` | `Array` | No |  |
 | `rarity` | `String` | No |  |
-| `release_date` | `String` | No |  |
+| `releaseDate` | `String` | No |  |
 | `reserved` | `Boolean` | No |  |
-| `ruling` | `Array` | No |  |
+| `rulings` | `Array` | No |  |
 | `set` | `String` | No |  |
-| `set_name` | `String` | No |  |
+| `setName` | `String` | No |  |
 | `source` | `String` | No |  |
 | `starter` | `Boolean` | No |  |
-| `subtype` | `Array` | No |  |
-| `supertype` | `Array` | No |  |
+| `subtypes` | `Array` | No |  |
+| `supertypes` | `Array` | No |  |
 | `text` | `String` | No |  |
 | `timeshifted` | `Boolean` | No |  |
 | `toughness` | `String` | No |  |
 | `type` | `String` | No |  |
-| `variation` | `Array` | No |  |
+| `types` | `Array` | No |  |
+| `variations` | `Array` | No |  |
 | `watermark` | `String` | No |  |
 
 ### Operations
@@ -215,7 +216,7 @@ format = client.Format
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `format` | `Array` | No |  |
+| `formats` | `Array` | No |  |
 
 ### Operations
 
@@ -271,14 +272,13 @@ set = client.Set
 | `booster` | `Array` | No |  |
 | `border` | `String` | No |  |
 | `code` | `String` | No |  |
-| `gatherer_code` | `String` | No |  |
-| `magic_cards_info_code` | `String` | No |  |
+| `gathererCode` | `String` | No |  |
+| `magicCardsInfoCode` | `String` | No |  |
 | `mkm_id` | `Integer` | No |  |
 | `mkm_name` | `String` | No |  |
 | `name` | `String` | No |  |
-| `online_only` | `Boolean` | No |  |
-| `release_date` | `String` | No |  |
-| `set` | `Hash` | No |  |
+| `onlineOnly` | `Boolean` | No |  |
+| `releaseDate` | `String` | No |  |
 | `type` | `String` | No |  |
 
 ### Operations
@@ -342,40 +342,42 @@ set_booster = client.SetBooster
 | `artist` | `String` | No |  |
 | `border` | `String` | No |  |
 | `cmc` | `Float` | No |  |
-| `color` | `Array` | No |  |
-| `color_identity` | `Array` | No |  |
+| `colorIdentity` | `Array` | No |  |
+| `colors` | `Array` | No |  |
 | `flavor` | `String` | No |  |
-| `foreign_name` | `Array` | No |  |
+| `foreignNames` | `Array` | No |  |
 | `hand` | `Integer` | No |  |
 | `id` | `String` | No |  |
-| `image_url` | `String` | No |  |
+| `imageUrl` | `String` | No |  |
 | `layout` | `String` | No |  |
-| `legality` | `Array` | No |  |
+| `legalities` | `Array` | No |  |
 | `life` | `Integer` | No |  |
 | `loyalty` | `String` | No |  |
-| `mana_cost` | `String` | No |  |
+| `manaCost` | `String` | No |  |
 | `multiverseid` | `Integer` | No |  |
 | `name` | `String` | No |  |
+| `names` | `Array` | No |  |
 | `number` | `String` | No |  |
-| `original_text` | `String` | No |  |
-| `original_type` | `String` | No |  |
+| `originalText` | `String` | No |  |
+| `originalType` | `String` | No |  |
 | `power` | `String` | No |  |
-| `printing` | `Array` | No |  |
+| `printings` | `Array` | No |  |
 | `rarity` | `String` | No |  |
-| `release_date` | `String` | No |  |
+| `releaseDate` | `String` | No |  |
 | `reserved` | `Boolean` | No |  |
-| `ruling` | `Array` | No |  |
+| `rulings` | `Array` | No |  |
 | `set` | `String` | No |  |
-| `set_name` | `String` | No |  |
+| `setName` | `String` | No |  |
 | `source` | `String` | No |  |
 | `starter` | `Boolean` | No |  |
-| `subtype` | `Array` | No |  |
-| `supertype` | `Array` | No |  |
+| `subtypes` | `Array` | No |  |
+| `supertypes` | `Array` | No |  |
 | `text` | `String` | No |  |
 | `timeshifted` | `Boolean` | No |  |
 | `toughness` | `String` | No |  |
 | `type` | `String` | No |  |
-| `variation` | `Array` | No |  |
+| `types` | `Array` | No |  |
+| `variations` | `Array` | No |  |
 | `watermark` | `String` | No |  |
 
 ### Operations
@@ -428,7 +430,7 @@ subtype = client.Subtype
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `subtype` | `Array` | No |  |
+| `subtypes` | `Array` | No |  |
 
 ### Operations
 
@@ -480,7 +482,7 @@ supertype = client.Supertype
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `supertype` | `Array` | No |  |
+| `supertypes` | `Array` | No |  |
 
 ### Operations
 
@@ -532,7 +534,7 @@ type = client.Type
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `type` | `Array` | No |  |
+| `types` | `Array` | No |  |
 
 ### Operations
 

@@ -21,12 +21,12 @@ main: kit: entity: set_booster: {
       type: "`$NUMBER`"
     }
     {
-      name: "color"
+      name: "colorIdentity"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "color_identity"
+      name: "colors"
       req: false
       type: "`$ARRAY`"
     }
@@ -36,7 +36,7 @@ main: kit: entity: set_booster: {
       type: "`$STRING`"
     }
     {
-      name: "foreign_name"
+      name: "foreignNames"
       req: false
       type: "`$ARRAY`"
     }
@@ -51,7 +51,7 @@ main: kit: entity: set_booster: {
       type: "`$STRING`"
     }
     {
-      name: "image_url"
+      name: "imageUrl"
       req: false
       type: "`$STRING`"
     }
@@ -61,7 +61,7 @@ main: kit: entity: set_booster: {
       type: "`$STRING`"
     }
     {
-      name: "legality"
+      name: "legalities"
       req: false
       type: "`$ARRAY`"
     }
@@ -76,7 +76,7 @@ main: kit: entity: set_booster: {
       type: "`$STRING`"
     }
     {
-      name: "mana_cost"
+      name: "manaCost"
       req: false
       type: "`$STRING`"
     }
@@ -91,17 +91,22 @@ main: kit: entity: set_booster: {
       type: "`$STRING`"
     }
     {
+      name: "names"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
       name: "number"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "original_text"
+      name: "originalText"
       req: false
       type: "`$STRING`"
     }
     {
-      name: "original_type"
+      name: "originalType"
       req: false
       type: "`$STRING`"
     }
@@ -111,7 +116,7 @@ main: kit: entity: set_booster: {
       type: "`$STRING`"
     }
     {
-      name: "printing"
+      name: "printings"
       req: false
       type: "`$ARRAY`"
     }
@@ -121,7 +126,7 @@ main: kit: entity: set_booster: {
       type: "`$STRING`"
     }
     {
-      name: "release_date"
+      name: "releaseDate"
       req: false
       type: "`$STRING`"
     }
@@ -131,7 +136,7 @@ main: kit: entity: set_booster: {
       type: "`$BOOLEAN`"
     }
     {
-      name: "ruling"
+      name: "rulings"
       req: false
       type: "`$ARRAY`"
     }
@@ -141,7 +146,7 @@ main: kit: entity: set_booster: {
       type: "`$STRING`"
     }
     {
-      name: "set_name"
+      name: "setName"
       req: false
       type: "`$STRING`"
     }
@@ -156,12 +161,12 @@ main: kit: entity: set_booster: {
       type: "`$BOOLEAN`"
     }
     {
-      name: "subtype"
+      name: "subtypes"
       req: false
       type: "`$ARRAY`"
     }
     {
-      name: "supertype"
+      name: "supertypes"
       req: false
       type: "`$ARRAY`"
     }
@@ -186,7 +191,12 @@ main: kit: entity: set_booster: {
       type: "`$STRING`"
     }
     {
-      name: "variation"
+      name: "types"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "variations"
       req: false
       type: "`$ARRAY`"
     }
@@ -233,7 +243,7 @@ main: kit: entity: set_booster: {
           }
           transform: {
             req: "`reqdata`"
-            res: "`body`"
+            res: "`body.cards`"
           }
         }
       ]

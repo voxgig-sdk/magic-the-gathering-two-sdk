@@ -2,20 +2,20 @@
   "existing": {
     "subtype": {
       "SUBTYPE00": {
-        "subtype": []
+        "subtypes": []
       },
       "SUBTYPE01": {
-        "subtype": []
+        "subtypes": []
       },
       "SUBTYPE02": {
-        "subtype": []
+        "subtypes": []
       }
     }
   },
   "new": {
     "subtype": {
       "subtype_ref01": {
-        "subtype": []
+        "subtypes": []
       }
     }
   }

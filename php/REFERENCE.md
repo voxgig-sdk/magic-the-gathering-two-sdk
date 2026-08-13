@@ -118,42 +118,43 @@ $card = $client->Card();
 | --- | --- | --- | --- |
 | `artist` | `string` | No |  |
 | `border` | `string` | No |  |
-| `card` | `array` | No |  |
 | `cmc` | `float` | No |  |
-| `color` | `array` | No |  |
-| `color_identity` | `array` | No |  |
+| `colorIdentity` | `array` | No |  |
+| `colors` | `array` | No |  |
 | `flavor` | `string` | No |  |
-| `foreign_name` | `array` | No |  |
+| `foreignNames` | `array` | No |  |
 | `hand` | `int` | No |  |
 | `id` | `string` | No |  |
-| `image_url` | `string` | No |  |
+| `imageUrl` | `string` | No |  |
 | `layout` | `string` | No |  |
-| `legality` | `array` | No |  |
+| `legalities` | `array` | No |  |
 | `life` | `int` | No |  |
 | `loyalty` | `string` | No |  |
-| `mana_cost` | `string` | No |  |
+| `manaCost` | `string` | No |  |
 | `multiverseid` | `int` | No |  |
 | `name` | `string` | No |  |
+| `names` | `array` | No |  |
 | `number` | `string` | No |  |
-| `original_text` | `string` | No |  |
-| `original_type` | `string` | No |  |
+| `originalText` | `string` | No |  |
+| `originalType` | `string` | No |  |
 | `power` | `string` | No |  |
-| `printing` | `array` | No |  |
+| `printings` | `array` | No |  |
 | `rarity` | `string` | No |  |
-| `release_date` | `string` | No |  |
+| `releaseDate` | `string` | No |  |
 | `reserved` | `bool` | No |  |
-| `ruling` | `array` | No |  |
+| `rulings` | `array` | No |  |
 | `set` | `string` | No |  |
-| `set_name` | `string` | No |  |
+| `setName` | `string` | No |  |
 | `source` | `string` | No |  |
 | `starter` | `bool` | No |  |
-| `subtype` | `array` | No |  |
-| `supertype` | `array` | No |  |
+| `subtypes` | `array` | No |  |
+| `supertypes` | `array` | No |  |
 | `text` | `string` | No |  |
 | `timeshifted` | `bool` | No |  |
 | `toughness` | `string` | No |  |
 | `type` | `string` | No |  |
-| `variation` | `array` | No |  |
+| `types` | `array` | No |  |
+| `variations` | `array` | No |  |
 | `watermark` | `string` | No |  |
 
 ### Operations
@@ -214,7 +215,7 @@ $format = $client->Format();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `format` | `array` | No |  |
+| `formats` | `array` | No |  |
 
 ### Operations
 
@@ -270,14 +271,13 @@ $set = $client->Set();
 | `booster` | `array` | No |  |
 | `border` | `string` | No |  |
 | `code` | `string` | No |  |
-| `gatherer_code` | `string` | No |  |
-| `magic_cards_info_code` | `string` | No |  |
+| `gathererCode` | `string` | No |  |
+| `magicCardsInfoCode` | `string` | No |  |
 | `mkm_id` | `int` | No |  |
 | `mkm_name` | `string` | No |  |
 | `name` | `string` | No |  |
-| `online_only` | `bool` | No |  |
-| `release_date` | `string` | No |  |
-| `set` | `array` | No |  |
+| `onlineOnly` | `bool` | No |  |
+| `releaseDate` | `string` | No |  |
 | `type` | `string` | No |  |
 
 ### Operations
@@ -341,40 +341,42 @@ $set_booster = $client->SetBooster();
 | `artist` | `string` | No |  |
 | `border` | `string` | No |  |
 | `cmc` | `float` | No |  |
-| `color` | `array` | No |  |
-| `color_identity` | `array` | No |  |
+| `colorIdentity` | `array` | No |  |
+| `colors` | `array` | No |  |
 | `flavor` | `string` | No |  |
-| `foreign_name` | `array` | No |  |
+| `foreignNames` | `array` | No |  |
 | `hand` | `int` | No |  |
 | `id` | `string` | No |  |
-| `image_url` | `string` | No |  |
+| `imageUrl` | `string` | No |  |
 | `layout` | `string` | No |  |
-| `legality` | `array` | No |  |
+| `legalities` | `array` | No |  |
 | `life` | `int` | No |  |
 | `loyalty` | `string` | No |  |
-| `mana_cost` | `string` | No |  |
+| `manaCost` | `string` | No |  |
 | `multiverseid` | `int` | No |  |
 | `name` | `string` | No |  |
+| `names` | `array` | No |  |
 | `number` | `string` | No |  |
-| `original_text` | `string` | No |  |
-| `original_type` | `string` | No |  |
+| `originalText` | `string` | No |  |
+| `originalType` | `string` | No |  |
 | `power` | `string` | No |  |
-| `printing` | `array` | No |  |
+| `printings` | `array` | No |  |
 | `rarity` | `string` | No |  |
-| `release_date` | `string` | No |  |
+| `releaseDate` | `string` | No |  |
 | `reserved` | `bool` | No |  |
-| `ruling` | `array` | No |  |
+| `rulings` | `array` | No |  |
 | `set` | `string` | No |  |
-| `set_name` | `string` | No |  |
+| `setName` | `string` | No |  |
 | `source` | `string` | No |  |
 | `starter` | `bool` | No |  |
-| `subtype` | `array` | No |  |
-| `supertype` | `array` | No |  |
+| `subtypes` | `array` | No |  |
+| `supertypes` | `array` | No |  |
 | `text` | `string` | No |  |
 | `timeshifted` | `bool` | No |  |
 | `toughness` | `string` | No |  |
 | `type` | `string` | No |  |
-| `variation` | `array` | No |  |
+| `types` | `array` | No |  |
+| `variations` | `array` | No |  |
 | `watermark` | `string` | No |  |
 
 ### Operations
@@ -427,7 +429,7 @@ $subtype = $client->Subtype();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `subtype` | `array` | No |  |
+| `subtypes` | `array` | No |  |
 
 ### Operations
 
@@ -479,7 +481,7 @@ $supertype = $client->Supertype();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `supertype` | `array` | No |  |
+| `supertypes` | `array` | No |  |
 
 ### Operations
 
@@ -531,7 +533,7 @@ $type = $client->Type();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `type` | `array` | No |  |
+| `types` | `array` | No |  |
 
 ### Operations
 

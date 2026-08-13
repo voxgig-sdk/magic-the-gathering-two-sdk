@@ -49,7 +49,7 @@ try {
 
 ```php
 try {
-    // load() returns the bare Card record (throws on error).
+    // load() returns the ENTITY — call data_get() for the Card record (throws on error).
     $card = $client->Card()->load(["id" => "example_id"]);
     print_r($card);
 } catch (\Throwable $err) {
@@ -65,7 +65,7 @@ Entity operations throw a `\Throwable` on failure, so wrap them in
 
 ```php
 try {
-    $cards = $client->Card()->list();
+    $formats = $client->Format()->list();
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
@@ -132,17 +132,15 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required. Seed fixture
-data via the `entity` option so offline calls resolve without a live server:
+Create a mock client for unit testing — no server required:
 
 ```php
-$client = MagicTheGatheringTwoSDK::test([
-    "entity" => ["card" => ["test01" => ["id" => "test01"]]],
-]);
+$client = MagicTheGatheringTwoSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
-$card = $client->Card()->list();
-print_r($card);
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
+$format = $client->Format()->list();
+print_r($format);
 ```
 
 ### Use a custom fetch function
@@ -246,7 +244,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -270,42 +268,43 @@ On error, `ok` is `false` and `$err` contains the error value.
 | --- | --- |
 | `artist` |  |
 | `border` |  |
-| `card` |  |
 | `cmc` |  |
-| `color` |  |
-| `color_identity` |  |
+| `colorIdentity` |  |
+| `colors` |  |
 | `flavor` |  |
-| `foreign_name` |  |
+| `foreignNames` |  |
 | `hand` |  |
 | `id` |  |
-| `image_url` |  |
+| `imageUrl` |  |
 | `layout` |  |
-| `legality` |  |
+| `legalities` |  |
 | `life` |  |
 | `loyalty` |  |
-| `mana_cost` |  |
+| `manaCost` |  |
 | `multiverseid` |  |
 | `name` |  |
+| `names` |  |
 | `number` |  |
-| `original_text` |  |
-| `original_type` |  |
+| `originalText` |  |
+| `originalType` |  |
 | `power` |  |
-| `printing` |  |
+| `printings` |  |
 | `rarity` |  |
-| `release_date` |  |
+| `releaseDate` |  |
 | `reserved` |  |
-| `ruling` |  |
+| `rulings` |  |
 | `set` |  |
-| `set_name` |  |
+| `setName` |  |
 | `source` |  |
 | `starter` |  |
-| `subtype` |  |
-| `supertype` |  |
+| `subtypes` |  |
+| `supertypes` |  |
 | `text` |  |
 | `timeshifted` |  |
 | `toughness` |  |
 | `type` |  |
-| `variation` |  |
+| `types` |  |
+| `variations` |  |
 | `watermark` |  |
 
 Operations: List, Load.
@@ -316,7 +315,7 @@ API path: `/cards`
 
 | Field | Description |
 | --- | --- |
-| `format` |  |
+| `formats` |  |
 
 Operations: List.
 
@@ -330,14 +329,13 @@ API path: `/formats`
 | `booster` |  |
 | `border` |  |
 | `code` |  |
-| `gatherer_code` |  |
-| `magic_cards_info_code` |  |
+| `gathererCode` |  |
+| `magicCardsInfoCode` |  |
 | `mkm_id` |  |
 | `mkm_name` |  |
 | `name` |  |
-| `online_only` |  |
-| `release_date` |  |
-| `set` |  |
+| `onlineOnly` |  |
+| `releaseDate` |  |
 | `type` |  |
 
 Operations: List, Load.
@@ -351,40 +349,42 @@ API path: `/sets`
 | `artist` |  |
 | `border` |  |
 | `cmc` |  |
-| `color` |  |
-| `color_identity` |  |
+| `colorIdentity` |  |
+| `colors` |  |
 | `flavor` |  |
-| `foreign_name` |  |
+| `foreignNames` |  |
 | `hand` |  |
 | `id` |  |
-| `image_url` |  |
+| `imageUrl` |  |
 | `layout` |  |
-| `legality` |  |
+| `legalities` |  |
 | `life` |  |
 | `loyalty` |  |
-| `mana_cost` |  |
+| `manaCost` |  |
 | `multiverseid` |  |
 | `name` |  |
+| `names` |  |
 | `number` |  |
-| `original_text` |  |
-| `original_type` |  |
+| `originalText` |  |
+| `originalType` |  |
 | `power` |  |
-| `printing` |  |
+| `printings` |  |
 | `rarity` |  |
-| `release_date` |  |
+| `releaseDate` |  |
 | `reserved` |  |
-| `ruling` |  |
+| `rulings` |  |
 | `set` |  |
-| `set_name` |  |
+| `setName` |  |
 | `source` |  |
 | `starter` |  |
-| `subtype` |  |
-| `supertype` |  |
+| `subtypes` |  |
+| `supertypes` |  |
 | `text` |  |
 | `timeshifted` |  |
 | `toughness` |  |
 | `type` |  |
-| `variation` |  |
+| `types` |  |
+| `variations` |  |
 | `watermark` |  |
 
 Operations: List.
@@ -395,7 +395,7 @@ API path: `/sets/{id}/booster`
 
 | Field | Description |
 | --- | --- |
-| `subtype` |  |
+| `subtypes` |  |
 
 Operations: List.
 
@@ -405,7 +405,7 @@ API path: `/subtypes`
 
 | Field | Description |
 | --- | --- |
-| `supertype` |  |
+| `supertypes` |  |
 
 Operations: List.
 
@@ -415,7 +415,7 @@ API path: `/supertypes`
 
 | Field | Description |
 | --- | --- |
-| `type` |  |
+| `types` |  |
 
 Operations: List.
 
@@ -443,48 +443,49 @@ Create an instance: `$card = $client->Card();`
 | --- | --- | --- |
 | `artist` | `string` |  |
 | `border` | `string` |  |
-| `card` | `array` |  |
 | `cmc` | `float` |  |
-| `color` | `array` |  |
-| `color_identity` | `array` |  |
+| `colorIdentity` | `array` |  |
+| `colors` | `array` |  |
 | `flavor` | `string` |  |
-| `foreign_name` | `array` |  |
+| `foreignNames` | `array` |  |
 | `hand` | `int` |  |
 | `id` | `string` |  |
-| `image_url` | `string` |  |
+| `imageUrl` | `string` |  |
 | `layout` | `string` |  |
-| `legality` | `array` |  |
+| `legalities` | `array` |  |
 | `life` | `int` |  |
 | `loyalty` | `string` |  |
-| `mana_cost` | `string` |  |
+| `manaCost` | `string` |  |
 | `multiverseid` | `int` |  |
 | `name` | `string` |  |
+| `names` | `array` |  |
 | `number` | `string` |  |
-| `original_text` | `string` |  |
-| `original_type` | `string` |  |
+| `originalText` | `string` |  |
+| `originalType` | `string` |  |
 | `power` | `string` |  |
-| `printing` | `array` |  |
+| `printings` | `array` |  |
 | `rarity` | `string` |  |
-| `release_date` | `string` |  |
+| `releaseDate` | `string` |  |
 | `reserved` | `bool` |  |
-| `ruling` | `array` |  |
+| `rulings` | `array` |  |
 | `set` | `string` |  |
-| `set_name` | `string` |  |
+| `setName` | `string` |  |
 | `source` | `string` |  |
 | `starter` | `bool` |  |
-| `subtype` | `array` |  |
-| `supertype` | `array` |  |
+| `subtypes` | `array` |  |
+| `supertypes` | `array` |  |
 | `text` | `string` |  |
 | `timeshifted` | `bool` |  |
 | `toughness` | `string` |  |
 | `type` | `string` |  |
-| `variation` | `array` |  |
+| `types` | `array` |  |
+| `variations` | `array` |  |
 | `watermark` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Card record (throws on error).
+// load() returns the ENTITY — call data_get() for the Card record (throws on error).
 $card = $client->Card()->load(["id" => "card_id"]);
 ```
 
@@ -510,7 +511,7 @@ Create an instance: `$format = $client->Format();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `format` | `array` |  |
+| `formats` | `array` |  |
 
 #### Example: List
 
@@ -539,20 +540,19 @@ Create an instance: `$set = $client->Set();`
 | `booster` | `array` |  |
 | `border` | `string` |  |
 | `code` | `string` |  |
-| `gatherer_code` | `string` |  |
-| `magic_cards_info_code` | `string` |  |
+| `gathererCode` | `string` |  |
+| `magicCardsInfoCode` | `string` |  |
 | `mkm_id` | `int` |  |
 | `mkm_name` | `string` |  |
 | `name` | `string` |  |
-| `online_only` | `bool` |  |
-| `release_date` | `string` |  |
-| `set` | `array` |  |
+| `onlineOnly` | `bool` |  |
+| `releaseDate` | `string` |  |
 | `type` | `string` |  |
 
 #### Example: Load
 
 ```php
-// load() returns the bare Set record (throws on error).
+// load() returns the ENTITY — call data_get() for the Set record (throws on error).
 $set = $client->Set()->load(["id" => "set_id"]);
 ```
 
@@ -581,40 +581,42 @@ Create an instance: `$set_booster = $client->SetBooster();`
 | `artist` | `string` |  |
 | `border` | `string` |  |
 | `cmc` | `float` |  |
-| `color` | `array` |  |
-| `color_identity` | `array` |  |
+| `colorIdentity` | `array` |  |
+| `colors` | `array` |  |
 | `flavor` | `string` |  |
-| `foreign_name` | `array` |  |
+| `foreignNames` | `array` |  |
 | `hand` | `int` |  |
 | `id` | `string` |  |
-| `image_url` | `string` |  |
+| `imageUrl` | `string` |  |
 | `layout` | `string` |  |
-| `legality` | `array` |  |
+| `legalities` | `array` |  |
 | `life` | `int` |  |
 | `loyalty` | `string` |  |
-| `mana_cost` | `string` |  |
+| `manaCost` | `string` |  |
 | `multiverseid` | `int` |  |
 | `name` | `string` |  |
+| `names` | `array` |  |
 | `number` | `string` |  |
-| `original_text` | `string` |  |
-| `original_type` | `string` |  |
+| `originalText` | `string` |  |
+| `originalType` | `string` |  |
 | `power` | `string` |  |
-| `printing` | `array` |  |
+| `printings` | `array` |  |
 | `rarity` | `string` |  |
-| `release_date` | `string` |  |
+| `releaseDate` | `string` |  |
 | `reserved` | `bool` |  |
-| `ruling` | `array` |  |
+| `rulings` | `array` |  |
 | `set` | `string` |  |
-| `set_name` | `string` |  |
+| `setName` | `string` |  |
 | `source` | `string` |  |
 | `starter` | `bool` |  |
-| `subtype` | `array` |  |
-| `supertype` | `array` |  |
+| `subtypes` | `array` |  |
+| `supertypes` | `array` |  |
 | `text` | `string` |  |
 | `timeshifted` | `bool` |  |
 | `toughness` | `string` |  |
 | `type` | `string` |  |
-| `variation` | `array` |  |
+| `types` | `array` |  |
+| `variations` | `array` |  |
 | `watermark` | `string` |  |
 
 #### Example: List
@@ -639,7 +641,7 @@ Create an instance: `$subtype = $client->Subtype();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `subtype` | `array` |  |
+| `subtypes` | `array` |  |
 
 #### Example: List
 
@@ -663,7 +665,7 @@ Create an instance: `$supertype = $client->Supertype();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `supertype` | `array` |  |
+| `supertypes` | `array` |  |
 
 #### Example: List
 
@@ -687,7 +689,7 @@ Create an instance: `$type = $client->Type();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `type` | `array` |  |
+| `types` | `array` |  |
 
 #### Example: List
 
@@ -773,11 +775,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$card = $client->Card();
-$card->list();
+$format = $client->Format();
+$format->list();
 
-// $card->data_get() now returns the card data from the last list
-// $card->match_get() returns the last match criteria
+// $format->data_get() now returns the format data from the last list
+// $format->match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

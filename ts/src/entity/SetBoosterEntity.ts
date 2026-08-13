@@ -37,7 +37,7 @@ class SetBoosterEntity extends MagicTheGatheringTwoEntityBase<SetBooster> {
 
 
 
-  async list(this: any, reqmatch?: SetBoosterListMatch, ctrl?: Control): Promise<SetBooster[]> {
+  async list(this: any, reqmatch?: SetBoosterListMatch, ctrl?: Control): Promise<SetBoosterEntity[]> {
 
     const utility = this._utility
 

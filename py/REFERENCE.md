@@ -113,42 +113,43 @@ card = client.Card()
 | --- | --- | --- | --- |
 | `artist` | `str` | No |  |
 | `border` | `str` | No |  |
-| `card` | `dict` | No |  |
 | `cmc` | `float` | No |  |
-| `color` | `list` | No |  |
-| `color_identity` | `list` | No |  |
+| `colorIdentity` | `list` | No |  |
+| `colors` | `list` | No |  |
 | `flavor` | `str` | No |  |
-| `foreign_name` | `list` | No |  |
+| `foreignNames` | `list` | No |  |
 | `hand` | `int` | No |  |
 | `id` | `str` | No |  |
-| `image_url` | `str` | No |  |
+| `imageUrl` | `str` | No |  |
 | `layout` | `str` | No |  |
-| `legality` | `list` | No |  |
+| `legalities` | `list` | No |  |
 | `life` | `int` | No |  |
 | `loyalty` | `str` | No |  |
-| `mana_cost` | `str` | No |  |
+| `manaCost` | `str` | No |  |
 | `multiverseid` | `int` | No |  |
 | `name` | `str` | No |  |
+| `names` | `list` | No |  |
 | `number` | `str` | No |  |
-| `original_text` | `str` | No |  |
-| `original_type` | `str` | No |  |
+| `originalText` | `str` | No |  |
+| `originalType` | `str` | No |  |
 | `power` | `str` | No |  |
-| `printing` | `list` | No |  |
+| `printings` | `list` | No |  |
 | `rarity` | `str` | No |  |
-| `release_date` | `str` | No |  |
+| `releaseDate` | `str` | No |  |
 | `reserved` | `bool` | No |  |
-| `ruling` | `list` | No |  |
+| `rulings` | `list` | No |  |
 | `set` | `str` | No |  |
-| `set_name` | `str` | No |  |
+| `setName` | `str` | No |  |
 | `source` | `str` | No |  |
 | `starter` | `bool` | No |  |
-| `subtype` | `list` | No |  |
-| `supertype` | `list` | No |  |
+| `subtypes` | `list` | No |  |
+| `supertypes` | `list` | No |  |
 | `text` | `str` | No |  |
 | `timeshifted` | `bool` | No |  |
 | `toughness` | `str` | No |  |
 | `type` | `str` | No |  |
-| `variation` | `list` | No |  |
+| `types` | `list` | No |  |
+| `variations` | `list` | No |  |
 | `watermark` | `str` | No |  |
 
 ### Operations
@@ -210,7 +211,7 @@ format = client.Format()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `format` | `list` | No |  |
+| `formats` | `list` | No |  |
 
 ### Operations
 
@@ -267,14 +268,13 @@ set = client.Set()
 | `booster` | `list` | No |  |
 | `border` | `str` | No |  |
 | `code` | `str` | No |  |
-| `gatherer_code` | `str` | No |  |
-| `magic_cards_info_code` | `str` | No |  |
+| `gathererCode` | `str` | No |  |
+| `magicCardsInfoCode` | `str` | No |  |
 | `mkm_id` | `int` | No |  |
 | `mkm_name` | `str` | No |  |
 | `name` | `str` | No |  |
-| `online_only` | `bool` | No |  |
-| `release_date` | `str` | No |  |
-| `set` | `dict` | No |  |
+| `onlineOnly` | `bool` | No |  |
+| `releaseDate` | `str` | No |  |
 | `type` | `str` | No |  |
 
 ### Operations
@@ -339,40 +339,42 @@ set_booster = client.SetBooster()
 | `artist` | `str` | No |  |
 | `border` | `str` | No |  |
 | `cmc` | `float` | No |  |
-| `color` | `list` | No |  |
-| `color_identity` | `list` | No |  |
+| `colorIdentity` | `list` | No |  |
+| `colors` | `list` | No |  |
 | `flavor` | `str` | No |  |
-| `foreign_name` | `list` | No |  |
+| `foreignNames` | `list` | No |  |
 | `hand` | `int` | No |  |
 | `id` | `str` | No |  |
-| `image_url` | `str` | No |  |
+| `imageUrl` | `str` | No |  |
 | `layout` | `str` | No |  |
-| `legality` | `list` | No |  |
+| `legalities` | `list` | No |  |
 | `life` | `int` | No |  |
 | `loyalty` | `str` | No |  |
-| `mana_cost` | `str` | No |  |
+| `manaCost` | `str` | No |  |
 | `multiverseid` | `int` | No |  |
 | `name` | `str` | No |  |
+| `names` | `list` | No |  |
 | `number` | `str` | No |  |
-| `original_text` | `str` | No |  |
-| `original_type` | `str` | No |  |
+| `originalText` | `str` | No |  |
+| `originalType` | `str` | No |  |
 | `power` | `str` | No |  |
-| `printing` | `list` | No |  |
+| `printings` | `list` | No |  |
 | `rarity` | `str` | No |  |
-| `release_date` | `str` | No |  |
+| `releaseDate` | `str` | No |  |
 | `reserved` | `bool` | No |  |
-| `ruling` | `list` | No |  |
+| `rulings` | `list` | No |  |
 | `set` | `str` | No |  |
-| `set_name` | `str` | No |  |
+| `setName` | `str` | No |  |
 | `source` | `str` | No |  |
 | `starter` | `bool` | No |  |
-| `subtype` | `list` | No |  |
-| `supertype` | `list` | No |  |
+| `subtypes` | `list` | No |  |
+| `supertypes` | `list` | No |  |
 | `text` | `str` | No |  |
 | `timeshifted` | `bool` | No |  |
 | `toughness` | `str` | No |  |
 | `type` | `str` | No |  |
-| `variation` | `list` | No |  |
+| `types` | `list` | No |  |
+| `variations` | `list` | No |  |
 | `watermark` | `str` | No |  |
 
 ### Operations
@@ -382,7 +384,7 @@ set_booster = client.SetBooster()
 List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.SetBooster().list()
+results = client.SetBooster().list({"id": "example"})
 for set_booster in results:
     print(set_booster)
 ```
@@ -426,7 +428,7 @@ subtype = client.Subtype()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `subtype` | `list` | No |  |
+| `subtypes` | `list` | No |  |
 
 ### Operations
 
@@ -479,7 +481,7 @@ supertype = client.Supertype()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `supertype` | `list` | No |  |
+| `supertypes` | `list` | No |  |
 
 ### Operations
 
@@ -532,7 +534,7 @@ type = client.Type()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `type` | `list` | No |  |
+| `types` | `list` | No |  |
 
 ### Operations
 

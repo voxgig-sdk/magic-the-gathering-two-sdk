@@ -66,11 +66,11 @@ function subtype_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "MAGICTHEGATHERINGTWO_TEST_SUBTYPE_ENTID" => [],
-        "MAGICTHEGATHERINGTWO_TEST_LIVE" => "FALSE",
+        "MAGIC_THE_GATHERING_TWO_TEST_SUBTYPE_ENTID" => [],
+        "MAGIC_THE_GATHERING_TWO_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["MAGICTHEGATHERINGTWO_TEST_LIVE"] === "TRUE";
+    $live = $env["MAGIC_THE_GATHERING_TWO_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

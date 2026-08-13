@@ -62,7 +62,7 @@ Entity operations return `(value, err)`. Check `err` before using
 the value:
 
 ```lua
-local cards, err = client:Card():list()
+local formats, err = client:Format():list()
 if err then error(err) end
 ```
 
@@ -120,7 +120,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:Card():list()
+local result, err = client:Format():list()
 -- result is the returned data; err is set on failure
 ```
 
@@ -249,42 +249,43 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 | --- | --- |
 | `artist` |  |
 | `border` |  |
-| `card` |  |
 | `cmc` |  |
-| `color` |  |
-| `color_identity` |  |
+| `colorIdentity` |  |
+| `colors` |  |
 | `flavor` |  |
-| `foreign_name` |  |
+| `foreignNames` |  |
 | `hand` |  |
 | `id` |  |
-| `image_url` |  |
+| `imageUrl` |  |
 | `layout` |  |
-| `legality` |  |
+| `legalities` |  |
 | `life` |  |
 | `loyalty` |  |
-| `mana_cost` |  |
+| `manaCost` |  |
 | `multiverseid` |  |
 | `name` |  |
+| `names` |  |
 | `number` |  |
-| `original_text` |  |
-| `original_type` |  |
+| `originalText` |  |
+| `originalType` |  |
 | `power` |  |
-| `printing` |  |
+| `printings` |  |
 | `rarity` |  |
-| `release_date` |  |
+| `releaseDate` |  |
 | `reserved` |  |
-| `ruling` |  |
+| `rulings` |  |
 | `set` |  |
-| `set_name` |  |
+| `setName` |  |
 | `source` |  |
 | `starter` |  |
-| `subtype` |  |
-| `supertype` |  |
+| `subtypes` |  |
+| `supertypes` |  |
 | `text` |  |
 | `timeshifted` |  |
 | `toughness` |  |
 | `type` |  |
-| `variation` |  |
+| `types` |  |
+| `variations` |  |
 | `watermark` |  |
 
 Operations: List, Load.
@@ -295,7 +296,7 @@ API path: `/cards`
 
 | Field | Description |
 | --- | --- |
-| `format` |  |
+| `formats` |  |
 
 Operations: List.
 
@@ -309,14 +310,13 @@ API path: `/formats`
 | `booster` |  |
 | `border` |  |
 | `code` |  |
-| `gatherer_code` |  |
-| `magic_cards_info_code` |  |
+| `gathererCode` |  |
+| `magicCardsInfoCode` |  |
 | `mkm_id` |  |
 | `mkm_name` |  |
 | `name` |  |
-| `online_only` |  |
-| `release_date` |  |
-| `set` |  |
+| `onlineOnly` |  |
+| `releaseDate` |  |
 | `type` |  |
 
 Operations: List, Load.
@@ -330,40 +330,42 @@ API path: `/sets`
 | `artist` |  |
 | `border` |  |
 | `cmc` |  |
-| `color` |  |
-| `color_identity` |  |
+| `colorIdentity` |  |
+| `colors` |  |
 | `flavor` |  |
-| `foreign_name` |  |
+| `foreignNames` |  |
 | `hand` |  |
 | `id` |  |
-| `image_url` |  |
+| `imageUrl` |  |
 | `layout` |  |
-| `legality` |  |
+| `legalities` |  |
 | `life` |  |
 | `loyalty` |  |
-| `mana_cost` |  |
+| `manaCost` |  |
 | `multiverseid` |  |
 | `name` |  |
+| `names` |  |
 | `number` |  |
-| `original_text` |  |
-| `original_type` |  |
+| `originalText` |  |
+| `originalType` |  |
 | `power` |  |
-| `printing` |  |
+| `printings` |  |
 | `rarity` |  |
-| `release_date` |  |
+| `releaseDate` |  |
 | `reserved` |  |
-| `ruling` |  |
+| `rulings` |  |
 | `set` |  |
-| `set_name` |  |
+| `setName` |  |
 | `source` |  |
 | `starter` |  |
-| `subtype` |  |
-| `supertype` |  |
+| `subtypes` |  |
+| `supertypes` |  |
 | `text` |  |
 | `timeshifted` |  |
 | `toughness` |  |
 | `type` |  |
-| `variation` |  |
+| `types` |  |
+| `variations` |  |
 | `watermark` |  |
 
 Operations: List.
@@ -374,7 +376,7 @@ API path: `/sets/{id}/booster`
 
 | Field | Description |
 | --- | --- |
-| `subtype` |  |
+| `subtypes` |  |
 
 Operations: List.
 
@@ -384,7 +386,7 @@ API path: `/subtypes`
 
 | Field | Description |
 | --- | --- |
-| `supertype` |  |
+| `supertypes` |  |
 
 Operations: List.
 
@@ -394,7 +396,7 @@ API path: `/supertypes`
 
 | Field | Description |
 | --- | --- |
-| `type` |  |
+| `types` |  |
 
 Operations: List.
 
@@ -422,42 +424,43 @@ Create an instance: `local card = client:Card(nil)`
 | --- | --- | --- |
 | `artist` | `string` |  |
 | `border` | `string` |  |
-| `card` | `table` |  |
 | `cmc` | `number` |  |
-| `color` | `table` |  |
-| `color_identity` | `table` |  |
+| `colorIdentity` | `table` |  |
+| `colors` | `table` |  |
 | `flavor` | `string` |  |
-| `foreign_name` | `table` |  |
+| `foreignNames` | `table` |  |
 | `hand` | `number` |  |
 | `id` | `string` |  |
-| `image_url` | `string` |  |
+| `imageUrl` | `string` |  |
 | `layout` | `string` |  |
-| `legality` | `table` |  |
+| `legalities` | `table` |  |
 | `life` | `number` |  |
 | `loyalty` | `string` |  |
-| `mana_cost` | `string` |  |
+| `manaCost` | `string` |  |
 | `multiverseid` | `number` |  |
 | `name` | `string` |  |
+| `names` | `table` |  |
 | `number` | `string` |  |
-| `original_text` | `string` |  |
-| `original_type` | `string` |  |
+| `originalText` | `string` |  |
+| `originalType` | `string` |  |
 | `power` | `string` |  |
-| `printing` | `table` |  |
+| `printings` | `table` |  |
 | `rarity` | `string` |  |
-| `release_date` | `string` |  |
+| `releaseDate` | `string` |  |
 | `reserved` | `boolean` |  |
-| `ruling` | `table` |  |
+| `rulings` | `table` |  |
 | `set` | `string` |  |
-| `set_name` | `string` |  |
+| `setName` | `string` |  |
 | `source` | `string` |  |
 | `starter` | `boolean` |  |
-| `subtype` | `table` |  |
-| `supertype` | `table` |  |
+| `subtypes` | `table` |  |
+| `supertypes` | `table` |  |
 | `text` | `string` |  |
 | `timeshifted` | `boolean` |  |
 | `toughness` | `string` |  |
 | `type` | `string` |  |
-| `variation` | `table` |  |
+| `types` | `table` |  |
+| `variations` | `table` |  |
 | `watermark` | `string` |  |
 
 #### Example: Load
@@ -487,7 +490,7 @@ Create an instance: `local format = client:Format(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `format` | `table` |  |
+| `formats` | `table` |  |
 
 #### Example: List
 
@@ -515,14 +518,13 @@ Create an instance: `local set = client:Set(nil)`
 | `booster` | `table` |  |
 | `border` | `string` |  |
 | `code` | `string` |  |
-| `gatherer_code` | `string` |  |
-| `magic_cards_info_code` | `string` |  |
+| `gathererCode` | `string` |  |
+| `magicCardsInfoCode` | `string` |  |
 | `mkm_id` | `number` |  |
 | `mkm_name` | `string` |  |
 | `name` | `string` |  |
-| `online_only` | `boolean` |  |
-| `release_date` | `string` |  |
-| `set` | `table` |  |
+| `onlineOnly` | `boolean` |  |
+| `releaseDate` | `string` |  |
 | `type` | `string` |  |
 
 #### Example: Load
@@ -555,40 +557,42 @@ Create an instance: `local set_booster = client:SetBooster(nil)`
 | `artist` | `string` |  |
 | `border` | `string` |  |
 | `cmc` | `number` |  |
-| `color` | `table` |  |
-| `color_identity` | `table` |  |
+| `colorIdentity` | `table` |  |
+| `colors` | `table` |  |
 | `flavor` | `string` |  |
-| `foreign_name` | `table` |  |
+| `foreignNames` | `table` |  |
 | `hand` | `number` |  |
 | `id` | `string` |  |
-| `image_url` | `string` |  |
+| `imageUrl` | `string` |  |
 | `layout` | `string` |  |
-| `legality` | `table` |  |
+| `legalities` | `table` |  |
 | `life` | `number` |  |
 | `loyalty` | `string` |  |
-| `mana_cost` | `string` |  |
+| `manaCost` | `string` |  |
 | `multiverseid` | `number` |  |
 | `name` | `string` |  |
+| `names` | `table` |  |
 | `number` | `string` |  |
-| `original_text` | `string` |  |
-| `original_type` | `string` |  |
+| `originalText` | `string` |  |
+| `originalType` | `string` |  |
 | `power` | `string` |  |
-| `printing` | `table` |  |
+| `printings` | `table` |  |
 | `rarity` | `string` |  |
-| `release_date` | `string` |  |
+| `releaseDate` | `string` |  |
 | `reserved` | `boolean` |  |
-| `ruling` | `table` |  |
+| `rulings` | `table` |  |
 | `set` | `string` |  |
-| `set_name` | `string` |  |
+| `setName` | `string` |  |
 | `source` | `string` |  |
 | `starter` | `boolean` |  |
-| `subtype` | `table` |  |
-| `supertype` | `table` |  |
+| `subtypes` | `table` |  |
+| `supertypes` | `table` |  |
 | `text` | `string` |  |
 | `timeshifted` | `boolean` |  |
 | `toughness` | `string` |  |
 | `type` | `string` |  |
-| `variation` | `table` |  |
+| `types` | `table` |  |
+| `variations` | `table` |  |
 | `watermark` | `string` |  |
 
 #### Example: List
@@ -612,7 +616,7 @@ Create an instance: `local subtype = client:Subtype(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `subtype` | `table` |  |
+| `subtypes` | `table` |  |
 
 #### Example: List
 
@@ -635,7 +639,7 @@ Create an instance: `local supertype = client:Supertype(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `supertype` | `table` |  |
+| `supertypes` | `table` |  |
 
 #### Example: List
 
@@ -658,7 +662,7 @@ Create an instance: `local type = client:Type(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `type` | `table` |  |
+| `types` | `table` |  |
 
 #### Example: List
 
@@ -743,11 +747,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local card = client:Card()
-card:list()
+local format = client:Format()
+format:list()
 
--- card:data_get() now returns the card data from the last list
--- card:match_get() returns the last match criteria
+-- format:data_get() now returns the format data from the last list
+-- format:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

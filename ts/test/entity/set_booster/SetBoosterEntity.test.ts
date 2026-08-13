@@ -26,8 +26,8 @@ import {
 describe('SetBoosterEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when MAGICTHEGATHERINGTWO_TEST_LIVE=TRUE.
-  afterEach(liveDelay('MAGICTHEGATHERINGTWO_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when MAGIC_THE_GATHERING_TWO_TEST_LIVE=TRUE.
+  afterEach(liveDelay('MAGIC_THE_GATHERING_TWO_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = MagicTheGatheringTwoSDK.test()
@@ -63,7 +63,7 @@ describe('SetBoosterEntity', async () => {
     const set_booster_ref01_ent = client.SetBooster()
     const set_booster_ref01_match: any = {}
 
-    const set_booster_ref01_list = await set_booster_ref01_ent.list(set_booster_ref01_match)
+    const set_booster_ref01_list = (await set_booster_ref01_ent.list(set_booster_ref01_match)).map((e: any) => e.data())
 
 
   })

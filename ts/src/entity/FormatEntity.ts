@@ -37,7 +37,7 @@ class FormatEntity extends MagicTheGatheringTwoEntityBase<Format> {
 
 
 
-  async list(this: any, reqmatch?: FormatListMatch, ctrl?: Control): Promise<Format[]> {
+  async list(this: any, reqmatch?: FormatListMatch, ctrl?: Control): Promise<FormatEntity[]> {
 
     const utility = this._utility
 

@@ -48,7 +48,7 @@ end
 
 ```ruby
 begin
-  # load returns the bare Card record (raises on error).
+  # load returns the ENTITY — call data_get for the Card record (raises on error).
   card = client.Card.load({ "id" => "example_id" })
   puts card
 rescue => err
@@ -63,7 +63,7 @@ Entity operations raise on failure, so rescue them:
 
 ```ruby
 begin
-  cards = client.Card.list()
+  formats = client.Format.list()
 rescue => err
   warn "list failed: #{err}"
 end
@@ -126,17 +126,15 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required. Seed fixture
-data via the `entity` option so offline calls resolve without a live server:
+Create a mock client for unit testing — no server required:
 
 ```ruby
-client = MagicTheGatheringTwoSDK.test({
-  "entity" => { "card" => { "test01" => { "id" => "test01" } } },
-})
+client = MagicTheGatheringTwoSDK.test
 
-# Entity ops return the bare mock record (raises on error).
-card = client.Card.list()
-puts card
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
+format = client.Format.list()
+puts format
 ```
 
 ### Use a custom fetch function
@@ -260,42 +258,43 @@ returns a result `Hash` with these keys:
 | --- | --- |
 | `artist` |  |
 | `border` |  |
-| `card` |  |
 | `cmc` |  |
-| `color` |  |
-| `color_identity` |  |
+| `colorIdentity` |  |
+| `colors` |  |
 | `flavor` |  |
-| `foreign_name` |  |
+| `foreignNames` |  |
 | `hand` |  |
 | `id` |  |
-| `image_url` |  |
+| `imageUrl` |  |
 | `layout` |  |
-| `legality` |  |
+| `legalities` |  |
 | `life` |  |
 | `loyalty` |  |
-| `mana_cost` |  |
+| `manaCost` |  |
 | `multiverseid` |  |
 | `name` |  |
+| `names` |  |
 | `number` |  |
-| `original_text` |  |
-| `original_type` |  |
+| `originalText` |  |
+| `originalType` |  |
 | `power` |  |
-| `printing` |  |
+| `printings` |  |
 | `rarity` |  |
-| `release_date` |  |
+| `releaseDate` |  |
 | `reserved` |  |
-| `ruling` |  |
+| `rulings` |  |
 | `set` |  |
-| `set_name` |  |
+| `setName` |  |
 | `source` |  |
 | `starter` |  |
-| `subtype` |  |
-| `supertype` |  |
+| `subtypes` |  |
+| `supertypes` |  |
 | `text` |  |
 | `timeshifted` |  |
 | `toughness` |  |
 | `type` |  |
-| `variation` |  |
+| `types` |  |
+| `variations` |  |
 | `watermark` |  |
 
 Operations: List, Load.
@@ -306,7 +305,7 @@ API path: `/cards`
 
 | Field | Description |
 | --- | --- |
-| `format` |  |
+| `formats` |  |
 
 Operations: List.
 
@@ -320,14 +319,13 @@ API path: `/formats`
 | `booster` |  |
 | `border` |  |
 | `code` |  |
-| `gatherer_code` |  |
-| `magic_cards_info_code` |  |
+| `gathererCode` |  |
+| `magicCardsInfoCode` |  |
 | `mkm_id` |  |
 | `mkm_name` |  |
 | `name` |  |
-| `online_only` |  |
-| `release_date` |  |
-| `set` |  |
+| `onlineOnly` |  |
+| `releaseDate` |  |
 | `type` |  |
 
 Operations: List, Load.
@@ -341,40 +339,42 @@ API path: `/sets`
 | `artist` |  |
 | `border` |  |
 | `cmc` |  |
-| `color` |  |
-| `color_identity` |  |
+| `colorIdentity` |  |
+| `colors` |  |
 | `flavor` |  |
-| `foreign_name` |  |
+| `foreignNames` |  |
 | `hand` |  |
 | `id` |  |
-| `image_url` |  |
+| `imageUrl` |  |
 | `layout` |  |
-| `legality` |  |
+| `legalities` |  |
 | `life` |  |
 | `loyalty` |  |
-| `mana_cost` |  |
+| `manaCost` |  |
 | `multiverseid` |  |
 | `name` |  |
+| `names` |  |
 | `number` |  |
-| `original_text` |  |
-| `original_type` |  |
+| `originalText` |  |
+| `originalType` |  |
 | `power` |  |
-| `printing` |  |
+| `printings` |  |
 | `rarity` |  |
-| `release_date` |  |
+| `releaseDate` |  |
 | `reserved` |  |
-| `ruling` |  |
+| `rulings` |  |
 | `set` |  |
-| `set_name` |  |
+| `setName` |  |
 | `source` |  |
 | `starter` |  |
-| `subtype` |  |
-| `supertype` |  |
+| `subtypes` |  |
+| `supertypes` |  |
 | `text` |  |
 | `timeshifted` |  |
 | `toughness` |  |
 | `type` |  |
-| `variation` |  |
+| `types` |  |
+| `variations` |  |
 | `watermark` |  |
 
 Operations: List.
@@ -385,7 +385,7 @@ API path: `/sets/{id}/booster`
 
 | Field | Description |
 | --- | --- |
-| `subtype` |  |
+| `subtypes` |  |
 
 Operations: List.
 
@@ -395,7 +395,7 @@ API path: `/subtypes`
 
 | Field | Description |
 | --- | --- |
-| `supertype` |  |
+| `supertypes` |  |
 
 Operations: List.
 
@@ -405,7 +405,7 @@ API path: `/supertypes`
 
 | Field | Description |
 | --- | --- |
-| `type` |  |
+| `types` |  |
 
 Operations: List.
 
@@ -433,48 +433,49 @@ Create an instance: `card = client.Card`
 | --- | --- | --- |
 | `artist` | `String` |  |
 | `border` | `String` |  |
-| `card` | `Hash` |  |
 | `cmc` | `Float` |  |
-| `color` | `Array` |  |
-| `color_identity` | `Array` |  |
+| `colorIdentity` | `Array` |  |
+| `colors` | `Array` |  |
 | `flavor` | `String` |  |
-| `foreign_name` | `Array` |  |
+| `foreignNames` | `Array` |  |
 | `hand` | `Integer` |  |
 | `id` | `String` |  |
-| `image_url` | `String` |  |
+| `imageUrl` | `String` |  |
 | `layout` | `String` |  |
-| `legality` | `Array` |  |
+| `legalities` | `Array` |  |
 | `life` | `Integer` |  |
 | `loyalty` | `String` |  |
-| `mana_cost` | `String` |  |
+| `manaCost` | `String` |  |
 | `multiverseid` | `Integer` |  |
 | `name` | `String` |  |
+| `names` | `Array` |  |
 | `number` | `String` |  |
-| `original_text` | `String` |  |
-| `original_type` | `String` |  |
+| `originalText` | `String` |  |
+| `originalType` | `String` |  |
 | `power` | `String` |  |
-| `printing` | `Array` |  |
+| `printings` | `Array` |  |
 | `rarity` | `String` |  |
-| `release_date` | `String` |  |
+| `releaseDate` | `String` |  |
 | `reserved` | `Boolean` |  |
-| `ruling` | `Array` |  |
+| `rulings` | `Array` |  |
 | `set` | `String` |  |
-| `set_name` | `String` |  |
+| `setName` | `String` |  |
 | `source` | `String` |  |
 | `starter` | `Boolean` |  |
-| `subtype` | `Array` |  |
-| `supertype` | `Array` |  |
+| `subtypes` | `Array` |  |
+| `supertypes` | `Array` |  |
 | `text` | `String` |  |
 | `timeshifted` | `Boolean` |  |
 | `toughness` | `String` |  |
 | `type` | `String` |  |
-| `variation` | `Array` |  |
+| `types` | `Array` |  |
+| `variations` | `Array` |  |
 | `watermark` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Card record (raises on error).
+# load returns the ENTITY — call data_get for the Card record (raises on error).
 card = client.Card.load({ "id" => "card_id" })
 ```
 
@@ -500,7 +501,7 @@ Create an instance: `format = client.Format`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `format` | `Array` |  |
+| `formats` | `Array` |  |
 
 #### Example: List
 
@@ -529,20 +530,19 @@ Create an instance: `set = client.Set`
 | `booster` | `Array` |  |
 | `border` | `String` |  |
 | `code` | `String` |  |
-| `gatherer_code` | `String` |  |
-| `magic_cards_info_code` | `String` |  |
+| `gathererCode` | `String` |  |
+| `magicCardsInfoCode` | `String` |  |
 | `mkm_id` | `Integer` |  |
 | `mkm_name` | `String` |  |
 | `name` | `String` |  |
-| `online_only` | `Boolean` |  |
-| `release_date` | `String` |  |
-| `set` | `Hash` |  |
+| `onlineOnly` | `Boolean` |  |
+| `releaseDate` | `String` |  |
 | `type` | `String` |  |
 
 #### Example: Load
 
 ```ruby
-# load returns the bare Set record (raises on error).
+# load returns the ENTITY — call data_get for the Set record (raises on error).
 set = client.Set.load({ "id" => "set_id" })
 ```
 
@@ -571,40 +571,42 @@ Create an instance: `set_booster = client.SetBooster`
 | `artist` | `String` |  |
 | `border` | `String` |  |
 | `cmc` | `Float` |  |
-| `color` | `Array` |  |
-| `color_identity` | `Array` |  |
+| `colorIdentity` | `Array` |  |
+| `colors` | `Array` |  |
 | `flavor` | `String` |  |
-| `foreign_name` | `Array` |  |
+| `foreignNames` | `Array` |  |
 | `hand` | `Integer` |  |
 | `id` | `String` |  |
-| `image_url` | `String` |  |
+| `imageUrl` | `String` |  |
 | `layout` | `String` |  |
-| `legality` | `Array` |  |
+| `legalities` | `Array` |  |
 | `life` | `Integer` |  |
 | `loyalty` | `String` |  |
-| `mana_cost` | `String` |  |
+| `manaCost` | `String` |  |
 | `multiverseid` | `Integer` |  |
 | `name` | `String` |  |
+| `names` | `Array` |  |
 | `number` | `String` |  |
-| `original_text` | `String` |  |
-| `original_type` | `String` |  |
+| `originalText` | `String` |  |
+| `originalType` | `String` |  |
 | `power` | `String` |  |
-| `printing` | `Array` |  |
+| `printings` | `Array` |  |
 | `rarity` | `String` |  |
-| `release_date` | `String` |  |
+| `releaseDate` | `String` |  |
 | `reserved` | `Boolean` |  |
-| `ruling` | `Array` |  |
+| `rulings` | `Array` |  |
 | `set` | `String` |  |
-| `set_name` | `String` |  |
+| `setName` | `String` |  |
 | `source` | `String` |  |
 | `starter` | `Boolean` |  |
-| `subtype` | `Array` |  |
-| `supertype` | `Array` |  |
+| `subtypes` | `Array` |  |
+| `supertypes` | `Array` |  |
 | `text` | `String` |  |
 | `timeshifted` | `Boolean` |  |
 | `toughness` | `String` |  |
 | `type` | `String` |  |
-| `variation` | `Array` |  |
+| `types` | `Array` |  |
+| `variations` | `Array` |  |
 | `watermark` | `String` |  |
 
 #### Example: List
@@ -629,7 +631,7 @@ Create an instance: `subtype = client.Subtype`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `subtype` | `Array` |  |
+| `subtypes` | `Array` |  |
 
 #### Example: List
 
@@ -653,7 +655,7 @@ Create an instance: `supertype = client.Supertype`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `supertype` | `Array` |  |
+| `supertypes` | `Array` |  |
 
 #### Example: List
 
@@ -677,7 +679,7 @@ Create an instance: `type = client.Type`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `type` | `Array` |  |
+| `types` | `Array` |  |
 
 #### Example: List
 
@@ -763,11 +765,11 @@ Entity instances are stateful. After a successful `list`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-card = client.Card
-card.list()
+format = client.Format
+format.list()
 
-# card.data_get now returns the card data from the last list
-# card.match_get returns the last match criteria
+# format.data_get now returns the format data from the last list
+# format.match_get returns the last match criteria
 ```
 
 Call `make` to create a fresh instance with the same configuration

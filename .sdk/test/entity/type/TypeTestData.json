@@ -2,20 +2,20 @@
   "existing": {
     "type": {
       "TYPE00": {
-        "type": []
+        "types": []
       },
       "TYPE01": {
-        "type": []
+        "types": []
       },
       "TYPE02": {
-        "type": []
+        "types": []
       }
     }
   },
   "new": {
     "type": {
       "type_ref01": {
-        "type": []
+        "types": []
       }
     }
   }

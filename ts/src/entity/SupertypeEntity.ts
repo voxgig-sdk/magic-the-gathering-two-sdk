@@ -37,7 +37,7 @@ class SupertypeEntity extends MagicTheGatheringTwoEntityBase<Supertype> {
 
 
 
-  async list(this: any, reqmatch?: SupertypeListMatch, ctrl?: Control): Promise<Supertype[]> {
+  async list(this: any, reqmatch?: SupertypeListMatch, ctrl?: Control): Promise<SupertypeEntity[]> {
 
     const utility = this._utility
 

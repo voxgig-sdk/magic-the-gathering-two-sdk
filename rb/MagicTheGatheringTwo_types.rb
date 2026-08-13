@@ -16,22 +16,19 @@
 # @!attribute [rw] border
 #   @return [String, nil]
 #
-# @!attribute [rw] card
-#   @return [Hash, nil]
-#
 # @!attribute [rw] cmc
 #   @return [Float, nil]
 #
-# @!attribute [rw] color
+# @!attribute [rw] colorIdentity
 #   @return [Array, nil]
 #
-# @!attribute [rw] color_identity
+# @!attribute [rw] colors
 #   @return [Array, nil]
 #
 # @!attribute [rw] flavor
 #   @return [String, nil]
 #
-# @!attribute [rw] foreign_name
+# @!attribute [rw] foreignNames
 #   @return [Array, nil]
 #
 # @!attribute [rw] hand
@@ -40,13 +37,13 @@
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] image_url
+# @!attribute [rw] imageUrl
 #   @return [String, nil]
 #
 # @!attribute [rw] layout
 #   @return [String, nil]
 #
-# @!attribute [rw] legality
+# @!attribute [rw] legalities
 #   @return [Array, nil]
 #
 # @!attribute [rw] life
@@ -55,7 +52,7 @@
 # @!attribute [rw] loyalty
 #   @return [String, nil]
 #
-# @!attribute [rw] mana_cost
+# @!attribute [rw] manaCost
 #   @return [String, nil]
 #
 # @!attribute [rw] multiverseid
@@ -64,37 +61,40 @@
 # @!attribute [rw] name
 #   @return [String, nil]
 #
+# @!attribute [rw] names
+#   @return [Array, nil]
+#
 # @!attribute [rw] number
 #   @return [String, nil]
 #
-# @!attribute [rw] original_text
+# @!attribute [rw] originalText
 #   @return [String, nil]
 #
-# @!attribute [rw] original_type
+# @!attribute [rw] originalType
 #   @return [String, nil]
 #
 # @!attribute [rw] power
 #   @return [String, nil]
 #
-# @!attribute [rw] printing
+# @!attribute [rw] printings
 #   @return [Array, nil]
 #
 # @!attribute [rw] rarity
 #   @return [String, nil]
 #
-# @!attribute [rw] release_date
+# @!attribute [rw] releaseDate
 #   @return [String, nil]
 #
 # @!attribute [rw] reserved
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] ruling
+# @!attribute [rw] rulings
 #   @return [Array, nil]
 #
 # @!attribute [rw] set
 #   @return [String, nil]
 #
-# @!attribute [rw] set_name
+# @!attribute [rw] setName
 #   @return [String, nil]
 #
 # @!attribute [rw] source
@@ -103,10 +103,10 @@
 # @!attribute [rw] starter
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] subtype
+# @!attribute [rw] subtypes
 #   @return [Array, nil]
 #
-# @!attribute [rw] supertype
+# @!attribute [rw] supertypes
 #   @return [Array, nil]
 #
 # @!attribute [rw] text
@@ -121,7 +121,10 @@
 # @!attribute [rw] type
 #   @return [String, nil]
 #
-# @!attribute [rw] variation
+# @!attribute [rw] types
+#   @return [Array, nil]
+#
+# @!attribute [rw] variations
 #   @return [Array, nil]
 #
 # @!attribute [rw] watermark
@@ -129,42 +132,43 @@
 Card = Struct.new(
   :artist,
   :border,
-  :card,
   :cmc,
-  :color,
-  :color_identity,
+  :colorIdentity,
+  :colors,
   :flavor,
-  :foreign_name,
+  :foreignNames,
   :hand,
   :id,
-  :image_url,
+  :imageUrl,
   :layout,
-  :legality,
+  :legalities,
   :life,
   :loyalty,
-  :mana_cost,
+  :manaCost,
   :multiverseid,
   :name,
+  :names,
   :number,
-  :original_text,
-  :original_type,
+  :originalText,
+  :originalType,
   :power,
-  :printing,
+  :printings,
   :rarity,
-  :release_date,
+  :releaseDate,
   :reserved,
-  :ruling,
+  :rulings,
   :set,
-  :set_name,
+  :setName,
   :source,
   :starter,
-  :subtype,
-  :supertype,
+  :subtypes,
+  :supertypes,
   :text,
   :timeshifted,
   :toughness,
   :type,
-  :variation,
+  :types,
+  :variations,
   :watermark,
   keyword_init: true
 )
@@ -186,22 +190,19 @@ CardLoadMatch = Struct.new(
 # @!attribute [rw] border
 #   @return [String, nil]
 #
-# @!attribute [rw] card
-#   @return [Hash, nil]
-#
 # @!attribute [rw] cmc
 #   @return [Float, nil]
 #
-# @!attribute [rw] color
+# @!attribute [rw] colorIdentity
 #   @return [Array, nil]
 #
-# @!attribute [rw] color_identity
+# @!attribute [rw] colors
 #   @return [Array, nil]
 #
 # @!attribute [rw] flavor
 #   @return [String, nil]
 #
-# @!attribute [rw] foreign_name
+# @!attribute [rw] foreignNames
 #   @return [Array, nil]
 #
 # @!attribute [rw] hand
@@ -210,13 +211,13 @@ CardLoadMatch = Struct.new(
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] image_url
+# @!attribute [rw] imageUrl
 #   @return [String, nil]
 #
 # @!attribute [rw] layout
 #   @return [String, nil]
 #
-# @!attribute [rw] legality
+# @!attribute [rw] legalities
 #   @return [Array, nil]
 #
 # @!attribute [rw] life
@@ -225,7 +226,7 @@ CardLoadMatch = Struct.new(
 # @!attribute [rw] loyalty
 #   @return [String, nil]
 #
-# @!attribute [rw] mana_cost
+# @!attribute [rw] manaCost
 #   @return [String, nil]
 #
 # @!attribute [rw] multiverseid
@@ -234,37 +235,40 @@ CardLoadMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
+# @!attribute [rw] names
+#   @return [Array, nil]
+#
 # @!attribute [rw] number
 #   @return [String, nil]
 #
-# @!attribute [rw] original_text
+# @!attribute [rw] originalText
 #   @return [String, nil]
 #
-# @!attribute [rw] original_type
+# @!attribute [rw] originalType
 #   @return [String, nil]
 #
 # @!attribute [rw] power
 #   @return [String, nil]
 #
-# @!attribute [rw] printing
+# @!attribute [rw] printings
 #   @return [Array, nil]
 #
 # @!attribute [rw] rarity
 #   @return [String, nil]
 #
-# @!attribute [rw] release_date
+# @!attribute [rw] releaseDate
 #   @return [String, nil]
 #
 # @!attribute [rw] reserved
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] ruling
+# @!attribute [rw] rulings
 #   @return [Array, nil]
 #
 # @!attribute [rw] set
 #   @return [String, nil]
 #
-# @!attribute [rw] set_name
+# @!attribute [rw] setName
 #   @return [String, nil]
 #
 # @!attribute [rw] source
@@ -273,10 +277,10 @@ CardLoadMatch = Struct.new(
 # @!attribute [rw] starter
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] subtype
+# @!attribute [rw] subtypes
 #   @return [Array, nil]
 #
-# @!attribute [rw] supertype
+# @!attribute [rw] supertypes
 #   @return [Array, nil]
 #
 # @!attribute [rw] text
@@ -291,7 +295,10 @@ CardLoadMatch = Struct.new(
 # @!attribute [rw] type
 #   @return [String, nil]
 #
-# @!attribute [rw] variation
+# @!attribute [rw] types
+#   @return [Array, nil]
+#
+# @!attribute [rw] variations
 #   @return [Array, nil]
 #
 # @!attribute [rw] watermark
@@ -299,61 +306,62 @@ CardLoadMatch = Struct.new(
 CardListMatch = Struct.new(
   :artist,
   :border,
-  :card,
   :cmc,
-  :color,
-  :color_identity,
+  :colorIdentity,
+  :colors,
   :flavor,
-  :foreign_name,
+  :foreignNames,
   :hand,
   :id,
-  :image_url,
+  :imageUrl,
   :layout,
-  :legality,
+  :legalities,
   :life,
   :loyalty,
-  :mana_cost,
+  :manaCost,
   :multiverseid,
   :name,
+  :names,
   :number,
-  :original_text,
-  :original_type,
+  :originalText,
+  :originalType,
   :power,
-  :printing,
+  :printings,
   :rarity,
-  :release_date,
+  :releaseDate,
   :reserved,
-  :ruling,
+  :rulings,
   :set,
-  :set_name,
+  :setName,
   :source,
   :starter,
-  :subtype,
-  :supertype,
+  :subtypes,
+  :supertypes,
   :text,
   :timeshifted,
   :toughness,
   :type,
-  :variation,
+  :types,
+  :variations,
   :watermark,
   keyword_init: true
 )
 
 # Format entity data model.
 #
-# @!attribute [rw] format
+# @!attribute [rw] formats
 #   @return [Array, nil]
 Format = Struct.new(
-  :format,
+  :formats,
   keyword_init: true
 )
 
 # Request payload for Format#list.
 #
-# @!attribute [rw] format
+# @!attribute [rw] formats
 #   @return [Array, nil]
 FormatListMatch = Struct.new(
-  :format,
+  :formats,
   keyword_init: true
 )
 
@@ -371,10 +379,10 @@ FormatListMatch = Struct.new(
 # @!attribute [rw] code
 #   @return [String, nil]
 #
-# @!attribute [rw] gatherer_code
+# @!attribute [rw] gathererCode
 #   @return [String, nil]
 #
-# @!attribute [rw] magic_cards_info_code
+# @!attribute [rw] magicCardsInfoCode
 #   @return [String, nil]
 #
 # @!attribute [rw] mkm_id
@@ -386,30 +394,26 @@ FormatListMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] online_only
+# @!attribute [rw] onlineOnly
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] release_date
+# @!attribute [rw] releaseDate
 #   @return [String, nil]
-#
-# @!attribute [rw] set
-#   @return [Hash, nil]
 #
 # @!attribute [rw] type
 #   @return [String, nil]
-Set = Struct.new(
+SetType = Struct.new(
   :block,
   :booster,
   :border,
   :code,
-  :gatherer_code,
-  :magic_cards_info_code,
+  :gathererCode,
+  :magicCardsInfoCode,
   :mkm_id,
   :mkm_name,
   :name,
-  :online_only,
-  :release_date,
-  :set,
+  :onlineOnly,
+  :releaseDate,
   :type,
   keyword_init: true
 )
@@ -437,10 +441,10 @@ SetLoadMatch = Struct.new(
 # @!attribute [rw] code
 #   @return [String, nil]
 #
-# @!attribute [rw] gatherer_code
+# @!attribute [rw] gathererCode
 #   @return [String, nil]
 #
-# @!attribute [rw] magic_cards_info_code
+# @!attribute [rw] magicCardsInfoCode
 #   @return [String, nil]
 #
 # @!attribute [rw] mkm_id
@@ -452,14 +456,11 @@ SetLoadMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
-# @!attribute [rw] online_only
+# @!attribute [rw] onlineOnly
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] release_date
+# @!attribute [rw] releaseDate
 #   @return [String, nil]
-#
-# @!attribute [rw] set
-#   @return [Hash, nil]
 #
 # @!attribute [rw] type
 #   @return [String, nil]
@@ -468,14 +469,13 @@ SetListMatch = Struct.new(
   :booster,
   :border,
   :code,
-  :gatherer_code,
-  :magic_cards_info_code,
+  :gathererCode,
+  :magicCardsInfoCode,
   :mkm_id,
   :mkm_name,
   :name,
-  :online_only,
-  :release_date,
-  :set,
+  :onlineOnly,
+  :releaseDate,
   :type,
   keyword_init: true
 )
@@ -491,16 +491,16 @@ SetListMatch = Struct.new(
 # @!attribute [rw] cmc
 #   @return [Float, nil]
 #
-# @!attribute [rw] color
+# @!attribute [rw] colorIdentity
 #   @return [Array, nil]
 #
-# @!attribute [rw] color_identity
+# @!attribute [rw] colors
 #   @return [Array, nil]
 #
 # @!attribute [rw] flavor
 #   @return [String, nil]
 #
-# @!attribute [rw] foreign_name
+# @!attribute [rw] foreignNames
 #   @return [Array, nil]
 #
 # @!attribute [rw] hand
@@ -509,13 +509,13 @@ SetListMatch = Struct.new(
 # @!attribute [rw] id
 #   @return [String, nil]
 #
-# @!attribute [rw] image_url
+# @!attribute [rw] imageUrl
 #   @return [String, nil]
 #
 # @!attribute [rw] layout
 #   @return [String, nil]
 #
-# @!attribute [rw] legality
+# @!attribute [rw] legalities
 #   @return [Array, nil]
 #
 # @!attribute [rw] life
@@ -524,7 +524,7 @@ SetListMatch = Struct.new(
 # @!attribute [rw] loyalty
 #   @return [String, nil]
 #
-# @!attribute [rw] mana_cost
+# @!attribute [rw] manaCost
 #   @return [String, nil]
 #
 # @!attribute [rw] multiverseid
@@ -533,37 +533,40 @@ SetListMatch = Struct.new(
 # @!attribute [rw] name
 #   @return [String, nil]
 #
+# @!attribute [rw] names
+#   @return [Array, nil]
+#
 # @!attribute [rw] number
 #   @return [String, nil]
 #
-# @!attribute [rw] original_text
+# @!attribute [rw] originalText
 #   @return [String, nil]
 #
-# @!attribute [rw] original_type
+# @!attribute [rw] originalType
 #   @return [String, nil]
 #
 # @!attribute [rw] power
 #   @return [String, nil]
 #
-# @!attribute [rw] printing
+# @!attribute [rw] printings
 #   @return [Array, nil]
 #
 # @!attribute [rw] rarity
 #   @return [String, nil]
 #
-# @!attribute [rw] release_date
+# @!attribute [rw] releaseDate
 #   @return [String, nil]
 #
 # @!attribute [rw] reserved
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] ruling
+# @!attribute [rw] rulings
 #   @return [Array, nil]
 #
 # @!attribute [rw] set
 #   @return [String, nil]
 #
-# @!attribute [rw] set_name
+# @!attribute [rw] setName
 #   @return [String, nil]
 #
 # @!attribute [rw] source
@@ -572,10 +575,10 @@ SetListMatch = Struct.new(
 # @!attribute [rw] starter
 #   @return [Boolean, nil]
 #
-# @!attribute [rw] subtype
+# @!attribute [rw] subtypes
 #   @return [Array, nil]
 #
-# @!attribute [rw] supertype
+# @!attribute [rw] supertypes
 #   @return [Array, nil]
 #
 # @!attribute [rw] text
@@ -590,7 +593,10 @@ SetListMatch = Struct.new(
 # @!attribute [rw] type
 #   @return [String, nil]
 #
-# @!attribute [rw] variation
+# @!attribute [rw] types
+#   @return [Array, nil]
+#
+# @!attribute [rw] variations
 #   @return [Array, nil]
 #
 # @!attribute [rw] watermark
@@ -599,40 +605,42 @@ SetBooster = Struct.new(
   :artist,
   :border,
   :cmc,
-  :color,
-  :color_identity,
+  :colorIdentity,
+  :colors,
   :flavor,
-  :foreign_name,
+  :foreignNames,
   :hand,
   :id,
-  :image_url,
+  :imageUrl,
   :layout,
-  :legality,
+  :legalities,
   :life,
   :loyalty,
-  :mana_cost,
+  :manaCost,
   :multiverseid,
   :name,
+  :names,
   :number,
-  :original_text,
-  :original_type,
+  :originalText,
+  :originalType,
   :power,
-  :printing,
+  :printings,
   :rarity,
-  :release_date,
+  :releaseDate,
   :reserved,
-  :ruling,
+  :rulings,
   :set,
-  :set_name,
+  :setName,
   :source,
   :starter,
-  :subtype,
-  :supertype,
+  :subtypes,
+  :supertypes,
   :text,
   :timeshifted,
   :toughness,
   :type,
-  :variation,
+  :types,
+  :variations,
   :watermark,
   keyword_init: true
 )
@@ -648,55 +656,55 @@ SetBoosterListMatch = Struct.new(
 
 # Subtype entity data model.
 #
-# @!attribute [rw] subtype
+# @!attribute [rw] subtypes
 #   @return [Array, nil]
 Subtype = Struct.new(
-  :subtype,
+  :subtypes,
   keyword_init: true
 )
 
 # Request payload for Subtype#list.
 #
-# @!attribute [rw] subtype
+# @!attribute [rw] subtypes
 #   @return [Array, nil]
 SubtypeListMatch = Struct.new(
-  :subtype,
+  :subtypes,
   keyword_init: true
 )
 
 # Supertype entity data model.
 #
-# @!attribute [rw] supertype
+# @!attribute [rw] supertypes
 #   @return [Array, nil]
 Supertype = Struct.new(
-  :supertype,
+  :supertypes,
   keyword_init: true
 )
 
 # Request payload for Supertype#list.
 #
-# @!attribute [rw] supertype
+# @!attribute [rw] supertypes
 #   @return [Array, nil]
 SupertypeListMatch = Struct.new(
-  :supertype,
+  :supertypes,
   keyword_init: true
 )
 
 # Type entity data model.
 #
-# @!attribute [rw] type
+# @!attribute [rw] types
 #   @return [Array, nil]
 Type = Struct.new(
-  :type,
+  :types,
   keyword_init: true
 )
 
 # Request payload for Type#list.
 #
-# @!attribute [rw] type
+# @!attribute [rw] types
 #   @return [Array, nil]
 TypeListMatch = Struct.new(
-  :type,
+  :types,
   keyword_init: true
 )
 

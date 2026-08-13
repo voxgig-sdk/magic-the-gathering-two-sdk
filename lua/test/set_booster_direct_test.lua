@@ -75,11 +75,11 @@ function set_booster_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["MAGICTHEGATHERINGTWO_TEST_SET_BOOSTER_ENTID"] = {},
-    ["MAGICTHEGATHERINGTWO_TEST_LIVE"] = "FALSE",
+    ["MAGIC_THE_GATHERING_TWO_TEST_SET_BOOSTER_ENTID"] = {},
+    ["MAGIC_THE_GATHERING_TWO_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["MAGICTHEGATHERINGTWO_TEST_LIVE"] == "TRUE"
+  local live = env["MAGIC_THE_GATHERING_TWO_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

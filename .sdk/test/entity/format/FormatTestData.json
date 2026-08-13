@@ -2,20 +2,20 @@
   "existing": {
     "format": {
       "FORMAT00": {
-        "format": []
+        "formats": []
       },
       "FORMAT01": {
-        "format": []
+        "formats": []
       },
       "FORMAT02": {
-        "format": []
+        "formats": []
       }
     }
   },
   "new": {
     "format": {
       "format_ref01": {
-        "format": []
+        "formats": []
       }
     }
   }

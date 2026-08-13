@@ -26,8 +26,8 @@ import {
 describe('FormatEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when MAGICTHEGATHERINGTWO_TEST_LIVE=TRUE.
-  afterEach(liveDelay('MAGICTHEGATHERINGTWO_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when MAGIC_THE_GATHERING_TWO_TEST_LIVE=TRUE.
+  afterEach(liveDelay('MAGIC_THE_GATHERING_TWO_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = MagicTheGatheringTwoSDK.test()
@@ -63,7 +63,7 @@ describe('FormatEntity', async () => {
     const format_ref01_ent = client.Format()
     const format_ref01_match: any = {}
 
-    const format_ref01_list = await format_ref01_ent.list(format_ref01_match)
+    const format_ref01_list = (await format_ref01_ent.list(format_ref01_match)).map((e: any) => e.data())
 
 
   })

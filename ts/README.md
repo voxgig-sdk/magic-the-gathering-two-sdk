@@ -35,7 +35,9 @@ const client = new MagicTheGatheringTwoSDK()
 
 ### 2. List card records
 
-`list()` resolves to an array of Card objects — iterate it directly:
+`list()` resolves to an array of Card ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const cards = await client.Card().list()
@@ -65,8 +67,8 @@ Entity operations reject on failure, so wrap them in `try` / `catch`:
 
 ```ts
 try {
-  const cards = await client.Card().list()
-  console.log(cards)
+  const formats = await client.Format().list()
+  console.log(formats)
 } catch (err) {
   console.error('list failed:', err)
 }
@@ -132,9 +134,10 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = MagicTheGatheringTwoSDK.test()
 
-const card = await client.Card().list()
-// card is a bare entity populated with mock response data
-console.log(card)
+const format = await client.Format().list()
+// format is the entity, populated with mock response data
+// — call format.data() for the record itself
+console.log(format)
 ```
 
 You can also use the instance method:
@@ -149,14 +152,14 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Card()
+const entity = client.Format()
 
 // First call runs the operation and stores its result
 await entity.list()
 
 // Subsequent calls reuse the stored state
 const data = entity.data()
-console.log(data.id)
+console.log(data)
 ```
 
 ### Add custom middleware
@@ -307,42 +310,43 @@ The `prepare()` method returns:
 | --- | --- |
 | `artist` |  |
 | `border` |  |
-| `card` |  |
 | `cmc` |  |
-| `color` |  |
-| `color_identity` |  |
+| `colorIdentity` |  |
+| `colors` |  |
 | `flavor` |  |
-| `foreign_name` |  |
+| `foreignNames` |  |
 | `hand` |  |
 | `id` |  |
-| `image_url` |  |
+| `imageUrl` |  |
 | `layout` |  |
-| `legality` |  |
+| `legalities` |  |
 | `life` |  |
 | `loyalty` |  |
-| `mana_cost` |  |
+| `manaCost` |  |
 | `multiverseid` |  |
 | `name` |  |
+| `names` |  |
 | `number` |  |
-| `original_text` |  |
-| `original_type` |  |
+| `originalText` |  |
+| `originalType` |  |
 | `power` |  |
-| `printing` |  |
+| `printings` |  |
 | `rarity` |  |
-| `release_date` |  |
+| `releaseDate` |  |
 | `reserved` |  |
-| `ruling` |  |
+| `rulings` |  |
 | `set` |  |
-| `set_name` |  |
+| `setName` |  |
 | `source` |  |
 | `starter` |  |
-| `subtype` |  |
-| `supertype` |  |
+| `subtypes` |  |
+| `supertypes` |  |
 | `text` |  |
 | `timeshifted` |  |
 | `toughness` |  |
 | `type` |  |
-| `variation` |  |
+| `types` |  |
+| `variations` |  |
 | `watermark` |  |
 
 Operations: list, load.
@@ -353,7 +357,7 @@ API path: `/cards`
 
 | Field | Description |
 | --- | --- |
-| `format` |  |
+| `formats` |  |
 
 Operations: list.
 
@@ -367,14 +371,13 @@ API path: `/formats`
 | `booster` |  |
 | `border` |  |
 | `code` |  |
-| `gatherer_code` |  |
-| `magic_cards_info_code` |  |
+| `gathererCode` |  |
+| `magicCardsInfoCode` |  |
 | `mkm_id` |  |
 | `mkm_name` |  |
 | `name` |  |
-| `online_only` |  |
-| `release_date` |  |
-| `set` |  |
+| `onlineOnly` |  |
+| `releaseDate` |  |
 | `type` |  |
 
 Operations: list, load.
@@ -388,40 +391,42 @@ API path: `/sets`
 | `artist` |  |
 | `border` |  |
 | `cmc` |  |
-| `color` |  |
-| `color_identity` |  |
+| `colorIdentity` |  |
+| `colors` |  |
 | `flavor` |  |
-| `foreign_name` |  |
+| `foreignNames` |  |
 | `hand` |  |
 | `id` |  |
-| `image_url` |  |
+| `imageUrl` |  |
 | `layout` |  |
-| `legality` |  |
+| `legalities` |  |
 | `life` |  |
 | `loyalty` |  |
-| `mana_cost` |  |
+| `manaCost` |  |
 | `multiverseid` |  |
 | `name` |  |
+| `names` |  |
 | `number` |  |
-| `original_text` |  |
-| `original_type` |  |
+| `originalText` |  |
+| `originalType` |  |
 | `power` |  |
-| `printing` |  |
+| `printings` |  |
 | `rarity` |  |
-| `release_date` |  |
+| `releaseDate` |  |
 | `reserved` |  |
-| `ruling` |  |
+| `rulings` |  |
 | `set` |  |
-| `set_name` |  |
+| `setName` |  |
 | `source` |  |
 | `starter` |  |
-| `subtype` |  |
-| `supertype` |  |
+| `subtypes` |  |
+| `supertypes` |  |
 | `text` |  |
 | `timeshifted` |  |
 | `toughness` |  |
 | `type` |  |
-| `variation` |  |
+| `types` |  |
+| `variations` |  |
 | `watermark` |  |
 
 Operations: list.
@@ -432,7 +437,7 @@ API path: `/sets/{id}/booster`
 
 | Field | Description |
 | --- | --- |
-| `subtype` |  |
+| `subtypes` |  |
 
 Operations: list.
 
@@ -442,7 +447,7 @@ API path: `/subtypes`
 
 | Field | Description |
 | --- | --- |
-| `supertype` |  |
+| `supertypes` |  |
 
 Operations: list.
 
@@ -452,7 +457,7 @@ API path: `/supertypes`
 
 | Field | Description |
 | --- | --- |
-| `type` |  |
+| `types` |  |
 
 Operations: list.
 
@@ -480,42 +485,43 @@ Create an instance: `const card = client.Card()`
 | --- | --- | --- |
 | `artist` | `string` |  |
 | `border` | `string` |  |
-| `card` | `Record<string, any>` |  |
 | `cmc` | `number` |  |
-| `color` | `any[]` |  |
-| `color_identity` | `any[]` |  |
+| `colorIdentity` | `any[]` |  |
+| `colors` | `any[]` |  |
 | `flavor` | `string` |  |
-| `foreign_name` | `any[]` |  |
+| `foreignNames` | `any[]` |  |
 | `hand` | `number` |  |
 | `id` | `string` |  |
-| `image_url` | `string` |  |
+| `imageUrl` | `string` |  |
 | `layout` | `string` |  |
-| `legality` | `any[]` |  |
+| `legalities` | `any[]` |  |
 | `life` | `number` |  |
 | `loyalty` | `string` |  |
-| `mana_cost` | `string` |  |
+| `manaCost` | `string` |  |
 | `multiverseid` | `number` |  |
 | `name` | `string` |  |
+| `names` | `any[]` |  |
 | `number` | `string` |  |
-| `original_text` | `string` |  |
-| `original_type` | `string` |  |
+| `originalText` | `string` |  |
+| `originalType` | `string` |  |
 | `power` | `string` |  |
-| `printing` | `any[]` |  |
+| `printings` | `any[]` |  |
 | `rarity` | `string` |  |
-| `release_date` | `string` |  |
+| `releaseDate` | `string` |  |
 | `reserved` | `boolean` |  |
-| `ruling` | `any[]` |  |
+| `rulings` | `any[]` |  |
 | `set` | `string` |  |
-| `set_name` | `string` |  |
+| `setName` | `string` |  |
 | `source` | `string` |  |
 | `starter` | `boolean` |  |
-| `subtype` | `any[]` |  |
-| `supertype` | `any[]` |  |
+| `subtypes` | `any[]` |  |
+| `supertypes` | `any[]` |  |
 | `text` | `string` |  |
 | `timeshifted` | `boolean` |  |
 | `toughness` | `string` |  |
 | `type` | `string` |  |
-| `variation` | `any[]` |  |
+| `types` | `any[]` |  |
+| `variations` | `any[]` |  |
 | `watermark` | `string` |  |
 
 #### Example: Load
@@ -545,7 +551,7 @@ Create an instance: `const format = client.Format()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `format` | `any[]` |  |
+| `formats` | `any[]` |  |
 
 #### Example: List
 
@@ -573,14 +579,13 @@ Create an instance: `const set = client.Set()`
 | `booster` | `any[]` |  |
 | `border` | `string` |  |
 | `code` | `string` |  |
-| `gatherer_code` | `string` |  |
-| `magic_cards_info_code` | `string` |  |
+| `gathererCode` | `string` |  |
+| `magicCardsInfoCode` | `string` |  |
 | `mkm_id` | `number` |  |
 | `mkm_name` | `string` |  |
 | `name` | `string` |  |
-| `online_only` | `boolean` |  |
-| `release_date` | `string` |  |
-| `set` | `Record<string, any>` |  |
+| `onlineOnly` | `boolean` |  |
+| `releaseDate` | `string` |  |
 | `type` | `string` |  |
 
 #### Example: Load
@@ -613,46 +618,48 @@ Create an instance: `const set_booster = client.SetBooster()`
 | `artist` | `string` |  |
 | `border` | `string` |  |
 | `cmc` | `number` |  |
-| `color` | `any[]` |  |
-| `color_identity` | `any[]` |  |
+| `colorIdentity` | `any[]` |  |
+| `colors` | `any[]` |  |
 | `flavor` | `string` |  |
-| `foreign_name` | `any[]` |  |
+| `foreignNames` | `any[]` |  |
 | `hand` | `number` |  |
 | `id` | `string` |  |
-| `image_url` | `string` |  |
+| `imageUrl` | `string` |  |
 | `layout` | `string` |  |
-| `legality` | `any[]` |  |
+| `legalities` | `any[]` |  |
 | `life` | `number` |  |
 | `loyalty` | `string` |  |
-| `mana_cost` | `string` |  |
+| `manaCost` | `string` |  |
 | `multiverseid` | `number` |  |
 | `name` | `string` |  |
+| `names` | `any[]` |  |
 | `number` | `string` |  |
-| `original_text` | `string` |  |
-| `original_type` | `string` |  |
+| `originalText` | `string` |  |
+| `originalType` | `string` |  |
 | `power` | `string` |  |
-| `printing` | `any[]` |  |
+| `printings` | `any[]` |  |
 | `rarity` | `string` |  |
-| `release_date` | `string` |  |
+| `releaseDate` | `string` |  |
 | `reserved` | `boolean` |  |
-| `ruling` | `any[]` |  |
+| `rulings` | `any[]` |  |
 | `set` | `string` |  |
-| `set_name` | `string` |  |
+| `setName` | `string` |  |
 | `source` | `string` |  |
 | `starter` | `boolean` |  |
-| `subtype` | `any[]` |  |
-| `supertype` | `any[]` |  |
+| `subtypes` | `any[]` |  |
+| `supertypes` | `any[]` |  |
 | `text` | `string` |  |
 | `timeshifted` | `boolean` |  |
 | `toughness` | `string` |  |
 | `type` | `string` |  |
-| `variation` | `any[]` |  |
+| `types` | `any[]` |  |
+| `variations` | `any[]` |  |
 | `watermark` | `string` |  |
 
 #### Example: List
 
 ```ts
-const set_boosters = await client.SetBooster().list()
+const set_boosters = await client.SetBooster().list({ id: "example" })
 ```
 
 
@@ -670,7 +677,7 @@ Create an instance: `const subtype = client.Subtype()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `subtype` | `any[]` |  |
+| `subtypes` | `any[]` |  |
 
 #### Example: List
 
@@ -693,7 +700,7 @@ Create an instance: `const supertype = client.Supertype()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `supertype` | `any[]` |  |
+| `supertypes` | `any[]` |  |
 
 #### Example: List
 
@@ -716,7 +723,7 @@ Create an instance: `const type = client.Type()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `type` | `any[]` |  |
+| `types` | `any[]` |  |
 
 #### Example: List
 
@@ -794,11 +801,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const card = client.Card()
-await card.list()
+const format = client.Format()
+await format.list()
 
-// card.data() now returns the card data from the last `list`
-// card.match() returns the last match criteria
+// format.data() now returns the format data from the last `list`
+// format.match() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

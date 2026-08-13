@@ -2,20 +2,20 @@
   "existing": {
     "supertype": {
       "SUPERTYPE00": {
-        "supertype": []
+        "supertypes": []
       },
       "SUPERTYPE01": {
-        "supertype": []
+        "supertypes": []
       },
       "SUPERTYPE02": {
-        "supertype": []
+        "supertypes": []
       }
     }
   },
   "new": {
     "supertype": {
       "supertype_ref01": {
-        "supertype": []
+        "supertypes": []
       }
     }
   }

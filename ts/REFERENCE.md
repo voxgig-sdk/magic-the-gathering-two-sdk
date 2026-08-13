@@ -190,42 +190,43 @@ const card = client.Card()
 | --- | --- | --- | --- |
 | `artist` | `string` | No |  |
 | `border` | `string` | No |  |
-| `card` | `Record<string, any>` | No |  |
 | `cmc` | `number` | No |  |
-| `color` | `any[]` | No |  |
-| `color_identity` | `any[]` | No |  |
+| `colorIdentity` | `any[]` | No |  |
+| `colors` | `any[]` | No |  |
 | `flavor` | `string` | No |  |
-| `foreign_name` | `any[]` | No |  |
+| `foreignNames` | `any[]` | No |  |
 | `hand` | `number` | No |  |
 | `id` | `string` | No |  |
-| `image_url` | `string` | No |  |
+| `imageUrl` | `string` | No |  |
 | `layout` | `string` | No |  |
-| `legality` | `any[]` | No |  |
+| `legalities` | `any[]` | No |  |
 | `life` | `number` | No |  |
 | `loyalty` | `string` | No |  |
-| `mana_cost` | `string` | No |  |
+| `manaCost` | `string` | No |  |
 | `multiverseid` | `number` | No |  |
 | `name` | `string` | No |  |
+| `names` | `any[]` | No |  |
 | `number` | `string` | No |  |
-| `original_text` | `string` | No |  |
-| `original_type` | `string` | No |  |
+| `originalText` | `string` | No |  |
+| `originalType` | `string` | No |  |
 | `power` | `string` | No |  |
-| `printing` | `any[]` | No |  |
+| `printings` | `any[]` | No |  |
 | `rarity` | `string` | No |  |
-| `release_date` | `string` | No |  |
+| `releaseDate` | `string` | No |  |
 | `reserved` | `boolean` | No |  |
-| `ruling` | `any[]` | No |  |
+| `rulings` | `any[]` | No |  |
 | `set` | `string` | No |  |
-| `set_name` | `string` | No |  |
+| `setName` | `string` | No |  |
 | `source` | `string` | No |  |
 | `starter` | `boolean` | No |  |
-| `subtype` | `any[]` | No |  |
-| `supertype` | `any[]` | No |  |
+| `subtypes` | `any[]` | No |  |
+| `supertypes` | `any[]` | No |  |
 | `text` | `string` | No |  |
 | `timeshifted` | `boolean` | No |  |
 | `toughness` | `string` | No |  |
 | `type` | `string` | No |  |
-| `variation` | `any[]` | No |  |
+| `types` | `any[]` | No |  |
+| `variations` | `any[]` | No |  |
 | `watermark` | `string` | No |  |
 
 ### Operations
@@ -284,7 +285,7 @@ const format = client.Format()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `format` | `any[]` | No |  |
+| `formats` | `any[]` | No |  |
 
 ### Operations
 
@@ -338,14 +339,13 @@ const set = client.Set()
 | `booster` | `any[]` | No |  |
 | `border` | `string` | No |  |
 | `code` | `string` | No |  |
-| `gatherer_code` | `string` | No |  |
-| `magic_cards_info_code` | `string` | No |  |
+| `gathererCode` | `string` | No |  |
+| `magicCardsInfoCode` | `string` | No |  |
 | `mkm_id` | `number` | No |  |
 | `mkm_name` | `string` | No |  |
 | `name` | `string` | No |  |
-| `online_only` | `boolean` | No |  |
-| `release_date` | `string` | No |  |
-| `set` | `Record<string, any>` | No |  |
+| `onlineOnly` | `boolean` | No |  |
+| `releaseDate` | `string` | No |  |
 | `type` | `string` | No |  |
 
 ### Operations
@@ -407,40 +407,42 @@ const set_booster = client.SetBooster()
 | `artist` | `string` | No |  |
 | `border` | `string` | No |  |
 | `cmc` | `number` | No |  |
-| `color` | `any[]` | No |  |
-| `color_identity` | `any[]` | No |  |
+| `colorIdentity` | `any[]` | No |  |
+| `colors` | `any[]` | No |  |
 | `flavor` | `string` | No |  |
-| `foreign_name` | `any[]` | No |  |
+| `foreignNames` | `any[]` | No |  |
 | `hand` | `number` | No |  |
 | `id` | `string` | No |  |
-| `image_url` | `string` | No |  |
+| `imageUrl` | `string` | No |  |
 | `layout` | `string` | No |  |
-| `legality` | `any[]` | No |  |
+| `legalities` | `any[]` | No |  |
 | `life` | `number` | No |  |
 | `loyalty` | `string` | No |  |
-| `mana_cost` | `string` | No |  |
+| `manaCost` | `string` | No |  |
 | `multiverseid` | `number` | No |  |
 | `name` | `string` | No |  |
+| `names` | `any[]` | No |  |
 | `number` | `string` | No |  |
-| `original_text` | `string` | No |  |
-| `original_type` | `string` | No |  |
+| `originalText` | `string` | No |  |
+| `originalType` | `string` | No |  |
 | `power` | `string` | No |  |
-| `printing` | `any[]` | No |  |
+| `printings` | `any[]` | No |  |
 | `rarity` | `string` | No |  |
-| `release_date` | `string` | No |  |
+| `releaseDate` | `string` | No |  |
 | `reserved` | `boolean` | No |  |
-| `ruling` | `any[]` | No |  |
+| `rulings` | `any[]` | No |  |
 | `set` | `string` | No |  |
-| `set_name` | `string` | No |  |
+| `setName` | `string` | No |  |
 | `source` | `string` | No |  |
 | `starter` | `boolean` | No |  |
-| `subtype` | `any[]` | No |  |
-| `supertype` | `any[]` | No |  |
+| `subtypes` | `any[]` | No |  |
+| `supertypes` | `any[]` | No |  |
 | `text` | `string` | No |  |
 | `timeshifted` | `boolean` | No |  |
 | `toughness` | `string` | No |  |
 | `type` | `string` | No |  |
-| `variation` | `any[]` | No |  |
+| `types` | `any[]` | No |  |
+| `variations` | `any[]` | No |  |
 | `watermark` | `string` | No |  |
 
 ### Operations
@@ -450,7 +452,7 @@ const set_booster = client.SetBooster()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.SetBooster().list()
+const results = await client.SetBooster().list({ id: "example" })
 ```
 
 ### Common Methods
@@ -491,7 +493,7 @@ const subtype = client.Subtype()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `subtype` | `any[]` | No |  |
+| `subtypes` | `any[]` | No |  |
 
 ### Operations
 
@@ -541,7 +543,7 @@ const supertype = client.Supertype()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `supertype` | `any[]` | No |  |
+| `supertypes` | `any[]` | No |  |
 
 ### Operations
 
@@ -591,7 +593,7 @@ const type = client.Type()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `type` | `any[]` | No |  |
+| `types` | `any[]` | No |  |
 
 ### Operations
 

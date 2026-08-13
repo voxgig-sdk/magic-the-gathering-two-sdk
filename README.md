@@ -38,18 +38,27 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = MagicTheGatheringTwoSDK.test()
-const cards = await client.Card().list()
-// cards is an array of bare Card records populated with mock data
-console.log(cards)
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = MagicTheGatheringTwoSDK.test({
+  entity: {
+    format: {
+      test01: { id: 'test01' },
+    },
+  },
+})
+const formats = await client.Format().list()
+// formats is an array of Format entities, populated with mock data
+// — call formats[0].data() for the record itself
+console.log(formats)
 ```
 
 ### Python
 
 ```python
 client = MagicTheGatheringTwoSDK.test()
-cards = client.Card().list()
-print(cards)
+formats = client.Format().list()
+print(formats)
 ```
 
 ### PHP
@@ -57,16 +66,16 @@ print(cards)
 ```php
 // Seed fixture data so offline calls resolve without a live server.
 $client = MagicTheGatheringTwoSDK::test([
-    "entity" => ["card" => ["test01" => ["id" => "test01"]]],
+    "entity" => ["format" => ["test01" => []]],
 ]);
-$cards = $client->Card()->list();
+$formats = $client->Format()->list();
 ```
 
 ### Golang
 
 ```go
 client := sdk.Test()
-result, err := client.Card(nil).List(
+result, err := client.Format(nil).List(
     nil, nil,
 )
 ```
@@ -76,16 +85,16 @@ result, err := client.Card(nil).List(
 ```ruby
 # Seed fixture data so offline calls resolve without a live server.
 client = MagicTheGatheringTwoSDK.test({
-  "entity" => { "card" => { "test01" => { "id" => "test01" } } },
+  "entity" => { "format" => { "test01" => {} } },
 })
-cards = client.Card.list()
+formats = client.Format.list()
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local results, err = client:Card():list()
+local results, err = client:Format():list()
 ```
 
 ## Packages
@@ -110,7 +119,7 @@ import { MagicTheGatheringTwoSDK } from '@voxgig-sdk/magic-the-gathering-two'
 
 const client = new MagicTheGatheringTwoSDK()
 
-// List all cards (returns Card[])
+// List all cards (returns CardEntity[] — .data() for the record)
 const cards = await client.Card().list()
 for (const card of cards) {
   console.log(card)
@@ -197,7 +206,7 @@ $client = new MagicTheGatheringTwoSDK();
 $cards = $client->Card()->list();
 print_r($cards);
 
-// Load a specific card (returns the bare record; throws on error)
+// Load a specific card (returns the ENTITY; call data_get() for the record; throws on error)
 $card = $client->Card()->load(["id" => "example_id"]);
 print_r($card);
 ```
@@ -228,7 +237,7 @@ client = MagicTheGatheringTwoSDK.new
 cards = client.Card.list
 puts cards
 
-# Load a specific card (returns the bare record; raises on error)
+# Load a specific card (returns the ENTITY; call data_get for the record)
 card = client.Card.load({ "id" => "example_id" })
 puts card
 ```
@@ -365,6 +374,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://docs.magicthegathering.io/](https://docs.magicthegathering.io/)
 
