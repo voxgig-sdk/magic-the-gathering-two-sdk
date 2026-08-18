@@ -28,7 +28,7 @@ class MagicTheGatheringTwoSDK
     utility = MagicTheGatheringTwoUtility.new
     @_utility = utility
 
-    config = MagicTheGatheringTwoConfig.make_config
+    config = MagicTheGatheringTwoConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
