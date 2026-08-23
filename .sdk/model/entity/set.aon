@@ -8,61 +8,73 @@ main: kit: entity: set: {
     {
       name: "block"
       req: false
+      short: "The block the set belongs to"
       type: "`$STRING`"
     }
     {
       name: "booster"
       req: false
+      short: "Booster pack configuration"
       type: "`$ARRAY`"
     }
     {
       name: "border"
       req: false
+      short: "The border color of the set"
       type: "`$STRING`"
     }
     {
       name: "code"
       req: false
+      short: "The set code"
       type: "`$STRING`"
     }
     {
       name: "gathererCode"
       req: false
+      short: "The Gatherer code for the set"
       type: "`$STRING`"
     }
     {
       name: "magicCardsInfoCode"
       req: false
+      short: "The Magic Cards Info code for the set"
       type: "`$STRING`"
     }
     {
       name: "mkm_id"
       req: false
+      short: "The Magic Card Market set ID"
       type: "`$INTEGER`"
     }
     {
       name: "mkm_name"
       req: false
+      short: "The Magic Card Market set name"
       type: "`$STRING`"
     }
     {
       name: "name"
       req: false
+      short: "The name of the set"
       type: "`$STRING`"
     }
     {
       name: "onlineOnly"
       req: false
+      short: "True if the set is online only"
       type: "`$BOOLEAN`"
     }
     {
       name: "releaseDate"
       req: false
+      short: "The release date of the set"
       type: "`$STRING`"
     }
     {
       name: "type"
       req: false
+      short: "The type of the set"
       type: "`$STRING`"
     }
   ]

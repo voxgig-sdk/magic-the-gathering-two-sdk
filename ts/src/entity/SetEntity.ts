@@ -15,13 +15,13 @@ import type {
 } from '../types'
 
 import type {
-  Set,
+  SetType,
   SetLoadMatch,
   SetListMatch,
 } from '../MagicTheGatheringTwoTypes'
 
 // TODO: needs Entity superclass
-class SetEntity extends MagicTheGatheringTwoEntityBase<Set> {
+class SetEntity extends MagicTheGatheringTwoEntityBase<SetType> {
 
   constructor(client: MagicTheGatheringTwoSDK, entopts: any) {
     super(client, entopts)

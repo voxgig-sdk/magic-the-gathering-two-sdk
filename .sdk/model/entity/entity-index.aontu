@@ -1,9 +1,0 @@
-# Entity Models
-
-@"card.aontu"
-@"format.aontu"
-@"set.aontu"
-@"set_booster.aontu"
-@"subtype.aontu"
-@"supertype.aontu"
-@"type.aontu"

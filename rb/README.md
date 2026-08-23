@@ -256,46 +256,46 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `artist` |  |
-| `border` |  |
-| `cmc` |  |
-| `colorIdentity` |  |
-| `colors` |  |
-| `flavor` |  |
-| `foreignNames` |  |
-| `hand` |  |
-| `id` |  |
-| `imageUrl` |  |
-| `layout` |  |
-| `legalities` |  |
-| `life` |  |
-| `loyalty` |  |
-| `manaCost` |  |
-| `multiverseid` |  |
-| `name` |  |
-| `names` |  |
-| `number` |  |
-| `originalText` |  |
-| `originalType` |  |
-| `power` |  |
-| `printings` |  |
-| `rarity` |  |
-| `releaseDate` |  |
-| `reserved` |  |
-| `rulings` |  |
-| `set` |  |
-| `setName` |  |
-| `source` |  |
-| `starter` |  |
-| `subtypes` |  |
-| `supertypes` |  |
-| `text` |  |
-| `timeshifted` |  |
-| `toughness` |  |
-| `type` |  |
-| `types` |  |
-| `variations` |  |
-| `watermark` |  |
+| `artist` | The artist of the card |
+| `border` | The border color if different from the set default |
+| `cmc` | Converted mana cost |
+| `colorIdentity` | The card's color identity by color code |
+| `colors` | The card colors |
+| `flavor` | The flavor text of the card |
+| `foreignNames` | Foreign language names for the card |
+| `hand` | Maximum hand size modifier (Vanguard cards only) |
+| `id` | A unique id for this card (SHA1 hash) |
+| `imageUrl` | The image URL for the card |
+| `layout` | The card layout |
+| `legalities` | Which formats this card is legal, restricted or banned in |
+| `life` | Starting life total modifier (Vanguard cards only) |
+| `loyalty` | The loyalty of the card (planeswalkers only) |
+| `manaCost` | The mana cost of the card |
+| `multiverseid` | The multiverseid of the card on Wizard's Gatherer |
+| `name` | The card name |
+| `names` | Only used for split, flip and dual cards. |
+| `number` | The card number |
+| `originalText` | The original text on the card at the time it was printed |
+| `originalType` | The original type on the card at the time it was printed |
+| `power` | The power of the card (creatures only) |
+| `printings` | The sets that this card was printed in |
+| `rarity` | The rarity of the card |
+| `releaseDate` | The release date for promo cards |
+| `reserved` | True if this card is reserved by Wizards Official Reprint Policy |
+| `rulings` | The rulings for the card |
+| `set` | The set code the card belongs to |
+| `setName` | The set name the card belongs to |
+| `source` | For promo cards, where the card was originally obtained |
+| `starter` | True if this card was only released as part of a core box set |
+| `subtypes` | The subtypes of the card |
+| `supertypes` | The supertypes of the card |
+| `text` | The oracle text of the card |
+| `timeshifted` | True if this card was timeshifted in the set |
+| `toughness` | The toughness of the card (creatures only) |
+| `type` | The card type |
+| `types` | The types of the card |
+| `variations` | Multiverseids of alternate art variations |
+| `watermark` | The watermark on the card |
 
 Operations: List, Load.
 
@@ -315,18 +315,18 @@ API path: `/formats`
 
 | Field | Description |
 | --- | --- |
-| `block` |  |
-| `booster` |  |
-| `border` |  |
-| `code` |  |
-| `gathererCode` |  |
-| `magicCardsInfoCode` |  |
-| `mkm_id` |  |
-| `mkm_name` |  |
-| `name` |  |
-| `onlineOnly` |  |
-| `releaseDate` |  |
-| `type` |  |
+| `block` | The block the set belongs to |
+| `booster` | Booster pack configuration |
+| `border` | The border color of the set |
+| `code` | The set code |
+| `gathererCode` | The Gatherer code for the set |
+| `magicCardsInfoCode` | The Magic Cards Info code for the set |
+| `mkm_id` | The Magic Card Market set ID |
+| `mkm_name` | The Magic Card Market set name |
+| `name` | The name of the set |
+| `onlineOnly` | True if the set is online only |
+| `releaseDate` | The release date of the set |
+| `type` | The type of the set |
 
 Operations: List, Load.
 
@@ -336,46 +336,46 @@ API path: `/sets`
 
 | Field | Description |
 | --- | --- |
-| `artist` |  |
-| `border` |  |
-| `cmc` |  |
-| `colorIdentity` |  |
-| `colors` |  |
-| `flavor` |  |
-| `foreignNames` |  |
-| `hand` |  |
-| `id` |  |
-| `imageUrl` |  |
-| `layout` |  |
-| `legalities` |  |
-| `life` |  |
-| `loyalty` |  |
-| `manaCost` |  |
-| `multiverseid` |  |
-| `name` |  |
-| `names` |  |
-| `number` |  |
-| `originalText` |  |
-| `originalType` |  |
-| `power` |  |
-| `printings` |  |
-| `rarity` |  |
-| `releaseDate` |  |
-| `reserved` |  |
-| `rulings` |  |
-| `set` |  |
-| `setName` |  |
-| `source` |  |
-| `starter` |  |
-| `subtypes` |  |
-| `supertypes` |  |
-| `text` |  |
-| `timeshifted` |  |
-| `toughness` |  |
-| `type` |  |
-| `types` |  |
-| `variations` |  |
-| `watermark` |  |
+| `artist` | The artist of the card |
+| `border` | The border color if different from the set default |
+| `cmc` | Converted mana cost |
+| `colorIdentity` | The card's color identity by color code |
+| `colors` | The card colors |
+| `flavor` | The flavor text of the card |
+| `foreignNames` | Foreign language names for the card |
+| `hand` | Maximum hand size modifier (Vanguard cards only) |
+| `id` | A unique id for this card (SHA1 hash) |
+| `imageUrl` | The image URL for the card |
+| `layout` | The card layout |
+| `legalities` | Which formats this card is legal, restricted or banned in |
+| `life` | Starting life total modifier (Vanguard cards only) |
+| `loyalty` | The loyalty of the card (planeswalkers only) |
+| `manaCost` | The mana cost of the card |
+| `multiverseid` | The multiverseid of the card on Wizard's Gatherer |
+| `name` | The card name |
+| `names` | Only used for split, flip and dual cards. |
+| `number` | The card number |
+| `originalText` | The original text on the card at the time it was printed |
+| `originalType` | The original type on the card at the time it was printed |
+| `power` | The power of the card (creatures only) |
+| `printings` | The sets that this card was printed in |
+| `rarity` | The rarity of the card |
+| `releaseDate` | The release date for promo cards |
+| `reserved` | True if this card is reserved by Wizards Official Reprint Policy |
+| `rulings` | The rulings for the card |
+| `set` | The set code the card belongs to |
+| `setName` | The set name the card belongs to |
+| `source` | For promo cards, where the card was originally obtained |
+| `starter` | True if this card was only released as part of a core box set |
+| `subtypes` | The subtypes of the card |
+| `supertypes` | The supertypes of the card |
+| `text` | The oracle text of the card |
+| `timeshifted` | True if this card was timeshifted in the set |
+| `toughness` | The toughness of the card (creatures only) |
+| `type` | The card type |
+| `types` | The types of the card |
+| `variations` | Multiverseids of alternate art variations |
+| `watermark` | The watermark on the card |
 
 Operations: List.
 
@@ -431,46 +431,46 @@ Create an instance: `card = client.Card`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `artist` | `String` |  |
-| `border` | `String` |  |
-| `cmc` | `Float` |  |
-| `colorIdentity` | `Array` |  |
-| `colors` | `Array` |  |
-| `flavor` | `String` |  |
-| `foreignNames` | `Array` |  |
-| `hand` | `Integer` |  |
-| `id` | `String` |  |
-| `imageUrl` | `String` |  |
-| `layout` | `String` |  |
-| `legalities` | `Array` |  |
-| `life` | `Integer` |  |
-| `loyalty` | `String` |  |
-| `manaCost` | `String` |  |
-| `multiverseid` | `Integer` |  |
-| `name` | `String` |  |
-| `names` | `Array` |  |
-| `number` | `String` |  |
-| `originalText` | `String` |  |
-| `originalType` | `String` |  |
-| `power` | `String` |  |
-| `printings` | `Array` |  |
-| `rarity` | `String` |  |
-| `releaseDate` | `String` |  |
-| `reserved` | `Boolean` |  |
-| `rulings` | `Array` |  |
-| `set` | `String` |  |
-| `setName` | `String` |  |
-| `source` | `String` |  |
-| `starter` | `Boolean` |  |
-| `subtypes` | `Array` |  |
-| `supertypes` | `Array` |  |
-| `text` | `String` |  |
-| `timeshifted` | `Boolean` |  |
-| `toughness` | `String` |  |
-| `type` | `String` |  |
-| `types` | `Array` |  |
-| `variations` | `Array` |  |
-| `watermark` | `String` |  |
+| `artist` | `String` | The artist of the card |
+| `border` | `String` | The border color if different from the set default |
+| `cmc` | `Float` | Converted mana cost |
+| `colorIdentity` | `Array` | The card's color identity by color code |
+| `colors` | `Array` | The card colors |
+| `flavor` | `String` | The flavor text of the card |
+| `foreignNames` | `Array` | Foreign language names for the card |
+| `hand` | `Integer` | Maximum hand size modifier (Vanguard cards only) |
+| `id` | `String` | A unique id for this card (SHA1 hash) |
+| `imageUrl` | `String` | The image URL for the card |
+| `layout` | `String` | The card layout |
+| `legalities` | `Array` | Which formats this card is legal, restricted or banned in |
+| `life` | `Integer` | Starting life total modifier (Vanguard cards only) |
+| `loyalty` | `String` | The loyalty of the card (planeswalkers only) |
+| `manaCost` | `String` | The mana cost of the card |
+| `multiverseid` | `Integer` | The multiverseid of the card on Wizard's Gatherer |
+| `name` | `String` | The card name |
+| `names` | `Array` | Only used for split, flip and dual cards. |
+| `number` | `String` | The card number |
+| `originalText` | `String` | The original text on the card at the time it was printed |
+| `originalType` | `String` | The original type on the card at the time it was printed |
+| `power` | `String` | The power of the card (creatures only) |
+| `printings` | `Array` | The sets that this card was printed in |
+| `rarity` | `String` | The rarity of the card |
+| `releaseDate` | `String` | The release date for promo cards |
+| `reserved` | `Boolean` | True if this card is reserved by Wizards Official Reprint Policy |
+| `rulings` | `Array` | The rulings for the card |
+| `set` | `String` | The set code the card belongs to |
+| `setName` | `String` | The set name the card belongs to |
+| `source` | `String` | For promo cards, where the card was originally obtained |
+| `starter` | `Boolean` | True if this card was only released as part of a core box set |
+| `subtypes` | `Array` | The subtypes of the card |
+| `supertypes` | `Array` | The supertypes of the card |
+| `text` | `String` | The oracle text of the card |
+| `timeshifted` | `Boolean` | True if this card was timeshifted in the set |
+| `toughness` | `String` | The toughness of the card (creatures only) |
+| `type` | `String` | The card type |
+| `types` | `Array` | The types of the card |
+| `variations` | `Array` | Multiverseids of alternate art variations |
+| `watermark` | `String` | The watermark on the card |
 
 #### Example: Load
 
@@ -526,18 +526,18 @@ Create an instance: `set = client.Set`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `block` | `String` |  |
-| `booster` | `Array` |  |
-| `border` | `String` |  |
-| `code` | `String` |  |
-| `gathererCode` | `String` |  |
-| `magicCardsInfoCode` | `String` |  |
-| `mkm_id` | `Integer` |  |
-| `mkm_name` | `String` |  |
-| `name` | `String` |  |
-| `onlineOnly` | `Boolean` |  |
-| `releaseDate` | `String` |  |
-| `type` | `String` |  |
+| `block` | `String` | The block the set belongs to |
+| `booster` | `Array` | Booster pack configuration |
+| `border` | `String` | The border color of the set |
+| `code` | `String` | The set code |
+| `gathererCode` | `String` | The Gatherer code for the set |
+| `magicCardsInfoCode` | `String` | The Magic Cards Info code for the set |
+| `mkm_id` | `Integer` | The Magic Card Market set ID |
+| `mkm_name` | `String` | The Magic Card Market set name |
+| `name` | `String` | The name of the set |
+| `onlineOnly` | `Boolean` | True if the set is online only |
+| `releaseDate` | `String` | The release date of the set |
+| `type` | `String` | The type of the set |
 
 #### Example: Load
 
@@ -568,46 +568,46 @@ Create an instance: `set_booster = client.SetBooster`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `artist` | `String` |  |
-| `border` | `String` |  |
-| `cmc` | `Float` |  |
-| `colorIdentity` | `Array` |  |
-| `colors` | `Array` |  |
-| `flavor` | `String` |  |
-| `foreignNames` | `Array` |  |
-| `hand` | `Integer` |  |
-| `id` | `String` |  |
-| `imageUrl` | `String` |  |
-| `layout` | `String` |  |
-| `legalities` | `Array` |  |
-| `life` | `Integer` |  |
-| `loyalty` | `String` |  |
-| `manaCost` | `String` |  |
-| `multiverseid` | `Integer` |  |
-| `name` | `String` |  |
-| `names` | `Array` |  |
-| `number` | `String` |  |
-| `originalText` | `String` |  |
-| `originalType` | `String` |  |
-| `power` | `String` |  |
-| `printings` | `Array` |  |
-| `rarity` | `String` |  |
-| `releaseDate` | `String` |  |
-| `reserved` | `Boolean` |  |
-| `rulings` | `Array` |  |
-| `set` | `String` |  |
-| `setName` | `String` |  |
-| `source` | `String` |  |
-| `starter` | `Boolean` |  |
-| `subtypes` | `Array` |  |
-| `supertypes` | `Array` |  |
-| `text` | `String` |  |
-| `timeshifted` | `Boolean` |  |
-| `toughness` | `String` |  |
-| `type` | `String` |  |
-| `types` | `Array` |  |
-| `variations` | `Array` |  |
-| `watermark` | `String` |  |
+| `artist` | `String` | The artist of the card |
+| `border` | `String` | The border color if different from the set default |
+| `cmc` | `Float` | Converted mana cost |
+| `colorIdentity` | `Array` | The card's color identity by color code |
+| `colors` | `Array` | The card colors |
+| `flavor` | `String` | The flavor text of the card |
+| `foreignNames` | `Array` | Foreign language names for the card |
+| `hand` | `Integer` | Maximum hand size modifier (Vanguard cards only) |
+| `id` | `String` | A unique id for this card (SHA1 hash) |
+| `imageUrl` | `String` | The image URL for the card |
+| `layout` | `String` | The card layout |
+| `legalities` | `Array` | Which formats this card is legal, restricted or banned in |
+| `life` | `Integer` | Starting life total modifier (Vanguard cards only) |
+| `loyalty` | `String` | The loyalty of the card (planeswalkers only) |
+| `manaCost` | `String` | The mana cost of the card |
+| `multiverseid` | `Integer` | The multiverseid of the card on Wizard's Gatherer |
+| `name` | `String` | The card name |
+| `names` | `Array` | Only used for split, flip and dual cards. |
+| `number` | `String` | The card number |
+| `originalText` | `String` | The original text on the card at the time it was printed |
+| `originalType` | `String` | The original type on the card at the time it was printed |
+| `power` | `String` | The power of the card (creatures only) |
+| `printings` | `Array` | The sets that this card was printed in |
+| `rarity` | `String` | The rarity of the card |
+| `releaseDate` | `String` | The release date for promo cards |
+| `reserved` | `Boolean` | True if this card is reserved by Wizards Official Reprint Policy |
+| `rulings` | `Array` | The rulings for the card |
+| `set` | `String` | The set code the card belongs to |
+| `setName` | `String` | The set name the card belongs to |
+| `source` | `String` | For promo cards, where the card was originally obtained |
+| `starter` | `Boolean` | True if this card was only released as part of a core box set |
+| `subtypes` | `Array` | The subtypes of the card |
+| `supertypes` | `Array` | The supertypes of the card |
+| `text` | `String` | The oracle text of the card |
+| `timeshifted` | `Boolean` | True if this card was timeshifted in the set |
+| `toughness` | `String` | The toughness of the card (creatures only) |
+| `type` | `String` | The card type |
+| `types` | `Array` | The types of the card |
+| `variations` | `Array` | Multiverseids of alternate art variations |
+| `watermark` | `String` | The watermark on the card |
 
 #### Example: List
 

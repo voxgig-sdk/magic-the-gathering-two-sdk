@@ -28,6 +28,9 @@ def make_config():
     return {
         "main": {
             "name": "MagicTheGatheringTwo",
+            "slug": "magic-the-gathering-two",
+            "version": "0.0.1",
+            "target": "py",
         },
         "feature": {
             "test": {
@@ -56,162 +59,202 @@ def make_config():
         "fields": [
           {
             "name": "artist",
+            "short": "The artist of the card",
             "type": "`$STRING`",
           },
           {
             "name": "border",
+            "short": "The border color if different from the set default",
             "type": "`$STRING`",
           },
           {
             "name": "cmc",
+            "short": "Converted mana cost",
             "type": "`$NUMBER`",
           },
           {
             "name": "colorIdentity",
+            "short": "The card's color identity by color code",
             "type": "`$ARRAY`",
           },
           {
             "name": "colors",
+            "short": "The card colors",
             "type": "`$ARRAY`",
           },
           {
             "name": "flavor",
+            "short": "The flavor text of the card",
             "type": "`$STRING`",
           },
           {
             "name": "foreignNames",
+            "short": "Foreign language names for the card",
             "type": "`$ARRAY`",
           },
           {
             "name": "hand",
+            "short": "Maximum hand size modifier (Vanguard cards only)",
             "type": "`$INTEGER`",
           },
           {
             "name": "id",
+            "short": "A unique id for this card (SHA1 hash)",
             "type": "`$STRING`",
           },
           {
             "name": "imageUrl",
+            "short": "The image URL for the card",
             "type": "`$STRING`",
           },
           {
             "name": "layout",
+            "short": "The card layout",
             "type": "`$STRING`",
           },
           {
             "name": "legalities",
+            "short": "Which formats this card is legal, restricted or banned in",
             "type": "`$ARRAY`",
           },
           {
             "name": "life",
+            "short": "Starting life total modifier (Vanguard cards only)",
             "type": "`$INTEGER`",
           },
           {
             "name": "loyalty",
+            "short": "The loyalty of the card (planeswalkers only)",
             "type": "`$STRING`",
           },
           {
             "name": "manaCost",
+            "short": "The mana cost of the card",
             "type": "`$STRING`",
           },
           {
             "name": "multiverseid",
+            "short": "The multiverseid of the card on Wizard's Gatherer",
             "type": "`$INTEGER`",
           },
           {
             "name": "name",
+            "short": "The card name",
             "type": "`$STRING`",
           },
           {
             "name": "names",
+            "short": "Only used for split, flip and dual cards.",
             "type": "`$ARRAY`",
           },
           {
             "name": "number",
+            "short": "The card number",
             "type": "`$STRING`",
           },
           {
             "name": "originalText",
+            "short": "The original text on the card at the time it was printed",
             "type": "`$STRING`",
           },
           {
             "name": "originalType",
+            "short": "The original type on the card at the time it was printed",
             "type": "`$STRING`",
           },
           {
             "name": "power",
+            "short": "The power of the card (creatures only)",
             "type": "`$STRING`",
           },
           {
             "name": "printings",
+            "short": "The sets that this card was printed in",
             "type": "`$ARRAY`",
           },
           {
             "name": "rarity",
+            "short": "The rarity of the card",
             "type": "`$STRING`",
           },
           {
             "name": "releaseDate",
+            "short": "The release date for promo cards",
             "type": "`$STRING`",
           },
           {
             "name": "reserved",
+            "short": "True if this card is reserved by Wizards Official Reprint Policy",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "rulings",
+            "short": "The rulings for the card",
             "type": "`$ARRAY`",
           },
           {
             "name": "set",
+            "short": "The set code the card belongs to",
             "type": "`$STRING`",
           },
           {
             "name": "setName",
+            "short": "The set name the card belongs to",
             "type": "`$STRING`",
           },
           {
             "name": "source",
+            "short": "For promo cards, where the card was originally obtained",
             "type": "`$STRING`",
           },
           {
             "name": "starter",
+            "short": "True if this card was only released as part of a core box set",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "subtypes",
+            "short": "The subtypes of the card",
             "type": "`$ARRAY`",
           },
           {
             "name": "supertypes",
+            "short": "The supertypes of the card",
             "type": "`$ARRAY`",
           },
           {
             "name": "text",
+            "short": "The oracle text of the card",
             "type": "`$STRING`",
           },
           {
             "name": "timeshifted",
+            "short": "True if this card was timeshifted in the set",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "toughness",
+            "short": "The toughness of the card (creatures only)",
             "type": "`$STRING`",
           },
           {
             "name": "type",
+            "short": "The card type",
             "type": "`$STRING`",
           },
           {
             "name": "types",
+            "short": "The types of the card",
             "type": "`$ARRAY`",
           },
           {
             "name": "variations",
+            "short": "Multiverseids of alternate art variations",
             "type": "`$ARRAY`",
           },
           {
             "name": "watermark",
+            "short": "The watermark on the card",
             "type": "`$STRING`",
           },
         ],
@@ -525,50 +568,62 @@ def make_config():
         "fields": [
           {
             "name": "block",
+            "short": "The block the set belongs to",
             "type": "`$STRING`",
           },
           {
             "name": "booster",
+            "short": "Booster pack configuration",
             "type": "`$ARRAY`",
           },
           {
             "name": "border",
+            "short": "The border color of the set",
             "type": "`$STRING`",
           },
           {
             "name": "code",
+            "short": "The set code",
             "type": "`$STRING`",
           },
           {
             "name": "gathererCode",
+            "short": "The Gatherer code for the set",
             "type": "`$STRING`",
           },
           {
             "name": "magicCardsInfoCode",
+            "short": "The Magic Cards Info code for the set",
             "type": "`$STRING`",
           },
           {
             "name": "mkm_id",
+            "short": "The Magic Card Market set ID",
             "type": "`$INTEGER`",
           },
           {
             "name": "mkm_name",
+            "short": "The Magic Card Market set name",
             "type": "`$STRING`",
           },
           {
             "name": "name",
+            "short": "The name of the set",
             "type": "`$STRING`",
           },
           {
             "name": "onlineOnly",
+            "short": "True if the set is online only",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "releaseDate",
+            "short": "The release date of the set",
             "type": "`$STRING`",
           },
           {
             "name": "type",
+            "short": "The type of the set",
             "type": "`$STRING`",
           },
         ],
@@ -658,162 +713,202 @@ def make_config():
         "fields": [
           {
             "name": "artist",
+            "short": "The artist of the card",
             "type": "`$STRING`",
           },
           {
             "name": "border",
+            "short": "The border color if different from the set default",
             "type": "`$STRING`",
           },
           {
             "name": "cmc",
+            "short": "Converted mana cost",
             "type": "`$NUMBER`",
           },
           {
             "name": "colorIdentity",
+            "short": "The card's color identity by color code",
             "type": "`$ARRAY`",
           },
           {
             "name": "colors",
+            "short": "The card colors",
             "type": "`$ARRAY`",
           },
           {
             "name": "flavor",
+            "short": "The flavor text of the card",
             "type": "`$STRING`",
           },
           {
             "name": "foreignNames",
+            "short": "Foreign language names for the card",
             "type": "`$ARRAY`",
           },
           {
             "name": "hand",
+            "short": "Maximum hand size modifier (Vanguard cards only)",
             "type": "`$INTEGER`",
           },
           {
             "name": "id",
+            "short": "A unique id for this card (SHA1 hash)",
             "type": "`$STRING`",
           },
           {
             "name": "imageUrl",
+            "short": "The image URL for the card",
             "type": "`$STRING`",
           },
           {
             "name": "layout",
+            "short": "The card layout",
             "type": "`$STRING`",
           },
           {
             "name": "legalities",
+            "short": "Which formats this card is legal, restricted or banned in",
             "type": "`$ARRAY`",
           },
           {
             "name": "life",
+            "short": "Starting life total modifier (Vanguard cards only)",
             "type": "`$INTEGER`",
           },
           {
             "name": "loyalty",
+            "short": "The loyalty of the card (planeswalkers only)",
             "type": "`$STRING`",
           },
           {
             "name": "manaCost",
+            "short": "The mana cost of the card",
             "type": "`$STRING`",
           },
           {
             "name": "multiverseid",
+            "short": "The multiverseid of the card on Wizard's Gatherer",
             "type": "`$INTEGER`",
           },
           {
             "name": "name",
+            "short": "The card name",
             "type": "`$STRING`",
           },
           {
             "name": "names",
+            "short": "Only used for split, flip and dual cards.",
             "type": "`$ARRAY`",
           },
           {
             "name": "number",
+            "short": "The card number",
             "type": "`$STRING`",
           },
           {
             "name": "originalText",
+            "short": "The original text on the card at the time it was printed",
             "type": "`$STRING`",
           },
           {
             "name": "originalType",
+            "short": "The original type on the card at the time it was printed",
             "type": "`$STRING`",
           },
           {
             "name": "power",
+            "short": "The power of the card (creatures only)",
             "type": "`$STRING`",
           },
           {
             "name": "printings",
+            "short": "The sets that this card was printed in",
             "type": "`$ARRAY`",
           },
           {
             "name": "rarity",
+            "short": "The rarity of the card",
             "type": "`$STRING`",
           },
           {
             "name": "releaseDate",
+            "short": "The release date for promo cards",
             "type": "`$STRING`",
           },
           {
             "name": "reserved",
+            "short": "True if this card is reserved by Wizards Official Reprint Policy",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "rulings",
+            "short": "The rulings for the card",
             "type": "`$ARRAY`",
           },
           {
             "name": "set",
+            "short": "The set code the card belongs to",
             "type": "`$STRING`",
           },
           {
             "name": "setName",
+            "short": "The set name the card belongs to",
             "type": "`$STRING`",
           },
           {
             "name": "source",
+            "short": "For promo cards, where the card was originally obtained",
             "type": "`$STRING`",
           },
           {
             "name": "starter",
+            "short": "True if this card was only released as part of a core box set",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "subtypes",
+            "short": "The subtypes of the card",
             "type": "`$ARRAY`",
           },
           {
             "name": "supertypes",
+            "short": "The supertypes of the card",
             "type": "`$ARRAY`",
           },
           {
             "name": "text",
+            "short": "The oracle text of the card",
             "type": "`$STRING`",
           },
           {
             "name": "timeshifted",
+            "short": "True if this card was timeshifted in the set",
             "type": "`$BOOLEAN`",
           },
           {
             "name": "toughness",
+            "short": "The toughness of the card (creatures only)",
             "type": "`$STRING`",
           },
           {
             "name": "type",
+            "short": "The card type",
             "type": "`$STRING`",
           },
           {
             "name": "types",
+            "short": "The types of the card",
             "type": "`$ARRAY`",
           },
           {
             "name": "variations",
+            "short": "Multiverseids of alternate art variations",
             "type": "`$ARRAY`",
           },
           {
             "name": "watermark",
+            "short": "The watermark on the card",
             "type": "`$STRING`",
           },
         ],

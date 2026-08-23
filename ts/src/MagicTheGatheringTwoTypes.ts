@@ -103,7 +103,7 @@ export interface FormatListMatch {
   formats?: any[]
 }
 
-export interface Set {
+export interface SetType {
   block?: string
   booster?: any[]
   border?: string

@@ -1,0 +1,9 @@
+# Entity Models
+
+@"card.aon"
+@"format.aon"
+@"set.aon"
+@"set_booster.aon"
+@"subtype.aon"
+@"supertype.aon"
+@"type.aon"

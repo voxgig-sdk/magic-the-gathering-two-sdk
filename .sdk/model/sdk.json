@@ -36,240 +36,280 @@
               "active": true,
               "name": "artist",
               "req": false,
+              "short": "The artist of the card",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "border",
               "req": false,
+              "short": "The border color if different from the set default",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "cmc",
               "req": false,
+              "short": "Converted mana cost",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "colorIdentity",
               "req": false,
+              "short": "The card's color identity by color code",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "colors",
               "req": false,
+              "short": "The card colors",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "flavor",
               "req": false,
+              "short": "The flavor text of the card",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "foreignNames",
               "req": false,
+              "short": "Foreign language names for the card",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "hand",
               "req": false,
+              "short": "Maximum hand size modifier (Vanguard cards only)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "A unique id for this card (SHA1 hash)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "imageUrl",
               "req": false,
+              "short": "The image URL for the card",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "layout",
               "req": false,
+              "short": "The card layout",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "legalities",
               "req": false,
+              "short": "Which formats this card is legal, restricted or banned in",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "life",
               "req": false,
+              "short": "Starting life total modifier (Vanguard cards only)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "loyalty",
               "req": false,
+              "short": "The loyalty of the card (planeswalkers only)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "manaCost",
               "req": false,
+              "short": "The mana cost of the card",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "multiverseid",
               "req": false,
+              "short": "The multiverseid of the card on Wizard's Gatherer",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "The card name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "names",
               "req": false,
+              "short": "Only used for split, flip and dual cards.",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "number",
               "req": false,
+              "short": "The card number",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "originalText",
               "req": false,
+              "short": "The original text on the card at the time it was printed",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "originalType",
               "req": false,
+              "short": "The original type on the card at the time it was printed",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "power",
               "req": false,
+              "short": "The power of the card (creatures only)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "printings",
               "req": false,
+              "short": "The sets that this card was printed in",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "rarity",
               "req": false,
+              "short": "The rarity of the card",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "releaseDate",
               "req": false,
+              "short": "The release date for promo cards",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "reserved",
               "req": false,
+              "short": "True if this card is reserved by Wizards Official Reprint Policy",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "rulings",
               "req": false,
+              "short": "The rulings for the card",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "set",
               "req": false,
+              "short": "The set code the card belongs to",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "setName",
               "req": false,
+              "short": "The set name the card belongs to",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "source",
               "req": false,
+              "short": "For promo cards, where the card was originally obtained",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "starter",
               "req": false,
+              "short": "True if this card was only released as part of a core box set",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "subtypes",
               "req": false,
+              "short": "The subtypes of the card",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "supertypes",
               "req": false,
+              "short": "The supertypes of the card",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "text",
               "req": false,
+              "short": "The oracle text of the card",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "timeshifted",
               "req": false,
+              "short": "True if this card was timeshifted in the set",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "toughness",
               "req": false,
+              "short": "The toughness of the card (creatures only)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "type",
               "req": false,
+              "short": "The card type",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "types",
               "req": false,
+              "short": "The types of the card",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "variations",
               "req": false,
+              "short": "Multiverseids of alternate art variations",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "watermark",
               "req": false,
+              "short": "The watermark on the card",
               "type": "`$STRING`"
             }
           ],
@@ -661,72 +701,84 @@
               "active": true,
               "name": "block",
               "req": false,
+              "short": "The block the set belongs to",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "booster",
               "req": false,
+              "short": "Booster pack configuration",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "border",
               "req": false,
+              "short": "The border color of the set",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "code",
               "req": false,
+              "short": "The set code",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "gathererCode",
               "req": false,
+              "short": "The Gatherer code for the set",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "magicCardsInfoCode",
               "req": false,
+              "short": "The Magic Cards Info code for the set",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "mkm_id",
               "req": false,
+              "short": "The Magic Card Market set ID",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "mkm_name",
               "req": false,
+              "short": "The Magic Card Market set name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "The name of the set",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "onlineOnly",
               "req": false,
+              "short": "True if the set is online only",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "releaseDate",
               "req": false,
+              "short": "The release date of the set",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "type",
               "req": false,
+              "short": "The type of the set",
               "type": "`$STRING`"
             }
           ],
@@ -829,240 +881,280 @@
               "active": true,
               "name": "artist",
               "req": false,
+              "short": "The artist of the card",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "border",
               "req": false,
+              "short": "The border color if different from the set default",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "cmc",
               "req": false,
+              "short": "Converted mana cost",
               "type": "`$NUMBER`"
             },
             {
               "active": true,
               "name": "colorIdentity",
               "req": false,
+              "short": "The card's color identity by color code",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "colors",
               "req": false,
+              "short": "The card colors",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "flavor",
               "req": false,
+              "short": "The flavor text of the card",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "foreignNames",
               "req": false,
+              "short": "Foreign language names for the card",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "hand",
               "req": false,
+              "short": "Maximum hand size modifier (Vanguard cards only)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "id",
               "req": false,
+              "short": "A unique id for this card (SHA1 hash)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "imageUrl",
               "req": false,
+              "short": "The image URL for the card",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "layout",
               "req": false,
+              "short": "The card layout",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "legalities",
               "req": false,
+              "short": "Which formats this card is legal, restricted or banned in",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "life",
               "req": false,
+              "short": "Starting life total modifier (Vanguard cards only)",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "loyalty",
               "req": false,
+              "short": "The loyalty of the card (planeswalkers only)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "manaCost",
               "req": false,
+              "short": "The mana cost of the card",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "multiverseid",
               "req": false,
+              "short": "The multiverseid of the card on Wizard's Gatherer",
               "type": "`$INTEGER`"
             },
             {
               "active": true,
               "name": "name",
               "req": false,
+              "short": "The card name",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "names",
               "req": false,
+              "short": "Only used for split, flip and dual cards.",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "number",
               "req": false,
+              "short": "The card number",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "originalText",
               "req": false,
+              "short": "The original text on the card at the time it was printed",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "originalType",
               "req": false,
+              "short": "The original type on the card at the time it was printed",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "power",
               "req": false,
+              "short": "The power of the card (creatures only)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "printings",
               "req": false,
+              "short": "The sets that this card was printed in",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "rarity",
               "req": false,
+              "short": "The rarity of the card",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "releaseDate",
               "req": false,
+              "short": "The release date for promo cards",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "reserved",
               "req": false,
+              "short": "True if this card is reserved by Wizards Official Reprint Policy",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "rulings",
               "req": false,
+              "short": "The rulings for the card",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "set",
               "req": false,
+              "short": "The set code the card belongs to",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "setName",
               "req": false,
+              "short": "The set name the card belongs to",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "source",
               "req": false,
+              "short": "For promo cards, where the card was originally obtained",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "starter",
               "req": false,
+              "short": "True if this card was only released as part of a core box set",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "subtypes",
               "req": false,
+              "short": "The subtypes of the card",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "supertypes",
               "req": false,
+              "short": "The supertypes of the card",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "text",
               "req": false,
+              "short": "The oracle text of the card",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "timeshifted",
               "req": false,
+              "short": "True if this card was timeshifted in the set",
               "type": "`$BOOLEAN`"
             },
             {
               "active": true,
               "name": "toughness",
               "req": false,
+              "short": "The toughness of the card (creatures only)",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "type",
               "req": false,
+              "short": "The card type",
               "type": "`$STRING`"
             },
             {
               "active": true,
               "name": "types",
               "req": false,
+              "short": "The types of the card",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "variations",
               "req": false,
+              "short": "Multiverseids of alternate art variations",
               "type": "`$ARRAY`"
             },
             {
               "active": true,
               "name": "watermark",
               "req": false,
+              "short": "The watermark on the card",
               "type": "`$STRING`"
             }
           ],

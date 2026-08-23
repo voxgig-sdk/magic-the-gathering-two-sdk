@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "MagicTheGatheringTwo",
+			"slug": "magic-the-gathering-two",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -39,162 +42,202 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "artist",
+						"short": "The artist of the card",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "border",
+						"short": "The border color if different from the set default",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "cmc",
+						"short": "Converted mana cost",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "colorIdentity",
+						"short": "The card's color identity by color code",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "colors",
+						"short": "The card colors",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "flavor",
+						"short": "The flavor text of the card",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "foreignNames",
+						"short": "Foreign language names for the card",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "hand",
+						"short": "Maximum hand size modifier (Vanguard cards only)",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "A unique id for this card (SHA1 hash)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "imageUrl",
+						"short": "The image URL for the card",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "layout",
+						"short": "The card layout",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "legalities",
+						"short": "Which formats this card is legal, restricted or banned in",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "life",
+						"short": "Starting life total modifier (Vanguard cards only)",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "loyalty",
+						"short": "The loyalty of the card (planeswalkers only)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "manaCost",
+						"short": "The mana cost of the card",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "multiverseid",
+						"short": "The multiverseid of the card on Wizard's Gatherer",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "The card name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "names",
+						"short": "Only used for split, flip and dual cards.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "number",
+						"short": "The card number",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "originalText",
+						"short": "The original text on the card at the time it was printed",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "originalType",
+						"short": "The original type on the card at the time it was printed",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "power",
+						"short": "The power of the card (creatures only)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "printings",
+						"short": "The sets that this card was printed in",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "rarity",
+						"short": "The rarity of the card",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "releaseDate",
+						"short": "The release date for promo cards",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "reserved",
+						"short": "True if this card is reserved by Wizards Official Reprint Policy",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "rulings",
+						"short": "The rulings for the card",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "set",
+						"short": "The set code the card belongs to",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "setName",
+						"short": "The set name the card belongs to",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "source",
+						"short": "For promo cards, where the card was originally obtained",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "starter",
+						"short": "True if this card was only released as part of a core box set",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "subtypes",
+						"short": "The subtypes of the card",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "supertypes",
+						"short": "The supertypes of the card",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "text",
+						"short": "The oracle text of the card",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "timeshifted",
+						"short": "True if this card was timeshifted in the set",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "toughness",
+						"short": "The toughness of the card (creatures only)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
+						"short": "The card type",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "types",
+						"short": "The types of the card",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "variations",
+						"short": "Multiverseids of alternate art variations",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "watermark",
+						"short": "The watermark on the card",
 						"type": "`$STRING`",
 					},
 				},
@@ -508,50 +551,62 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "block",
+						"short": "The block the set belongs to",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "booster",
+						"short": "Booster pack configuration",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "border",
+						"short": "The border color of the set",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "code",
+						"short": "The set code",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "gathererCode",
+						"short": "The Gatherer code for the set",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "magicCardsInfoCode",
+						"short": "The Magic Cards Info code for the set",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "mkm_id",
+						"short": "The Magic Card Market set ID",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "mkm_name",
+						"short": "The Magic Card Market set name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "The name of the set",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "onlineOnly",
+						"short": "True if the set is online only",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "releaseDate",
+						"short": "The release date of the set",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
+						"short": "The type of the set",
 						"type": "`$STRING`",
 					},
 				},
@@ -641,162 +696,202 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "artist",
+						"short": "The artist of the card",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "border",
+						"short": "The border color if different from the set default",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "cmc",
+						"short": "Converted mana cost",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "colorIdentity",
+						"short": "The card's color identity by color code",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "colors",
+						"short": "The card colors",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "flavor",
+						"short": "The flavor text of the card",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "foreignNames",
+						"short": "Foreign language names for the card",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "hand",
+						"short": "Maximum hand size modifier (Vanguard cards only)",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "id",
+						"short": "A unique id for this card (SHA1 hash)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "imageUrl",
+						"short": "The image URL for the card",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "layout",
+						"short": "The card layout",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "legalities",
+						"short": "Which formats this card is legal, restricted or banned in",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "life",
+						"short": "Starting life total modifier (Vanguard cards only)",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "loyalty",
+						"short": "The loyalty of the card (planeswalkers only)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "manaCost",
+						"short": "The mana cost of the card",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "multiverseid",
+						"short": "The multiverseid of the card on Wizard's Gatherer",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "name",
+						"short": "The card name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "names",
+						"short": "Only used for split, flip and dual cards.",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "number",
+						"short": "The card number",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "originalText",
+						"short": "The original text on the card at the time it was printed",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "originalType",
+						"short": "The original type on the card at the time it was printed",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "power",
+						"short": "The power of the card (creatures only)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "printings",
+						"short": "The sets that this card was printed in",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "rarity",
+						"short": "The rarity of the card",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "releaseDate",
+						"short": "The release date for promo cards",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "reserved",
+						"short": "True if this card is reserved by Wizards Official Reprint Policy",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "rulings",
+						"short": "The rulings for the card",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "set",
+						"short": "The set code the card belongs to",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "setName",
+						"short": "The set name the card belongs to",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "source",
+						"short": "For promo cards, where the card was originally obtained",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "starter",
+						"short": "True if this card was only released as part of a core box set",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "subtypes",
+						"short": "The subtypes of the card",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "supertypes",
+						"short": "The supertypes of the card",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "text",
+						"short": "The oracle text of the card",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "timeshifted",
+						"short": "True if this card was timeshifted in the set",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "toughness",
+						"short": "The toughness of the card (creatures only)",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "type",
+						"short": "The card type",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "types",
+						"short": "The types of the card",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "variations",
+						"short": "Multiverseids of alternate art variations",
 						"type": "`$ARRAY`",
 					},
 					map[string]any{
 						"name": "watermark",
+						"short": "The watermark on the card",
 						"type": "`$STRING`",
 					},
 				},
