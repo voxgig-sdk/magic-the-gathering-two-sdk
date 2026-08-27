@@ -88,9 +88,13 @@ class TestSetEntity:
         assert isinstance(set_ref01_list_result, list)
 
         # LOAD
-        set_ref01_match_dt0 = {}
+        set_ref01_match_dt0 = {
+            "id": set_ref01_data["id"],
+        }
         set_ref01_data_dt0_loaded = set_ref01_ent.load(set_ref01_match_dt0, None)
-        assert set_ref01_data_dt0_loaded is not None
+        set_ref01_data_dt0_load_result = helpers.to_map(runner.entity_data(set_ref01_data_dt0_loaded))
+        assert set_ref01_data_dt0_load_result is not None
+        assert set_ref01_data_dt0_load_result["id"] == set_ref01_data["id"]
 
 
 

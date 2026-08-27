@@ -382,6 +382,9 @@ FormatListMatch = Struct.new(
 # @!attribute [rw] gathererCode
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] magicCardsInfoCode
 #   @return [String, nil]
 #
@@ -408,6 +411,7 @@ SetType = Struct.new(
   :border,
   :code,
   :gathererCode,
+  :id,
   :magicCardsInfoCode,
   :mkm_id,
   :mkm_name,
@@ -444,6 +448,9 @@ SetLoadMatch = Struct.new(
 # @!attribute [rw] gathererCode
 #   @return [String, nil]
 #
+# @!attribute [rw] id
+#   @return [String, nil]
+#
 # @!attribute [rw] magicCardsInfoCode
 #   @return [String, nil]
 #
@@ -470,6 +477,7 @@ SetListMatch = Struct.new(
   :border,
   :code,
   :gathererCode,
+  :id,
   :magicCardsInfoCode,
   :mkm_id,
   :mkm_name,

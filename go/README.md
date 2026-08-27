@@ -339,6 +339,7 @@ API path: `/formats`
 | `"border"` | The border color of the set |
 | `"code"` | The set code |
 | `"gathererCode"` | The Gatherer code for the set |
+| `"id"` |  |
 | `"magicCardsInfoCode"` | The Magic Cards Info code for the set |
 | `"mkm_id"` | The Magic Card Market set ID |
 | `"mkm_name"` | The Magic Card Market set name |
@@ -559,6 +560,7 @@ Create an instance: `set := client.Set(nil)`
 | `border` | `string` | The border color of the set |
 | `code` | `string` | The set code |
 | `gathererCode` | `string` | The Gatherer code for the set |
+| `id` | `string` |  |
 | `magicCardsInfoCode` | `string` | The Magic Cards Info code for the set |
 | `mkm_id` | `int` | The Magic Card Market set ID |
 | `mkm_name` | `string` | The Magic Card Market set name |

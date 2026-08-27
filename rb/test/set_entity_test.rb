@@ -83,9 +83,13 @@ class SetEntityTest < Minitest::Test
     assert set_ref01_list_result.is_a?(Array)
 
     # LOAD
-    set_ref01_match_dt0 = {}
+    set_ref01_match_dt0 = {
+      "id" => set_ref01_data["id"],
+    }
     set_ref01_data_dt0_loaded = set_ref01_ent.load(set_ref01_match_dt0, nil)
-    assert !set_ref01_data_dt0_loaded.nil?
+    set_ref01_data_dt0_load_result = Helpers.to_map(set_ref01_data_dt0_loaded.respond_to?(:data_get) ? set_ref01_data_dt0_loaded.data_get : set_ref01_data_dt0_loaded)
+    assert !set_ref01_data_dt0_load_result.nil?
+    assert_equal set_ref01_data_dt0_load_result["id"], set_ref01_data["id"]
 
   end
 end

@@ -28,6 +28,7 @@ module MagicTheGatheringTwoConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
@@ -580,6 +581,10 @@ module MagicTheGatheringTwoConfig
             {
               "name" => "gathererCode",
               "short" => "The Gatherer code for the set",
+              "type" => "`$STRING`",
+            },
+            {
+              "name" => "id",
               "type" => "`$STRING`",
             },
             {

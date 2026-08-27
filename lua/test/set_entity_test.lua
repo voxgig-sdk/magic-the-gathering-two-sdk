@@ -92,10 +92,14 @@ describe("SetEntity", function()
     assert.is_table(set_ref01_list_result)
 
     -- LOAD
-    local set_ref01_match_dt0 = {}
+    local set_ref01_match_dt0 = {
+      id = set_ref01_data["id"],
+    }
     local set_ref01_data_dt0_loaded, err = set_ref01_ent:load(set_ref01_match_dt0, nil)
     assert.is_nil(err)
-    assert.is_not_nil(set_ref01_data_dt0_loaded)
+    local set_ref01_data_dt0_load_result = helpers.to_map(type(set_ref01_data_dt0_loaded) == 'table' and set_ref01_data_dt0_loaded.data_get and set_ref01_data_dt0_loaded:data_get() or set_ref01_data_dt0_loaded)
+    assert.is_not_nil(set_ref01_data_dt0_load_result)
+    assert.are.equal(set_ref01_data_dt0_load_result["id"], set_ref01_data["id"])
 
   end)
 end)

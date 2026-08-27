@@ -109,6 +109,7 @@ export interface SetType {
   border?: string
   code?: string
   gathererCode?: string
+  id?: string
   magicCardsInfoCode?: string
   mkm_id?: number
   mkm_name?: string
@@ -128,6 +129,7 @@ export interface SetListMatch {
   border?: string
   code?: string
   gathererCode?: string
+  id?: string
   magicCardsInfoCode?: string
   mkm_id?: number
   mkm_name?: string

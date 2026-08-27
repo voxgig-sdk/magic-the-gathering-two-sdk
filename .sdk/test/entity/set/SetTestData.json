@@ -2,67 +2,67 @@
   "existing": {
     "set": {
       "SET00": {
-        "block": "s78",
+        "block": "s82",
         "booster": [],
-        "border": "s7a",
-        "code": "s7b",
-        "gathererCode": "s7c",
-        "magicCardsInfoCode": "s7d",
+        "border": "s84",
+        "code": "s85",
+        "gathererCode": "s86",
+        "id": "SET00",
+        "magicCardsInfoCode": "s88",
         "mkm_id": "MKM01",
-        "mkm_name": "s7f",
-        "name": "s80",
-        "onlineOnly": false,
-        "releaseDate": "s82",
-        "type": "s83",
-        "id": "SET00"
+        "mkm_name": "s8a",
+        "name": "s8b",
+        "onlineOnly": true,
+        "releaseDate": "s8d",
+        "type": "s8e"
       },
       "SET01": {
-        "block": "sf0",
+        "block": "s104",
         "booster": [],
-        "border": "sf2",
-        "code": "sf3",
-        "gathererCode": "sf4",
-        "magicCardsInfoCode": "sf5",
+        "border": "s106",
+        "code": "s107",
+        "gathererCode": "s108",
+        "id": "SET01",
+        "magicCardsInfoCode": "s10a",
         "mkm_id": "MKM01",
-        "mkm_name": "sf7",
-        "name": "sf8",
-        "onlineOnly": false,
-        "releaseDate": "sfa",
-        "type": "sfb",
-        "id": "SET01"
+        "mkm_name": "s10c",
+        "name": "s10d",
+        "onlineOnly": true,
+        "releaseDate": "s10f",
+        "type": "s110"
       },
       "SET02": {
-        "block": "s168",
+        "block": "s186",
         "booster": [],
-        "border": "s16a",
-        "code": "s16b",
-        "gathererCode": "s16c",
-        "magicCardsInfoCode": "s16d",
+        "border": "s188",
+        "code": "s189",
+        "gathererCode": "s18a",
+        "id": "SET02",
+        "magicCardsInfoCode": "s18c",
         "mkm_id": "MKM01",
-        "mkm_name": "s16f",
-        "name": "s170",
-        "onlineOnly": false,
-        "releaseDate": "s172",
-        "type": "s173",
-        "id": "SET02"
+        "mkm_name": "s18e",
+        "name": "s18f",
+        "onlineOnly": true,
+        "releaseDate": "s191",
+        "type": "s192"
       }
     }
   },
   "new": {
     "set": {
       "set_ref01": {
-        "block": "s1e0",
+        "block": "s208",
         "booster": [],
-        "border": "s1e2",
-        "code": "s1e3",
-        "gathererCode": "s1e4",
-        "magicCardsInfoCode": "s1e5",
+        "border": "s20a",
+        "code": "s20b",
+        "gathererCode": "s20c",
+        "magicCardsInfoCode": "s20e",
         "mkm_id": "MKM01",
-        "mkm_name": "s1e7",
-        "name": "s1e8",
-        "onlineOnly": false,
-        "releaseDate": "s1ea",
-        "type": "s1eb"
+        "mkm_name": "s210",
+        "name": "s211",
+        "onlineOnly": true,
+        "releaseDate": "s213",
+        "type": "s214"
       }
     }
   }

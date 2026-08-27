@@ -120,6 +120,7 @@ class Set(TypedDict, total=False):
     border: str
     code: str
     gathererCode: str
+    id: str
     magicCardsInfoCode: str
     mkm_id: int
     mkm_name: str
@@ -139,6 +140,7 @@ class SetListMatch(TypedDict, total=False):
     border: str
     code: str
     gathererCode: str
+    id: str
     magicCardsInfoCode: str
     mkm_id: int
     mkm_name: str

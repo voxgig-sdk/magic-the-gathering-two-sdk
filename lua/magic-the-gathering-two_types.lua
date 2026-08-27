@@ -105,6 +105,7 @@
 ---@field border? string
 ---@field code? string
 ---@field gathererCode? string
+---@field id? string
 ---@field magicCardsInfoCode? string
 ---@field mkm_id? number
 ---@field mkm_name? string
@@ -122,6 +123,7 @@
 ---@field border? string
 ---@field code? string
 ---@field gathererCode? string
+---@field id? string
 ---@field magicCardsInfoCode? string
 ---@field mkm_id? number
 ---@field mkm_name? string

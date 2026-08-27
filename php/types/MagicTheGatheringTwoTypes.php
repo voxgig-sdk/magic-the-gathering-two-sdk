@@ -128,6 +128,7 @@ class Set
     public ?string $border = null;
     public ?string $code = null;
     public ?string $gathererCode = null;
+    public ?string $id = null;
     public ?string $magicCardsInfoCode = null;
     public ?int $mkm_id = null;
     public ?string $mkm_name = null;
@@ -151,6 +152,7 @@ class SetListMatch
     public ?string $border = null;
     public ?string $code = null;
     public ?string $gathererCode = null;
+    public ?string $id = null;
     public ?string $magicCardsInfoCode = null;
     public ?int $mkm_id = null;
     public ?string $mkm_name = null;

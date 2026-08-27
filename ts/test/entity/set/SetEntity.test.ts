@@ -66,6 +66,12 @@ describe('SetEntity', async () => {
     const set_ref01_list = (await set_ref01_ent.list(set_ref01_match)).map((e: any) => e.data())
 
 
+    // LOAD
+    const set_ref01_match_dt0: any = {}
+    set_ref01_match_dt0.id = set_ref01_data.id
+    const set_ref01_data_dt0 = (await set_ref01_ent.load(set_ref01_match_dt0)).data()
+    assert(set_ref01_data_dt0.id === set_ref01_data.id)
+
 
   })
 })

@@ -42,6 +42,7 @@ class MagicTheGatheringTwoConfig
           'options' => [
             'active' => false,
           ],
+          'transport' => 'base',
         ],
             ],
             "options" => [
@@ -594,6 +595,10 @@ class MagicTheGatheringTwoConfig
             [
               'name' => 'gathererCode',
               'short' => 'The Gatherer code for the set',
+              'type' => '`$STRING`',
+            ],
+            [
+              'name' => 'id',
               'type' => '`$STRING`',
             ],
             [

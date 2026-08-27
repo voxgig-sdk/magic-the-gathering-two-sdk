@@ -36,6 +36,11 @@ main: kit: entity: set: {
       type: "`$STRING`"
     }
     {
+      name: "id"
+      req: false
+      type: "`$STRING`"
+    }
+    {
       name: "magicCardsInfoCode"
       req: false
       short: "The Magic Cards Info code for the set"
@@ -78,6 +83,11 @@ main: kit: entity: set: {
       type: "`$STRING`"
     }
   ]
+
+  id: {
+    field: "id"
+    name: "id"
+  }
 
   name: "set"
   op: {

@@ -280,6 +280,7 @@ fmt.Println(set.GetName()) // "set"
 | `border` | `string` | No | The border color of the set |
 | `code` | `string` | No | The set code |
 | `gathererCode` | `string` | No | The Gatherer code for the set |
+| `id` | `string` | No |  |
 | `magicCardsInfoCode` | `string` | No | The Magic Cards Info code for the set |
 | `mkm_id` | `int` | No | The Magic Card Market set ID |
 | `mkm_name` | `string` | No | The Magic Card Market set name |

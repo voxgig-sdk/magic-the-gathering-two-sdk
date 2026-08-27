@@ -269,6 +269,7 @@ set = client.Set()
 | `border` | `str` | No | The border color of the set |
 | `code` | `str` | No | The set code |
 | `gathererCode` | `str` | No | The Gatherer code for the set |
+| `id` | `str` | No |  |
 | `magicCardsInfoCode` | `str` | No | The Magic Cards Info code for the set |
 | `mkm_id` | `int` | No | The Magic Card Market set ID |
 | `mkm_name` | `str` | No | The Magic Card Market set name |

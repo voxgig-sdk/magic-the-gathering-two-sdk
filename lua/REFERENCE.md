@@ -270,6 +270,7 @@ local set = client:Set(nil)
 | `border` | `string` | No | The border color of the set |
 | `code` | `string` | No | The set code |
 | `gathererCode` | `string` | No | The Gatherer code for the set |
+| `id` | `string` | No |  |
 | `magicCardsInfoCode` | `string` | No | The Magic Cards Info code for the set |
 | `mkm_id` | `number` | No | The Magic Card Market set ID |
 | `mkm_name` | `string` | No | The Magic Card Market set name |

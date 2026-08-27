@@ -122,6 +122,7 @@ type Set struct {
 	Border *string `json:"border,omitempty"`
 	Code *string `json:"code,omitempty"`
 	GathererCode *string `json:"gathererCode,omitempty"`
+	Id *string `json:"id,omitempty"`
 	MagicCardsInfoCode *string `json:"magicCardsInfoCode,omitempty"`
 	MkmId *int `json:"mkm_id,omitempty"`
 	MkmName *string `json:"mkm_name,omitempty"`
@@ -143,6 +144,7 @@ type SetListMatch struct {
 	Border *string `json:"border,omitempty"`
 	Code *string `json:"code,omitempty"`
 	GathererCode *string `json:"gathererCode,omitempty"`
+	Id *string `json:"id,omitempty"`
 	MagicCardsInfoCode *string `json:"magicCardsInfoCode,omitempty"`
 	MkmId *int `json:"mkm_id,omitempty"`
 	MkmName *string `json:"mkm_name,omitempty"`
