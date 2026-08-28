@@ -54,45 +54,33 @@ export interface CardLoadMatch {
 
 export interface CardListMatch {
   artist?: string
-  border?: string
   cmc?: number
-  colorIdentity?: any[]
-  colors?: any[]
+  color?: string
+  color_identity?: string
+  contain?: string
   flavor?: string
-  foreignNames?: any[]
-  hand?: number
+  game_format?: string
   id?: string
-  imageUrl?: string
+  language?: string
   layout?: string
-  legalities?: any[]
-  life?: number
+  legality?: string
   loyalty?: string
-  manaCost?: string
   multiverseid?: number
   name?: string
-  names?: any[]
   number?: string
-  originalText?: string
-  originalType?: string
+  order_by?: string
+  page?: number
+  page_size?: number
   power?: string
-  printings?: any[]
+  random?: boolean
   rarity?: string
-  releaseDate?: string
-  reserved?: boolean
-  rulings?: any[]
   set?: string
-  setName?: string
-  source?: string
-  starter?: boolean
-  subtypes?: any[]
-  supertypes?: any[]
+  set_name?: string
+  subtype?: string
+  supertype?: string
   text?: string
-  timeshifted?: boolean
   toughness?: string
   type?: string
-  types?: any[]
-  variations?: any[]
-  watermark?: string
 }
 
 export interface Format {
@@ -125,18 +113,7 @@ export interface SetLoadMatch {
 
 export interface SetListMatch {
   block?: string
-  booster?: any[]
-  border?: string
-  code?: string
-  gathererCode?: string
-  id?: string
-  magicCardsInfoCode?: string
-  mkm_id?: number
-  mkm_name?: string
   name?: string
-  onlineOnly?: boolean
-  releaseDate?: string
-  type?: string
 }
 
 export interface SetBooster {

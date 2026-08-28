@@ -64,45 +64,33 @@ type CardLoadMatch struct {
 // CardListMatch is the typed request payload for Card.ListTyped.
 type CardListMatch struct {
 	Artist *string `json:"artist,omitempty"`
-	Border *string `json:"border,omitempty"`
 	Cmc *float64 `json:"cmc,omitempty"`
-	ColorIdentity *[]any `json:"colorIdentity,omitempty"`
-	Colors *[]any `json:"colors,omitempty"`
+	Color *string `json:"color,omitempty"`
+	ColorIdentity *string `json:"color_identity,omitempty"`
+	Contain *string `json:"contain,omitempty"`
 	Flavor *string `json:"flavor,omitempty"`
-	ForeignNames *[]any `json:"foreignNames,omitempty"`
-	Hand *int `json:"hand,omitempty"`
+	GameFormat *string `json:"game_format,omitempty"`
 	Id *string `json:"id,omitempty"`
-	ImageUrl *string `json:"imageUrl,omitempty"`
+	Language *string `json:"language,omitempty"`
 	Layout *string `json:"layout,omitempty"`
-	Legalities *[]any `json:"legalities,omitempty"`
-	Life *int `json:"life,omitempty"`
+	Legality *string `json:"legality,omitempty"`
 	Loyalty *string `json:"loyalty,omitempty"`
-	ManaCost *string `json:"manaCost,omitempty"`
 	Multiverseid *int `json:"multiverseid,omitempty"`
 	Name *string `json:"name,omitempty"`
-	Names *[]any `json:"names,omitempty"`
 	Number *string `json:"number,omitempty"`
-	OriginalText *string `json:"originalText,omitempty"`
-	OriginalType *string `json:"originalType,omitempty"`
+	OrderBy *string `json:"order_by,omitempty"`
+	Page *int `json:"page,omitempty"`
+	PageSize *int `json:"page_size,omitempty"`
 	Power *string `json:"power,omitempty"`
-	Printings *[]any `json:"printings,omitempty"`
+	Random *bool `json:"random,omitempty"`
 	Rarity *string `json:"rarity,omitempty"`
-	ReleaseDate *string `json:"releaseDate,omitempty"`
-	Reserved *bool `json:"reserved,omitempty"`
-	Rulings *[]any `json:"rulings,omitempty"`
 	Set *string `json:"set,omitempty"`
-	SetName *string `json:"setName,omitempty"`
-	Source *string `json:"source,omitempty"`
-	Starter *bool `json:"starter,omitempty"`
-	Subtypes *[]any `json:"subtypes,omitempty"`
-	Supertypes *[]any `json:"supertypes,omitempty"`
+	SetName *string `json:"set_name,omitempty"`
+	Subtype *string `json:"subtype,omitempty"`
+	Supertype *string `json:"supertype,omitempty"`
 	Text *string `json:"text,omitempty"`
-	Timeshifted *bool `json:"timeshifted,omitempty"`
 	Toughness *string `json:"toughness,omitempty"`
 	Type *string `json:"type,omitempty"`
-	Types *[]any `json:"types,omitempty"`
-	Variations *[]any `json:"variations,omitempty"`
-	Watermark *string `json:"watermark,omitempty"`
 }
 
 // Format is the typed data model for the format entity.
@@ -140,18 +128,7 @@ type SetLoadMatch struct {
 // SetListMatch is the typed request payload for Set.ListTyped.
 type SetListMatch struct {
 	Block *string `json:"block,omitempty"`
-	Booster *[]any `json:"booster,omitempty"`
-	Border *string `json:"border,omitempty"`
-	Code *string `json:"code,omitempty"`
-	GathererCode *string `json:"gathererCode,omitempty"`
-	Id *string `json:"id,omitempty"`
-	MagicCardsInfoCode *string `json:"magicCardsInfoCode,omitempty"`
-	MkmId *int `json:"mkm_id,omitempty"`
-	MkmName *string `json:"mkm_name,omitempty"`
 	Name *string `json:"name,omitempty"`
-	OnlineOnly *bool `json:"onlineOnly,omitempty"`
-	ReleaseDate *string `json:"releaseDate,omitempty"`
-	Type *string `json:"type,omitempty"`
 }
 
 // SetBooster is the typed data model for the set_booster entity.

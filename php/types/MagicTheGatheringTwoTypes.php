@@ -67,45 +67,33 @@ class CardLoadMatch
 class CardListMatch
 {
     public ?string $artist = null;
-    public ?string $border = null;
     public ?float $cmc = null;
-    public ?array $colorIdentity = null;
-    public ?array $colors = null;
+    public ?string $color = null;
+    public ?string $color_identity = null;
+    public ?string $contain = null;
     public ?string $flavor = null;
-    public ?array $foreignNames = null;
-    public ?int $hand = null;
+    public ?string $game_format = null;
     public ?string $id = null;
-    public ?string $imageUrl = null;
+    public ?string $language = null;
     public ?string $layout = null;
-    public ?array $legalities = null;
-    public ?int $life = null;
+    public ?string $legality = null;
     public ?string $loyalty = null;
-    public ?string $manaCost = null;
     public ?int $multiverseid = null;
     public ?string $name = null;
-    public ?array $names = null;
     public ?string $number = null;
-    public ?string $originalText = null;
-    public ?string $originalType = null;
+    public ?string $order_by = null;
+    public ?int $page = null;
+    public ?int $page_size = null;
     public ?string $power = null;
-    public ?array $printings = null;
+    public ?bool $random = null;
     public ?string $rarity = null;
-    public ?string $releaseDate = null;
-    public ?bool $reserved = null;
-    public ?array $rulings = null;
     public ?string $set = null;
-    public ?string $setName = null;
-    public ?string $source = null;
-    public ?bool $starter = null;
-    public ?array $subtypes = null;
-    public ?array $supertypes = null;
+    public ?string $set_name = null;
+    public ?string $subtype = null;
+    public ?string $supertype = null;
     public ?string $text = null;
-    public ?bool $timeshifted = null;
     public ?string $toughness = null;
     public ?string $type = null;
-    public ?array $types = null;
-    public ?array $variations = null;
-    public ?string $watermark = null;
 }
 
 /** Format entity data model. */
@@ -148,18 +136,7 @@ class SetLoadMatch
 class SetListMatch
 {
     public ?string $block = null;
-    public ?array $booster = null;
-    public ?string $border = null;
-    public ?string $code = null;
-    public ?string $gathererCode = null;
-    public ?string $id = null;
-    public ?string $magicCardsInfoCode = null;
-    public ?int $mkm_id = null;
-    public ?string $mkm_name = null;
     public ?string $name = null;
-    public ?bool $onlineOnly = null;
-    public ?string $releaseDate = null;
-    public ?string $type = null;
 }
 
 /** SetBooster entity data model. */

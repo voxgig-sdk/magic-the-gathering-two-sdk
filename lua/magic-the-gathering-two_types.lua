@@ -53,45 +53,33 @@
 
 ---@class CardListMatch
 ---@field artist? string
----@field border? string
 ---@field cmc? number
----@field colorIdentity? table
----@field colors? table
+---@field color? string
+---@field color_identity? string
+---@field contain? string
 ---@field flavor? string
----@field foreignNames? table
----@field hand? number
+---@field game_format? string
 ---@field id? string
----@field imageUrl? string
+---@field language? string
 ---@field layout? string
----@field legalities? table
----@field life? number
+---@field legality? string
 ---@field loyalty? string
----@field manaCost? string
 ---@field multiverseid? number
 ---@field name? string
----@field names? table
 ---@field number? string
----@field originalText? string
----@field originalType? string
+---@field order_by? string
+---@field page? number
+---@field page_size? number
 ---@field power? string
----@field printings? table
+---@field random? boolean
 ---@field rarity? string
----@field releaseDate? string
----@field reserved? boolean
----@field rulings? table
 ---@field set? string
----@field setName? string
----@field source? string
----@field starter? boolean
----@field subtypes? table
----@field supertypes? table
+---@field set_name? string
+---@field subtype? string
+---@field supertype? string
 ---@field text? string
----@field timeshifted? boolean
 ---@field toughness? string
 ---@field type? string
----@field types? table
----@field variations? table
----@field watermark? string
 
 ---@class Format
 ---@field formats? table
@@ -119,18 +107,7 @@
 
 ---@class SetListMatch
 ---@field block? string
----@field booster? table
----@field border? string
----@field code? string
----@field gathererCode? string
----@field id? string
----@field magicCardsInfoCode? string
----@field mkm_id? number
----@field mkm_name? string
 ---@field name? string
----@field onlineOnly? boolean
----@field releaseDate? string
----@field type? string
 
 ---@class SetBooster
 ---@field artist? string

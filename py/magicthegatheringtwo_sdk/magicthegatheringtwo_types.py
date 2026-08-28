@@ -65,45 +65,33 @@ class CardLoadMatch(TypedDict):
 
 class CardListMatch(TypedDict, total=False):
     artist: str
-    border: str
     cmc: float
-    colorIdentity: list
-    colors: list
+    color: str
+    color_identity: str
+    contain: str
     flavor: str
-    foreignNames: list
-    hand: int
+    game_format: str
     id: str
-    imageUrl: str
+    language: str
     layout: str
-    legalities: list
-    life: int
+    legality: str
     loyalty: str
-    manaCost: str
     multiverseid: int
     name: str
-    names: list
     number: str
-    originalText: str
-    originalType: str
+    order_by: str
+    page: int
+    page_size: int
     power: str
-    printings: list
+    random: bool
     rarity: str
-    releaseDate: str
-    reserved: bool
-    rulings: list
     set: str
-    setName: str
-    source: str
-    starter: bool
-    subtypes: list
-    supertypes: list
+    set_name: str
+    subtype: str
+    supertype: str
     text: str
-    timeshifted: bool
     toughness: str
     type: str
-    types: list
-    variations: list
-    watermark: str
 
 
 class Format(TypedDict, total=False):
@@ -136,18 +124,7 @@ class SetLoadMatch(TypedDict):
 
 class SetListMatch(TypedDict, total=False):
     block: str
-    booster: list
-    border: str
-    code: str
-    gathererCode: str
-    id: str
-    magicCardsInfoCode: str
-    mkm_id: int
-    mkm_name: str
     name: str
-    onlineOnly: bool
-    releaseDate: str
-    type: str
 
 
 class SetBooster(TypedDict, total=False):
