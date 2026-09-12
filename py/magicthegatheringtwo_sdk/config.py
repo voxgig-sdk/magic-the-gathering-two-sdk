@@ -1,6 +1,14 @@
 # MagicTheGatheringTwo SDK configuration
 
 
+# The sekreto plugin DEFINITIONS the model selected per feature, imported
+# above by name from the modules the catalogue's active `plugin.def`
+# entries declare. Handed to each feature (secrets builds its Sekreto
+# with them): a provider kind not listed here is unknown to that SDK.
+FEATURE_PLUGINS = {
+}
+
+
 _shared_config = None
 
 
@@ -179,6 +187,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date",
             "name": "releaseDate",
             "short": "The release date for promo cards",
             "type": "`$STRING`",
@@ -259,6 +268,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "card",
         "op": {
           "list": {
@@ -449,8 +462,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/cards",
-                "parts": [
-                  "cards",
+                "segments": [
+                  {
+                    "lit": "cards",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -488,6 +503,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.cards`",
                 },
+                "parts": [
+                  "cards",
+                ],
               },
             ],
           },
@@ -510,9 +528,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/cards/{id}",
-                "parts": [
-                  "cards",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "cards",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -523,6 +545,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.card`",
                 },
+                "parts": [
+                  "cards",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -549,14 +575,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/formats",
-                "parts": [
-                  "formats",
+                "segments": [
+                  {
+                    "lit": "formats",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body.formats`",
                 },
+                "parts": [
+                  "formats",
+                ],
               },
             ],
           },
@@ -622,6 +653,7 @@ def make_config():
             "type": "`$BOOLEAN`",
           },
           {
+            "format": "date",
             "name": "releaseDate",
             "short": "The release date of the set",
             "type": "`$STRING`",
@@ -632,6 +664,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "set",
         "op": {
           "list": {
@@ -658,8 +694,10 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/sets",
-                "parts": [
-                  "sets",
+                "segments": [
+                  {
+                    "lit": "sets",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -671,6 +709,9 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.sets`",
                 },
+                "parts": [
+                  "sets",
+                ],
               },
             ],
           },
@@ -693,9 +734,13 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/sets/{id}",
-                "parts": [
-                  "sets",
-                  "{id}",
+                "segments": [
+                  {
+                    "lit": "sets",
+                  },
+                  {
+                    "var": "id",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -706,6 +751,10 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.set`",
                 },
+                "parts": [
+                  "sets",
+                  "{id}",
+                ],
               },
             ],
           },
@@ -837,6 +886,7 @@ def make_config():
             "type": "`$STRING`",
           },
           {
+            "format": "date",
             "name": "releaseDate",
             "short": "The release date for promo cards",
             "type": "`$STRING`",
@@ -917,6 +967,10 @@ def make_config():
             "type": "`$STRING`",
           },
         ],
+        "id": {
+          "field": "id",
+          "name": "id",
+        },
         "name": "set_booster",
         "op": {
           "list": {
@@ -938,10 +992,16 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/sets/{id}/booster",
-                "parts": [
-                  "sets",
-                  "{id}",
-                  "booster",
+                "segments": [
+                  {
+                    "lit": "sets",
+                  },
+                  {
+                    "var": "id",
+                  },
+                  {
+                    "lit": "booster",
+                  },
                 ],
                 "select": {
                   "exist": [
@@ -952,6 +1012,11 @@ def make_config():
                   "req": "`reqdata`",
                   "res": "`body.cards`",
                 },
+                "parts": [
+                  "sets",
+                  "{id}",
+                  "booster",
+                ],
               },
             ],
           },
@@ -978,14 +1043,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/subtypes",
-                "parts": [
-                  "subtypes",
+                "segments": [
+                  {
+                    "lit": "subtypes",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body.subtypes`",
                 },
+                "parts": [
+                  "subtypes",
+                ],
               },
             ],
           },
@@ -1012,14 +1082,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/supertypes",
-                "parts": [
-                  "supertypes",
+                "segments": [
+                  {
+                    "lit": "supertypes",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body.supertypes`",
                 },
+                "parts": [
+                  "supertypes",
+                ],
               },
             ],
           },
@@ -1046,14 +1121,19 @@ def make_config():
                 "kind": "http",
                 "method": "GET",
                 "orig": "/types",
-                "parts": [
-                  "types",
+                "segments": [
+                  {
+                    "lit": "types",
+                  },
                 ],
                 "select": {},
                 "transform": {
                   "req": "`reqdata`",
                   "res": "`body.types`",
                 },
+                "parts": [
+                  "types",
+                ],
               },
             ],
           },

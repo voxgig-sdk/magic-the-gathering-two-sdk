@@ -134,6 +134,10 @@ def _format_basic_setup(extra):
 
     if env.get("MAGIC_THE_GATHERING_TWO_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
+            # FIRST, so the generated fields below win: sdk-test-control.json's
+            # test.client.options adds to the live client, it does not
+            # redirect it.
+            runner.live_client_options(),
             {
             },
             extra or {},

@@ -20,8 +20,10 @@ main: kit: entity: format: {
         {
           method: "GET"
           orig: "/formats"
-          parts: [
-            "formats"
+          segments: [
+            {
+              lit: "formats"
+            }
           ]
           transform: {
             req: "`reqdata`"

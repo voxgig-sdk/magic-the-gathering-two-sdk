@@ -150,6 +150,7 @@ main: kit: entity: set_booster: {
       type: "`$STRING`"
     }
     {
+      format: "date"
       name: "releaseDate"
       req: false
       short: "The release date for promo cards"
@@ -271,10 +272,16 @@ main: kit: entity: set_booster: {
           }
           method: "GET"
           orig: "/sets/{id}/booster"
-          parts: [
-            "sets"
-            "{id}"
-            "booster"
+          segments: [
+            {
+              lit: "sets"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "booster"
+            }
           ]
           select: {
             exist: [
