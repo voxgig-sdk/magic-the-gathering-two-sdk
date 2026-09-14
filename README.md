@@ -105,7 +105,7 @@ local results, err = client:Format():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/magic-the-gathering-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-the-gathering-two-sdk/releases) |
+| TypeScript | `@voxgig-sdk/magic-the-gathering-two-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-the-gathering-two-sdk/releases) |
 | Python | `voxgig-sdk-magic-the-gathering-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-the-gathering-two-sdk/releases) |
 | PHP | `voxgig-sdk/magic-the-gathering-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-the-gathering-two-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/magic-the-gathering-two-sdk/go` | `go get github.com/voxgig-sdk/magic-the-gathering-two-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:Format():list()
 ### TypeScript
 
 ```ts
-import { MagicTheGatheringTwoSDK } from '@voxgig-sdk/magic-the-gathering-two'
+import { MagicTheGatheringTwoSDK } from '@voxgig-sdk/magic-the-gathering-two-sdk'
 
 const client = new MagicTheGatheringTwoSDK()
 

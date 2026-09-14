@@ -1,5 +1,5 @@
 {
-  "name": "@voxgig-sdk/magic-the-gathering-two",
+  "name": "@voxgig-sdk/magic-the-gathering-two-sdk",
   "version": "0.0.1",
   "description": "Unofficial generated TypeScript SDK for the Magic The Gathering public API. Not affiliated with or endorsed by the upstream API provider.",
   "keywords": [
