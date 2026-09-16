@@ -9,15 +9,15 @@
         "colors": [],
         "flavor": "s195",
         "foreignNames": [],
-        "hand": "s197",
+        "hand": 407,
         "id": "SET_BOOSTER00",
         "imageUrl": "s199",
         "layout": "s19a",
         "legalities": [],
-        "life": "s19c",
+        "life": 412,
         "loyalty": "s19d",
         "manaCost": "s19e",
-        "multiverseid": "s19f",
+        "multiverseid": 415,
         "name": "s1a0",
         "names": [],
         "number": "s1a2",
@@ -51,15 +51,15 @@
         "colors": [],
         "flavor": "s325",
         "foreignNames": [],
-        "hand": "s327",
+        "hand": 807,
         "id": "SET_BOOSTER01",
         "imageUrl": "s329",
         "layout": "s32a",
         "legalities": [],
-        "life": "s32c",
+        "life": 812,
         "loyalty": "s32d",
         "manaCost": "s32e",
-        "multiverseid": "s32f",
+        "multiverseid": 815,
         "name": "s330",
         "names": [],
         "number": "s332",
@@ -93,15 +93,15 @@
         "colors": [],
         "flavor": "s4b5",
         "foreignNames": [],
-        "hand": "s4b7",
+        "hand": 1207,
         "id": "SET_BOOSTER02",
         "imageUrl": "s4b9",
         "layout": "s4ba",
         "legalities": [],
-        "life": "s4bc",
+        "life": 1212,
         "loyalty": "s4bd",
         "manaCost": "s4be",
-        "multiverseid": "s4bf",
+        "multiverseid": 1215,
         "name": "s4c0",
         "names": [],
         "number": "s4c2",
@@ -139,14 +139,14 @@
         "colors": [],
         "flavor": "s645",
         "foreignNames": [],
-        "hand": "s647",
+        "hand": 1607,
         "imageUrl": "s649",
         "layout": "s64a",
         "legalities": [],
-        "life": "s64c",
+        "life": 1612,
         "loyalty": "s64d",
         "manaCost": "s64e",
-        "multiverseid": "s64f",
+        "multiverseid": 1615,
         "name": "s650",
         "names": [],
         "number": "s652",
@@ -171,6 +171,367 @@
         "types": [],
         "variations": [],
         "watermark": "s667"
+      }
+    }
+  },
+  "requests": {
+    "GET /sets/{id}/booster": {
+      "provenance": "operation-contract",
+      "contract": {
+        "operationId": "getSetBooster",
+        "parameters": [
+          {
+            "description": "The set code",
+            "in": "path",
+            "name": "id",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "protocol": "http",
+        "responses": {
+          "200": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "cards": {
+                      "items": {
+                        "properties": {
+                          "artist": {
+                            "description": "The artist of the card",
+                            "type": "string"
+                          },
+                          "border": {
+                            "description": "The border color if different from the set default",
+                            "type": "string"
+                          },
+                          "cmc": {
+                            "description": "Converted mana cost",
+                            "type": "number"
+                          },
+                          "colorIdentity": {
+                            "description": "The card's color identity by color code",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "colors": {
+                            "description": "The card colors",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "flavor": {
+                            "description": "The flavor text of the card",
+                            "type": "string"
+                          },
+                          "foreignNames": {
+                            "description": "Foreign language names for the card",
+                            "items": {
+                              "properties": {
+                                "language": {
+                                  "type": "string"
+                                },
+                                "multiverseid": {
+                                  "type": "integer"
+                                },
+                                "name": {
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "hand": {
+                            "description": "Maximum hand size modifier (Vanguard cards only)",
+                            "type": "integer"
+                          },
+                          "id": {
+                            "description": "A unique id for this card (SHA1 hash)",
+                            "type": "string"
+                          },
+                          "imageUrl": {
+                            "description": "The image URL for the card",
+                            "type": "string"
+                          },
+                          "layout": {
+                            "description": "The card layout",
+                            "type": "string"
+                          },
+                          "legalities": {
+                            "description": "Which formats this card is legal, restricted or banned in",
+                            "items": {
+                              "properties": {
+                                "format": {
+                                  "type": "string"
+                                },
+                                "legality": {
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "life": {
+                            "description": "Starting life total modifier (Vanguard cards only)",
+                            "type": "integer"
+                          },
+                          "loyalty": {
+                            "description": "The loyalty of the card (planeswalkers only)",
+                            "type": "string"
+                          },
+                          "manaCost": {
+                            "description": "The mana cost of the card",
+                            "type": "string"
+                          },
+                          "multiverseid": {
+                            "description": "The multiverseid of the card on Wizard's Gatherer",
+                            "type": "integer"
+                          },
+                          "name": {
+                            "description": "The card name",
+                            "type": "string"
+                          },
+                          "names": {
+                            "description": "Only used for split, flip and dual cards. Contains all names on the card.",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "number": {
+                            "description": "The card number",
+                            "type": "string"
+                          },
+                          "originalText": {
+                            "description": "The original text on the card at the time it was printed",
+                            "type": "string"
+                          },
+                          "originalType": {
+                            "description": "The original type on the card at the time it was printed",
+                            "type": "string"
+                          },
+                          "power": {
+                            "description": "The power of the card (creatures only)",
+                            "type": "string"
+                          },
+                          "printings": {
+                            "description": "The sets that this card was printed in",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "rarity": {
+                            "description": "The rarity of the card",
+                            "type": "string"
+                          },
+                          "releaseDate": {
+                            "description": "The release date for promo cards",
+                            "format": "date",
+                            "type": "string"
+                          },
+                          "reserved": {
+                            "description": "True if this card is reserved by Wizards Official Reprint Policy",
+                            "type": "boolean"
+                          },
+                          "rulings": {
+                            "description": "The rulings for the card",
+                            "items": {
+                              "properties": {
+                                "date": {
+                                  "format": "date",
+                                  "type": "string"
+                                },
+                                "text": {
+                                  "type": "string"
+                                }
+                              },
+                              "type": "object"
+                            },
+                            "type": "array"
+                          },
+                          "set": {
+                            "description": "The set code the card belongs to",
+                            "type": "string"
+                          },
+                          "setName": {
+                            "description": "The set name the card belongs to",
+                            "type": "string"
+                          },
+                          "source": {
+                            "description": "For promo cards, where the card was originally obtained",
+                            "type": "string"
+                          },
+                          "starter": {
+                            "description": "True if this card was only released as part of a core box set",
+                            "type": "boolean"
+                          },
+                          "subtypes": {
+                            "description": "The subtypes of the card",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "supertypes": {
+                            "description": "The supertypes of the card",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "text": {
+                            "description": "The oracle text of the card",
+                            "type": "string"
+                          },
+                          "timeshifted": {
+                            "description": "True if this card was timeshifted in the set",
+                            "type": "boolean"
+                          },
+                          "toughness": {
+                            "description": "The toughness of the card (creatures only)",
+                            "type": "string"
+                          },
+                          "type": {
+                            "description": "The card type",
+                            "type": "string"
+                          },
+                          "types": {
+                            "description": "The types of the card",
+                            "items": {
+                              "type": "string"
+                            },
+                            "type": "array"
+                          },
+                          "variations": {
+                            "description": "Multiverseids of alternate art variations",
+                            "items": {
+                              "type": "integer"
+                            },
+                            "type": "array"
+                          },
+                          "watermark": {
+                            "description": "The watermark on the card",
+                            "type": "string"
+                          }
+                        },
+                        "type": "object"
+                      },
+                      "type": "array"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Successful response"
+          },
+          "400": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error message",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "HTTP status code",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Bad Request"
+          },
+          "403": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "message": {
+                      "example": "Rate Limit Exceeded",
+                      "type": "string"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Forbidden - Rate limit exceeded"
+          },
+          "404": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error message",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "HTTP status code",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Not Found"
+          },
+          "500": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error message",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "HTTP status code",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Internal Server Error"
+          },
+          "503": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "properties": {
+                    "error": {
+                      "description": "Error message",
+                      "type": "string"
+                    },
+                    "status": {
+                      "description": "HTTP status code",
+                      "type": "integer"
+                    }
+                  },
+                  "type": "object"
+                }
+              }
+            },
+            "description": "Service Unavailable"
+          }
+        },
+        "securitySource": "unspecified"
       }
     }
   }

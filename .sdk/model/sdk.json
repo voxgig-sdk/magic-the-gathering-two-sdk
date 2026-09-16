@@ -24,7 +24,71 @@
         "repr": "auto"
       },
       "contributor": {},
-      "docs": {},
+      "doc": {
+        "active": true,
+        "assets": {
+          "path": ".sdk/doc/assets"
+        },
+        "brand": {
+          "label": "",
+          "notice": "",
+          "shortNotice": "",
+          "url": ""
+        },
+        "ci": {
+          "active": true,
+          "branch": "main"
+        },
+        "content": {
+          "path": ".sdk/doc/content"
+        },
+        "edition": {
+          "summary": {
+            "active": true,
+            "base": "node_modules/@voxgig/docgen/project/.sdk",
+            "brand": {},
+            "filter": {
+              "entities": [],
+              "features": [],
+              "targets": []
+            },
+            "kind": "summary",
+            "name": "summary",
+            "origname": "",
+            "output": {
+              "path": "SUMMARY.md"
+            },
+            "package": "@voxgig/docgen",
+            "site": {
+              "active": true
+            },
+            "style": {},
+            "title": ""
+          }
+        },
+        "qa": {
+          "vocabulary": []
+        },
+        "style": {
+          "color": {
+            "accent": "#00c6d8",
+            "background": "#f5f5f9",
+            "darkBackground": "#0f1117",
+            "darkText": "#e6edf3",
+            "primary": "#e70042",
+            "text": "#0a0a0a"
+          },
+          "font": "Nunito, system-ui, sans-serif",
+          "fontFile": "",
+          "headingFont": "Nunito, system-ui, sans-serif",
+          "headingFontFile": "",
+          "logo": "",
+          "mode": "light",
+          "mono": "ui-monospace, monospace",
+          "monoFile": ""
+        },
+        "target": {}
+      },
       "entity": {
         "card": {
           "active": true,
@@ -564,6 +628,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /cards",
+                    "json": "{\"operationId\":\"getAllCards\",\"parameters\":[{\"description\":\"The card name. For split, double-faced and flip cards, just the name of one side of the card.\",\"in\":\"query\",\"name\":\"name\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"The card layout. Possible values: normal, split, flip, double-faced, token, plane, scheme, phenomenon, leveler, vanguard, aftermath\",\"in\":\"query\",\"name\":\"layout\",\"required\":false,\"schema\":{\"enum\":[\"normal\",\"split\",\"flip\",\"double-faced\",\"token\",\"plane\",\"scheme\",\"phenomenon\",\"leveler\",\"vanguard\",\"aftermath\"],\"type\":\"string\"}},{\"description\":\"Converted mana cost. Always a number.\",\"in\":\"query\",\"name\":\"cmc\",\"required\":false,\"schema\":{\"type\":\"number\"}},{\"description\":\"The card colors. Use pipe (|) for OR, comma (,) for AND. Example: red,white,blue or red|white|blue\",\"in\":\"query\",\"name\":\"colors\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"The card's color identity by color code. Example: R,U\",\"in\":\"query\",\"name\":\"colorIdentity\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"The card type as it would appear on the card if printed today.\",\"in\":\"query\",\"name\":\"type\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"The supertypes of the card. Example values: Basic, Legendary, Snow, World, Ongoing\",\"in\":\"query\",\"name\":\"supertypes\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"The types of the card. Example values: Instant, Sorcery, Artifact, Creature, Enchantment, Land, Planeswalker\",\"in\":\"query\",\"name\":\"types\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"The subtypes of the card. Example values: Trap, Arcane, Equipment, Aura, Human, Rat, Squirrel\",\"in\":\"query\",\"name\":\"subtypes\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"The rarity of the card. Examples: Common, Uncommon, Rare, Mythic Rare, Special, Basic Land\",\"in\":\"query\",\"name\":\"rarity\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"The set the card belongs to (set code).\",\"in\":\"query\",\"name\":\"set\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"The set the card belongs to.\",\"in\":\"query\",\"name\":\"setName\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"The oracle text of the card.\",\"in\":\"query\",\"name\":\"text\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"The flavor text of the card.\",\"in\":\"query\",\"name\":\"flavor\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"The artist of the card.\",\"in\":\"query\",\"name\":\"artist\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"The card number printed at the bottom-center of the card.\",\"in\":\"query\",\"name\":\"number\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"The power of the card (creatures only).\",\"in\":\"query\",\"name\":\"power\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"The toughness of the card (creatures only).\",\"in\":\"query\",\"name\":\"toughness\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"The loyalty of the card (planeswalkers only).\",\"in\":\"query\",\"name\":\"loyalty\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"The language the card is printed in.\",\"in\":\"query\",\"name\":\"language\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"The game format, such as Commander, Standard, Legacy, etc.\",\"in\":\"query\",\"name\":\"gameFormat\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"The legality of the card for a given format, such as Legal, Banned or Restricted.\",\"in\":\"query\",\"name\":\"legality\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"The page of data to request.\",\"in\":\"query\",\"name\":\"page\",\"required\":false,\"schema\":{\"default\":1,\"type\":\"integer\"}},{\"description\":\"The amount of data to return in a single request. The default (and max) is 100.\",\"in\":\"query\",\"name\":\"pageSize\",\"required\":false,\"schema\":{\"default\":100,\"maximum\":100,\"type\":\"integer\"}},{\"description\":\"The field to order by in the response results.\",\"in\":\"query\",\"name\":\"orderBy\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Fetch any number of cards (controlled by pageSize) randomly.\",\"in\":\"query\",\"name\":\"random\",\"required\":false,\"schema\":{\"type\":\"boolean\"}},{\"description\":\"Filter cards based on whether or not they have a specific field available (like imageUrl).\",\"in\":\"query\",\"name\":\"contains\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"A unique id for the card (SHA1 hash of setCode + cardName + cardImageName).\",\"in\":\"query\",\"name\":\"id\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"The multiverseid of the card on Wizard's Gatherer web page.\",\"in\":\"query\",\"name\":\"multiverseid\",\"required\":false,\"schema\":{\"type\":\"integer\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"example\":{\"cards\":[{\"artist\":\"James Ryman\",\"cmc\":5,\"colorIdentity\":[\"W\"],\"colors\":[\"White\"],\"imageUrl\":\"http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=409741&type=card\",\"layout\":\"double-faced\",\"manaCost\":\"{3}{W}{W}\",\"multiverseid\":409741,\"name\":\"Archangel Avacyn\",\"names\":[\"Archangel Avacyn\",\"Avacyn, the Purifier\"],\"number\":\"5a\",\"power\":\"4\",\"rarity\":\"Mythic Rare\",\"set\":\"SOI\",\"subtypes\":[\"Angel\"],\"supertypes\":[\"Legendary\"],\"text\":\"Flash\\nFlying, vigilance\\nWhen Archangel Avacyn enters the battlefield, creatures you control gain indestructible until end of turn.\\nWhen a non-Angel creature you control dies, transform Archangel Avacyn at the beginning of the next upkeep.\",\"toughness\":\"4\",\"type\":\"Legendary Creature — Angel\",\"types\":[\"Creature\"]}]},\"schema\":{\"properties\":{\"cards\":{\"items\":{\"properties\":{\"artist\":{\"description\":\"The artist of the card\",\"type\":\"string\"},\"border\":{\"description\":\"The border color if different from the set default\",\"type\":\"string\"},\"cmc\":{\"description\":\"Converted mana cost\",\"type\":\"number\"},\"colorIdentity\":{\"description\":\"The card's color identity by color code\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"colors\":{\"description\":\"The card colors\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"flavor\":{\"description\":\"The flavor text of the card\",\"type\":\"string\"},\"foreignNames\":{\"description\":\"Foreign language names for the card\",\"items\":{\"properties\":{\"language\":{\"type\":\"string\"},\"multiverseid\":{\"type\":\"integer\"},\"name\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"hand\":{\"description\":\"Maximum hand size modifier (Vanguard cards only)\",\"type\":\"integer\"},\"id\":{\"description\":\"A unique id for this card (SHA1 hash)\",\"type\":\"string\"},\"imageUrl\":{\"description\":\"The image URL for the card\",\"type\":\"string\"},\"layout\":{\"description\":\"The card layout\",\"type\":\"string\"},\"legalities\":{\"description\":\"Which formats this card is legal, restricted or banned in\",\"items\":{\"properties\":{\"format\":{\"type\":\"string\"},\"legality\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"life\":{\"description\":\"Starting life total modifier (Vanguard cards only)\",\"type\":\"integer\"},\"loyalty\":{\"description\":\"The loyalty of the card (planeswalkers only)\",\"type\":\"string\"},\"manaCost\":{\"description\":\"The mana cost of the card\",\"type\":\"string\"},\"multiverseid\":{\"description\":\"The multiverseid of the card on Wizard's Gatherer\",\"type\":\"integer\"},\"name\":{\"description\":\"The card name\",\"type\":\"string\"},\"names\":{\"description\":\"Only used for split, flip and dual cards. Contains all names on the card.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"number\":{\"description\":\"The card number\",\"type\":\"string\"},\"originalText\":{\"description\":\"The original text on the card at the time it was printed\",\"type\":\"string\"},\"originalType\":{\"description\":\"The original type on the card at the time it was printed\",\"type\":\"string\"},\"power\":{\"description\":\"The power of the card (creatures only)\",\"type\":\"string\"},\"printings\":{\"description\":\"The sets that this card was printed in\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"rarity\":{\"description\":\"The rarity of the card\",\"type\":\"string\"},\"releaseDate\":{\"description\":\"The release date for promo cards\",\"format\":\"date\",\"type\":\"string\"},\"reserved\":{\"description\":\"True if this card is reserved by Wizards Official Reprint Policy\",\"type\":\"boolean\"},\"rulings\":{\"description\":\"The rulings for the card\",\"items\":{\"properties\":{\"date\":{\"format\":\"date\",\"type\":\"string\"},\"text\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"set\":{\"description\":\"The set code the card belongs to\",\"type\":\"string\"},\"setName\":{\"description\":\"The set name the card belongs to\",\"type\":\"string\"},\"source\":{\"description\":\"For promo cards, where the card was originally obtained\",\"type\":\"string\"},\"starter\":{\"description\":\"True if this card was only released as part of a core box set\",\"type\":\"boolean\"},\"subtypes\":{\"description\":\"The subtypes of the card\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"supertypes\":{\"description\":\"The supertypes of the card\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"text\":{\"description\":\"The oracle text of the card\",\"type\":\"string\"},\"timeshifted\":{\"description\":\"True if this card was timeshifted in the set\",\"type\":\"boolean\"},\"toughness\":{\"description\":\"The toughness of the card (creatures only)\",\"type\":\"string\"},\"type\":{\"description\":\"The card type\",\"type\":\"string\"},\"types\":{\"description\":\"The types of the card\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"variations\":{\"description\":\"Multiverseids of alternate art variations\",\"items\":{\"type\":\"integer\"},\"type\":\"array\"},\"watermark\":{\"description\":\"The watermark on the card\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response\",\"headers\":{\"Count\":{\"description\":\"The number of elements returned\",\"schema\":{\"type\":\"integer\"}},\"Link\":{\"description\":\"Link headers with prev, last, next, first links (when appropriate)\",\"schema\":{\"type\":\"string\"}},\"Page-Size\":{\"description\":\"The page size for the request\",\"schema\":{\"type\":\"integer\"}},\"Ratelimit-Limit\":{\"description\":\"The ratelimit for a given user\",\"schema\":{\"type\":\"integer\"}},\"Ratelimit-Remaining\":{\"description\":\"The number of requests left before the ratelimit is exceeded\",\"schema\":{\"type\":\"integer\"}},\"Total-Count\":{\"description\":\"The total number of elements (across all pages)\",\"schema\":{\"type\":\"integer\"}}}},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Bad Request - We could not process that action\"},\"403\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"example\":\"Rate Limit Exceeded\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Forbidden - Rate limit exceeded\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Not Found - The requested resource could not be found\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Internal Server Error - We had a problem with our server. Please try again later\"},\"503\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Service Unavailable - We are temporarily offline for maintenance. Please try again later\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/cards",
@@ -629,6 +699,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /cards/{id}",
+                    "json": "{\"operationId\":\"getCardById\",\"parameters\":[{\"description\":\"The unique ID of the card\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"card\":{\"properties\":{\"artist\":{\"description\":\"The artist of the card\",\"type\":\"string\"},\"border\":{\"description\":\"The border color if different from the set default\",\"type\":\"string\"},\"cmc\":{\"description\":\"Converted mana cost\",\"type\":\"number\"},\"colorIdentity\":{\"description\":\"The card's color identity by color code\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"colors\":{\"description\":\"The card colors\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"flavor\":{\"description\":\"The flavor text of the card\",\"type\":\"string\"},\"foreignNames\":{\"description\":\"Foreign language names for the card\",\"items\":{\"properties\":{\"language\":{\"type\":\"string\"},\"multiverseid\":{\"type\":\"integer\"},\"name\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"hand\":{\"description\":\"Maximum hand size modifier (Vanguard cards only)\",\"type\":\"integer\"},\"id\":{\"description\":\"A unique id for this card (SHA1 hash)\",\"type\":\"string\"},\"imageUrl\":{\"description\":\"The image URL for the card\",\"type\":\"string\"},\"layout\":{\"description\":\"The card layout\",\"type\":\"string\"},\"legalities\":{\"description\":\"Which formats this card is legal, restricted or banned in\",\"items\":{\"properties\":{\"format\":{\"type\":\"string\"},\"legality\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"life\":{\"description\":\"Starting life total modifier (Vanguard cards only)\",\"type\":\"integer\"},\"loyalty\":{\"description\":\"The loyalty of the card (planeswalkers only)\",\"type\":\"string\"},\"manaCost\":{\"description\":\"The mana cost of the card\",\"type\":\"string\"},\"multiverseid\":{\"description\":\"The multiverseid of the card on Wizard's Gatherer\",\"type\":\"integer\"},\"name\":{\"description\":\"The card name\",\"type\":\"string\"},\"names\":{\"description\":\"Only used for split, flip and dual cards. Contains all names on the card.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"number\":{\"description\":\"The card number\",\"type\":\"string\"},\"originalText\":{\"description\":\"The original text on the card at the time it was printed\",\"type\":\"string\"},\"originalType\":{\"description\":\"The original type on the card at the time it was printed\",\"type\":\"string\"},\"power\":{\"description\":\"The power of the card (creatures only)\",\"type\":\"string\"},\"printings\":{\"description\":\"The sets that this card was printed in\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"rarity\":{\"description\":\"The rarity of the card\",\"type\":\"string\"},\"releaseDate\":{\"description\":\"The release date for promo cards\",\"format\":\"date\",\"type\":\"string\"},\"reserved\":{\"description\":\"True if this card is reserved by Wizards Official Reprint Policy\",\"type\":\"boolean\"},\"rulings\":{\"description\":\"The rulings for the card\",\"items\":{\"properties\":{\"date\":{\"format\":\"date\",\"type\":\"string\"},\"text\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"set\":{\"description\":\"The set code the card belongs to\",\"type\":\"string\"},\"setName\":{\"description\":\"The set name the card belongs to\",\"type\":\"string\"},\"source\":{\"description\":\"For promo cards, where the card was originally obtained\",\"type\":\"string\"},\"starter\":{\"description\":\"True if this card was only released as part of a core box set\",\"type\":\"boolean\"},\"subtypes\":{\"description\":\"The subtypes of the card\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"supertypes\":{\"description\":\"The supertypes of the card\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"text\":{\"description\":\"The oracle text of the card\",\"type\":\"string\"},\"timeshifted\":{\"description\":\"True if this card was timeshifted in the set\",\"type\":\"boolean\"},\"toughness\":{\"description\":\"The toughness of the card (creatures only)\",\"type\":\"string\"},\"type\":{\"description\":\"The card type\",\"type\":\"string\"},\"types\":{\"description\":\"The types of the card\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"variations\":{\"description\":\"Multiverseids of alternate art variations\",\"items\":{\"type\":\"integer\"},\"type\":\"array\"},\"watermark\":{\"description\":\"The watermark on the card\",\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Bad Request\"},\"403\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"example\":\"Rate Limit Exceeded\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Forbidden - Rate limit exceeded\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Not Found\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Internal Server Error\"},\"503\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Service Unavailable\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/cards/{id}",
@@ -679,6 +755,12 @@
                 {
                   "active": true,
                   "args": {},
+                  "contract": {
+                    "id": "GET /formats",
+                    "json": "{\"operationId\":\"getAllFormats\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"formats\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"},\"403\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"example\":\"Rate Limit Exceeded\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Forbidden - Rate limit exceeded\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Internal Server Error\"},\"503\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Service Unavailable\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/formats",
@@ -830,6 +912,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /sets",
+                    "json": "{\"operationId\":\"getAllSets\",\"parameters\":[{\"description\":\"Filter sets by name\",\"in\":\"query\",\"name\":\"name\",\"required\":false,\"schema\":{\"type\":\"string\"}},{\"description\":\"Filter sets by block\",\"in\":\"query\",\"name\":\"block\",\"required\":false,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"sets\":{\"items\":{\"properties\":{\"block\":{\"description\":\"The block the set belongs to\",\"type\":\"string\"},\"booster\":{\"description\":\"Booster pack configuration\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"border\":{\"description\":\"The border color of the set\",\"type\":\"string\"},\"code\":{\"description\":\"The set code\",\"type\":\"string\"},\"gathererCode\":{\"description\":\"The Gatherer code for the set\",\"type\":\"string\"},\"magicCardsInfoCode\":{\"description\":\"The Magic Cards Info code for the set\",\"type\":\"string\"},\"mkm_id\":{\"description\":\"The Magic Card Market set ID\",\"type\":\"integer\"},\"mkm_name\":{\"description\":\"The Magic Card Market set name\",\"type\":\"string\"},\"name\":{\"description\":\"The name of the set\",\"type\":\"string\"},\"onlineOnly\":{\"description\":\"True if the set is online only\",\"type\":\"boolean\"},\"releaseDate\":{\"description\":\"The release date of the set\",\"format\":\"date\",\"type\":\"string\"},\"type\":{\"description\":\"The type of the set\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Bad Request\"},\"403\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"example\":\"Rate Limit Exceeded\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Forbidden - Rate limit exceeded\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Not Found\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Internal Server Error\"},\"503\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Service Unavailable\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/sets",
@@ -868,6 +956,12 @@
                         "type": "`$STRING`"
                       }
                     ]
+                  },
+                  "contract": {
+                    "id": "GET /sets/{id}",
+                    "json": "{\"operationId\":\"getSetById\",\"parameters\":[{\"description\":\"The set code or ID\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"set\":{\"properties\":{\"block\":{\"description\":\"The block the set belongs to\",\"type\":\"string\"},\"booster\":{\"description\":\"Booster pack configuration\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"border\":{\"description\":\"The border color of the set\",\"type\":\"string\"},\"code\":{\"description\":\"The set code\",\"type\":\"string\"},\"gathererCode\":{\"description\":\"The Gatherer code for the set\",\"type\":\"string\"},\"magicCardsInfoCode\":{\"description\":\"The Magic Cards Info code for the set\",\"type\":\"string\"},\"mkm_id\":{\"description\":\"The Magic Card Market set ID\",\"type\":\"integer\"},\"mkm_name\":{\"description\":\"The Magic Card Market set name\",\"type\":\"string\"},\"name\":{\"description\":\"The name of the set\",\"type\":\"string\"},\"onlineOnly\":{\"description\":\"True if the set is online only\",\"type\":\"boolean\"},\"releaseDate\":{\"description\":\"The release date of the set\",\"format\":\"date\",\"type\":\"string\"},\"type\":{\"description\":\"The type of the set\",\"type\":\"string\"}},\"type\":\"object\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Bad Request\"},\"403\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"example\":\"Rate Limit Exceeded\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Forbidden - Rate limit exceeded\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Not Found\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Internal Server Error\"},\"503\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Service Unavailable\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
                   },
                   "kind": "http",
                   "method": "GET",
@@ -1209,6 +1303,12 @@
                       }
                     ]
                   },
+                  "contract": {
+                    "id": "GET /sets/{id}/booster",
+                    "json": "{\"operationId\":\"getSetBooster\",\"parameters\":[{\"description\":\"The set code\",\"in\":\"path\",\"name\":\"id\",\"required\":true,\"schema\":{\"type\":\"string\"}}],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"cards\":{\"items\":{\"properties\":{\"artist\":{\"description\":\"The artist of the card\",\"type\":\"string\"},\"border\":{\"description\":\"The border color if different from the set default\",\"type\":\"string\"},\"cmc\":{\"description\":\"Converted mana cost\",\"type\":\"number\"},\"colorIdentity\":{\"description\":\"The card's color identity by color code\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"colors\":{\"description\":\"The card colors\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"flavor\":{\"description\":\"The flavor text of the card\",\"type\":\"string\"},\"foreignNames\":{\"description\":\"Foreign language names for the card\",\"items\":{\"properties\":{\"language\":{\"type\":\"string\"},\"multiverseid\":{\"type\":\"integer\"},\"name\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"hand\":{\"description\":\"Maximum hand size modifier (Vanguard cards only)\",\"type\":\"integer\"},\"id\":{\"description\":\"A unique id for this card (SHA1 hash)\",\"type\":\"string\"},\"imageUrl\":{\"description\":\"The image URL for the card\",\"type\":\"string\"},\"layout\":{\"description\":\"The card layout\",\"type\":\"string\"},\"legalities\":{\"description\":\"Which formats this card is legal, restricted or banned in\",\"items\":{\"properties\":{\"format\":{\"type\":\"string\"},\"legality\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"life\":{\"description\":\"Starting life total modifier (Vanguard cards only)\",\"type\":\"integer\"},\"loyalty\":{\"description\":\"The loyalty of the card (planeswalkers only)\",\"type\":\"string\"},\"manaCost\":{\"description\":\"The mana cost of the card\",\"type\":\"string\"},\"multiverseid\":{\"description\":\"The multiverseid of the card on Wizard's Gatherer\",\"type\":\"integer\"},\"name\":{\"description\":\"The card name\",\"type\":\"string\"},\"names\":{\"description\":\"Only used for split, flip and dual cards. Contains all names on the card.\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"number\":{\"description\":\"The card number\",\"type\":\"string\"},\"originalText\":{\"description\":\"The original text on the card at the time it was printed\",\"type\":\"string\"},\"originalType\":{\"description\":\"The original type on the card at the time it was printed\",\"type\":\"string\"},\"power\":{\"description\":\"The power of the card (creatures only)\",\"type\":\"string\"},\"printings\":{\"description\":\"The sets that this card was printed in\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"rarity\":{\"description\":\"The rarity of the card\",\"type\":\"string\"},\"releaseDate\":{\"description\":\"The release date for promo cards\",\"format\":\"date\",\"type\":\"string\"},\"reserved\":{\"description\":\"True if this card is reserved by Wizards Official Reprint Policy\",\"type\":\"boolean\"},\"rulings\":{\"description\":\"The rulings for the card\",\"items\":{\"properties\":{\"date\":{\"format\":\"date\",\"type\":\"string\"},\"text\":{\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"},\"set\":{\"description\":\"The set code the card belongs to\",\"type\":\"string\"},\"setName\":{\"description\":\"The set name the card belongs to\",\"type\":\"string\"},\"source\":{\"description\":\"For promo cards, where the card was originally obtained\",\"type\":\"string\"},\"starter\":{\"description\":\"True if this card was only released as part of a core box set\",\"type\":\"boolean\"},\"subtypes\":{\"description\":\"The subtypes of the card\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"supertypes\":{\"description\":\"The supertypes of the card\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"text\":{\"description\":\"The oracle text of the card\",\"type\":\"string\"},\"timeshifted\":{\"description\":\"True if this card was timeshifted in the set\",\"type\":\"boolean\"},\"toughness\":{\"description\":\"The toughness of the card (creatures only)\",\"type\":\"string\"},\"type\":{\"description\":\"The card type\",\"type\":\"string\"},\"types\":{\"description\":\"The types of the card\",\"items\":{\"type\":\"string\"},\"type\":\"array\"},\"variations\":{\"description\":\"Multiverseids of alternate art variations\",\"items\":{\"type\":\"integer\"},\"type\":\"array\"},\"watermark\":{\"description\":\"The watermark on the card\",\"type\":\"string\"}},\"type\":\"object\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"},\"400\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Bad Request\"},\"403\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"example\":\"Rate Limit Exceeded\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Forbidden - Rate limit exceeded\"},\"404\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Not Found\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Internal Server Error\"},\"503\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Service Unavailable\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/sets/{id}/booster",
@@ -1262,6 +1362,12 @@
                 {
                   "active": true,
                   "args": {},
+                  "contract": {
+                    "id": "GET /subtypes",
+                    "json": "{\"operationId\":\"getAllSubtypes\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"subtypes\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"},\"403\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"example\":\"Rate Limit Exceeded\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Forbidden - Rate limit exceeded\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Internal Server Error\"},\"503\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Service Unavailable\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/subtypes",
@@ -1305,6 +1411,12 @@
                 {
                   "active": true,
                   "args": {},
+                  "contract": {
+                    "id": "GET /supertypes",
+                    "json": "{\"operationId\":\"getAllSupertypes\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"supertypes\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"},\"403\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"example\":\"Rate Limit Exceeded\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Forbidden - Rate limit exceeded\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Internal Server Error\"},\"503\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Service Unavailable\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/supertypes",
@@ -1348,6 +1460,12 @@
                 {
                   "active": true,
                   "args": {},
+                  "contract": {
+                    "id": "GET /types",
+                    "json": "{\"operationId\":\"getAllTypes\",\"parameters\":[],\"protocol\":\"http\",\"responses\":{\"200\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"types\":{\"items\":{\"type\":\"string\"},\"type\":\"array\"}},\"type\":\"object\"}}},\"description\":\"Successful response\"},\"403\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"message\":{\"example\":\"Rate Limit Exceeded\",\"type\":\"string\"}},\"type\":\"object\"}}},\"description\":\"Forbidden - Rate limit exceeded\"},\"500\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Internal Server Error\"},\"503\":{\"content\":{\"application/json\":{\"schema\":{\"properties\":{\"error\":{\"description\":\"Error message\",\"type\":\"string\"},\"status\":{\"description\":\"HTTP status code\",\"type\":\"integer\"}},\"type\":\"object\"}}},\"description\":\"Service Unavailable\"}},\"securitySource\":\"unspecified\"}",
+                    "source": "openapi3",
+                    "version": 1
+                  },
                   "kind": "http",
                   "method": "GET",
                   "orig": "/types",
@@ -1371,13 +1489,223 @@
         }
       },
       "feature": {
+        "ratelimit": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "burst": 5,
+              "rate": 5
+            },
+            "optspec": {
+              "now": "`$FUNCTION`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "ratelimit",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Client-side rate limiting via a token bucket",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
+        "retry": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "factor": 2,
+              "maxDelay": 2000,
+              "minDelay": 50,
+              "retries": 2,
+              "statuses": [
+                408,
+                425,
+                429,
+                500,
+                502,
+                503,
+                504
+              ]
+            },
+            "optspec": {
+              "jitter": "`$BOOLEAN`",
+              "sleep": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "retry",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Automatic retry of transient failures with exponential backoff",
+          "transport": "wrap",
+          "version": "0.0.1"
+        },
         "test": {
           "active": true,
           "base": "node_modules/@voxgig/sdkgen/project/.sdk",
           "config": {
             "options": {
               "active": false
-            }
+            },
+            "optspec": {
+              "entity": "`$MAP`",
+              "net": "`$MAP`"
+            },
+            "strict": false
           },
           "hook": {
             "GetData": {
@@ -1467,6 +1795,102 @@
           },
           "title": "In-memory mock transport for testing without a live server",
           "transport": "base",
+          "version": "0.0.1"
+        },
+        "timeout": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "config": {
+            "options": {
+              "active": false,
+              "ms": 30000
+            },
+            "optspec": {
+              "clearTimer": "`$FUNCTION`",
+              "setTimer": "`$FUNCTION`"
+            },
+            "strict": false
+          },
+          "hook": {
+            "GetData": {
+              "active": false,
+              "await": false
+            },
+            "GetMatch": {
+              "active": false,
+              "await": false
+            },
+            "PostConstruct": {
+              "active": false,
+              "await": false
+            },
+            "PostConstructEntity": {
+              "active": false,
+              "await": false
+            },
+            "PostOperation": {
+              "active": false,
+              "await": false
+            },
+            "PreRequest": {
+              "active": false,
+              "await": false
+            },
+            "PreResponse": {
+              "active": false,
+              "await": false
+            },
+            "PreResult": {
+              "active": false,
+              "await": false
+            },
+            "PreSpec": {
+              "active": false,
+              "await": false
+            },
+            "PreTarget": {
+              "active": false,
+              "await": false
+            },
+            "SetData": {
+              "active": false,
+              "await": false
+            }
+          },
+          "name": "timeout",
+          "needs": {},
+          "origname": "",
+          "package": "@voxgig/sdkgen",
+          "plugin": {},
+          "spec": {},
+          "target": {
+            "go": {
+              "deps": {}
+            },
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
+              "deps": {}
+            },
+            "lua": {
+              "deps": {}
+            },
+            "php": {
+              "deps": {}
+            },
+            "py": {
+              "deps": {}
+            },
+            "rb": {
+              "deps": {}
+            },
+            "ts": {
+              "deps": {}
+            }
+          },
+          "title": "Per-request timeout with transport abort",
+          "transport": "wrap",
           "version": "0.0.1"
         }
       },
@@ -1717,6 +2141,48 @@
         "website": "https://magicthegathering.io"
       },
       "option": {},
+      "optspec": {
+        "allow": {
+          "method": "GET,PUT,POST,PATCH,DELETE,OPTIONS",
+          "op": "create,update,load,list,remove,command,direct,graphql"
+        },
+        "apikey": "",
+        "auth": {
+          "basic": false,
+          "prefix": ""
+        },
+        "base": "http://localhost:8000",
+        "clean": {
+          "keys": "key,token,id"
+        },
+        "entity": {
+          "`$CHILD`": {
+            "`$OPEN`": true,
+            "active": false,
+            "alias": {}
+          }
+        },
+        "extend": "`$ANY`",
+        "headers": {
+          "`$CHILD`": "`$STRING`"
+        },
+        "prefix": "",
+        "secret": "",
+        "server": {
+          "`$CHILD`": ""
+        },
+        "suffix": "",
+        "system": {
+          "fetch": "`$ANY`"
+        },
+        "test": {
+          "active": false,
+          "entity": {
+            "`$OPEN`": true
+          }
+        },
+        "utility": {}
+      },
       "repo": {
         "host": "github.com",
         "path": ""
@@ -2271,6 +2737,7 @@
           },
           "package": "@voxgig/sdkgen",
           "provides": {
+            "schema": true,
             "sekreto": true
           },
           "publish": {
@@ -2312,7 +2779,7 @@
         "live": {
           "app": false,
           "base": "",
-          "strict": false
+          "strict": true
         }
       }
     }

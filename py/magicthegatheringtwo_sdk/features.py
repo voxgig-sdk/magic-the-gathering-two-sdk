@@ -1,12 +1,18 @@
 # MagicTheGatheringTwo SDK feature factory
 
 from magicthegatheringtwo_sdk.feature.base_feature import MagicTheGatheringTwoBaseFeature
+from magicthegatheringtwo_sdk.feature.ratelimit_feature import MagicTheGatheringTwoRatelimitFeature
+from magicthegatheringtwo_sdk.feature.retry_feature import MagicTheGatheringTwoRetryFeature
 from magicthegatheringtwo_sdk.feature.test_feature import MagicTheGatheringTwoTestFeature
+from magicthegatheringtwo_sdk.feature.timeout_feature import MagicTheGatheringTwoTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: MagicTheGatheringTwoBaseFeature(),
+    "ratelimit": lambda: MagicTheGatheringTwoRatelimitFeature(),
+    "retry": lambda: MagicTheGatheringTwoRetryFeature(),
     "test": lambda: MagicTheGatheringTwoTestFeature(),
+    "timeout": lambda: MagicTheGatheringTwoTimeoutFeature(),
 }
 
 

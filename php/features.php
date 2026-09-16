@@ -4,7 +4,10 @@ declare(strict_types=1);
 // MagicTheGatheringTwo SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class MagicTheGatheringTwoFeatures
@@ -14,8 +17,14 @@ class MagicTheGatheringTwoFeatures
         switch ($name) {
             case "base":
                 return new MagicTheGatheringTwoBaseFeature();
+            case "ratelimit":
+                return new MagicTheGatheringTwoRatelimitFeature();
+            case "retry":
+                return new MagicTheGatheringTwoRetryFeature();
             case "test":
                 return new MagicTheGatheringTwoTestFeature();
+            case "timeout":
+                return new MagicTheGatheringTwoTimeoutFeature();
             default:
                 return new MagicTheGatheringTwoBaseFeature();
         }
@@ -31,7 +40,10 @@ class MagicTheGatheringTwoFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;
