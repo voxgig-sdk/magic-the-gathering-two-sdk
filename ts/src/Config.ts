@@ -127,27 +127,27 @@ class Config {
 
     entity: {
       
-      card: {
-      },
-
-      format: {
-      },
-
-      set: {
-      },
-
-      set_booster: {
-      },
-
-      subtype: {
-      },
-
-      supertype: {
-      },
-
-      type: {
-      },
-
+        card: {
+        },
+  
+        format: {
+        },
+  
+        set: {
+        },
+  
+        set_booster: {
+        },
+  
+        subtype: {
+        },
+  
+        supertype: {
+        },
+  
+        type: {
+        },
+  
     }
   }
 
