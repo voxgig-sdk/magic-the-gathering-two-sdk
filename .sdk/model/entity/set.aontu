@@ -1,0 +1,201 @@
+# Entity: set
+
+main: kit: entity: set: {
+
+  alias: field: {}
+
+  fields: {
+    block: {
+      h: "Block"
+      n: "block"
+      r: false
+      sh: "The block the set belongs to"
+      t: "`$STRING`"
+    }
+    booster: {
+      h: "Booster"
+      n: "booster"
+      r: false
+      sh: "Booster pack configuration"
+      t: "`$ARRAY`"
+    }
+    border: {
+      h: "Border"
+      n: "border"
+      r: false
+      sh: "The border color of the set"
+      t: "`$STRING`"
+    }
+    code: {
+      h: "Code"
+      n: "code"
+      r: false
+      sh: "The set code"
+      t: "`$STRING`"
+    }
+    gathererCode: {
+      h: "Gatherer Code"
+      n: "gathererCode"
+      r: false
+      sh: "The Gatherer code for the set"
+      t: "`$STRING`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      t: "`$STRING`"
+    }
+    magicCardsInfoCode: {
+      h: "Magic Cards Info Code"
+      n: "magicCardsInfoCode"
+      r: false
+      sh: "The Magic Cards Info code for the set"
+      t: "`$STRING`"
+    }
+    mkm_id: {
+      h: "Mkm Id"
+      n: "mkm_id"
+      r: false
+      sh: "The Magic Card Market set ID"
+      t: "`$INTEGER`"
+    }
+    mkm_name: {
+      h: "Mkm Name"
+      n: "mkm_name"
+      r: false
+      sh: "The Magic Card Market set name"
+      t: "`$STRING`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "The name of the set"
+      t: "`$STRING`"
+    }
+    onlineOnly: {
+      h: "Online Only"
+      n: "onlineOnly"
+      r: false
+      sh: "True if the set is online only"
+      t: "`$BOOLEAN`"
+    }
+    releaseDate: {
+      fo: "date"
+      h: "Release Date"
+      n: "releaseDate"
+      r: false
+      sh: "The release date of the set"
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      sh: "The type of the set"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "set"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /sets"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                k: "query"
+                n: "block"
+                or: "block"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                k: "query"
+                n: "name"
+                or: "name"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/sets"
+          q: {
+            exist: [
+              "block"
+              "name"
+            ]
+          }
+          s: [
+            {
+              lit: "sets"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.sets`"
+          }
+        }
+      ]
+    }
+    load: {
+      name: "load"
+      points: [
+        {
+          co: {
+            id: "GET /sets/{id}"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/sets/{id}"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "sets"
+            }
+            {
+              var: "id"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.set`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

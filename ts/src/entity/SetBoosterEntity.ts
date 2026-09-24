@@ -19,7 +19,6 @@ import type {
   SetBoosterListMatch,
 } from '../MagicTheGatheringTwoTypes'
 
-// TODO: needs Entity superclass
 class SetBoosterEntity extends MagicTheGatheringTwoEntityBase<SetBooster> {
 
   constructor(client: MagicTheGatheringTwoSDK, entopts: any) {

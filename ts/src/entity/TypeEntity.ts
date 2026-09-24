@@ -19,7 +19,6 @@ import type {
   TypeListMatch,
 } from '../MagicTheGatheringTwoTypes'
 
-// TODO: needs Entity superclass
 class TypeEntity extends MagicTheGatheringTwoEntityBase<Type> {
 
   constructor(client: MagicTheGatheringTwoSDK, entopts: any) {

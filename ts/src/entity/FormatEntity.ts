@@ -19,7 +19,6 @@ import type {
   FormatListMatch,
 } from '../MagicTheGatheringTwoTypes'
 
-// TODO: needs Entity superclass
 class FormatEntity extends MagicTheGatheringTwoEntityBase<Format> {
 
   constructor(client: MagicTheGatheringTwoSDK, entopts: any) {

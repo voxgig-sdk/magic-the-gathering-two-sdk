@@ -1,0 +1,347 @@
+# Entity: set_booster
+
+main: kit: entity: set_booster: {
+
+  alias: field: {}
+
+  fields: {
+    artist: {
+      h: "Artist"
+      n: "artist"
+      r: false
+      sh: "The artist of the card"
+      t: "`$STRING`"
+    }
+    border: {
+      h: "Border"
+      n: "border"
+      r: false
+      sh: "The border color if different from the set default"
+      t: "`$STRING`"
+    }
+    cmc: {
+      h: "Cmc"
+      n: "cmc"
+      r: false
+      sh: "Converted mana cost"
+      t: "`$NUMBER`"
+    }
+    colorIdentity: {
+      h: "Color Identity"
+      n: "colorIdentity"
+      r: false
+      sh: "The card's color identity by color code"
+      t: "`$ARRAY`"
+    }
+    colors: {
+      h: "Colors"
+      n: "colors"
+      r: false
+      sh: "The card colors"
+      t: "`$ARRAY`"
+    }
+    flavor: {
+      h: "Flavor"
+      n: "flavor"
+      r: false
+      sh: "The flavor text of the card"
+      t: "`$STRING`"
+    }
+    foreignNames: {
+      h: "Foreign Names"
+      n: "foreignNames"
+      r: false
+      sh: "Foreign language names for the card"
+      t: "`$ARRAY`"
+    }
+    hand: {
+      h: "Hand"
+      n: "hand"
+      r: false
+      sh: "Maximum hand size modifier (Vanguard cards only)"
+      t: "`$INTEGER`"
+    }
+    id: {
+      h: "Id"
+      n: "id"
+      r: false
+      sh: "A unique id for this card (SHA1 hash)"
+      t: "`$STRING`"
+    }
+    imageUrl: {
+      h: "Image Url"
+      n: "imageUrl"
+      r: false
+      sh: "The image URL for the card"
+      t: "`$STRING`"
+    }
+    layout: {
+      h: "Layout"
+      n: "layout"
+      r: false
+      sh: "The card layout"
+      t: "`$STRING`"
+    }
+    legalities: {
+      h: "Legalities"
+      n: "legalities"
+      r: false
+      sh: "Which formats this card is legal, restricted or banned in"
+      t: "`$ARRAY`"
+    }
+    life: {
+      h: "Life"
+      n: "life"
+      r: false
+      sh: "Starting life total modifier (Vanguard cards only)"
+      t: "`$INTEGER`"
+    }
+    loyalty: {
+      h: "Loyalty"
+      n: "loyalty"
+      r: false
+      sh: "The loyalty of the card (planeswalkers only)"
+      t: "`$STRING`"
+    }
+    manaCost: {
+      h: "Mana Cost"
+      n: "manaCost"
+      r: false
+      sh: "The mana cost of the card"
+      t: "`$STRING`"
+    }
+    multiverseid: {
+      h: "Multiverseid"
+      n: "multiverseid"
+      r: false
+      sh: "The multiverseid of the card on Wizard's Gatherer"
+      t: "`$INTEGER`"
+    }
+    name: {
+      h: "Name"
+      n: "name"
+      r: false
+      sh: "The card name"
+      t: "`$STRING`"
+    }
+    names: {
+      h: "Names"
+      n: "names"
+      r: false
+      sh: "Only used for split, flip and dual cards."
+      t: "`$ARRAY`"
+    }
+    number: {
+      h: "Number"
+      n: "number"
+      r: false
+      sh: "The card number"
+      t: "`$STRING`"
+    }
+    originalText: {
+      h: "Original Text"
+      n: "originalText"
+      r: false
+      sh: "The original text on the card at the time it was printed"
+      t: "`$STRING`"
+    }
+    originalType: {
+      h: "Original Type"
+      n: "originalType"
+      r: false
+      sh: "The original type on the card at the time it was printed"
+      t: "`$STRING`"
+    }
+    power: {
+      h: "Power"
+      n: "power"
+      r: false
+      sh: "The power of the card (creatures only)"
+      t: "`$STRING`"
+    }
+    printings: {
+      h: "Printings"
+      n: "printings"
+      r: false
+      sh: "The sets that this card was printed in"
+      t: "`$ARRAY`"
+    }
+    rarity: {
+      h: "Rarity"
+      n: "rarity"
+      r: false
+      sh: "The rarity of the card"
+      t: "`$STRING`"
+    }
+    releaseDate: {
+      fo: "date"
+      h: "Release Date"
+      n: "releaseDate"
+      r: false
+      sh: "The release date for promo cards"
+      t: "`$STRING`"
+    }
+    reserved: {
+      h: "Reserved"
+      n: "reserved"
+      r: false
+      sh: "True if this card is reserved by Wizards Official Reprint Policy"
+      t: "`$BOOLEAN`"
+    }
+    rulings: {
+      h: "Rulings"
+      n: "rulings"
+      r: false
+      sh: "The rulings for the card"
+      t: "`$ARRAY`"
+    }
+    set: {
+      h: "Set"
+      n: "set"
+      r: false
+      sh: "The set code the card belongs to"
+      t: "`$STRING`"
+    }
+    setName: {
+      h: "Set Name"
+      n: "setName"
+      r: false
+      sh: "The set name the card belongs to"
+      t: "`$STRING`"
+    }
+    source: {
+      h: "Source"
+      n: "source"
+      r: false
+      sh: "For promo cards, where the card was originally obtained"
+      t: "`$STRING`"
+    }
+    starter: {
+      h: "Starter"
+      n: "starter"
+      r: false
+      sh: "True if this card was only released as part of a core box set"
+      t: "`$BOOLEAN`"
+    }
+    subtypes: {
+      h: "Subtypes"
+      n: "subtypes"
+      r: false
+      sh: "The subtypes of the card"
+      t: "`$ARRAY`"
+    }
+    supertypes: {
+      h: "Supertypes"
+      n: "supertypes"
+      r: false
+      sh: "The supertypes of the card"
+      t: "`$ARRAY`"
+    }
+    text: {
+      h: "Text"
+      n: "text"
+      r: false
+      sh: "The oracle text of the card"
+      t: "`$STRING`"
+    }
+    timeshifted: {
+      h: "Timeshifted"
+      n: "timeshifted"
+      r: false
+      sh: "True if this card was timeshifted in the set"
+      t: "`$BOOLEAN`"
+    }
+    toughness: {
+      h: "Toughness"
+      n: "toughness"
+      r: false
+      sh: "The toughness of the card (creatures only)"
+      t: "`$STRING`"
+    }
+    type: {
+      h: "Type"
+      n: "type"
+      r: false
+      sh: "The card type"
+      t: "`$STRING`"
+    }
+    types: {
+      h: "Types"
+      n: "types"
+      r: false
+      sh: "The types of the card"
+      t: "`$ARRAY`"
+    }
+    variations: {
+      h: "Variations"
+      n: "variations"
+      r: false
+      sh: "Multiverseids of alternate art variations"
+      t: "`$ARRAY`"
+    }
+    watermark: {
+      h: "Watermark"
+      n: "watermark"
+      r: false
+      sh: "The watermark on the card"
+      t: "`$STRING`"
+    }
+  }
+
+  id: {
+    field: "id"
+    name: "id"
+  }
+
+  name: "set_booster"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /sets/{id}/booster"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            params: [
+              {
+                k: "param"
+                n: "id"
+                or: "id"
+                r: true
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/sets/{id}/booster"
+          q: {
+            exist: [
+              "id"
+            ]
+          }
+          s: [
+            {
+              lit: "sets"
+            }
+            {
+              var: "id"
+            }
+            {
+              lit: "booster"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.cards`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

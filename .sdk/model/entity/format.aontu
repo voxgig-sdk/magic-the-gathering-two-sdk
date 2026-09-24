@@ -1,0 +1,45 @@
+# Entity: format
+
+main: kit: entity: format: {
+
+  alias: field: {}
+
+  fields: {
+    formats: {
+      h: "Formats"
+      n: "formats"
+      r: false
+      t: "`$ARRAY`"
+    }
+  }
+
+  name: "format"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /formats"
+            source: "openapi3"
+            version: 2
+          }
+          m: "GET"
+          o: "/formats"
+          s: [
+            {
+              lit: "formats"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.formats`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

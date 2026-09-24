@@ -11,19 +11,12 @@ const FEATURE_CLASS = {
     test: TestFeature_1.TestFeature,
     timeout: TimeoutFeature_1.TimeoutFeature,
 };
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS = {};
 exports.FEATURE_PLUGINS = FEATURE_PLUGINS;
 class Config {
     makeFeature(fn) {
         const fc = FEATURE_CLASS[fn];
         const fi = new fc();
-        // TODO: errors etc
         return fi;
     }
     // False for a feature added at runtime via options.extend (station's
@@ -120,204 +113,244 @@ class Config {
             "fields": [
                 {
                     "name": "artist",
-                    "short": "The artist of the card",
-                    "type": "`$STRING`"
+                    "title": "Artist",
+                    "type": "`$STRING`",
+                    "short": "The artist of the card"
                 },
                 {
                     "name": "border",
-                    "short": "The border color if different from the set default",
-                    "type": "`$STRING`"
+                    "title": "Border",
+                    "type": "`$STRING`",
+                    "short": "The border color if different from the set default"
                 },
                 {
                     "name": "cmc",
-                    "short": "Converted mana cost",
-                    "type": "`$NUMBER`"
+                    "title": "Cmc",
+                    "type": "`$NUMBER`",
+                    "short": "Converted mana cost"
                 },
                 {
                     "name": "colorIdentity",
-                    "short": "The card's color identity by color code",
-                    "type": "`$ARRAY`"
+                    "title": "Color Identity",
+                    "type": "`$ARRAY`",
+                    "short": "The card's color identity by color code"
                 },
                 {
                     "name": "colors",
-                    "short": "The card colors",
-                    "type": "`$ARRAY`"
+                    "title": "Colors",
+                    "type": "`$ARRAY`",
+                    "short": "The card colors"
                 },
                 {
                     "name": "flavor",
-                    "short": "The flavor text of the card",
-                    "type": "`$STRING`"
+                    "title": "Flavor",
+                    "type": "`$STRING`",
+                    "short": "The flavor text of the card"
                 },
                 {
                     "name": "foreignNames",
-                    "short": "Foreign language names for the card",
-                    "type": "`$ARRAY`"
+                    "title": "Foreign Names",
+                    "type": "`$ARRAY`",
+                    "short": "Foreign language names for the card"
                 },
                 {
                     "name": "hand",
-                    "short": "Maximum hand size modifier (Vanguard cards only)",
-                    "type": "`$INTEGER`"
+                    "title": "Hand",
+                    "type": "`$INTEGER`",
+                    "short": "Maximum hand size modifier (Vanguard cards only)"
                 },
                 {
                     "name": "id",
-                    "short": "A unique id for this card (SHA1 hash)",
-                    "type": "`$STRING`"
+                    "title": "Id",
+                    "type": "`$STRING`",
+                    "short": "A unique id for this card (SHA1 hash)"
                 },
                 {
                     "name": "imageUrl",
-                    "short": "The image URL for the card",
-                    "type": "`$STRING`"
+                    "title": "Image Url",
+                    "type": "`$STRING`",
+                    "short": "The image URL for the card"
                 },
                 {
                     "name": "layout",
-                    "short": "The card layout",
-                    "type": "`$STRING`"
+                    "title": "Layout",
+                    "type": "`$STRING`",
+                    "short": "The card layout"
                 },
                 {
                     "name": "legalities",
-                    "short": "Which formats this card is legal, restricted or banned in",
-                    "type": "`$ARRAY`"
+                    "title": "Legalities",
+                    "type": "`$ARRAY`",
+                    "short": "Which formats this card is legal, restricted or banned in"
                 },
                 {
                     "name": "life",
-                    "short": "Starting life total modifier (Vanguard cards only)",
-                    "type": "`$INTEGER`"
+                    "title": "Life",
+                    "type": "`$INTEGER`",
+                    "short": "Starting life total modifier (Vanguard cards only)"
                 },
                 {
                     "name": "loyalty",
-                    "short": "The loyalty of the card (planeswalkers only)",
-                    "type": "`$STRING`"
+                    "title": "Loyalty",
+                    "type": "`$STRING`",
+                    "short": "The loyalty of the card (planeswalkers only)"
                 },
                 {
                     "name": "manaCost",
-                    "short": "The mana cost of the card",
-                    "type": "`$STRING`"
+                    "title": "Mana Cost",
+                    "type": "`$STRING`",
+                    "short": "The mana cost of the card"
                 },
                 {
                     "name": "multiverseid",
-                    "short": "The multiverseid of the card on Wizard's Gatherer",
-                    "type": "`$INTEGER`"
+                    "title": "Multiverseid",
+                    "type": "`$INTEGER`",
+                    "short": "The multiverseid of the card on Wizard's Gatherer"
                 },
                 {
                     "name": "name",
-                    "short": "The card name",
-                    "type": "`$STRING`"
+                    "title": "Name",
+                    "type": "`$STRING`",
+                    "short": "The card name"
                 },
                 {
                     "name": "names",
-                    "short": "Only used for split, flip and dual cards.",
-                    "type": "`$ARRAY`"
+                    "title": "Names",
+                    "type": "`$ARRAY`",
+                    "short": "Only used for split, flip and dual cards."
                 },
                 {
                     "name": "number",
-                    "short": "The card number",
-                    "type": "`$STRING`"
+                    "title": "Number",
+                    "type": "`$STRING`",
+                    "short": "The card number"
                 },
                 {
                     "name": "originalText",
-                    "short": "The original text on the card at the time it was printed",
-                    "type": "`$STRING`"
+                    "title": "Original Text",
+                    "type": "`$STRING`",
+                    "short": "The original text on the card at the time it was printed"
                 },
                 {
                     "name": "originalType",
-                    "short": "The original type on the card at the time it was printed",
-                    "type": "`$STRING`"
+                    "title": "Original Type",
+                    "type": "`$STRING`",
+                    "short": "The original type on the card at the time it was printed"
                 },
                 {
                     "name": "power",
-                    "short": "The power of the card (creatures only)",
-                    "type": "`$STRING`"
+                    "title": "Power",
+                    "type": "`$STRING`",
+                    "short": "The power of the card (creatures only)"
                 },
                 {
                     "name": "printings",
-                    "short": "The sets that this card was printed in",
-                    "type": "`$ARRAY`"
+                    "title": "Printings",
+                    "type": "`$ARRAY`",
+                    "short": "The sets that this card was printed in"
                 },
                 {
                     "name": "rarity",
-                    "short": "The rarity of the card",
-                    "type": "`$STRING`"
+                    "title": "Rarity",
+                    "type": "`$STRING`",
+                    "short": "The rarity of the card"
                 },
                 {
-                    "format": "date",
                     "name": "releaseDate",
+                    "title": "Release Date",
+                    "type": "`$STRING`",
                     "short": "The release date for promo cards",
-                    "type": "`$STRING`"
+                    "format": "date"
                 },
                 {
                     "name": "reserved",
-                    "short": "True if this card is reserved by Wizards Official Reprint Policy",
-                    "type": "`$BOOLEAN`"
+                    "title": "Reserved",
+                    "type": "`$BOOLEAN`",
+                    "short": "True if this card is reserved by Wizards Official Reprint Policy"
                 },
                 {
                     "name": "rulings",
-                    "short": "The rulings for the card",
-                    "type": "`$ARRAY`"
+                    "title": "Rulings",
+                    "type": "`$ARRAY`",
+                    "short": "The rulings for the card"
                 },
                 {
                     "name": "set",
-                    "short": "The set code the card belongs to",
-                    "type": "`$STRING`"
+                    "title": "Set",
+                    "type": "`$STRING`",
+                    "short": "The set code the card belongs to"
                 },
                 {
                     "name": "setName",
-                    "short": "The set name the card belongs to",
-                    "type": "`$STRING`"
+                    "title": "Set Name",
+                    "type": "`$STRING`",
+                    "short": "The set name the card belongs to"
                 },
                 {
                     "name": "source",
-                    "short": "For promo cards, where the card was originally obtained",
-                    "type": "`$STRING`"
+                    "title": "Source",
+                    "type": "`$STRING`",
+                    "short": "For promo cards, where the card was originally obtained"
                 },
                 {
                     "name": "starter",
-                    "short": "True if this card was only released as part of a core box set",
-                    "type": "`$BOOLEAN`"
+                    "title": "Starter",
+                    "type": "`$BOOLEAN`",
+                    "short": "True if this card was only released as part of a core box set"
                 },
                 {
                     "name": "subtypes",
-                    "short": "The subtypes of the card",
-                    "type": "`$ARRAY`"
+                    "title": "Subtypes",
+                    "type": "`$ARRAY`",
+                    "short": "The subtypes of the card"
                 },
                 {
                     "name": "supertypes",
-                    "short": "The supertypes of the card",
-                    "type": "`$ARRAY`"
+                    "title": "Supertypes",
+                    "type": "`$ARRAY`",
+                    "short": "The supertypes of the card"
                 },
                 {
                     "name": "text",
-                    "short": "The oracle text of the card",
-                    "type": "`$STRING`"
+                    "title": "Text",
+                    "type": "`$STRING`",
+                    "short": "The oracle text of the card"
                 },
                 {
                     "name": "timeshifted",
-                    "short": "True if this card was timeshifted in the set",
-                    "type": "`$BOOLEAN`"
+                    "title": "Timeshifted",
+                    "type": "`$BOOLEAN`",
+                    "short": "True if this card was timeshifted in the set"
                 },
                 {
                     "name": "toughness",
-                    "short": "The toughness of the card (creatures only)",
-                    "type": "`$STRING`"
+                    "title": "Toughness",
+                    "type": "`$STRING`",
+                    "short": "The toughness of the card (creatures only)"
                 },
                 {
                     "name": "type",
-                    "short": "The card type",
-                    "type": "`$STRING`"
+                    "title": "Type",
+                    "type": "`$STRING`",
+                    "short": "The card type"
                 },
                 {
                     "name": "types",
-                    "short": "The types of the card",
-                    "type": "`$ARRAY`"
+                    "title": "Types",
+                    "type": "`$ARRAY`",
+                    "short": "The types of the card"
                 },
                 {
                     "name": "variations",
-                    "short": "Multiverseids of alternate art variations",
-                    "type": "`$ARRAY`"
+                    "title": "Variations",
+                    "type": "`$ARRAY`",
+                    "short": "Multiverseids of alternate art variations"
                 },
                 {
                     "name": "watermark",
-                    "short": "The watermark on the card",
-                    "type": "`$STRING`"
+                    "title": "Watermark",
+                    "type": "`$STRING`",
+                    "short": "The watermark on the card"
                 }
             ],
             "id": {
@@ -331,186 +364,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "kind": "query",
-                                        "name": "artist",
-                                        "orig": "artist",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "cmc",
-                                        "orig": "cmc",
-                                        "type": "`$NUMBER`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "color",
-                                        "orig": "color",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "color_identity",
-                                        "orig": "color_identity",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "contain",
-                                        "orig": "contain",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "flavor",
-                                        "orig": "flavor",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "game_format",
-                                        "orig": "game_format",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "id",
-                                        "orig": "id",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "language",
-                                        "orig": "language",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "layout",
-                                        "orig": "layout",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "legality",
-                                        "orig": "legality",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "loyalty",
-                                        "orig": "loyalty",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "multiverseid",
-                                        "orig": "multiverseid",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "name",
-                                        "orig": "name",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "number",
-                                        "orig": "number",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "order_by",
-                                        "orig": "order_by",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "example": 1,
-                                        "kind": "query",
-                                        "name": "page",
-                                        "orig": "page",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "example": 100,
-                                        "kind": "query",
-                                        "name": "page_size",
-                                        "orig": "page_size",
-                                        "type": "`$INTEGER`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "power",
-                                        "orig": "power",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "random",
-                                        "orig": "random",
-                                        "type": "`$BOOLEAN`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "rarity",
-                                        "orig": "rarity",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "set",
-                                        "orig": "set",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "set_name",
-                                        "orig": "set_name",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "subtype",
-                                        "orig": "subtype",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "supertype",
-                                        "orig": "supertype",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "text",
-                                        "orig": "text",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "toughness",
-                                        "orig": "toughness",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "type",
-                                        "orig": "type",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "type",
-                                        "orig": "type",
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/cards",
@@ -519,6 +372,194 @@ class Config {
                                     "lit": "cards"
                                 }
                             ],
+                            "parts": [
+                                "cards"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body.cards`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "artist",
+                                        "orig": "artist",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "cmc",
+                                        "orig": "cmc",
+                                        "type": "`$NUMBER`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "color",
+                                        "orig": "color",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "color_identity",
+                                        "orig": "color_identity",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "contain",
+                                        "orig": "contain",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "flavor",
+                                        "orig": "flavor",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "game_format",
+                                        "orig": "game_format",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "id",
+                                        "orig": "id",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "language",
+                                        "orig": "language",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "layout",
+                                        "orig": "layout",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "legality",
+                                        "orig": "legality",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "loyalty",
+                                        "orig": "loyalty",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "multiverseid",
+                                        "orig": "multiverseid",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "name",
+                                        "orig": "name",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "number",
+                                        "orig": "number",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "order_by",
+                                        "orig": "order_by",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "page",
+                                        "orig": "page",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 1
+                                    },
+                                    {
+                                        "name": "page_size",
+                                        "orig": "page_size",
+                                        "type": "`$INTEGER`",
+                                        "kind": "query",
+                                        "example": 100
+                                    },
+                                    {
+                                        "name": "power",
+                                        "orig": "power",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "random",
+                                        "orig": "random",
+                                        "type": "`$BOOLEAN`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "rarity",
+                                        "orig": "rarity",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "set",
+                                        "orig": "set",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "set_name",
+                                        "orig": "set_name",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "subtype",
+                                        "orig": "subtype",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "supertype",
+                                        "orig": "supertype",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "text",
+                                        "orig": "text",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "toughness",
+                                        "orig": "toughness",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "type",
+                                        "orig": "type",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "type",
+                                        "orig": "type",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    }
+                                ]
+                            },
                             "select": {
                                 "exist": [
                                     "artist",
@@ -550,14 +591,7 @@ class Config {
                                     "toughness",
                                     "type"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body.cards`"
-                            },
-                            "parts": [
-                                "cards"
-                            ]
+                            }
                         }
                     ]
                 },
@@ -566,17 +600,6 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {
-                                "params": [
-                                    {
-                                        "kind": "param",
-                                        "name": "id",
-                                        "orig": "id",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/cards/{id}",
@@ -588,19 +611,31 @@ class Config {
                                     "var": "id"
                                 }
                             ],
-                            "select": {
-                                "exist": [
-                                    "id"
-                                ]
-                            },
+                            "parts": [
+                                "cards",
+                                "{id}"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body.card`"
                             },
-                            "parts": [
-                                "cards",
-                                "{id}"
-                            ]
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "id",
+                                        "orig": "id",
+                                        "type": "`$STRING`",
+                                        "kind": "param",
+                                        "reqd": true
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "id"
+                                ]
+                            }
                         }
                     ]
                 }
@@ -613,6 +648,7 @@ class Config {
             "fields": [
                 {
                     "name": "formats",
+                    "title": "Formats",
                     "type": "`$ARRAY`"
                 }
             ],
@@ -623,7 +659,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "GET",
                             "orig": "/formats",
@@ -632,14 +667,16 @@ class Config {
                                     "lit": "formats"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "formats"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body.formats`"
                             },
-                            "parts": [
-                                "formats"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -652,68 +689,81 @@ class Config {
             "fields": [
                 {
                     "name": "block",
-                    "short": "The block the set belongs to",
-                    "type": "`$STRING`"
+                    "title": "Block",
+                    "type": "`$STRING`",
+                    "short": "The block the set belongs to"
                 },
                 {
                     "name": "booster",
-                    "short": "Booster pack configuration",
-                    "type": "`$ARRAY`"
+                    "title": "Booster",
+                    "type": "`$ARRAY`",
+                    "short": "Booster pack configuration"
                 },
                 {
                     "name": "border",
-                    "short": "The border color of the set",
-                    "type": "`$STRING`"
+                    "title": "Border",
+                    "type": "`$STRING`",
+                    "short": "The border color of the set"
                 },
                 {
                     "name": "code",
-                    "short": "The set code",
-                    "type": "`$STRING`"
+                    "title": "Code",
+                    "type": "`$STRING`",
+                    "short": "The set code"
                 },
                 {
                     "name": "gathererCode",
-                    "short": "The Gatherer code for the set",
-                    "type": "`$STRING`"
+                    "title": "Gatherer Code",
+                    "type": "`$STRING`",
+                    "short": "The Gatherer code for the set"
                 },
                 {
                     "name": "id",
+                    "title": "Id",
                     "type": "`$STRING`"
                 },
                 {
                     "name": "magicCardsInfoCode",
-                    "short": "The Magic Cards Info code for the set",
-                    "type": "`$STRING`"
+                    "title": "Magic Cards Info Code",
+                    "type": "`$STRING`",
+                    "short": "The Magic Cards Info code for the set"
                 },
                 {
                     "name": "mkm_id",
-                    "short": "The Magic Card Market set ID",
-                    "type": "`$INTEGER`"
+                    "title": "Mkm Id",
+                    "type": "`$INTEGER`",
+                    "short": "The Magic Card Market set ID"
                 },
                 {
                     "name": "mkm_name",
-                    "short": "The Magic Card Market set name",
-                    "type": "`$STRING`"
+                    "title": "Mkm Name",
+                    "type": "`$STRING`",
+                    "short": "The Magic Card Market set name"
                 },
                 {
                     "name": "name",
-                    "short": "The name of the set",
-                    "type": "`$STRING`"
+                    "title": "Name",
+                    "type": "`$STRING`",
+                    "short": "The name of the set"
                 },
                 {
                     "name": "onlineOnly",
-                    "short": "True if the set is online only",
-                    "type": "`$BOOLEAN`"
+                    "title": "Online Only",
+                    "type": "`$BOOLEAN`",
+                    "short": "True if the set is online only"
                 },
                 {
-                    "format": "date",
                     "name": "releaseDate",
+                    "title": "Release Date",
+                    "type": "`$STRING`",
                     "short": "The release date of the set",
-                    "type": "`$STRING`"
+                    "format": "date"
                 },
                 {
                     "name": "type",
-                    "short": "The type of the set",
-                    "type": "`$STRING`"
+                    "title": "Type",
+                    "type": "`$STRING`",
+                    "short": "The type of the set"
                 }
             ],
             "id": {
@@ -727,22 +777,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {
-                                "query": [
-                                    {
-                                        "kind": "query",
-                                        "name": "block",
-                                        "orig": "block",
-                                        "type": "`$STRING`"
-                                    },
-                                    {
-                                        "kind": "query",
-                                        "name": "name",
-                                        "orig": "name",
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/sets",
@@ -751,19 +785,36 @@ class Config {
                                     "lit": "sets"
                                 }
                             ],
+                            "parts": [
+                                "sets"
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body.sets`"
+                            },
+                            "args": {
+                                "query": [
+                                    {
+                                        "name": "block",
+                                        "orig": "block",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    },
+                                    {
+                                        "name": "name",
+                                        "orig": "name",
+                                        "type": "`$STRING`",
+                                        "kind": "query"
+                                    }
+                                ]
+                            },
                             "select": {
                                 "exist": [
                                     "block",
                                     "name"
                                 ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body.sets`"
-                            },
-                            "parts": [
-                                "sets"
-                            ]
+                            }
                         }
                     ]
                 },
@@ -772,17 +823,6 @@ class Config {
                     "name": "load",
                     "points": [
                         {
-                            "args": {
-                                "params": [
-                                    {
-                                        "kind": "param",
-                                        "name": "id",
-                                        "orig": "id",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/sets/{id}",
@@ -794,19 +834,31 @@ class Config {
                                     "var": "id"
                                 }
                             ],
-                            "select": {
-                                "exist": [
-                                    "id"
-                                ]
-                            },
+                            "parts": [
+                                "sets",
+                                "{id}"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body.set`"
                             },
-                            "parts": [
-                                "sets",
-                                "{id}"
-                            ]
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "id",
+                                        "orig": "id",
+                                        "type": "`$STRING`",
+                                        "kind": "param",
+                                        "reqd": true
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "id"
+                                ]
+                            }
                         }
                     ]
                 }
@@ -819,204 +871,244 @@ class Config {
             "fields": [
                 {
                     "name": "artist",
-                    "short": "The artist of the card",
-                    "type": "`$STRING`"
+                    "title": "Artist",
+                    "type": "`$STRING`",
+                    "short": "The artist of the card"
                 },
                 {
                     "name": "border",
-                    "short": "The border color if different from the set default",
-                    "type": "`$STRING`"
+                    "title": "Border",
+                    "type": "`$STRING`",
+                    "short": "The border color if different from the set default"
                 },
                 {
                     "name": "cmc",
-                    "short": "Converted mana cost",
-                    "type": "`$NUMBER`"
+                    "title": "Cmc",
+                    "type": "`$NUMBER`",
+                    "short": "Converted mana cost"
                 },
                 {
                     "name": "colorIdentity",
-                    "short": "The card's color identity by color code",
-                    "type": "`$ARRAY`"
+                    "title": "Color Identity",
+                    "type": "`$ARRAY`",
+                    "short": "The card's color identity by color code"
                 },
                 {
                     "name": "colors",
-                    "short": "The card colors",
-                    "type": "`$ARRAY`"
+                    "title": "Colors",
+                    "type": "`$ARRAY`",
+                    "short": "The card colors"
                 },
                 {
                     "name": "flavor",
-                    "short": "The flavor text of the card",
-                    "type": "`$STRING`"
+                    "title": "Flavor",
+                    "type": "`$STRING`",
+                    "short": "The flavor text of the card"
                 },
                 {
                     "name": "foreignNames",
-                    "short": "Foreign language names for the card",
-                    "type": "`$ARRAY`"
+                    "title": "Foreign Names",
+                    "type": "`$ARRAY`",
+                    "short": "Foreign language names for the card"
                 },
                 {
                     "name": "hand",
-                    "short": "Maximum hand size modifier (Vanguard cards only)",
-                    "type": "`$INTEGER`"
+                    "title": "Hand",
+                    "type": "`$INTEGER`",
+                    "short": "Maximum hand size modifier (Vanguard cards only)"
                 },
                 {
                     "name": "id",
-                    "short": "A unique id for this card (SHA1 hash)",
-                    "type": "`$STRING`"
+                    "title": "Id",
+                    "type": "`$STRING`",
+                    "short": "A unique id for this card (SHA1 hash)"
                 },
                 {
                     "name": "imageUrl",
-                    "short": "The image URL for the card",
-                    "type": "`$STRING`"
+                    "title": "Image Url",
+                    "type": "`$STRING`",
+                    "short": "The image URL for the card"
                 },
                 {
                     "name": "layout",
-                    "short": "The card layout",
-                    "type": "`$STRING`"
+                    "title": "Layout",
+                    "type": "`$STRING`",
+                    "short": "The card layout"
                 },
                 {
                     "name": "legalities",
-                    "short": "Which formats this card is legal, restricted or banned in",
-                    "type": "`$ARRAY`"
+                    "title": "Legalities",
+                    "type": "`$ARRAY`",
+                    "short": "Which formats this card is legal, restricted or banned in"
                 },
                 {
                     "name": "life",
-                    "short": "Starting life total modifier (Vanguard cards only)",
-                    "type": "`$INTEGER`"
+                    "title": "Life",
+                    "type": "`$INTEGER`",
+                    "short": "Starting life total modifier (Vanguard cards only)"
                 },
                 {
                     "name": "loyalty",
-                    "short": "The loyalty of the card (planeswalkers only)",
-                    "type": "`$STRING`"
+                    "title": "Loyalty",
+                    "type": "`$STRING`",
+                    "short": "The loyalty of the card (planeswalkers only)"
                 },
                 {
                     "name": "manaCost",
-                    "short": "The mana cost of the card",
-                    "type": "`$STRING`"
+                    "title": "Mana Cost",
+                    "type": "`$STRING`",
+                    "short": "The mana cost of the card"
                 },
                 {
                     "name": "multiverseid",
-                    "short": "The multiverseid of the card on Wizard's Gatherer",
-                    "type": "`$INTEGER`"
+                    "title": "Multiverseid",
+                    "type": "`$INTEGER`",
+                    "short": "The multiverseid of the card on Wizard's Gatherer"
                 },
                 {
                     "name": "name",
-                    "short": "The card name",
-                    "type": "`$STRING`"
+                    "title": "Name",
+                    "type": "`$STRING`",
+                    "short": "The card name"
                 },
                 {
                     "name": "names",
-                    "short": "Only used for split, flip and dual cards.",
-                    "type": "`$ARRAY`"
+                    "title": "Names",
+                    "type": "`$ARRAY`",
+                    "short": "Only used for split, flip and dual cards."
                 },
                 {
                     "name": "number",
-                    "short": "The card number",
-                    "type": "`$STRING`"
+                    "title": "Number",
+                    "type": "`$STRING`",
+                    "short": "The card number"
                 },
                 {
                     "name": "originalText",
-                    "short": "The original text on the card at the time it was printed",
-                    "type": "`$STRING`"
+                    "title": "Original Text",
+                    "type": "`$STRING`",
+                    "short": "The original text on the card at the time it was printed"
                 },
                 {
                     "name": "originalType",
-                    "short": "The original type on the card at the time it was printed",
-                    "type": "`$STRING`"
+                    "title": "Original Type",
+                    "type": "`$STRING`",
+                    "short": "The original type on the card at the time it was printed"
                 },
                 {
                     "name": "power",
-                    "short": "The power of the card (creatures only)",
-                    "type": "`$STRING`"
+                    "title": "Power",
+                    "type": "`$STRING`",
+                    "short": "The power of the card (creatures only)"
                 },
                 {
                     "name": "printings",
-                    "short": "The sets that this card was printed in",
-                    "type": "`$ARRAY`"
+                    "title": "Printings",
+                    "type": "`$ARRAY`",
+                    "short": "The sets that this card was printed in"
                 },
                 {
                     "name": "rarity",
-                    "short": "The rarity of the card",
-                    "type": "`$STRING`"
+                    "title": "Rarity",
+                    "type": "`$STRING`",
+                    "short": "The rarity of the card"
                 },
                 {
-                    "format": "date",
                     "name": "releaseDate",
+                    "title": "Release Date",
+                    "type": "`$STRING`",
                     "short": "The release date for promo cards",
-                    "type": "`$STRING`"
+                    "format": "date"
                 },
                 {
                     "name": "reserved",
-                    "short": "True if this card is reserved by Wizards Official Reprint Policy",
-                    "type": "`$BOOLEAN`"
+                    "title": "Reserved",
+                    "type": "`$BOOLEAN`",
+                    "short": "True if this card is reserved by Wizards Official Reprint Policy"
                 },
                 {
                     "name": "rulings",
-                    "short": "The rulings for the card",
-                    "type": "`$ARRAY`"
+                    "title": "Rulings",
+                    "type": "`$ARRAY`",
+                    "short": "The rulings for the card"
                 },
                 {
                     "name": "set",
-                    "short": "The set code the card belongs to",
-                    "type": "`$STRING`"
+                    "title": "Set",
+                    "type": "`$STRING`",
+                    "short": "The set code the card belongs to"
                 },
                 {
                     "name": "setName",
-                    "short": "The set name the card belongs to",
-                    "type": "`$STRING`"
+                    "title": "Set Name",
+                    "type": "`$STRING`",
+                    "short": "The set name the card belongs to"
                 },
                 {
                     "name": "source",
-                    "short": "For promo cards, where the card was originally obtained",
-                    "type": "`$STRING`"
+                    "title": "Source",
+                    "type": "`$STRING`",
+                    "short": "For promo cards, where the card was originally obtained"
                 },
                 {
                     "name": "starter",
-                    "short": "True if this card was only released as part of a core box set",
-                    "type": "`$BOOLEAN`"
+                    "title": "Starter",
+                    "type": "`$BOOLEAN`",
+                    "short": "True if this card was only released as part of a core box set"
                 },
                 {
                     "name": "subtypes",
-                    "short": "The subtypes of the card",
-                    "type": "`$ARRAY`"
+                    "title": "Subtypes",
+                    "type": "`$ARRAY`",
+                    "short": "The subtypes of the card"
                 },
                 {
                     "name": "supertypes",
-                    "short": "The supertypes of the card",
-                    "type": "`$ARRAY`"
+                    "title": "Supertypes",
+                    "type": "`$ARRAY`",
+                    "short": "The supertypes of the card"
                 },
                 {
                     "name": "text",
-                    "short": "The oracle text of the card",
-                    "type": "`$STRING`"
+                    "title": "Text",
+                    "type": "`$STRING`",
+                    "short": "The oracle text of the card"
                 },
                 {
                     "name": "timeshifted",
-                    "short": "True if this card was timeshifted in the set",
-                    "type": "`$BOOLEAN`"
+                    "title": "Timeshifted",
+                    "type": "`$BOOLEAN`",
+                    "short": "True if this card was timeshifted in the set"
                 },
                 {
                     "name": "toughness",
-                    "short": "The toughness of the card (creatures only)",
-                    "type": "`$STRING`"
+                    "title": "Toughness",
+                    "type": "`$STRING`",
+                    "short": "The toughness of the card (creatures only)"
                 },
                 {
                     "name": "type",
-                    "short": "The card type",
-                    "type": "`$STRING`"
+                    "title": "Type",
+                    "type": "`$STRING`",
+                    "short": "The card type"
                 },
                 {
                     "name": "types",
-                    "short": "The types of the card",
-                    "type": "`$ARRAY`"
+                    "title": "Types",
+                    "type": "`$ARRAY`",
+                    "short": "The types of the card"
                 },
                 {
                     "name": "variations",
-                    "short": "Multiverseids of alternate art variations",
-                    "type": "`$ARRAY`"
+                    "title": "Variations",
+                    "type": "`$ARRAY`",
+                    "short": "Multiverseids of alternate art variations"
                 },
                 {
                     "name": "watermark",
-                    "short": "The watermark on the card",
-                    "type": "`$STRING`"
+                    "title": "Watermark",
+                    "type": "`$STRING`",
+                    "short": "The watermark on the card"
                 }
             ],
             "id": {
@@ -1030,17 +1122,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {
-                                "params": [
-                                    {
-                                        "kind": "param",
-                                        "name": "id",
-                                        "orig": "id",
-                                        "reqd": true,
-                                        "type": "`$STRING`"
-                                    }
-                                ]
-                            },
                             "kind": "http",
                             "method": "GET",
                             "orig": "/sets/{id}/booster",
@@ -1055,20 +1136,32 @@ class Config {
                                     "lit": "booster"
                                 }
                             ],
-                            "select": {
-                                "exist": [
-                                    "id"
-                                ]
-                            },
-                            "transform": {
-                                "req": "`reqdata`",
-                                "res": "`body.cards`"
-                            },
                             "parts": [
                                 "sets",
                                 "{id}",
                                 "booster"
-                            ]
+                            ],
+                            "rename": {},
+                            "transform": {
+                                "req": "`reqdata`",
+                                "res": "`body.cards`"
+                            },
+                            "args": {
+                                "params": [
+                                    {
+                                        "name": "id",
+                                        "orig": "id",
+                                        "type": "`$STRING`",
+                                        "kind": "param",
+                                        "reqd": true
+                                    }
+                                ]
+                            },
+                            "select": {
+                                "exist": [
+                                    "id"
+                                ]
+                            }
                         }
                     ]
                 }
@@ -1081,6 +1174,7 @@ class Config {
             "fields": [
                 {
                     "name": "subtypes",
+                    "title": "Subtypes",
                     "type": "`$ARRAY`"
                 }
             ],
@@ -1091,7 +1185,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "GET",
                             "orig": "/subtypes",
@@ -1100,14 +1193,16 @@ class Config {
                                     "lit": "subtypes"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "subtypes"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body.subtypes`"
                             },
-                            "parts": [
-                                "subtypes"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -1120,6 +1215,7 @@ class Config {
             "fields": [
                 {
                     "name": "supertypes",
+                    "title": "Supertypes",
                     "type": "`$ARRAY`"
                 }
             ],
@@ -1130,7 +1226,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "GET",
                             "orig": "/supertypes",
@@ -1139,14 +1234,16 @@ class Config {
                                     "lit": "supertypes"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "supertypes"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body.supertypes`"
                             },
-                            "parts": [
-                                "supertypes"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
@@ -1159,6 +1256,7 @@ class Config {
             "fields": [
                 {
                     "name": "types",
+                    "title": "Types",
                     "type": "`$ARRAY`"
                 }
             ],
@@ -1169,7 +1267,6 @@ class Config {
                     "name": "list",
                     "points": [
                         {
-                            "args": {},
                             "kind": "http",
                             "method": "GET",
                             "orig": "/types",
@@ -1178,14 +1275,16 @@ class Config {
                                     "lit": "types"
                                 }
                             ],
-                            "select": {},
+                            "parts": [
+                                "types"
+                            ],
+                            "rename": {},
                             "transform": {
                                 "req": "`reqdata`",
                                 "res": "`body.types`"
                             },
-                            "parts": [
-                                "types"
-                            ]
+                            "args": {},
+                            "select": {}
                         }
                     ]
                 }
