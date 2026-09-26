@@ -106,11 +106,11 @@ local results, err = client:Format():list()
 | Language | Package | Install |
 | --- | --- | --- |
 | TypeScript | `@voxgig-sdk/magic-the-gathering-two-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-the-gathering-two-sdk/tags) |
-| Python | `voxgig-sdk-magic-the-gathering-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-the-gathering-two-sdk/tags) |
-| PHP | `voxgig-sdk/magic-the-gathering-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-the-gathering-two-sdk/tags) |
+| Python | `voxgig-sdk-magic-the-gathering-two-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-the-gathering-two-sdk/tags) |
+| PHP | `voxgig-sdk/magic-the-gathering-two-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-the-gathering-two-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/magic-the-gathering-two-sdk/go` | `go get github.com/voxgig-sdk/magic-the-gathering-two-sdk/go@latest` |
-| Ruby | `voxgig-sdk-magic-the-gathering-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-the-gathering-two-sdk/tags) |
-| Lua | `voxgig-sdk-magic-the-gathering-two` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-the-gathering-two-sdk/tags) |
+| Ruby | `voxgig-sdk-magic-the-gathering-two-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-the-gathering-two-sdk/tags) |
+| Lua | `voxgig-sdk-magic-the-gathering-two-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/magic-the-gathering-two-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/magic-the-gathering-two-sdk/go-cli` | `go install github.com/voxgig-sdk/magic-the-gathering-two-sdk/go-cli/cmd/magic-the-gathering-two@latest` |
 | Go MCP server | `github.com/voxgig-sdk/magic-the-gathering-two-sdk/go-mcp` | `go get github.com/voxgig-sdk/magic-the-gathering-two-sdk/go-mcp@latest` |
 
@@ -361,10 +361,10 @@ forking the SDK.
 
 | Feature | Purpose |
 | --- | --- |
-| **RatelimitFeature** | Client-side rate limiting via a token bucket |
-| **RetryFeature** | Automatic retry of transient failures with exponential backoff |
-| **TestFeature** | In-memory mock transport for testing without a live server |
-| **TimeoutFeature** | Per-request timeout with transport abort |
+| **RatelimitFeature** | Rate limiting |
+| **RetryFeature** | Retry |
+| **TestFeature** | Test transport |
+| **TimeoutFeature** | Timeout |
 
 Pass custom features via the `extend` option at construction time.
 
